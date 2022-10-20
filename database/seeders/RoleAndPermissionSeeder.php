@@ -36,16 +36,7 @@ class RoleAndPermissionSeeder extends Seeder
                 'reset' => 'r,u',
                 'restore' => 'r,u',
                 'horizon' => 'r',
-            ],
-            'Manager' => [
-                'users' => 'c,r,u,d',
-                'profile' => 'r,u',
-                'settings' => 'r',
-            ],
-            'Customer' => [
-                'profile' => 'r,u',
-                'settings' => 'r',
-            ],
+            ]
         ]);
 
 

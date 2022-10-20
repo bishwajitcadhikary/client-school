@@ -4,9 +4,10 @@ namespace App\Http\Controllers\Admin\Settings;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Validation\Rule;
 use Inertia\Inertia;
-use Session;
+use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 
 class RoleController extends Controller
@@ -21,7 +22,7 @@ class RoleController extends Controller
 
     public function index()
     {
-        $roles = Role::latest()->paginate(1);
+        $roles = Role::orderBy('name')->paginate();
 
         return Inertia::render('Admin/Settings/Roles/Index', [
             'roles' => $roles
@@ -75,6 +76,35 @@ class RoleController extends Controller
         $role->delete();
 
         Session::flash('success', __('Role Deleted Successfully'));
+
+        return to_route('admin.settings.roles.index');
+    }
+
+    public function assignPermission(Role $role)
+    {
+        $role->load('permissions');
+        $permissionIds = $role->permissions()->pluck('id');
+        $groups = [];
+        foreach (Permission::all() as $index => $permission) {
+            $groups[ucwords(str($permission->name)->remove(['create', 'read', 'update', 'delete'])->replace('-', ' '))][] = $permission;
+        }
+
+        return Inertia::render('Admin/Settings/Roles/AssignPermission', [
+            'role' => $role,
+            'groups' => $groups,
+            'permissionIds' => $permissionIds
+        ]);
+    }
+
+    public function assignPermissionUpdate(Request $request, Role $role)
+    {
+        $request->validate([
+            'permissions' => ['nullable', 'array']
+        ]);
+
+        $role->permissions()->sync($request->input('permissions'));
+
+        Session::flash('success', __("Permission Assigns Successfully Completed"));
 
         return to_route('admin.settings.roles.index');
     }
