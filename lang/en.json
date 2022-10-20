@@ -40,5 +40,10 @@
     "Delete": "",
     "Role Deleted Successfully": "",
     "Role Updated Successfully": "",
-  "Permission Assigns Successfully Completed": ""
+  "Permission Assigns Successfully Completed": "",
+    "Permissions": "",
+    "Edit": "",
+    "Assign Permission": "Assign Permission",
+    "Are your sure?": "Are your sure?",
+    "Action cannot be undone": "Action cannot be undone"
 }

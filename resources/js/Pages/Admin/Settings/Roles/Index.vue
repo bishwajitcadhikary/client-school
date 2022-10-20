@@ -26,12 +26,8 @@ const dialog = ref(false)
 function destroy(id) {
   dialog.value = false;
 
-  useForm({}).delete(route('admin.settings.roles.destroy', {role: id}), {
-    preserveScroll: true,
-    preserveState: true,
-  })
+  useForm({}).delete(route('admin.settings.roles.destroy', {role: id}))
 }
-
 </script>
 
 <template>
@@ -54,10 +50,80 @@ function destroy(id) {
           sm="4"
         >
           <v-card class="pa-3">
+            <v-card-item>
+              <v-card-title>
+                {{ role.name }}
+              </v-card-title>
 
-            <v-card-title>
-              {{ role.name }}
-            </v-card-title>
+              <template #append>
+                <v-btn
+                  icon
+                  color="default"
+                  size="x-small"
+                  variant="text"
+                  v-bind="props"
+                >
+                  <v-icon
+                    size="24"
+                    icon="mdi-dots-vertical"
+                  />
+
+                  <v-menu activator="parent" location="start" :close-on-content-click="true">
+                    <v-list>
+                      <v-list-item value="1">
+                        <v-list-item-title @click="$inertia.visit(route('admin.settings.roles.edit', {role: role.id}))">
+                          {{ $t('Edit') }}
+                        </v-list-item-title>
+                      </v-list-item>
+
+                      <v-list-item value="2">
+                        <v-list-item-title @click="$inertia.visit(route('admin.settings.roles.edit', {role: role.id}))">
+                          {{ $t('Assign Permission') }}
+                        </v-list-item-title>
+                      </v-list-item>
+
+                      <v-list-item value="3">
+                        <v-list-item-title @click.stop="dialog = true">
+                          {{ $t('Delete') }}
+                        </v-list-item-title>
+                        <v-dialog
+                          v-model="dialog"
+                          max-width="290"
+                        >
+                          <v-card class="pa-3">
+                            <v-card-title class="text-h5 text-center">
+                              {{ $t('Are your sure?') }}
+                            </v-card-title>
+
+                            <v-card-text class="text-center">
+                              <p>{{ $t('Action cannot be undone') }}</p>
+                            </v-card-text>
+
+                            <v-card-actions>
+                              <v-spacer></v-spacer>
+
+                              <v-btn
+                                @click="dialog = false"
+                              >
+                                {{ $t('Cancel') }}
+                              </v-btn>
+
+                              <v-btn
+                                color="error"
+                                @click="destroy(role.id)"
+                              >
+                                {{ $t('Delete') }}
+                              </v-btn>
+                            </v-card-actions>
+                          </v-card>
+                        </v-dialog>
+                      </v-list-item>
+                    </v-list>
+                  </v-menu>
+                </v-btn>
+              </template>
+            </v-card-item>
+
             <VCardText class="position-relative">
               <div class="d-flex justify-space-between align-center">
                 <span class="font-weight-medium">{{ $t(':count users', {count: 10}) }}</span>
@@ -70,51 +136,6 @@ function destroy(id) {
                     size="45"
                   />
                 </div>
-              </div>
-
-              <div class="d-flex justify-space-between mt-3">
-                <Link :href="route('admin.settings.roles.edit', {role: role.id})" class="text-sm">
-                  <v-icon size="sm">mdi-edit</v-icon>
-                  {{ $t('Edit Role') }}
-                </Link>
-
-                <v-icon @click.stop="dialog = true" color="error">mdi-trash</v-icon>
-
-                <v-dialog
-                  v-model="dialog"
-                  max-width="290"
-                >
-                  <v-card class="pa-3">
-                    <v-card-title class="text-h5 text-center">
-                      Are your sure?
-                    </v-card-title>
-
-                    <v-card-text class="text-center">
-                      <v-icon>mdi-trash</v-icon>
-                      <p>Action cannot be undone</p>
-                    </v-card-text>
-
-                    <v-card-actions>
-                      <v-spacer></v-spacer>
-
-                      <v-btn
-                        color="green darken-1"
-                        text
-                        @click="dialog = false"
-                      >
-                        {{ $t('Cancel') }}
-                      </v-btn>
-
-                      <v-btn
-                        color="green darken-1"
-                        text
-                        @click="destroy(role.id)"
-                      >
-                        {{ $t('Delete') }}
-                      </v-btn>
-                    </v-card-actions>
-                  </v-card>
-                </v-dialog>
               </div>
             </VCardText>
           </v-card>

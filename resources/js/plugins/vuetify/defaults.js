@@ -35,11 +35,11 @@ export default {
     location: 'top',
   },
 
-  // VList: {
-  //   VListItem: {
-  //     activeColor: 'primary',
-  //   },
-  // },
+  VList: {
+    VListItem: {
+      activeColor: 'primary',
+    },
+  },
   VCheckbox: {
     // set v-checkbox default color to primary
     color: 'primary',
