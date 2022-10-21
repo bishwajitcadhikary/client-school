@@ -99,9 +99,10 @@ class FileDiskController extends Controller
         if ($fileDisk->setAsDefault() && $fileDisk->type === 'SYSTEM') {
             Session::flash('error', 'Not Allowed');
             return redirect()->back();
-        }else{
-            $fileDisk->delete();
         }
+
+        $fileDisk->delete();
+        Session::flash('success', __("File Disk Deleted Successfully"));
 
         return redirect()->back();
     }
