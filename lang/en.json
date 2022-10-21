@@ -45,5 +45,14 @@
     "Edit": "",
     "Assign Permission": "Assign Permission",
     "Are your sure?": "Are your sure?",
-    "Action cannot be undone": "Action cannot be undone"
+    "Action cannot be undone": "Action cannot be undone",
+  "Administrative Access": "",
+  "Disk Name": "",
+    "Filesystem Driver": "",
+    "Type": "",
+    "Is Default": "",
+    "Add New Disk": "",
+    "File Disk Created Successfully": "",
+    "Edit Disk": "",
+    "File Disk Updated Successfully": ""
 }

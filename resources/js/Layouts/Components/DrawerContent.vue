@@ -36,18 +36,6 @@ const upgradeBanner = computed(() => {
 
   <!-- 👉 Nav items -->
   <ul>
-<!--    <VerticalNavGroup
-      title="Settings"
-      :icon="{icon: 'mdi-home-outline'}"
-    >
-      <VerticalSubNavLink
-        :item="{
-        title: 'Dashboard',
-        href: '/asdfasdfasdf',
-        class: {'active' : false}
-      }"
-      />
-    </VerticalNavGroup>-->
 
     <VerticalNavLink
       :item="{
@@ -59,78 +47,22 @@ const upgradeBanner = computed(() => {
     />
     <VerticalNavLink
       :item="{
-        title: 'Account Settings',
-        href: 'account-settings',
-        icon: { icon: 'mdi-account-cog-outline' }
+        title: 'Roles',
+        href: route('admin.settings.roles.index'),
+        icon: { icon: 'mdi-account-cog-outline' },
+        class: {'active' : route().current('admin.settings.roles.*')}
+      }"
+    />
+    <VerticalNavLink
+      :item="{
+        title: 'File Disks',
+        href: route('admin.settings.file-disks.index'),
+        icon: { icon: 'mdi-account-cog-outline' },
+        class: {'active' : route().current('admin.settings.file-disks.*')}
       }"
     />
     <!-- 👉 Pages -->
     <VerticalNavSectionTitle :item="{ heading: 'Pages' }" />
-    <VerticalNavLink
-      :item="{
-        title: 'Login',
-        href: 'login',
-        target: '_blank',
-        icon: { icon: 'mdi-login' }
-      }"
-    />
-    <VerticalNavLink
-      :item="{
-        title: 'Register',
-        href: 'register',
-        target: '_blank',
-        icon: { icon: 'mdi-account-plus-outline' }
-      }"
-    />
-
-    <!-- ℹ️ This path doesn't exist so 404 route will catch this undefined path -->
-    <VerticalNavLink
-      :item="{
-        title: 'Error',
-        href: '/error',
-        target: '_blank',
-        icon: { icon: 'mdi-alert-circle-outline' }
-      }"
-    />
-
-    <!-- 👉 User Interface -->
-    <VerticalNavSectionTitle :item="{ heading: 'User Interface' }" />
-
-    <VerticalNavLink
-      :item="{
-        title: 'Typography',
-        href: 'typography',
-        icon: { icon: 'mdi-alpha-t-box-outline' }
-      }"
-    />
-    <VerticalNavLink
-      :item="{
-        title: 'Icons',
-        href: 'icons',
-        icon: { icon: 'mdi-eye-outline' }
-      }"
-    />
-    <VerticalNavLink
-      :item="{
-        title: 'Cards',
-        href: 'card-basic',
-        icon: { icon: 'mdi-credit-card-outline' }
-      }"
-    />
-    <VerticalNavLink
-      :item="{
-        title: 'Tables',
-        href: 'tables',
-        icon: { icon: 'mdi-table' }
-      }"
-    />
-    <VerticalNavLink
-      :item="{
-        title: 'Form Layouts',
-        href: 'form-layouts',
-        icon: { icon: 'mdi-form-select' }
-      }"
-    />
   </ul>
 
   <!-- 👉 illustration -->

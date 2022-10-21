@@ -1,6 +1,6 @@
 <script setup>
 import {useForm} from "@inertiajs/inertia-vue3";
-import {computed} from "vue";
+import {computed, ref} from "vue";
 
 const props = defineProps({
   role: {
@@ -18,15 +18,17 @@ const props = defineProps({
 })
 
 const form = useForm({
-  select_all: false,
   permissions: [...props.permissionIds],
   name: null
 })
 
+const select_all = ref(false);
+const checkboxes = ref()
+
 function selectAll() {
-  for (const i in form.permissions) {
-    form.permissions[i] = form.select_all
-  }
+  checkboxes.value.forEach((check) => {
+    console.log(check.value)
+  })
 }
 
 function submit() {
@@ -57,9 +59,9 @@ function submit() {
                         <th>{{ $t('Administrative Access') }}</th>
                         <td>
                           <v-checkbox
-                            v-model="form.select_all"
+                            v-model="select_all"
                             :label="$t('Select All')"
-                            @click.native.stop="selectAll"
+                            @click="selectAll"
                           />
                         </td>
                       </tr>
@@ -75,7 +77,6 @@ function submit() {
                             v-model="form.permissions"
                             :value="permission.id"
                             :label="permission.name.replace('-', ' ').replace(permissionName.toLowerCase(), '')"
-                            @click.native.stop
                           />
                         </td>
                       </tr>

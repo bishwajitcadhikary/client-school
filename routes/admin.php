@@ -13,5 +13,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth', 'v
         Route::put('roles/assign-permissions/{role}/update', [Settings\RoleController::class, 'assignPermissionUpdate'])->name('roles.assign-permission-update');
         Route::resource('roles', Settings\RoleController::class);
         Route::get('permissions', [Settings\PermissionController::class, 'index'])->name('permissions.index');
+
+        Route::resource('file-disks', Settings\FileDiskController::class);
     });
 });

@@ -51,7 +51,7 @@ onMounted(() => {
           <div class="d-flex justify-space-between align-center">
             <h3>{{ title }}</h3>
 
-            <div>
+            <slot name="actions">
               <Link v-if="actions" v-for="(action, index) in actions" :href="action.href" :key="index">
                 <v-btn>
                   <v-icon v-if="action.icon">{{ action.icon }}</v-icon>
@@ -70,7 +70,7 @@ onMounted(() => {
                   {{ $t('Back') }}
                 </v-btn>
               </Link>
-            </div>
+            </slot>
           </div>
         </v-container>
 

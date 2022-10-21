@@ -22,11 +22,17 @@ defineProps({
 })
 
 const dialog = ref(false)
+const menuRef = ref()
 
 function destroy(id) {
+  // TODO:: Hide menu
   dialog.value = false;
 
-  useForm({}).delete(route('admin.settings.roles.destroy', {role: id}))
+  useForm({}).delete(route('admin.settings.roles.destroy', {role: id}), {
+    onFinish: params => {
+
+    }
+  })
 }
 </script>
 
@@ -56,71 +62,72 @@ function destroy(id) {
               </v-card-title>
 
               <template #append>
-                <v-btn
-                  icon
-                  color="default"
-                  size="x-small"
-                  variant="text"
-                  v-bind="props"
-                >
-                  <v-icon
-                    size="24"
-                    icon="mdi-dots-vertical"
-                  />
+                <v-menu activator="parent" location="start" close-on-click ref="menuRef">
+                  <template v-slot:activator="{ props }">
+                    <v-btn
+                      icon
+                      color="default"
+                      size="x-small"
+                      variant="text"
+                      v-bind="props"
+                    >
+                      <v-icon
+                        size="24"
+                        icon="mdi-dots-vertical"
+                      />
+                    </v-btn>
+                  </template>
+                  <v-list>
+                    <v-list-item value="1">
+                      <v-list-item-title @click="$inertia.visit(route('admin.settings.roles.edit', {role: role.id}))">
+                        {{ $t('Edit') }}
+                      </v-list-item-title>
+                    </v-list-item>
 
-                  <v-menu activator="parent" location="start" :close-on-content-click="true">
-                    <v-list>
-                      <v-list-item value="1">
-                        <v-list-item-title @click="$inertia.visit(route('admin.settings.roles.edit', {role: role.id}))">
-                          {{ $t('Edit') }}
-                        </v-list-item-title>
-                      </v-list-item>
+                    <v-list-item value="2">
+                      <v-list-item-title @click="$inertia.visit(route('admin.settings.roles.assign-permission', {role: role.id}))">
+                        {{ $t('Assign Permission') }}
+                      </v-list-item-title>
+                    </v-list-item>
 
-                      <v-list-item value="2">
-                        <v-list-item-title @click="$inertia.visit(route('admin.settings.roles.edit', {role: role.id}))">
-                          {{ $t('Assign Permission') }}
-                        </v-list-item-title>
-                      </v-list-item>
+                    <v-list-item value="3">
+                      <v-list-item-title @click.stop="dialog = true">
+                        {{ $t('Delete') }}
+                      </v-list-item-title>
+                      <v-dialog
+                        v-model="dialog"
+                        max-width="290"
+                      >
+                        <v-card class="pa-3">
+                          <v-card-title class="text-h5 text-center">
+                            {{ $t('Are your sure?') }}
+                          </v-card-title>
 
-                      <v-list-item value="3">
-                        <v-list-item-title @click.stop="dialog = true">
-                          {{ $t('Delete') }}
-                        </v-list-item-title>
-                        <v-dialog
-                          v-model="dialog"
-                          max-width="290"
-                        >
-                          <v-card class="pa-3">
-                            <v-card-title class="text-h5 text-center">
-                              {{ $t('Are your sure?') }}
-                            </v-card-title>
+                          <v-card-text class="text-center">
+                            <p>{{ $t('Action cannot be undone') }}</p>
+                          </v-card-text>
 
-                            <v-card-text class="text-center">
-                              <p>{{ $t('Action cannot be undone') }}</p>
-                            </v-card-text>
+                          <v-card-actions>
+                            <v-spacer></v-spacer>
 
-                            <v-card-actions>
-                              <v-spacer></v-spacer>
+                            <v-btn
+                              @click="dialog = false"
+                            >
+                              {{ $t('Cancel') }}
+                            </v-btn>
 
-                              <v-btn
-                                @click="dialog = false"
-                              >
-                                {{ $t('Cancel') }}
-                              </v-btn>
-
-                              <v-btn
-                                color="error"
-                                @click="destroy(role.id)"
-                              >
-                                {{ $t('Delete') }}
-                              </v-btn>
-                            </v-card-actions>
-                          </v-card>
-                        </v-dialog>
-                      </v-list-item>
-                    </v-list>
-                  </v-menu>
-                </v-btn>
+                            <v-btn
+                              color="error"
+                              @click.stop="destroy(role.id)"
+                            >
+                              {{ $t('Delete') }}
+                            </v-btn>
+                          </v-card-actions>
+                        </v-card>
+                      </v-dialog>
+                    </v-list-item>
+                  </v-list>
+                </v-menu>
               </template>
             </v-card-item>
 
