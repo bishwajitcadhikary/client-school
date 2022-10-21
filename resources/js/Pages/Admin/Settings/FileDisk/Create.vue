@@ -1,30 +1,36 @@
 <script setup>
-import {useForm} from "@inertiajs/inertia-vue3";
+import {useForm} from "@inertiajs/inertia-vue3"
 
+const props = defineProps({
+  local_root: {
+    type: String,
+    default: null,
+  },
+})
 
 const form = useForm({
   name: null,
   driver: 'local',
   set_as_default: false,
 
-  local_root: null,
+  local_root: props.local_root,
 
   aws_root: null,
   aws_key: null,
   aws_secret: null,
   aws_region: null,
-  aws_bucket: null
+  aws_bucket: null,
 })
 
 const drivers = [
   {
     title: 'Local',
-    value: 'local'
+    value: 'local',
   },
   {
     title: 'Amazon S3',
-    value: 's3'
-  }
+    value: 's3',
+  },
 ]
 
 function submit() {
@@ -33,94 +39,106 @@ function submit() {
 </script>
 
 <template>
-  <AdminLayout :title="$t('Add New Disk')" :back="route('admin.settings.file-disks.index')">
-    <v-row justify="center">
-      <v-col cols="12" sm="8">
-        <v-card>
-          <v-card-title>{{ $t('Add New Disk') }}</v-card-title>
-          <v-form @submit.prevent="submit">
-            <v-card-text>
-              <v-col cols="12">
-                <v-text-field
+  <AdminLayout
+    :title="$t('Add New Disk')"
+    :back="route('admin.settings.file-disks.index')"
+  >
+    <VRow justify="center">
+      <VCol
+        cols="12"
+        sm="8"
+      >
+        <VCard>
+          <VCardTitle>{{ $t('Add New Disk') }}</VCardTitle>
+          <VForm @submit.prevent="submit">
+            <VCardText>
+              <VCol cols="12">
+                <VTextField
                   v-model="form.name"
                   :label="$t('Name')"
                   :error-messages="form.errors.name"
                 />
-              </v-col>
+              </VCol>
 
-              <v-col cols="12">
-                <v-select
+              <VCol cols="12">
+                <VSelect
                   v-model="form.driver"
                   :label="$t('Driver')"
                   :items="drivers"
                   :error-messages="form.errors.driver"
                 />
-              </v-col>
+              </VCol>
 
-              <v-col cols="12" v-if="form.driver === 'local'">
-                <v-text-field
+              <VCol
+                v-if="form.driver === 'local'"
+                cols="12"
+              >
+                <VTextField
                   v-model="form.local_root"
                   :label="$t('Local Root')"
                   :error-messages="form.errors.local_root"
                 />
-              </v-col>
+              </VCol>
 
-              <v-col cols="12" v-if="form.driver === 's3'">
-                <v-text-field
-                  class="mb-5"
+              <VCol
+                v-if="form.driver === 's3'"
+                cols="12"
+              >
+                <VTextField
                   v-model="form.aws_root"
+                  class="mb-5"
                   :label="$t('AWS Root')"
                   :error-messages="form.errors.aws_root"
                 />
-                <v-text-field
-                  class="mb-5"
+                <VTextField
                   v-model="form.aws_key"
+                  class="mb-5"
                   :label="$t('AWS Driver')"
                   :error-messages="form.errors.aws_key"
                 />
-                <v-text-field
-                  class="mb-5"
+                <VTextField
                   v-model="form.aws_secret"
+                  class="mb-5"
                   :label="$t('AWS Secret')"
                   :error-messages="form.errors.aws_secret"
                 />
-                <v-text-field
-                  class="mb-5"
+                <VTextField
                   v-model="form.aws_region"
+                  class="mb-5"
                   :label="$t('AWS Region')"
                   :error-messages="form.errors.aws_region"
                 />
-                <v-text-field
-                  class="mb-5"
+                <VTextField
                   v-model="form.aws_bucket"
+                  class="mb-5"
                   :label="$t('AWS Bucket')"
                   :error-messages="form.errors.aws_bucket"
                 />
-              </v-col>
+              </VCol>
 
-              <v-col cols="12">
-                <v-switch
+              <VCol cols="12">
+                <VSwitch
                   v-model="form.set_as_default"
                   :label="$t('Is Default')"
                   :error-messages="form.errors.set_as_default"
                 />
-              </v-col>
-            </v-card-text>
+              </VCol>
+            </VCardText>
 
 
 
-            <v-card-actions>
-              <v-spacer></v-spacer>
-              <v-btn
+            <VCardActions>
+              <VSpacer />
+              <VBtn
                 type="submit"
                 :loading="form.processing"
               >
                 {{ $t('Submit') }}
-              </v-btn>
-            </v-card-actions>
-          </v-form>
-        </v-card>
-      </v-col>
-    </v-row>
+              </VBtn>
+            </VCardActions>
+          </VForm>
+        </VCard>
+      </VCol>
+    </VRow>
   </AdminLayout>
 </template>

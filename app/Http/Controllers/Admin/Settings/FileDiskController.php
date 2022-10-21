@@ -22,7 +22,10 @@ class FileDiskController extends Controller
 
     public function create()
     {
-        return Inertia::render('Admin/Settings/FileDisk/Create');
+        $local_root = storage_path('app');
+        return Inertia::render('Admin/Settings/FileDisk/Create', [
+            'local_root' => $local_root
+        ]);
     }
 
     public function store(Request $request)

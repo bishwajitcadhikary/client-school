@@ -15,7 +15,9 @@ class CreateBackupJob implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
-    public function __construct($data = '')
+    private $data;
+
+    public function __construct($data = null)
     {
         $this->data = $data;
     }
@@ -31,20 +33,26 @@ class CreateBackupJob implements ShouldQueue
 
         $backupJob = BackupJobFactory::createFromArray(config('backup'));
 
-        if ($this->data['option'] === 'only-db') {
-            $backupJob->dontBackupFilesystem();
+        if ($this->data['backup_type'] === 'only-db') {
+            \Artisan::call('backup:run --only-db');
+            //$backupJob->dontBackupFilesystem();
         }
 
-        if ($this->data['option'] === 'only-files') {
-            $backupJob->dontBackupDatabases();
+        if ($this->data['backup_type'] === 'only-files') {
+            \Artisan::call('backup:run --only-files');
+            //$backupJob->dontBackupDatabases();
         }
 
-        if (! empty($this->data['option'])) {
-            $prefix = str_replace('_', '-', $this->data['option']).'-';
+        if (! empty($this->data['backup_type'])) {
+            $prefix = str_replace('_', '-', $this->data['backup_type']).'-';
 
             $backupJob->setFilename($prefix.date('Y-m-d-H-i-s').'.zip');
         }
 
-        $backupJob->run();
+        if ($this->data['backup_type'] === 'full'){
+            \Artisan::call('backup:run');
+        }
+
+//        $backupJob->run();
     }
 }

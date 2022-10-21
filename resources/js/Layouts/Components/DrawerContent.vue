@@ -61,6 +61,14 @@ const upgradeBanner = computed(() => {
         class: {'active' : route().current('admin.settings.file-disks.*')}
       }"
     />
+    <VerticalNavLink
+      :item="{
+        title: 'Backups',
+        href: route('admin.settings.backups.index'),
+        icon: { icon: 'mdi-account-cog-outline' },
+        class: {'active' : route().current('admin.settings.backups.*')}
+      }"
+    />
     <!-- 👉 Pages -->
     <VerticalNavSectionTitle :item="{ heading: 'Pages' }" />
   </ul>
