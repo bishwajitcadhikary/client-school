@@ -19,6 +19,7 @@ class EnvironmentManager
     {
         $mailData = $this->getMailData($request);
 
+
         try {
             file_put_contents($this->envPath, str_replace(
                 $mailData['old_mail_data'],
@@ -26,7 +27,7 @@ class EnvironmentManager
                 file_get_contents($this->envPath)
             ));
 
-            if ($mailData['extra_old_mail_data']) {
+            /*if ($mailData['extra_old_mail_data']) {
                 file_put_contents($this->envPath, str_replace(
                     $mailData['extra_old_mail_data'],
                     $mailData['extra_mail_data'],
@@ -38,7 +39,7 @@ class EnvironmentManager
                     "\n".$mailData['extra_mail_data'],
                     FILE_APPEND
                 );
-            }
+            }*/
         } catch (Exception $e) {
             return [
                 'error' => 'mail_variables_save_error',

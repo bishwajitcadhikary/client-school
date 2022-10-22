@@ -46,7 +46,7 @@ class MailController extends Controller
     {
         $this->environmentManager->saveMailVariables($request);
 
-        \Session::flash('Mail Configuration Updated Successfully');
+        \Session::flash('success', 'Mail Configuration Updated Successfully');
 
         return redirect()->back();
     }

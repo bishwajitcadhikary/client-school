@@ -2,14 +2,14 @@
 import rules from "@/plugins/rules"
 import {useMailDriverStore} from "@/Stores/useMailDriverStore"
 
-const emit = defineEmits(['on-change-driver'])
+const emit = defineEmits(['on-change-driver', 'loading'])
 const mailDriverStore = useMailDriverStore()
 
 function submitForm() {
   mailDriverStore.form.put(route('admin.settings.mail.update'), {
     onSuccess: page => {
       console.log(page)
-    },
+    }
   })
 }
 
@@ -52,7 +52,7 @@ function onChangeDriver(mail_driver) {
         sm="6"
       >
         <VTextField
-          v-model="mailDriverStore.form.smtp.mail_username"
+          v-model.trim="mailDriverStore.form.smtp.mail_username"
           :label="$t('Mail Username')"
         />
       </VCol>
@@ -62,7 +62,7 @@ function onChangeDriver(mail_driver) {
         sm="6"
       >
         <VTextField
-          v-model="mailDriverStore.form.smtp.mail_password"
+          v-model.trim="mailDriverStore.form.smtp.mail_password"
           :label="$t('Mail Password')"
         />
       </VCol>
