@@ -34,7 +34,7 @@ class MailController extends Controller
                     'MAIL_PASSWORD' => '',
                     'MAIL_ENCRYPTION' => '',
                     'MAIL_FROM_ADDRESS' => $request->basic['mail_from_address'] ?? null,
-                    'MAIL_FROM_NAME' => '"'.$request->basic['mail_from_name'] ?? null."\"\n",
+                    'MAIL_FROM_NAME' => str($request->basic['mail_from_name'] ?? null)->remove(' ')
                 ]);
                 dd('wow');
                 break;
