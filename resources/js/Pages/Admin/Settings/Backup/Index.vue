@@ -14,9 +14,11 @@ const dialog = ref(false)
 const deletablePath = ref(null)
 const disk = ref(null)
 
-function destroy() {
+function destroy(path) {
   dialog.value = false
-  useForm({d}).delete(route('admin.settings.backups.destroy', {backup: 'delete', path: deletablePath?.value}), {
+  useForm({
+    path: deletablePath?.value,
+  }).delete(route('admin.settings.backups.destroy', {backup: 'delete'}), {
     onSuccess: page => {
       if (page.props.flash.error){
         Notification.error(page.props.flash.error)

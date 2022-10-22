@@ -69,6 +69,14 @@ const upgradeBanner = computed(() => {
         class: {'active' : route().current('admin.settings.backups.*')}
       }"
     />
+    <VerticalNavLink
+      :item="{
+        title: 'Mail Configuration',
+        href: route('admin.settings.mail.index'),
+        icon: { icon: 'mdi-envelope' },
+        class: {'active' : route().current('admin.settings.mail.*')}
+      }"
+    />
     <!-- 👉 Pages -->
     <VerticalNavSectionTitle :item="{ heading: 'Pages' }" />
   </ul>

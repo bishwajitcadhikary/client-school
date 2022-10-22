@@ -62,5 +62,7 @@
     "Backup Type": "Backup Type",
     "Backup Disk": "Backup Disk",
     "The given value must be a path to a zip file.": "",
-    "Backup Deleted Successfully": ""
+    "Backup Deleted Successfully": "",
+  "Below is the form for Configuring Email driver for sending emails from the app. You can also configure third party providers like Sendgrid, SES etc.": "Below is the form for Configuring Email driver for sending emails from the app. You can also configure third party providers like Sendgrid, SES etc.",
+    "Mail Configuration": ""
 }

@@ -17,5 +17,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth', 'v
         Route::resource('file-disks', Settings\FileDiskController::class);
         Route::get('backup/download', [Settings\BackupController::class, 'download'])->name('backups.download');
         Route::resource('backups', Settings\BackupController::class)->except('show', 'edit', 'update');
+        Route::get('mail', [Settings\MailController::class, 'index'])->name('mail.index');
+        Route::put('mail/update', [Settings\MailController::class, 'update'])->name('mail.update');
     });
 });

@@ -60,7 +60,7 @@
         "chart.js": "^3.9.1",
         "eslint-import-resolver-alias": "^1.1.2",
         "laravel-vue-i18n": "^2.3.0",
-        "pinia": "^2.0.22",
+        "pinia": "^2.0.23",
         "prismjs": "^1.29.0",
         "sass": "^1.54.9",
         "toastify-js": "^1.12.0",

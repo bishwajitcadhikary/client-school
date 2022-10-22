@@ -1,8 +1,8 @@
 <script setup>
-import {useForm} from "@inertiajs/inertia-vue3";
+import {useForm} from "@inertiajs/inertia-vue3"
 
 const form = useForm({
-  name: null
+  name: null,
 })
 
 function submit() {
@@ -11,39 +11,45 @@ function submit() {
 </script>
 
 <template>
-  <AdminLayout :title="$t('Create Role')" :back="route('admin.settings.roles.index')">
-    <v-container>
-      <v-row justify="center">
-        <v-col cols="12" sm="6">
-          <v-card>
-            <v-card-text>
-              <v-form @submit.prevent="submit">
-                <v-col
+  <AdminLayout
+    :title="$t('Create Role')"
+    :back="route('admin.settings.roles.index')"
+  >
+    <VContainer>
+      <VRow justify="center">
+        <VCol
+          cols="12"
+          sm="6"
+        >
+          <VCard>
+            <VCardText>
+              <VForm @submit.prevent="submit">
+                <VCol
                   cols="12"
                 >
-                  <v-text-field
+                  <VTextField
                     v-model="form.name"
                     :label="$t('Name')"
                     :error-messages="form.errors.name"
                     outlined
                     dense
                   />
-                </v-col>
+                </VCol>
 
-                <v-col cols="12">
-                  <v-btn
+                <VCol cols="12">
+                  <VBtn
                     :loading="form.processing"
                     type="submit"
                     block
                   >
                     {{ $t('Submit') }}
-                  </v-btn>
-                </v-col>
-              </v-form>
-            </v-card-text>
-          </v-card>
-        </v-col>
-      </v-row>
-    </v-container>
+                  </VBtn>
+                </VCol>
+              </VForm>
+            </VCardText>
+          </VCard>
+        </VCol>
+      </VRow>
+    </VContainer>
   </AdminLayout>
 </template>
