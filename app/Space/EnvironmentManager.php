@@ -77,14 +77,14 @@ class EnvironmentManager
 
                 $smtp = optional($request->smtp);
                 $newMailData =
-                    'MAIL_MAILER='.$smtp['mail_driver']."\n".
+                    'MAIL_MAILER='.$request->mail_driver."\n".
                     'MAIL_HOST='.$smtp['mail_host']."\n".
                     'MAIL_PORT='.$smtp['mail_port']."\n".
                     'MAIL_USERNAME='.$smtp['mail_username']."\n".
                     'MAIL_PASSWORD='.$smtp['mail_password']."\n".
                     'MAIL_ENCRYPTION='.$smtp['mail_encryption']."\n".
-                    'MAIL_FROM_ADDRESS='.$smtp['from_mail']."\n".
-                    'MAIL_FROM_NAME="'.$smtp['from_name']."\"\n\n";
+                    'MAIL_FROM_ADDRESS='.$smtp['mail_from_address']."\n".
+                    'MAIL_FROM_NAME="'.$smtp['mail_from_name']."\"\n\n";
 
                 break;
 
@@ -106,8 +106,8 @@ class EnvironmentManager
                     'MAIL_USERNAME='.config('mail.username')."\n".
                     'MAIL_PASSWORD='.config('mail.password')."\n".
                     'MAIL_ENCRYPTION='.$mailgun['mail_encryption']."\n".
-                    'MAIL_FROM_ADDRESS='.$mailgun['from_mail']."\n".
-                    'MAIL_FROM_NAME="'.$mailgun['from_name']."\"\n\n";
+                    'MAIL_FROM_ADDRESS='.$mailgun['mail_from_address']."\n".
+                    'MAIL_FROM_NAME="'.$mailgun['mail_from_name']."\"\n\n";
 
                 $extraMailData =
                     'MAILGUN_DOMAIN='.$mailgun['mail_mailgun_domain']."\n".
@@ -141,8 +141,8 @@ class EnvironmentManager
                     'MAIL_USERNAME='.config('mail.username')."\n".
                     'MAIL_PASSWORD='.config('mail.password')."\n".
                     'MAIL_ENCRYPTION='.$ses['mail_encryption']."\n\n".
-                    'MAIL_FROM_ADDRESS='.$ses['from_mail']."\n".
-                    'MAIL_FROM_NAME="'.$ses['from_name']."\"\n";
+                    'MAIL_FROM_ADDRESS='.$ses['mail_from_mail']."\n".
+                    'MAIL_FROM_NAME="'.$ses['mail_from_name']."\"\n";
 
                 $extraMailData =
                     'SES_KEY='.$ses['mail_ses_key']."\n".

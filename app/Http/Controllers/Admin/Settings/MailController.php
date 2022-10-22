@@ -45,5 +45,9 @@ class MailController extends Controller
     public function update(MailEnvironmentRequest $request)
     {
         $this->environmentManager->saveMailVariables($request);
+
+        \Session::flash('Mail Configuration Updated Successfully');
+
+        return redirect()->back();
     }
 }
