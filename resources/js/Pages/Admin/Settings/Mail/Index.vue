@@ -1,14 +1,22 @@
 <script setup>
 import {useMailDriverStore} from "@/Stores/useMailDriverStore"
-
-const mailDriverStore = useMailDriverStore()
-const form = mailDriverStore.form
-
 import Smtp from "@/Pages/Admin/Settings/Mail/MailDriver/Smtp.vue"
 import Basic from "@/Pages/Admin/Settings/Mail/MailDriver/Basic.vue"
 import Mailgun from "@/Pages/Admin/Settings/Mail/MailDriver/Mailgun.vue"
 import Ses from "@/Pages/Admin/Settings/Mail/MailDriver/Ses.vue"
 import {computed} from "vue"
+
+const props = defineProps({
+  mailConfig: {
+    type: Array,
+    required: true,
+  },
+})
+
+const mailDriverStore = useMailDriverStore()
+const form = mailDriverStore.form
+
+mailDriverStore.getMailConfig(props.mailConfig)
 
 const mailDriverComponent = computed(() => {
   if (mailDriverStore.form.mail_driver === 'mailgun') return Mailgun

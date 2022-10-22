@@ -75,4 +75,58 @@ export const useMailDriverStore = defineStore('useMailDriverStore', {
       },
     ],
   }),
+
+  actions: {
+    getMailConfig(config) {
+      this.form.mail_driver = config.mail_driver
+      // eslint-disable-next-line sonarjs/no-small-switch
+      switch (config.mail_driver) {
+      case 'smtp':
+        this.form.smtp = {
+          mail_host: config.mail_host,
+          mail_username: config.mail_username,
+          mail_password: config.mail_password,
+          mail_port: config.mail_port,
+          mail_encryption: config.mail_encryption,
+          mail_from_address: config.mail_from_address,
+          mail_from_name: config.mail_from_name,
+        }
+        break
+      case 'mailgun':
+        this.form.mailgun = {
+          mail_host: config.mail_host,
+          mail_username: config.mail_username,
+          mail_password: config.mail_password,
+          mail_port: config.mail_port,
+          mail_encryption: config.mail_encryption,
+          mail_from_address: config.mail_from_address,
+          mail_from_name: config.mail_from_name,
+        }
+        break
+      case 'ses':
+        this.form.ses = {
+          mail_host: config.mail_host,
+          mail_username: config.mail_username,
+          mail_password: config.mail_password,
+          mail_port: config.mail_port,
+          mail_encryption: config.mail_encryption,
+          mail_from_address: config.mail_from_address,
+          mail_from_name: config.mail_from_name,
+        }
+        break
+      case 'sendmail':
+      case 'mail':
+        this.form.basic = {
+          mail_host: config.mail_host,
+          mail_username: config.mail_username,
+          mail_password: config.mail_password,
+          mail_port: config.mail_port,
+          mail_encryption: config.mail_encryption,
+          mail_from_address: config.mail_from_address,
+          mail_from_name: config.mail_from_name,
+        }
+        break
+      }
+    },
+  },
 })
