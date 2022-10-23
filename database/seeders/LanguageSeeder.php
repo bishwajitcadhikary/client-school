@@ -18,7 +18,8 @@ class LanguageSeeder extends Seeder
         $languages = [
             [
                 'name' => 'English',
-                'code' => 'en'
+                'code' => 'en',
+                'is_default' => true
             ]
         ];
 

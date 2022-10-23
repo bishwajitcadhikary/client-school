@@ -1,0 +1,207 @@
+<script setup>
+import {trans} from "laravel-vue-i18n"
+import {inject, ref} from "vue"
+import {useForm} from "@inertiajs/inertia-vue3"
+
+const props = defineProps({
+  languages: {
+    type: Object,
+    default: null,
+  },
+})
+
+const Notification = inject('Notification')
+const statuses = ref([])
+const defaults = ref([])
+const dialog = ref(false)
+const deletableLangId = ref(null)
+
+const headers = [
+  trans('Name'),
+  trans('Code'),
+  trans('Status'),
+  trans('Default'),
+]
+
+
+const statusForm = useForm({
+  statuses: [...props.languages.data.map(i => !!i['is_active'])],
+})
+
+function updateLanguageStatus(key, id) {
+  useForm({
+    is_active: statusForm.statuses[key],
+  }).put(route('admin.settings.languages.change-status', {language: id}), {
+
+    onSuccess: page => {
+      if (page.props.flash.success){
+        Notification.success(page.props.flash.success)
+      }
+      if(page.props.flash.error){
+        Notification.error(page.props.flash.error)
+      }
+      statusForm.statuses = page.props.languages.data.map(i => !!i['is_active'])
+    },
+  })
+}
+
+const defaultForm = useForm({
+  statuses: [...props.languages.data.map(i => !!i['is_default'])],
+})
+function changeDefaultLanguage(key, id) {
+  useForm({
+    is_default: statusForm.statuses[key],
+  }).put(route('admin.settings.languages.change-default', {language: id}), {
+    onSuccess: page => {
+      if (page.props.flash.success){
+        Notification.success(page.props.flash.success)
+      }
+      if(page.props.flash.error){
+        Notification.error(page.props.flash.error)
+      }
+      defaultForm.statuses = page.props.languages.data.map(i => !!i['is_default'])
+    },
+  })
+}
+
+function deleteLanguage() {
+  dialog.value = false
+  useForm({})
+    .delete(route('admin.settings.languages.destroy', {language: deletableLangId.value}), {
+      onSuccess: page => {
+        if (page.props.flash.success){
+          Notification.success(page.props.flash.success)
+        }
+        if(page.props.flash.error){
+          Notification.error(page.props.flash.error)
+        }
+        statusForm.statuses = page.props.languages.data.map(i => !!i['is_active'])
+        defaultForm.statuses = page.props.languages.data.map(i => !!i['is_default'])
+      },
+    })
+}
+</script>
+
+<template>
+  <AdminLayout
+    :title="$t('Languages')"
+    :action="{href: route('admin.settings.languages.create'), icon: 'mdi-plus', title: $t('Add New')}"
+  >
+    <VContainer>
+      <VRow justify="center">
+        <VCol
+          cols="12"
+          sm="8"
+        >
+          <VCard>
+            <VTable
+              class="table-rounded"
+            >
+              <thead>
+                <tr>
+                  <th v-for="header in headers">
+                    {{ header }}
+                  </th>
+                  <th />
+                </tr>
+              </thead>
+              <tbody>
+                <tr
+                  v-for="(language, key) in languages.data"
+                  :key="key"
+                >
+                  <td>{{ language.name }}</td>
+                  <td>{{ language.code }}</td>
+                  <td>
+                    <VSwitch
+                      v-model="statusForm.statuses[key]"
+                      color="primary"
+                      hide-detail
+                      @change="updateLanguageStatus(key, language.id)"
+                    />
+                  </td>
+                  <td>
+                    <VSwitch
+                      v-model="defaultForm.statuses[key]"
+                      color="primary"
+                      hide-details
+                      @change="changeDefaultLanguage(key, language.id)"
+                    />
+                  </td>
+                  <td
+                    class="pa-1"
+                    width="10%"
+                  >
+                    <VBtnToggle
+                      rounded="xl"
+                    >
+                      <VTooltip :text="$t('Edit Phrases')">
+                        <template #activator="{ props }">
+                          <VBtn
+                            icon="mdi-translate"
+                            v-bind="props"
+                            @click="$inertia.visit(route('admin.settings.languages.edit-phrases', {language: language.id}))"
+                          />
+                        </template>
+                      </VTooltip>
+                      <VTooltip :text="$t('Edit Language')">
+                        <template #activator="{ props }">
+                          <VBtn
+                            icon="mdi-clipboard-edit-outline"
+                            v-bind="props"
+                            @click="$inertia.visit(route('admin.settings.languages.edit', {language: language.id}))"
+                          />
+                        </template>
+                      </VTooltip>
+                      <VTooltip :text="$t('Delete Language')">
+                        <template #activator="{props}">
+                          <VBtn
+                            v-if="!language.is_default"
+                            icon="mdi-delete-outline"
+                            v-bind="props"
+                            @click="dialog = true; deletableLangId = language.id"
+                          />
+                        </template>
+                      </VTooltip>
+                    </VBtnToggle>
+                  </td>
+                </tr>
+              </tbody>
+            </VTable>
+          </VCard>
+        </VCol>
+      </VRow>
+    </VContainer>
+    <VDialog
+      v-model="dialog"
+      max-width="290"
+    >
+      <VCard class="pa-3">
+        <VCardTitle class="text-h5 text-center">
+          {{ $t('Are your sure to delete?') }}
+        </VCardTitle>
+
+        <VCardText class="text-center">
+          <p>{{ $t('Action cannot be undone') }}</p>
+        </VCardText>
+
+        <VCardActions>
+          <VSpacer />
+
+          <VBtn
+            @click="dialog = false"
+          >
+            {{ $t('Cancel') }}
+          </VBtn>
+
+          <VBtn
+            color="error"
+            @click.stop="deleteLanguage"
+          >
+            {{ $t('Delete') }}
+          </VBtn>
+        </VCardActions>
+      </VCard>
+    </VDialog>
+  </AdminLayout>
+</template>

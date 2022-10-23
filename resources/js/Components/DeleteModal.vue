@@ -1,33 +1,33 @@
 <template>
-  <v-dialog
+  <VDialog
     v-model="dialog"
     max-width="290"
   >
-    <v-card class="pa-3">
-      <v-card-title class="text-h5 text-center">
+    <VCard class="pa-3">
+      <VCardTitle class="text-h5 text-center">
         {{ $t('Are your sure to delete?') }}
-      </v-card-title>
+      </VCardTitle>
 
-      <v-card-text class="text-center">
+      <VCardText class="text-center">
         <p>{{ $t('Action cannot be undone') }}</p>
-      </v-card-text>
+      </VCardText>
 
-      <v-card-actions>
-        <v-spacer></v-spacer>
+      <VCardActions>
+        <VSpacer />
 
-        <v-btn
+        <VBtn
           @click="dialog = false"
         >
           {{ $t('Cancel') }}
-        </v-btn>
+        </VBtn>
 
-        <v-btn
+        <VBtn
           color="error"
           @click.stop="destroy"
         >
           {{ $t('Delete') }}
-        </v-btn>
-      </v-card-actions>
-    </v-card>
-  </v-dialog>
+        </VBtn>
+      </VCardActions>
+    </VCard>
+  </VDialog>
 </template>
