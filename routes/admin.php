@@ -19,5 +19,6 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth', 'v
         Route::resource('backups', Settings\BackupController::class)->except('show', 'edit', 'update');
         Route::get('mail', [Settings\MailController::class, 'index'])->name('mail.index');
         Route::put('mail/update', [Settings\MailController::class, 'update'])->name('mail.update');
+        Route::get('account-settings', [Settings\AccountController::class, 'index'])->name('account-settings.index');
     });
 });
