@@ -37,7 +37,10 @@ function submit() {
 </script>
 
 <template>
-  <AdminLayout>
+  <AdminLayout
+    :title="$t('Edit :language Phrases', {language: language.name})"
+    :back="route('admin.settings.languages.index')"
+  >
     <VCard>
       <VCardTitle>{{ $t('Edit Phrases') }}</VCardTitle>
       <VCardSubtitle>{{ $t('Edit :language language phrases', {language: language.name}) }}</VCardSubtitle>

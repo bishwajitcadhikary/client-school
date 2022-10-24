@@ -6,7 +6,7 @@ import {
   VerticalNavLink,
   VerticalNavSectionTitle,
   VerticalNavGroup,
-  VerticalSubNavLink
+  VerticalSubNavLink,
 } from '@layouts'
 import { useTheme } from 'vuetify'
 
@@ -14,6 +14,13 @@ const vuetifyTheme = useTheme()
 const upgradeBanner = computed(() => {
   return vuetifyTheme.global.name.value === 'light' ? upgradeBannerLight : upgradeBannerDark
 })
+
+const items = [
+  { title: 'Click Me' },
+  { title: 'Click Me' },
+  { title: 'Click Me' },
+  { title: 'Click Me 2' },
+]
 </script>
 
 <template>
@@ -36,7 +43,6 @@ const upgradeBanner = computed(() => {
 
   <!-- 👉 Nav items -->
   <ul>
-
     <VerticalNavLink
       :item="{
         title: 'Dashboard',

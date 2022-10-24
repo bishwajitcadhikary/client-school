@@ -56,7 +56,7 @@ import UserProfile from '@/Layouts/Components/UserProfile.vue'
 
     <!-- 👉 Pages -->
     <div class="layout-page-content">
-      <slot></slot>
+      <slot />
     </div>
 
     <!-- 👉 Footer -->

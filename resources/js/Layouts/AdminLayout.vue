@@ -2,34 +2,34 @@
 import '@/@iconify/icons-bundle'
 import {loadFonts} from '@/plugins/webfontloader'
 
+defineProps({
+  title: {
+    type: String,
+    required: false,
+  },
+  action: {
+    type: Object,
+    required: false,
+  },
+  actions: {
+    type: Array,
+    required: false,
+  },
+  back: {
+    type: String,
+    required: false,
+  },
+})
+
 loadFonts()
 
 import BuyNow from '@core/components/BuyNow.vue'
 import DefaultLayoutWithVerticalNav from './Components/DefaultLayoutWithVerticalNav.vue'
-import {inject, onMounted} from "vue";
-import {usePage} from "@inertiajs/inertia-vue3";
+import {inject, onMounted} from "vue"
+import {usePage} from "@inertiajs/inertia-vue3"
 
-const flash = usePage().props.value.flash;
+const flash = usePage().props.value.flash
 const Notification = inject('Notification')
-
-defineProps({
-  title: {
-    type: String,
-    required: false
-  },
-  action: {
-    type: Object,
-    required: false
-  },
-  actions: {
-    type: Array,
-    required: false
-  },
-  back: {
-    type: String,
-    required: false
-  }
-})
 
 onMounted(() => {
   if (flash.success){
@@ -39,44 +39,66 @@ onMounted(() => {
     Notification.error(flash.error)
   }
 })
-
 </script>
 
 <template>
-  <Head :title="title" v-if="title"></Head>
+  <Head
+    v-if="title"
+    :title="title"
+  />
   <VApp>
     <VLayout class="layout-wrapper layout-nav-type-vertical">
       <DefaultLayoutWithVerticalNav>
-        <v-container v-if="title || actions">
+        <VContainer v-if="title || actions">
           <div class="d-flex justify-space-between align-center">
             <h3>{{ title }}</h3>
 
             <slot name="actions">
-              <Link v-if="actions" v-for="(action, index) in actions" :href="action.href" :key="index">
-                <v-btn>
-                  <v-icon v-if="action.icon">{{ action.icon }}</v-icon>
+              <Link
+                v-for="(action, index) in actions"
+                v-if="actions"
+                :key="index"
+                :href="action.href"
+              >
+                <VBtn>
+                  <VIcon v-if="action.icon">
+                    {{ action.icon }}
+                  </VIcon>
                   {{ action.title }}
-                </v-btn>
+                </VBtn>
               </Link>
-              <Link v-if="action" :href="action.href">
-                <v-btn>
-                  <v-icon class="mr-2" v-if="action.icon">{{ action.icon }}</v-icon>
+              <Link
+                v-if="action"
+                :href="action.href"
+              >
+                <VBtn>
+                  <VIcon
+                    v-if="action.icon"
+                    class="mr-2"
+                  >
+                    {{ action.icon }}
+                  </VIcon>
                   {{ action.title }}
-                </v-btn>
+                </VBtn>
               </Link>
-              <Link v-if="back" :href="back">
-                <v-btn>
-                  <v-icon class="mr-2">mdi-arrow-left-bold</v-icon>
+              <Link
+                v-if="back"
+                :href="back"
+              >
+                <VBtn>
+                  <VIcon class="mr-2">
+                    mdi-arrow-left-bold
+                  </VIcon>
                   {{ $t('Back') }}
-                </v-btn>
+                </VBtn>
               </Link>
             </slot>
           </div>
-        </v-container>
+        </VContainer>
 
-        <slot></slot>
+        <slot />
       </DefaultLayoutWithVerticalNav>
-<!--      <BuyNow/>-->
+      <!--      <BuyNow/> -->
     </VLayout>
   </VApp>
 </template>
