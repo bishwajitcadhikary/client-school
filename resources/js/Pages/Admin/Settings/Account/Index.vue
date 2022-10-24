@@ -49,92 +49,86 @@ function submit() {
     <template #sub-navbar>
       <SettingsDrawerContent />
     </template>
+
     <VContainer>
-      <VRow justify="center">
-        <VCol
-          cols="12"
-          sm="8"
-        >
-          <VCard>
-            <VCardTitle>{{ $t('Account Settings') }}</VCardTitle>
-            <VCardSubtitle>{{ $t('You can update your name, email & password using the form below.') }}</VCardSubtitle>
-            <VCardText>
-              <VForm @submit.prevent="submit">
-                <VRow>
-                  <VCol
-                    cols="12"
-                    sm="6"
-                  >
-                    <VTextField
-                      v-model="form.name"
-                      :label="$t('Name')"
-                      :rules="[rules.required]"
-                      :error-messages="form.errors.name"
-                    />
-                  </VCol>
-                  <VCol
-                    cols="12"
-                    sm="6"
-                  >
-                    <VTextField
-                      v-model="form.email"
-                      :label="$t('Email')"
-                      :rules="[rules.required, rules.email]"
-                      :error-messages="form.errors.email"
-                    />
-                  </VCol>
-                  <VCol
-                    cols="12"
-                    sm="6"
-                  >
-                    <VTextField
-                      v-model="form.password"
-                      :label="$t('Password')"
-                      :error-messages="form.errors.password"
-                      :append-inner-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
-                      :type="showPassword ? 'text' : 'password'"
-                      @click:append-inner="showPassword = !showPassword"
-                    />
-                  </VCol>
-                  <VCol
-                    cols="12"
-                    sm="6"
-                  >
-                    <VTextField
-                      v-model="form.password_confirmation"
-                      :label="$t('Confirm Password')"
-                      :error-messages="form.errors.password_confirmation"
-                      :append-inner-icon="showConfirmPassword ? 'mdi-eye' : 'mdi-eye-off'"
-                      :type="showConfirmPassword ? 'text' : 'password'"
-                      @click:append-inner="showConfirmPassword = !showConfirmPassword"
-                    />
-                  </VCol>
-                  <VCol
-                    cols="12"
-                    sm="6"
-                  >
-                    <VSelect
-                      v-model="form.language"
-                      :label="$t('Language')"
-                      :error-messages="form.errors.language"
-                      :items="languages"
-                    />
-                  </VCol>
-                  <VCol cols="12">
-                    <VBtn
-                      type="submit"
-                      :loading="form.processing"
-                    >
-                      <VIcon icon="mdi-content-save" />
-                      {{ $t('Save') }}
-                    </VBtn>
-                  </VCol>
-                </VRow>
-              </VForm>
-            </VCardText>
-          </VCard>
-        </VCol>
-      </VRow>
+      <VCard>
+        <VCardTitle>{{ $t('Account Settings') }}</VCardTitle>
+        <VCardSubtitle>{{ $t('You can update your name, email & password using the form below.') }}</VCardSubtitle>
+        <VCardText>
+          <VForm @submit.prevent="submit">
+            <VRow>
+              <VCol
+                cols="12"
+                sm="6"
+              >
+                <VTextField
+                  v-model="form.name"
+                  :label="$t('Name')"
+                  :rules="[rules.required]"
+                  :error-messages="form.errors.name"
+                />
+              </VCol>
+              <VCol
+                cols="12"
+                sm="6"
+              >
+                <VTextField
+                  v-model="form.email"
+                  :label="$t('Email')"
+                  :rules="[rules.required, rules.email]"
+                  :error-messages="form.errors.email"
+                />
+              </VCol>
+              <VCol
+                cols="12"
+                sm="6"
+              >
+                <VTextField
+                  v-model="form.password"
+                  :label="$t('Password')"
+                  :error-messages="form.errors.password"
+                  :append-inner-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
+                  :type="showPassword ? 'text' : 'password'"
+                  @click:append-inner="showPassword = !showPassword"
+                />
+              </VCol>
+              <VCol
+                cols="12"
+                sm="6"
+              >
+                <VTextField
+                  v-model="form.password_confirmation"
+                  :label="$t('Confirm Password')"
+                  :error-messages="form.errors.password_confirmation"
+                  :append-inner-icon="showConfirmPassword ? 'mdi-eye' : 'mdi-eye-off'"
+                  :type="showConfirmPassword ? 'text' : 'password'"
+                  @click:append-inner="showConfirmPassword = !showConfirmPassword"
+                />
+              </VCol>
+              <VCol
+                cols="12"
+                sm="6"
+              >
+                <VSelect
+                  v-model="form.language"
+                  :label="$t('Language')"
+                  :error-messages="form.errors.language"
+                  :items="languages"
+                />
+              </VCol>
+              <VCol cols="12">
+                <VBtn
+                  type="submit"
+                  :loading="form.processing"
+                >
+                  <VIcon icon="mdi-content-save" />
+                  {{ $t('Save') }}
+                </VBtn>
+              </VCol>
+            </VRow>
+          </VForm>
+        </VCardText>
+      </VCard>
     </VContainer>
   </AdminLayout>
 </template>

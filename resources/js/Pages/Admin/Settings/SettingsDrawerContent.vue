@@ -9,10 +9,22 @@ const menus = [
     active: route().current('admin.settings.account-settings.*'),
   },
   {
+    title: trans('Preferences'),
+    href: route('admin.settings.preferences.index'),
+    icon: 'mdi-cog-outline',
+    active: route().current('admin.settings.preferences.*'),
+  },
+  {
     title: trans('Roles'),
     href: route('admin.settings.roles.index'),
     icon: 'mdi-shield-star',
     active: route().current('admin.settings.roles.*'),
+  },
+  {
+    title: trans('Languages'),
+    href: route('admin.settings.languages.index'),
+    icon: 'mdi-translate',
+    active: route().current('admin.settings.languages.*'),
   },
   {
     title: trans('File Disks'),
@@ -25,6 +37,12 @@ const menus = [
     href: route('admin.settings.backups.index'),
     icon: 'mdi-google-cloud',
     active: route().current('admin.settings.backups.*'),
+  },
+  {
+    title: trans('Mail Configuration'),
+    href: route('admin.settings.mail.index'),
+    icon: 'mdi-email-sync-outline',
+    active: route().current('admin.settings.mail.*'),
   },
 ]
 </script>

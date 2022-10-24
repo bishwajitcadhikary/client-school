@@ -1,6 +1,5 @@
 <script setup>
 import {useForm} from "@inertiajs/inertia-vue3"
-
 import SettingsDrawerContent from '@/Pages/Admin/Settings/SettingsDrawerContent.vue'
 
 const form = useForm({
@@ -21,7 +20,7 @@ function submit() {
       <SettingsDrawerContent />
     </template>
     <VContainer>
-      <VRow justify="center">
+      <VRow>
         <VCol
           cols="12"
           sm="6"

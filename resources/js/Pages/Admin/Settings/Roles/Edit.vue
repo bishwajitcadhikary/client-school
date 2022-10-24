@@ -27,7 +27,7 @@ function submit() {
       <SettingsDrawerContent />
     </template>
     <VContainer>
-      <VRow justify="center">
+      <VRow>
         <VCol
           cols="12"
           sm="6"

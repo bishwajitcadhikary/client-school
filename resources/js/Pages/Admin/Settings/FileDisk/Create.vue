@@ -48,102 +48,97 @@ function submit() {
       <SettingsDrawerContent />
     </template>
 
-    <VRow justify="center">
-      <VCol
-        cols="12"
-        sm="8"
-      >
-        <VCard>
-          <VCardTitle>{{ $t('Add New Disk') }}</VCardTitle>
-          <VForm @submit.prevent="submit">
-            <VCardText>
-              <VCol cols="12">
-                <VTextField
-                  v-model="form.name"
-                  :label="$t('Name')"
-                  :error-messages="form.errors.name"
-                />
-              </VCol>
+    <VContainer>
+      <VCard>
+        <VCardTitle>{{ $t('Add New Disk') }}</VCardTitle>
+        <VForm @submit.prevent="submit">
+          <VCardText>
+            <VCol cols="12">
+              <VTextField
+                v-model="form.name"
+                :label="$t('Name')"
+                :error-messages="form.errors.name"
+              />
+            </VCol>
 
-              <VCol cols="12">
-                <VSelect
-                  v-model="form.driver"
-                  :label="$t('Driver')"
-                  :items="drivers"
-                  :error-messages="form.errors.driver"
-                />
-              </VCol>
+            <VCol cols="12">
+              <VSelect
+                v-model="form.driver"
+                :label="$t('Driver')"
+                :items="drivers"
+                :error-messages="form.errors.driver"
+              />
+            </VCol>
 
-              <VCol
-                v-if="form.driver === 'local'"
-                cols="12"
-              >
-                <VTextField
-                  v-model="form.local_root"
-                  :label="$t('Local Root')"
-                  :error-messages="form.errors.local_root"
-                />
-              </VCol>
+            <VCol
+              v-if="form.driver === 'local'"
+              cols="12"
+            >
+              <VTextField
+                v-model="form.local_root"
+                :label="$t('Local Root')"
+                :error-messages="form.errors.local_root"
+              />
+            </VCol>
 
-              <VCol
-                v-if="form.driver === 's3'"
-                cols="12"
-              >
-                <VTextField
-                  v-model="form.aws_root"
-                  class="mb-5"
-                  :label="$t('AWS Root')"
-                  :error-messages="form.errors.aws_root"
-                />
-                <VTextField
-                  v-model="form.aws_key"
-                  class="mb-5"
-                  :label="$t('AWS Driver')"
-                  :error-messages="form.errors.aws_key"
-                />
-                <VTextField
-                  v-model="form.aws_secret"
-                  class="mb-5"
-                  :label="$t('AWS Secret')"
-                  :error-messages="form.errors.aws_secret"
-                />
-                <VTextField
-                  v-model="form.aws_region"
-                  class="mb-5"
-                  :label="$t('AWS Region')"
-                  :error-messages="form.errors.aws_region"
-                />
-                <VTextField
-                  v-model="form.aws_bucket"
-                  class="mb-5"
-                  :label="$t('AWS Bucket')"
-                  :error-messages="form.errors.aws_bucket"
-                />
-              </VCol>
+            <VCol
+              v-if="form.driver === 's3'"
+              cols="12"
+            >
+              <VTextField
+                v-model="form.aws_root"
+                class="mb-5"
+                :label="$t('AWS Root')"
+                :error-messages="form.errors.aws_root"
+              />
+              <VTextField
+                v-model="form.aws_key"
+                class="mb-5"
+                :label="$t('AWS Driver')"
+                :error-messages="form.errors.aws_key"
+              />
+              <VTextField
+                v-model="form.aws_secret"
+                class="mb-5"
+                :label="$t('AWS Secret')"
+                :error-messages="form.errors.aws_secret"
+              />
+              <VTextField
+                v-model="form.aws_region"
+                class="mb-5"
+                :label="$t('AWS Region')"
+                :error-messages="form.errors.aws_region"
+              />
+              <VTextField
+                v-model="form.aws_bucket"
+                class="mb-5"
+                :label="$t('AWS Bucket')"
+                :error-messages="form.errors.aws_bucket"
+              />
+            </VCol>
 
-              <VCol cols="12">
-                <VSwitch
-                  v-model="form.set_as_default"
-                  :label="$t('Is Default')"
-                  :error-messages="form.errors.set_as_default"
-                />
-              </VCol>
-            </VCardText>
+            <VCol cols="12">
+              <VSwitch
+                v-model="form.set_as_default"
+                :label="$t('Is Default')"
+                :error-messages="form.errors.set_as_default"
+              />
+            </VCol>
+          </VCardText>
 
 
 
-            <VCardActions>
-              <VSpacer />
-              <VBtn
-                type="submit"
-                :loading="form.processing"
-              >
-                {{ $t('Submit') }}
-              </VBtn>
-            </VCardActions>
-          </VForm>
-        </VCard>
-      </VCol>
-    </VRow>
+          <VCardActions>
+            <VSpacer />
+            <VBtn
+              type="submit"
+              :loading="form.processing"
+            >
+              {{ $t('Submit') }}
+            </VBtn>
+          </VCardActions>
+        </VForm>
+      </VCard>
+    </VContainer>
   </AdminLayout>
 </template>

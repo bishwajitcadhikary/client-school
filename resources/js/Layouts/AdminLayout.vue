@@ -86,9 +86,11 @@ onMounted(() => {
                 :href="back"
               >
                 <VBtn>
-                  <VIcon class="mr-2">
-                    mdi-arrow-left-bold
-                  </VIcon>
+                  <VIcon
+                    class="mr-2"
+                    icon="mdi-arrow-left"
+                  />
+
                   {{ $t('Back') }}
                 </VBtn>
               </Link>

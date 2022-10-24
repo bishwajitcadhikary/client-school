@@ -1,6 +1,6 @@
 <script setup>
 import {useForm} from "@inertiajs/inertia-vue3"
-
+import SettingsDrawerContent from '@/Pages/Admin/Settings/SettingsDrawerContent.vue'
 defineProps({
   disks: {
     type: Object,
@@ -38,47 +38,45 @@ function submit() {
     :title="$t('Create Backup')"
     :back="route('admin.settings.file-disks.index')"
   >
-    <VRow justify="center">
-      <VCol
-        cols="12"
-        sm="8"
-      >
-        <VCard>
-          <VCardTitle>{{ $t('Create Backup') }}</VCardTitle>
-          <VForm @submit.prevent="submit">
-            <VCardText>
-              <VCol cols="12">
-                <VSelect
-                  v-model="form.backup_type"
-                  :label="$t('Backup Type')"
-                  :items="types"
-                  :error-messages="form.errors.backup_type"
-                  class="mb-12"
-                  autofocus
-                />
-                <VSelect
-                  v-model="form.file_disk_id"
-                  :label="$t('Backup Disk')"
-                  :items="disks"
-                  :error-messages="form.errors.file_disk_id"
-                />
-              </VCol>
+    <template #sub-navbar>
+      <SettingsDrawerContent />
+    </template>
 
-            </VCardText>
+    <VContainer>
+      <VCard>
+        <VCardTitle>{{ $t('Create Backup') }}</VCardTitle>
+        <VForm @submit.prevent="submit">
+          <VCardText>
+            <VCol cols="12">
+              <VSelect
+                v-model="form.backup_type"
+                :label="$t('Backup Type')"
+                :items="types"
+                :error-messages="form.errors.backup_type"
+                class="mb-12"
+                autofocus
+              />
+              <VSelect
+                v-model="form.file_disk_id"
+                :label="$t('Backup Disk')"
+                :items="disks"
+                :error-messages="form.errors.file_disk_id"
+              />
+            </VCol>
+          </VCardText>
 
 
-            <VCardActions>
-              <VSpacer />
-              <VBtn
-                type="submit"
-                :loading="form.processing"
-              >
-                {{ $t('Submit') }}
-              </VBtn>
-            </VCardActions>
-          </VForm>
-        </VCard>
-      </VCol>
-    </VRow>
+          <VCardActions>
+            <VSpacer />
+            <VBtn
+              type="submit"
+              :loading="form.processing"
+            >
+              {{ $t('Submit') }}
+            </VBtn>
+          </VCardActions>
+        </VForm>
+      </VCard>
+    </VContainer>
   </AdminLayout>
 </template>

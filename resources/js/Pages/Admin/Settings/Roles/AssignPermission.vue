@@ -49,65 +49,58 @@ function submit() {
       <SettingsDrawerContent />
     </template>
     <VContainer>
-      <VRow justify="center">
-        <VCol
-          cols="12"
-          sm="8"
-        >
-          <VCard class="pa-2">
-            <VCardTitle>{{ role.name }}</VCardTitle>
-            <VCardText>
-              <VForm @submit.prevent="submit">
-                <VCol
-                  cols="12"
-                >
-                  <VTable>
-                    <template #default>
-                      <tbody>
-                        <tr>
-                          <th>{{ $t('Administrative Access') }}</th>
-                          <td>
-                            <VCheckbox
-                              v-model="select_all"
-                              :label="$t('Select All')"
-                              @click="selectAll"
-                            />
-                          </td>
-                        </tr>
-                        <tr
-                          v-for="(group, permissionName) in groups"
-                        >
-                          <th>{{ permissionName }}</th>
-                          <td class="d-flex gap-5">
-                            <VCheckbox
-                              ref="checkboxes"
-                              class="mr-2"
-                              v-for="(permission) in group"
-                              v-model="form.permissions"
-                              :value="permission.id"
-                              :label="permission.name.replace('-', ' ').replace(permissionName.toLowerCase(), '')"
-                            />
-                          </td>
-                        </tr>
-                      </tbody>
-                    </template>
-                  </VTable>
-                </VCol>
+      <VCard class="pa-2">
+        <VCardTitle>{{ role.name }}</VCardTitle>
+        <VCardText>
+          <VForm @submit.prevent="submit">
+            <VCol
+              cols="12"
+            >
+              <VTable>
+                <template #default>
+                  <tbody>
+                    <tr>
+                      <th>{{ $t('Administrative Access') }}</th>
+                      <td>
+                        <VCheckbox
+                          v-model="select_all"
+                          :label="$t('Select All')"
+                          @click="selectAll"
+                        />
+                      </td>
+                    </tr>
+                    <tr
+                      v-for="(group, permissionName) in groups"
+                    >
+                      <th>{{ permissionName }}</th>
+                      <td class="d-flex gap-5">
+                        <VCheckbox
+                          v-for="(permission) in group"
+                          ref="checkboxes"
+                          v-model="form.permissions"
+                          class="mr-2"
+                          :value="permission.id"
+                          :label="permission.name.replace('-', ' ').replace(permissionName.toLowerCase(), '')"
+                        />
+                      </td>
+                    </tr>
+                  </tbody>
+                </template>
+              </VTable>
+            </VCol>
 
-                <VCol cols="12">
-                  <VBtn
-                    :loading="form.processing"
-                    type="submit"
-                    block
-                  >
-                    {{ $t('Submit') }}
-                  </VBtn>
-                </VCol>
-              </VForm>
-            </VCardText>
-          </VCard>
-        </VCol>
-      </VRow>
+            <VCol cols="12">
+              <VBtn
+                :loading="form.processing"
+                type="submit"
+                block
+              >
+                {{ $t('Submit') }}
+              </VBtn>
+            </VCol>
+          </VForm>
+        </VCardText>
+      </VCard>
     </VContainer>
   </AdminLayout>
 </template>

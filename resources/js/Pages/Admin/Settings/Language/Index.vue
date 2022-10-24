@@ -2,6 +2,7 @@
 import {trans} from "laravel-vue-i18n"
 import {inject, ref} from "vue"
 import {useForm} from "@inertiajs/inertia-vue3"
+import SettingsDrawerContent from '@/Pages/Admin/Settings/SettingsDrawerContent.vue'
 
 const props = defineProps({
   languages: {
@@ -87,90 +88,87 @@ function deleteLanguage() {
     :title="$t('Languages')"
     :action="{href: route('admin.settings.languages.create'), icon: 'mdi-plus', title: $t('Add New')}"
   >
+    <template #sub-navbar>
+      <SettingsDrawerContent />
+    </template>
+
     <VContainer>
-      <VRow justify="center">
-        <VCol
-          cols="12"
-          sm="8"
+      <VCard>
+        <VTable
+          class="table-rounded"
         >
-          <VCard>
-            <VTable
-              class="table-rounded"
+          <thead>
+            <tr>
+              <th v-for="header in headers">
+                {{ header }}
+              </th>
+              <th />
+            </tr>
+          </thead>
+          <tbody>
+            <tr
+              v-for="(language, key) in languages.data"
+              :key="key"
             >
-              <thead>
-                <tr>
-                  <th v-for="header in headers">
-                    {{ header }}
-                  </th>
-                  <th />
-                </tr>
-              </thead>
-              <tbody>
-                <tr
-                  v-for="(language, key) in languages.data"
-                  :key="key"
+              <td>{{ language.name }}</td>
+              <td>{{ language.code }}</td>
+              <td>
+                <VSwitch
+                  v-model="statusForm.statuses[key]"
+                  color="primary"
+                  hide-detail
+                  @change="updateLanguageStatus(key, language.id)"
+                />
+              </td>
+              <td>
+                <VSwitch
+                  v-model="defaultForm.statuses[key]"
+                  color="primary"
+                  hide-details
+                  @change="changeDefaultLanguage(key, language.id)"
+                />
+              </td>
+              <td
+                class="pa-1"
+                width="10%"
+              >
+                <VBtnToggle
+                  rounded="xl"
                 >
-                  <td>{{ language.name }}</td>
-                  <td>{{ language.code }}</td>
-                  <td>
-                    <VSwitch
-                      v-model="statusForm.statuses[key]"
-                      color="primary"
-                      hide-detail
-                      @change="updateLanguageStatus(key, language.id)"
-                    />
-                  </td>
-                  <td>
-                    <VSwitch
-                      v-model="defaultForm.statuses[key]"
-                      color="primary"
-                      hide-details
-                      @change="changeDefaultLanguage(key, language.id)"
-                    />
-                  </td>
-                  <td
-                    class="pa-1"
-                    width="10%"
-                  >
-                    <VBtnToggle
-                      rounded="xl"
-                    >
-                      <VTooltip :text="$t('Edit Phrases')">
-                        <template #activator="{ props }">
-                          <VBtn
-                            icon="mdi-translate"
-                            v-bind="props"
-                            @click="$inertia.visit(route('admin.settings.languages.edit-phrases', {language: language.id}))"
-                          />
-                        </template>
-                      </VTooltip>
-                      <VTooltip :text="$t('Edit Language')">
-                        <template #activator="{ props }">
-                          <VBtn
-                            icon="mdi-clipboard-edit-outline"
-                            v-bind="props"
-                            @click="$inertia.visit(route('admin.settings.languages.edit', {language: language.id}))"
-                          />
-                        </template>
-                      </VTooltip>
-                      <VTooltip :text="$t('Delete Language')">
-                        <template #activator="{props}">
-                          <VBtn
-                            v-if="!language.is_default"
-                            icon="mdi-delete-outline"
-                            v-bind="props"
-                            @click="dialog = true; deletableLangId = language.id"
-                          />
-                        </template>
-                      </VTooltip>
-                    </VBtnToggle>
-                  </td>
-                </tr>
-              </tbody>
-            </VTable>
-          </VCard>
-        </VCol>
-      </VRow>
+                  <VTooltip :text="$t('Edit Phrases')">
+                    <template #activator="{ props }">
+                      <VBtn
+                        icon="mdi-translate"
+                        v-bind="props"
+                        @click="$inertia.visit(route('admin.settings.languages.edit-phrases', {language: language.id}))"
+                      />
+                    </template>
+                  </VTooltip>
+                  <VTooltip :text="$t('Edit Language')">
+                    <template #activator="{ props }">
+                      <VBtn
+                        icon="mdi-clipboard-edit-outline"
+                        v-bind="props"
+                        @click="$inertia.visit(route('admin.settings.languages.edit', {language: language.id}))"
+                      />
+                    </template>
+                  </VTooltip>
+                  <VTooltip :text="$t('Delete Language')">
+                    <template #activator="{props}">
+                      <VBtn
+                        v-if="!language.is_default"
+                        icon="mdi-delete-outline"
+                        v-bind="props"
+                        @click="dialog = true; deletableLangId = language.id"
+                      />
+                    </template>
+                  </VTooltip>
+                </VBtnToggle>
+              </td>
+            </tr>
+          </tbody>
+        </VTable>
+      </VCard>
     </VContainer>
     <VDialog
       v-model="dialog"

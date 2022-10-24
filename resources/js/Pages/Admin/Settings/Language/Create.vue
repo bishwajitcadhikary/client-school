@@ -2,6 +2,7 @@
 import {useForm} from "@inertiajs/inertia-vue3"
 import rules from '@/plugins/rules'
 import {inject} from "vue"
+import SettingsDrawerContent from '@/Pages/Admin/Settings/SettingsDrawerContent.vue'
 
 const props = defineProps({
   languages: {
@@ -34,8 +35,11 @@ function submit() {
     :title="$t('Create Language')"
     :back="route('admin.settings.languages.index')"
   >
+    <template #sub-navbar>
+      <SettingsDrawerContent />
+    </template>
     <VContainer>
-      <VRow justify="center">
+      <VRow>
         <VCol
           cols="12"
           sm="6"

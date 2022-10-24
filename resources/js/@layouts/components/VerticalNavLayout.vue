@@ -14,6 +14,7 @@ const drawer = ref(lgAndUp.value)
     :absolute="false"
     style="background: rgb(var(--v-theme-background))"
     class="layout-vertical-nav position-fixed"
+    theme="dark"
   >
     <slot name="navigation-drawer-content" />
   </VNavigationDrawer>

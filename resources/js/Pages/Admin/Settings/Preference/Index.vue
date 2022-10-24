@@ -1,5 +1,6 @@
 <script setup>
 import {useForm} from "@inertiajs/inertia-vue3"
+import SettingsDrawerContent from '@/Pages/Admin/Settings/SettingsDrawerContent.vue'
 
 const props = defineProps({
   currencies: {
@@ -38,90 +39,86 @@ function updateSettings() {
 </script>
 
 <template>
-  <AdminLayout>
+  <AdminLayout :title="$t('Preferences')">
+    <template #sub-navbar>
+      <SettingsDrawerContent />
+    </template>
     <VContainer>
-      <VRow justify="center">
-        <VCol
-          cols="12"
-          sm="8"
-        >
-          <VForm @submit.prevent="updateSettings">
-            <VCard class="pa-3">
-              <VCardTitle>{{ $t('Preferences') }}</VCardTitle>
-              <VCardSubtitle>{{ $t('Default preferences for the system.') }}</VCardSubtitle>
-              <VCardText>
-                <VRow>
-                  <VCol
-                    class="12"
-                    sm="6"
-                  >
-                    <VSelect
-                      v-model="form.currency"
-                      :label="$t('Currency')"
-                      :items="currencies"
-                      persistent-hint
-                    />
-                  </VCol>
+      <VForm @submit.prevent="updateSettings">
+        <VCard class="pa-3">
+          <VCardTitle>{{ $t('Preferences') }}</VCardTitle>
+          <VCardSubtitle>{{ $t('Default preferences for the system.') }}</VCardSubtitle>
+          <VCardText>
+            <VRow>
+              <VCol
+                class="12"
+                sm="6"
+              >
+                <VSelect
+                  v-model="form.currency"
+                  :label="$t('Currency')"
+                  :items="currencies"
+                  persistent-hint
+                />
+              </VCol>
 
-                  <VCol
-                    class="12"
-                    sm="6"
-                  >
-                    <VSelect
-                      v-model="form.language"
-                      :label="$t('Default Language')"
-                      :items="languages"
-                    />
-                  </VCol>
+              <VCol
+                class="12"
+                sm="6"
+              >
+                <VSelect
+                  v-model="form.language"
+                  :label="$t('Default Language')"
+                  :items="languages"
+                />
+              </VCol>
 
-                  <VCol
-                    class="12"
-                    sm="6"
-                  >
-                    <VSelect
-                      v-model="form.time_zone"
-                      :label="$t('Time Zone')"
-                      :items="timeZones"
-                    />
-                  </VCol>
+              <VCol
+                class="12"
+                sm="6"
+              >
+                <VSelect
+                  v-model="form.time_zone"
+                  :label="$t('Time Zone')"
+                  :items="timeZones"
+                />
+              </VCol>
 
-                  <VCol
-                    class="12"
-                    sm="6"
-                  >
-                    <VSelect
-                      v-model="form.date_format"
-                      :label="$t('Date Format')"
-                      :items="dateFormatters"
-                    />
-                  </VCol>
+              <VCol
+                class="12"
+                sm="6"
+              >
+                <VSelect
+                  v-model="form.date_format"
+                  :label="$t('Date Format')"
+                  :items="dateFormatters"
+                />
+              </VCol>
 
-                  <VCol
-                    class="12"
-                    sm="6"
-                  >
-                    <VSelect
-                      v-model="form.financial_year"
-                      :label="$t('Financial Year')"
-                      :items="financialYears"
-                    />
-                  </VCol>
+              <VCol
+                class="12"
+                sm="6"
+              >
+                <VSelect
+                  v-model="form.financial_year"
+                  :label="$t('Financial Year')"
+                  :items="financialYears"
+                />
+              </VCol>
 
-                  <VCol cols="12">
-                    <VBtn
-                      :loading="form.processing"
-                      type="submit"
-                    >
-                      <VIcon icon="mdi-content-save" />
-                      {{ $t('Save') }}
-                    </VBtn>
-                  </VCol>
-                </VRow>
-              </VCardText>
-            </VCard>
-          </VForm>
-        </VCol>
-      </VRow>
+              <VCol cols="12">
+                <VBtn
+                  :loading="form.processing"
+                  type="submit"
+                >
+                  <VIcon icon="mdi-content-save" />
+                  {{ $t('Save') }}
+                </VBtn>
+              </VCol>
+            </VRow>
+          </VCardText>
+        </VCard>
+      </VForm>
     </VContainer>
   </AdminLayout>
 </template>

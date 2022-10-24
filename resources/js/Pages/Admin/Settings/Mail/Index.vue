@@ -4,6 +4,7 @@ import Smtp from "@/Pages/Admin/Settings/Mail/MailDriver/Smtp.vue"
 import Basic from "@/Pages/Admin/Settings/Mail/MailDriver/Basic.vue"
 import Mailgun from "@/Pages/Admin/Settings/Mail/MailDriver/Mailgun.vue"
 import Ses from "@/Pages/Admin/Settings/Mail/MailDriver/Ses.vue"
+import SettingsDrawerContent from '@/Pages/Admin/Settings/SettingsDrawerContent.vue'
 import {computed} from "vue"
 
 const props = defineProps({
@@ -34,34 +35,29 @@ function onChangeDriver() {
 
 <template>
   <AdminLayout :title="$t('Mail Configuration')">
+    <template #sub-navbar>
+      <SettingsDrawerContent />
+    </template>
     <VContainer>
-      <VRow justify="center">
-        <VCol
-          cols="12"
-          sm="8"
-        >
-          <VCard class="pa-2">
-            <VCardTitle>{{ $t('Mail Configuration') }}</VCardTitle>
-            <VCardText>
-              <p>{{ $t('Below is the form for Configuring Email driver for sending emails from the app. You can also configure third party providers like Sendgrid, SES etc.') }}</p>
+      <VCard class="pa-2">
+        <VCardTitle>{{ $t('Mail Configuration') }}</VCardTitle>
+        <VCardText>
+          <p>{{ $t('Below is the form for Configuring Email driver for sending emails from the app. You can also configure third party providers like Sendgrid, SES etc.') }}</p>
 
-              <Component
-                :is="mailDriverComponent"
-                @on-change-driver="onChangeDriver"
+          <Component
+            :is="mailDriverComponent"
+            @on-change-driver="onChangeDriver"
+          >
+            <VCol cols="12">
+              <VBtn
+                type="submit"
               >
-                <VCol cols="12">
-                  <VBtn
-                    type="submit"
-                  >
-                    {{ $t('Save') }}
-                  </VBtn>
-                </VCol>
-              </Component>
-            </VCardText>
-
-          </VCard>
-        </VCol>
-      </VRow>
+                {{ $t('Save') }}
+              </VBtn>
+            </VCol>
+          </Component>
+        </VCardText>
+      </VCard>
     </VContainer>
   </AdminLayout>
 </template>

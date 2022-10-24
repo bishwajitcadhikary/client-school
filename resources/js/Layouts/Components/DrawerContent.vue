@@ -28,7 +28,7 @@ const upgradeBanner = computed(() => {
 
       <Transition name="vertical-nav-app-title">
         <h1 class="font-weight-semibold leading-normal text-xl text-uppercase">
-          Panel
+          {{ $page.props.app.name }}
         </h1>
       </Transition>
     </Link>
@@ -52,32 +52,26 @@ const upgradeBanner = computed(() => {
         class: {'active' : route().current('admin.settings.*')}
       }"
     />
-    <VerticalNavLink
-      :item="{
-        title: 'Mail Configuration',
-        href: route('admin.settings.mail.index'),
-        icon: { icon: 'mdi-envelope' },
-        class: {'active' : route().current('admin.settings.mail.*')}
-      }"
-    />
-    <!-- 👉 Pages -->
+
     <VerticalNavSectionTitle :item="{ heading: 'Pages' }" />
   </ul>
 
   <!-- 👉 illustration -->
+<!--
   <a
-    href="https://themeselection.com/item/materio-vuetify-vuejs-admin-template"
-    target="_blank"
-    rel="noopener noreferrer"
+  href="https://themeselection.com/item/materio-vuetify-vuejs-admin-template"
+  target="_blank"
+  rel="noopener noreferrer"
   >
-    <img
-      :src="upgradeBanner"
-      alt="upgrade-banner"
-      transition="scale-transition"
-      class="upgrade-banner mx-auto"
-      style="max-width: 230px"
-    >
+  <img
+  :src="upgradeBanner"
+  alt="upgrade-banner"
+  transition="scale-transition"
+  class="upgrade-banner mx-auto"
+  style="max-width: 230px"
+  >
   </a>
+-->
 </template>
 
 <style lang="scss">
