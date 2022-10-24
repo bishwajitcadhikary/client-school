@@ -54,30 +54,6 @@ const upgradeBanner = computed(() => {
     />
     <VerticalNavLink
       :item="{
-        title: 'Roles',
-        href: route('admin.settings.roles.index'),
-        icon: { icon: 'mdi-account-cog-outline' },
-        class: {'active' : route().current('admin.settings.roles.*')}
-      }"
-    />
-    <VerticalNavLink
-      :item="{
-        title: 'File Disks',
-        href: route('admin.settings.file-disks.index'),
-        icon: { icon: 'mdi-account-cog-outline' },
-        class: {'active' : route().current('admin.settings.file-disks.*')}
-      }"
-    />
-    <VerticalNavLink
-      :item="{
-        title: 'Backups',
-        href: route('admin.settings.backups.index'),
-        icon: { icon: 'mdi-account-cog-outline' },
-        class: {'active' : route().current('admin.settings.backups.*')}
-      }"
-    />
-    <VerticalNavLink
-      :item="{
         title: 'Mail Configuration',
         href: route('admin.settings.mail.index'),
         icon: { icon: 'mdi-envelope' },
