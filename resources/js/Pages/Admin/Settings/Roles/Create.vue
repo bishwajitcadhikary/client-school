@@ -1,6 +1,8 @@
 <script setup>
 import {useForm} from "@inertiajs/inertia-vue3"
 
+import SettingsDrawerContent from '@/Pages/Admin/Settings/SettingsDrawerContent.vue'
+
 const form = useForm({
   name: null,
 })
@@ -15,6 +17,9 @@ function submit() {
     :title="$t('Create Role')"
     :back="route('admin.settings.roles.index')"
   >
+    <template #sub-navbar>
+      <SettingsDrawerContent />
+    </template>
     <VContainer>
       <VRow justify="center">
         <VCol

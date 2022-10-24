@@ -1,6 +1,8 @@
 <script setup>
 import {ref,inject} from "vue"
 import {useForm} from "@inertiajs/inertia-vue3"
+import SettingsDrawerContent from '@/Pages/Admin/Settings/SettingsDrawerContent.vue'
+
 defineProps({
   disks: {
     type: Object,
@@ -36,6 +38,9 @@ function destroy() {
       icon: 'mdi-plus'
     }"
   >
+    <template #sub-navbar>
+      <SettingsDrawerContent />
+    </template>
     <VContainer>
       <VRow justify="center">
         <VCol
@@ -69,15 +74,19 @@ function destroy() {
                       <td class="pa-1">
                         <VBtnToggle divided>
                           <VBtn
-size="small"
-                                @click="$inertia.visit(route('admin.settings.file-disks.edit', {file_disk: disk.id}))"
-variant="outlined" color="primary" icon="mdi-edit"
-/>
+                            size="small"
+                            variant="outlined"
+                            color="primary"
+                            icon="mdi-edit"
+                            @click="$inertia.visit(route('admin.settings.file-disks.edit', {file_disk: disk.id}))"
+                          />
                           <VBtn
-size="small"
-                                @click.stop="dialog = true; deletableId = disk.id"
-variant="outlined" color="primary" icon="mdi-trash"
-/>
+                            size="small"
+                            variant="outlined"
+                            color="primary"
+                            icon="mdi-trash"
+                            @click.stop="dialog = true; deletableId = disk.id"
+                          />
                         </VBtnToggle>
                       </td>
                     </tr>
@@ -99,7 +108,7 @@ variant="outlined" color="primary" icon="mdi-trash"
                   </VCardText>
 
                   <VCardActions>
-                    <VSpacer/>
+                    <VSpacer />
 
                     <VBtn
                       @click="dialog = false"

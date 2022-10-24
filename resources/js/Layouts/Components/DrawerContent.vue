@@ -14,13 +14,6 @@ const vuetifyTheme = useTheme()
 const upgradeBanner = computed(() => {
   return vuetifyTheme.global.name.value === 'light' ? upgradeBannerLight : upgradeBannerDark
 })
-
-const items = [
-  { title: 'Click Me' },
-  { title: 'Click Me' },
-  { title: 'Click Me' },
-  { title: 'Click Me 2' },
-]
 </script>
 
 <template>
@@ -49,6 +42,14 @@ const items = [
         href: route('admin.dashboard.index'),
         icon: { icon: 'mdi-home-outline' },
         class: {'active' : route().current('admin.dashboard.*')}
+      }"
+    />
+    <VerticalNavLink
+      :item="{
+        title: 'Settings',
+        href: route('admin.settings.account-settings.index'),
+        icon: { icon: 'mdi-cog-outline' },
+        class: {'active' : route().current('admin.settings.*')}
       }"
     />
     <VerticalNavLink

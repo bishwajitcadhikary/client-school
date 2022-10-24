@@ -18,7 +18,7 @@ const avatarBadgeProps = {
       color="primary"
       variant="tonal"
     >
-      <VImg :src="avatar1"/>
+      <VImg :src="$page.props.auth.user.profile_photo_url" />
 
       <!-- SECTION Menu -->
       <VMenu
@@ -38,21 +38,21 @@ const avatarBadgeProps = {
                     size="40"
                     variant="tonal"
                   >
-                    <VImg :src="avatar1"/>
+                    <VImg :src="$page.props.auth.user.profile_photo_url" />
                   </VAvatar>
                 </VBadge>
               </VListItemAction>
             </template>
 
             <VListItemTitle class="font-weight-semibold">
-              John Doe
+              {{ $page.props.auth.user.name }}
             </VListItemTitle>
             <VListItemSubtitle class="text-disabled">
-              Admin
+              {{ $page.props.auth.user.email }}
             </VListItemSubtitle>
           </VListItem>
 
-          <VDivider class="my-2"/>
+          <VDivider class="my-2" />
 
           <!-- 👉 Profile -->
           <VListItem link>
@@ -64,65 +64,28 @@ const avatarBadgeProps = {
               />
             </template>
 
-            <VListItemTitle>Profile</VListItemTitle>
-          </VListItem>
-
-          <!-- 👉 Settings -->
-          <VListItem link>
-            <template #prepend>
-              <VIcon
-                class="me-2"
-                icon="mdi-cog-outline"
-                size="22"
-              />
-            </template>
-
-            <VListItemTitle>Settings</VListItemTitle>
-          </VListItem>
-
-          <!-- 👉 Pricing -->
-          <VListItem link>
-            <template #prepend>
-              <VIcon
-                class="me-2"
-                icon="mdi-currency-usd"
-                size="22"
-              />
-            </template>
-
-            <VListItemTitle>Pricing</VListItemTitle>
-          </VListItem>
-
-          <!-- 👉 FAQ -->
-          <VListItem link>
-            <template #prepend>
-              <VIcon
-                class="me-2"
-                icon="mdi-help-circle-outline"
-                size="22"
-              />
-            </template>
-
-            <VListItemTitle>FAQ</VListItemTitle>
+            <VListItemTitle @click="$inertia.visit(route('admin.settings.account-settings.index'))">
+              {{ $t('Profile') }}
+            </VListItemTitle>
           </VListItem>
 
           <!-- Divider -->
-          <VDivider class="my-2"/>
+          <VDivider class="my-2" />
 
           <!-- 👉 Logout -->
-          <Link method="post" :href="route('logout')">
-            <VListItem>
-              <template #prepend>
-                <VIcon
-                  class="me-2"
-                  icon="mdi-logout-variant"
-                  size="22"
-                />
-              </template>
+          <VListItem @click="$inertia.post(route('logout'))">
+            <template #prepend>
+              <VIcon
+                class="me-2"
+                icon="mdi-logout-variant"
+                size="22"
+              />
+            </template>
 
-              <VListItemTitle>Logout</VListItemTitle>
-            </VListItem>
-          </Link>
+            <VListItemTitle>
+              {{ $t('Logout') }}
+            </VListItemTitle>
+          </VListItem>
         </VList>
       </VMenu>
       <!-- !SECTION -->

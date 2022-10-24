@@ -1,5 +1,6 @@
 <script setup>
 import {useForm} from "@inertiajs/inertia-vue3"
+import SettingsDrawerContent from '@/Pages/Admin/Settings/SettingsDrawerContent.vue'
 
 const props = defineProps({
   local_root: {
@@ -43,6 +44,10 @@ function submit() {
     :title="$t('Add New Disk')"
     :back="route('admin.settings.file-disks.index')"
   >
+    <template #sub-navbar>
+      <SettingsDrawerContent />
+    </template>
+
     <VRow justify="center">
       <VCol
         cols="12"

@@ -2,6 +2,7 @@
 import {inject,ref} from "vue"
 import rules from "@/plugins/rules"
 import {useForm} from "@inertiajs/inertia-vue3"
+import SettingsDrawerContent from '@/Pages/Admin/Settings/SettingsDrawerContent.vue'
 
 const props = defineProps({
   languages: {
@@ -45,6 +46,9 @@ function submit() {
 
 <template>
   <AdminLayout :title="$t('Account Settings')">
+    <template #sub-navbar>
+      <SettingsDrawerContent />
+    </template>
     <VContainer>
       <VRow justify="center">
         <VCol

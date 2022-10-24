@@ -31,8 +31,17 @@ class User extends Authenticatable implements MustVerifyEmail
         'email_verified_at' => 'datetime',
     ];
 
+    protected $appends = [
+        'profile_photo_url'
+    ];
+
     public function getAvatarUrl()
     {
         return asset($this->attributes['avatar']);
+    }
+
+    public function getProfilePhotoUrlAttribute()
+    {
+        return asset($this->avatar);
     }
 }

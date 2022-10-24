@@ -3,9 +3,17 @@ import avatar1 from '@/assets/images/avatars/avatar-1.png'
 import avatar2 from '@/assets/images/avatars/avatar-2.png'
 import avatar3 from '@/assets/images/avatars/avatar-3.png'
 import avatar4 from '@/assets/images/avatars/avatar-4.png'
-import {ref} from "vue";
-import {useForm} from "@inertiajs/inertia-vue3";
-import Pagination from "@/Components/Pagination.vue";
+import {ref} from "vue"
+import {useForm} from "@inertiajs/inertia-vue3"
+import Pagination from "@/Components/Pagination.vue"
+import SettingsDrawerContent from '@/Pages/Admin/Settings/SettingsDrawerContent.vue'
+
+defineProps({
+  roles: {
+    type: Object,
+    default: null,
+  },
+})
 
 const avatars = [
   avatar1,
@@ -14,24 +22,17 @@ const avatars = [
   avatar4,
 ]
 
-defineProps({
-  roles: {
-    type: Object,
-    default: null
-  }
-})
-
 const dialog = ref(false)
 const menuRef = ref()
 
 function destroy(id) {
   // TODO:: Hide menu
-  dialog.value = false;
+  dialog.value = false
 
   useForm({}).delete(route('admin.settings.roles.destroy', {role: id}), {
     onFinish: params => {
 
-    }
+    },
   })
 }
 </script>
@@ -47,89 +48,97 @@ function destroy(id) {
       }
     ]"
   >
-    <v-container class="grey lighten-5">
-      <v-row>
-        <v-col
+    <template #sub-navbar>
+      <SettingsDrawerContent />
+    </template>
+    <VContainer class="grey lighten-5">
+      <VRow>
+        <VCol
           v-for="(role, index) in roles.data"
           :key="index"
           cols="12"
           sm="4"
         >
-          <v-card class="pa-3">
-            <v-card-item>
-              <v-card-title>
+          <VCard class="pa-3">
+            <VCardItem>
+              <VCardTitle>
                 {{ role.name }}
-              </v-card-title>
+              </VCardTitle>
 
               <template #append>
-                <v-menu activator="parent" location="start" close-on-click ref="menuRef">
-                  <template v-slot:activator="{ props }">
-                    <v-btn
+                <VMenu
+                  ref="menuRef"
+                  activator="parent"
+                  location="start"
+                  close-on-click
+                >
+                  <template #activator="{ props }">
+                    <VBtn
                       icon
                       color="default"
                       size="x-small"
                       variant="text"
                       v-bind="props"
                     >
-                      <v-icon
+                      <VIcon
                         size="24"
                         icon="mdi-dots-vertical"
                       />
-                    </v-btn>
+                    </VBtn>
                   </template>
-                  <v-list>
-                    <v-list-item value="1">
-                      <v-list-item-title @click="$inertia.visit(route('admin.settings.roles.edit', {role: role.id}))">
+                  <VList>
+                    <VListItem value="1">
+                      <VListItemTitle @click="$inertia.visit(route('admin.settings.roles.edit', {role: role.id}))">
                         {{ $t('Edit') }}
-                      </v-list-item-title>
-                    </v-list-item>
+                      </VListItemTitle>
+                    </VListItem>
 
-                    <v-list-item value="2">
-                      <v-list-item-title @click="$inertia.visit(route('admin.settings.roles.assign-permission', {role: role.id}))">
+                    <VListItem value="2">
+                      <VListItemTitle @click="$inertia.visit(route('admin.settings.roles.assign-permission', {role: role.id}))">
                         {{ $t('Assign Permission') }}
-                      </v-list-item-title>
-                    </v-list-item>
+                      </VListItemTitle>
+                    </VListItem>
 
-                    <v-list-item value="3">
-                      <v-list-item-title @click.stop="dialog = true">
+                    <VListItem value="3">
+                      <VListItemTitle @click.stop="dialog = true">
                         {{ $t('Delete') }}
-                      </v-list-item-title>
-                      <v-dialog
+                      </VListItemTitle>
+                      <VDialog
                         v-model="dialog"
                         max-width="290"
                       >
-                        <v-card class="pa-3">
-                          <v-card-title class="text-h5 text-center">
+                        <VCard class="pa-3">
+                          <VCardTitle class="text-h5 text-center">
                             {{ $t('Are your sure?') }}
-                          </v-card-title>
+                          </VCardTitle>
 
-                          <v-card-text class="text-center">
+                          <VCardText class="text-center">
                             <p>{{ $t('Action cannot be undone') }}</p>
-                          </v-card-text>
+                          </VCardText>
 
-                          <v-card-actions>
-                            <v-spacer></v-spacer>
+                          <VCardActions>
+                            <VSpacer />
 
-                            <v-btn
+                            <VBtn
                               @click="dialog = false"
                             >
                               {{ $t('Cancel') }}
-                            </v-btn>
+                            </VBtn>
 
-                            <v-btn
+                            <VBtn
                               color="error"
                               @click.stop="destroy(role.id)"
                             >
                               {{ $t('Delete') }}
-                            </v-btn>
-                          </v-card-actions>
-                        </v-card>
-                      </v-dialog>
-                    </v-list-item>
-                  </v-list>
-                </v-menu>
+                            </VBtn>
+                          </VCardActions>
+                        </VCard>
+                      </VDialog>
+                    </VListItem>
+                  </VList>
+                </VMenu>
               </template>
-            </v-card-item>
+            </VCardItem>
 
             <VCardText class="position-relative">
               <div class="d-flex justify-space-between align-center">
@@ -145,10 +154,10 @@ function destroy(id) {
                 </div>
               </div>
             </VCardText>
-          </v-card>
-        </v-col>
-      </v-row>
-      <Pagination :pagination="roles"></Pagination>
-    </v-container>
+          </VCard>
+        </VCol>
+      </VRow>
+      <Pagination :pagination="roles" />
+    </VContainer>
   </AdminLayout>
 </template>

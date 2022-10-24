@@ -1,15 +1,16 @@
 <script setup>
-import {useForm} from "@inertiajs/inertia-vue3";
+import {useForm} from "@inertiajs/inertia-vue3"
+import SettingsDrawerContent from '@/Pages/Admin/Settings/SettingsDrawerContent.vue'
 
 const props = defineProps({
   role: {
     type: Object,
-    required: true
-  }
+    required: true,
+  },
 })
 
 const form = useForm({
-  name: props.role.name
+  name: props.role.name,
 })
 
 function submit() {
@@ -18,40 +19,49 @@ function submit() {
 </script>
 
 <template>
-  <AdminLayout :title="$t('Edit Role')" :back="route('admin.settings.roles.index')">
-    <v-container>
-      <v-row justify="center">
-        <v-col cols="12" sm="6">
-          <v-card>
-            <v-card-text>
-              <v-form @submit.prevent="submit">
-                <v-col
+  <AdminLayout
+    :title="$t('Edit Role')"
+    :back="route('admin.settings.roles.index')"
+  >
+    <template #sub-navbar>
+      <SettingsDrawerContent />
+    </template>
+    <VContainer>
+      <VRow justify="center">
+        <VCol
+          cols="12"
+          sm="6"
+        >
+          <VCard>
+            <VCardText>
+              <VForm @submit.prevent="submit">
+                <VCol
                   cols="12"
                 >
-                  <v-text-field
+                  <VTextField
                     v-model="form.name"
                     :label="$t('Name')"
                     :error-messages="form.errors.name"
                     outlined
                     dense
                   />
-                </v-col>
+                </VCol>
 
-                <v-col cols="12">
-                  <v-btn
+                <VCol cols="12">
+                  <VBtn
                     :loading="form.processing"
                     type="submit"
                     block
                   >
-                    <v-icon>mdi-content-save</v-icon>
+                    <VIcon>mdi-content-save</VIcon>
                     {{ $t('Submit') }}
-                  </v-btn>
-                </v-col>
-              </v-form>
-            </v-card-text>
-          </v-card>
-        </v-col>
-      </v-row>
-    </v-container>
+                  </VBtn>
+                </VCol>
+              </VForm>
+            </VCardText>
+          </VCard>
+        </VCol>
+      </VRow>
+    </VContainer>
   </AdminLayout>
 </template>

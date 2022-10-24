@@ -96,6 +96,7 @@ onMounted(() => {
           </div>
         </VContainer>
 
+        <slot name="sub-navbar" />
         <slot />
       </DefaultLayoutWithVerticalNav>
       <!--      <BuyNow/> -->
