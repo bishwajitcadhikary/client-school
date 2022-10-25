@@ -21,6 +21,12 @@ const menus = [
     active: route().current('admin.settings.preferences.*'),
   },
   {
+    title: trans('Gateways'),
+    href: route('admin.settings.gateways.index'),
+    icon: 'mdi-credit-card-outline',
+    active: route().current('admin.settings.gateways.*'),
+  },
+  {
     title: trans('Roles'),
     href: route('admin.settings.roles.index'),
     icon: 'mdi-shield-star',

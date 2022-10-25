@@ -21,7 +21,7 @@ class GatewayController extends Controller
 
     public function create()
     {
-        $currencies = Currency::selectRaw('code as title, id as value')->get();
+        $currencies = Currency::selectRaw('code as title, id as value, rate, code')->get();
 
         return Inertia::render('Admin/Settings/Gateway/Create', [
             'currencies' => $currencies

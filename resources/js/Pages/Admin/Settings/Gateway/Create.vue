@@ -14,10 +14,11 @@ const props = defineProps({
 const Notification = inject('Notification')
 const form = useForm({
   name: null,
+  logo: null,
   currency: null,
   code: null,
-  is_active: null,
-  is_default: null,
+  rate: null,
+  status: null,
 })
 
 function submit() {
@@ -28,6 +29,10 @@ function submit() {
       }
     },
   })
+}
+
+function selectCurrency(e) {
+  form.rate = props.currencies.find(c => c.value == e)?.rate
 }
 </script>
 
@@ -58,7 +63,7 @@ function submit() {
                 />
 
                 <VFileInput
-                  clear-icon
+                  :prepend-icon="false"
                   class="mb-5"
                   accept="image/png, image/jpeg, image/jpg"
                   :label="$t('Logo')"
@@ -66,11 +71,27 @@ function submit() {
                   :placeholder="$t('Pick gateway logo')"
                 />
 
+                <VSelect
+                  v-model="form.currency"
+                  class="mb-5"
+                  :label="$t('Gateway Code')"
+                  :items="currencies"
+                  :rules="[rules.required]"
+                  :error-messages="form.errors.currency"
+                  @update:modelValue="selectCurrency"
+                />
+
                 <VTextField
                   v-model="form.code"
                   class="mb-5"
                   :label="$t('Gateway Code')"
-                  :rules="[rules.required]"
+                  disabled
+                />
+
+                <VTextField
+                  v-model="form.rate"
+                  class="mb-5"
+                  :label="$t('Gateway Rate')"
                   disabled
                 />
 
