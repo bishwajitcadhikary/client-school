@@ -141,7 +141,7 @@ class EnvironmentManager
                     'MAIL_PORT='.$ses['mail_port']."\n".
                     'MAIL_USERNAME='.config('mail.username')."\n".
                     'MAIL_PASSWORD='.config('mail.password')."\n".
-                    'MAIL_ENCRYPTION='.$ses['mail_encryption']."\n\n".
+                    'MAIL_ENCRYPTION='.$ses['mail_encryption']."\n".
                     'MAIL_FROM_ADDRESS='.$ses['mail_from_mail']."\n".
                     'MAIL_FROM_NAME="'.$ses['mail_from_name']."\"\n";
 
