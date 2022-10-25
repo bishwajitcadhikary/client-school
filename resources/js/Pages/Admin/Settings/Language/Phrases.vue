@@ -16,13 +16,14 @@ const props = defineProps({
 const valid = ref(false)
 const phraseForm = ref()
 const form = useForm({
+  _method: "PUT",
   phrases: props.phrases,
 })
 
 
 function submit() {
   if (!!valid.value){
-    form.put(route('admin.settings.languages.update-phrases', {language: props.language.id}),{
+    form.post(route('admin.settings.languages.update-phrases', {language: props.language.id}),{
       onSuccess: page => {
         if(page.props.flash.error){
           Notification.error(page.props.flash.error)
