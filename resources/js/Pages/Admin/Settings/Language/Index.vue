@@ -31,8 +31,9 @@ const statusForm = useForm({
 
 function updateLanguageStatus(key, id) {
   useForm({
+    _method: 'PUT',
     is_active: statusForm.statuses[key],
-  }).put(route('admin.settings.languages.change-status', {language: id}), {
+  }).post(route('admin.settings.languages.change-status', {language: id}), {
 
     onSuccess: page => {
       if (page.props.flash.success){
@@ -51,8 +52,9 @@ const defaultForm = useForm({
 })
 function changeDefaultLanguage(key, id) {
   useForm({
+    _method: 'PUT',
     is_default: statusForm.statuses[key],
-  }).put(route('admin.settings.languages.change-default', {language: id}), {
+  }).post(route('admin.settings.languages.change-default', {language: id}), {
     onSuccess: page => {
       if (page.props.flash.success){
         Notification.success(page.props.flash.success)
