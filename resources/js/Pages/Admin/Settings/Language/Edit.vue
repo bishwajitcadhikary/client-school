@@ -13,6 +13,7 @@ const props = defineProps({
 
 const Notification = inject('Notification')
 const form = useForm({
+  _method: "PUT",
   name: props.language.name,
   code: props.language.code,
   is_active: !!props.language.is_active,
@@ -20,7 +21,7 @@ const form = useForm({
 })
 
 function submit() {
-  form.put(route('admin.settings.languages.update', {language: props.language.id}),{
+  form.post(route('admin.settings.languages.update', {language: props.language.id}),{
     onSuccess: page => {
       if(page.props.flash.error){
         Notification.error(page.props.flash.error)
