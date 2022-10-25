@@ -26,7 +26,7 @@ jobs:
       - name: Install JS
         run: yarn install
       - name: Build JS
-        run: yarn dev
+        run: yarn build
 #      - name: Create Database
 #        run: |
 #          mkdir -p database
