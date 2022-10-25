@@ -12,10 +12,10 @@ jobs:
       runs-on: ubuntu-latest
       container: 'ohseemedia/laravel-ci:7.3'
       steps:
-        - uses: actions/checkout@v1
+        - uses: actions/checkout@v3
         - run: yarn install
         - run: yarn build
-        
+
   laravel-tests:
 
     runs-on: ubuntu-latest
