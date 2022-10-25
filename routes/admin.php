@@ -11,6 +11,9 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth', 'v
     });
     Route::get('dashboard', fn() => Inertia::render('Admin/Dashboard/Index'))->name('dashboard.index');
 
+    //Modules
+    Route::resource('customers', Admin\CustomerController::class);
+
     Route::group(['prefix' => 'settings', 'as' => 'settings.'], function (){
         Route::get('roles/assign-permissions/{role}', [Settings\RoleController::class, 'assignPermission'])->name('roles.assign-permission');
         Route::put('roles/assign-permissions/{role}/update', [Settings\RoleController::class, 'assignPermissionUpdate'])->name('roles.assign-permission-update');
@@ -32,5 +35,6 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth', 'v
         Route::get('languages/edit-phrases/{language}', [Settings\LanguageController::class, 'editPhrases'])->name('languages.edit-phrases');
         Route::put('languages/update-phrases/{language}', [Settings\LanguageController::class, 'updatePhrases'])->name('languages.update-phrases');
         Route::resource('languages', Settings\LanguageController::class);
+        Route::resource('gateways', Settings\GatewayController::class);
     });
 });

@@ -84,5 +84,10 @@
     "Language file not found": "Language file not found",
     "Language set as default": "Default Language Set Successfully",
   "Logout": "Logout",
-  "Close": "Close"
+  "Close": "Close",
+  "Preferences Updated Successfully": "",
+    "Balance": "",
+    "Registered At": "",
+    "Status": "",
+    "Suspended": ""
 }

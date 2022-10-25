@@ -3,8 +3,12 @@ import {useForm} from "@inertiajs/inertia-vue3"
 import SettingsDrawerContent from '@/Pages/Admin/Settings/SettingsDrawerContent.vue'
 
 const props = defineProps({
-  currencies: {
+  settings: {
     type: Object,
+    default: null,
+  },
+  currencies: {
+    type: Array,
     default: null,
   },
   languages: {
@@ -26,15 +30,16 @@ const props = defineProps({
 })
 
 const form = useForm({
-  currency: null,
-  language: null,
-  time_zone: null,
-  date_format: null,
-  financial_year: null,
+  _method: 'PUT',
+  currency: props.currencies.find(c => c.value == props.settings?.currency),
+  language: props.languages.find(c => c.value == props.settings?.language),
+  time_zone: props.timeZones.find(c => c.value == props.settings?.time_zone),
+  date_format: props.dateFormatters.find(c => c.value == props.settings?.date_format),
+  financial_year: props.financialYears.find(c => c.value == props.settings?.financial_year),
 })
 
 function updateSettings() {
-  form.put(route('admin.settings.preferences.update'))
+  form.post(route('admin.settings.preferences.update'))
 }
 </script>
 
@@ -58,7 +63,7 @@ function updateSettings() {
                   v-model="form.currency"
                   :label="$t('Currency')"
                   :items="currencies"
-                  persistent-hint
+                  disabled
                 />
               </VCol>
 

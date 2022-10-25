@@ -48,8 +48,8 @@ class DateFormatter
         foreach (static::$formats as $format) {
             $new[] = [
                 "title" => Carbon::now()->format($format['carbon_format']) ,
-                "value" => $format['carbon_format'],
-                "moment_format_value" => $format['moment_format'],
+                "carbon_format_value" => $format['carbon_format'],
+                "value" => $format['moment_format'],
             ];
         }
 

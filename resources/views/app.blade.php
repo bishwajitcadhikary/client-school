@@ -14,7 +14,7 @@
         <link rel="stylesheet" type="text/css" href="{{ asset('loader.css') }}" />
     </head>
     <div id="app" data-page="{{ json_encode($page) }}">
-        {{--<div id="loading-bg">
+        <div id="loading-bg">
             <div class="loading-logo">
                 <img src="{{ asset('logo.png') }}" height="50" alt="Logo" />
             </div>
@@ -23,7 +23,7 @@
                 <div class="effect-2 effects"></div>
                 <div class="effect-3 effects"></div>
             </div>
-        </div>--}}
+        </div>
     </div>
 
     <script>

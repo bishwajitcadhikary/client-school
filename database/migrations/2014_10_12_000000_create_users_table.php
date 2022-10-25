@@ -21,6 +21,8 @@ return new class extends Migration
             $table->string('phone')->nullable();
             $table->string('avatar')->default('static/avatar.png')->nullable();
             $table->string('language')->default('en');
+            $table->string('role')->default('customer');
+            $table->tinyInteger('status')->default(1)->comment('0 inactive, 1 active, 2 suspended');
 
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');

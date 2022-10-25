@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use App\Models\Setting;
 use Illuminate\Http\Request;
 use Inertia\Middleware;
 use Tightenco\Ziggy\Ziggy;
@@ -45,7 +46,8 @@ class HandleInertiaRequests extends Middleware
             },
             'app' => [
                 'name' => config('app.name'),
-                'url' => config('app.url')
+                'url' => config('app.url'),
+                'date_format' => Setting::getSetting('date_format')
             ],
             'flash' => [
                 'success' => fn () => $request->session()->get('success'),
