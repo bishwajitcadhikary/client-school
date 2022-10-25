@@ -20,6 +20,7 @@ const Notification = inject('Notification')
 const showPassword = ref(false)
 const showConfirmPassword = ref(false)
 const form = useForm({
+  _method: 'PUT',
   name: props.user.name,
   email: props.user.email,
   password: null,
@@ -28,7 +29,7 @@ const form = useForm({
 })
 
 function submit() {
-  form.put(route('admin.settings.account-settings.update'), {
+  form.post(route('admin.settings.account-settings.update'), {
     onSuccess: page => {
       if (page.props.flash.success){
         Notification.success(page.props.flash.success)
