@@ -1,5 +1,11 @@
 <script setup>
 import {trans} from "laravel-vue-i18n"
+import {useDisplay} from "vuetify"
+import {Inertia} from '@inertiajs/inertia'
+import {ref} from 'vue'
+
+const {lgAndUp, mdAndDown} = useDisplay()
+const drawer = ref(lgAndUp.value)
 
 const menus = [
   {
@@ -45,18 +51,42 @@ const menus = [
     active: route().current('admin.settings.mail.*'),
   },
 ]
+
+const selectMenu = menus.map(menu => {
+  return {
+    title: menu.title,
+    value: menu.href,
+    active: menu.active,
+  }
+})
+
+const currentMenu = ref(selectMenu.find(menu => menu.active))
+
+function onSelectMenu(href) {
+  Inertia.visit(href)
+}
 </script>
 
 <template>
+  <VSelect
+    v-if="!drawer"
+    v-model="currentMenu"
+    :items="selectMenu"
+    :label="$t('Select Menu')"
+    @update:modelValue="onSelectMenu"
+  />
+
   <VNavigationDrawer
+    v-if="drawer"
+    v-model="drawer"
     class="bg-deep-purple"
   >
     <VList density="compact">
       <VListItem
         v-for="(menu, index) in menus"
         :key="index"
-        :value="index"
         :active="menu.active"
+        :value="index"
         active-color="primary"
         @click.prevent="$inertia.visit(menu.href)"
       >

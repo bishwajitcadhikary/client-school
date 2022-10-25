@@ -1,5 +1,5 @@
 <script setup>
-import {inject,ref} from "vue"
+import {computed, inject, provide, ref} from "vue"
 import rules from "@/plugins/rules"
 import {useForm} from "@inertiajs/inertia-vue3"
 import SettingsDrawerContent from '@/Pages/Admin/Settings/SettingsDrawerContent.vue'
@@ -43,10 +43,15 @@ function submit() {
     },
   })
 }
+
+const adminLayout = ref()
 </script>
 
 <template>
-  <AdminLayout :title="$t('Account Settings')">
+  <AdminLayout
+    ref="adminLayout"
+    :title="$t('Account Settings')"
+  >
     <template #sub-navbar>
       <SettingsDrawerContent />
     </template>

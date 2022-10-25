@@ -1,44 +1,46 @@
 <script setup>
 import '@/@iconify/icons-bundle'
 import {loadFonts} from '@/plugins/webfontloader'
-
-defineProps({
-  title: {
-    type: String,
-    required: false,
-  },
-  action: {
-    type: Object,
-    required: false,
-  },
-  actions: {
-    type: Array,
-    required: false,
-  },
-  back: {
-    type: String,
-    required: false,
-  },
-})
-
-loadFonts()
-
 import BuyNow from '@core/components/BuyNow.vue'
 import DefaultLayoutWithVerticalNav from './Components/DefaultLayoutWithVerticalNav.vue'
 import {inject, onMounted} from "vue"
 import {usePage} from "@inertiajs/inertia-vue3"
 
+defineProps({
+  title: {
+    type: String,
+    default: null,
+  },
+  action: {
+    type: Object,
+    default: null,
+  },
+  actions: {
+    type: Array,
+    default: null,
+  },
+  back: {
+    type: String,
+    default: null,
+  },
+})
+
+loadFonts()
+
 const flash = usePage().props.value.flash
 const Notification = inject('Notification')
 
-onMounted(() => {
-  if (flash.success){
-    Notification.success(flash.success)
-  }
-  if (flash.error){
-    Notification.error(flash.error)
-  }
-})
+const snackbar = ref(false)
+const message = ref(null)
+
+if (flash.success){
+  snackbar.value = true
+  message.value = flash.success
+}
+if (flash.error){
+  snackbar.value = true
+  message.value = flash.success
+}
 </script>
 
 <template>
@@ -46,9 +48,11 @@ onMounted(() => {
     v-if="title"
     :title="title"
   />
+
   <VApp>
     <VLayout class="layout-wrapper layout-nav-type-vertical">
       <DefaultLayoutWithVerticalNav>
+        <slot name="sub-navbar" />
         <VContainer v-if="title || actions">
           <div class="d-flex justify-space-between align-center">
             <h3>{{ title }}</h3>
@@ -98,7 +102,6 @@ onMounted(() => {
           </div>
         </VContainer>
 
-        <slot name="sub-navbar" />
         <slot />
       </DefaultLayoutWithVerticalNav>
       <!--      <BuyNow/> -->
