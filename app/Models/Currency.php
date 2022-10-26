@@ -23,6 +23,12 @@ class Currency extends Model
         );
     }
 
+    public function scopeSelectOptions($query)
+    {
+        $query->where('is_active', '=', true)
+            ->selectRaw('name as title, id as value');
+    }
+
     public static function createCurrency(Request $request): Currency
     {
         $data = $request->validate([

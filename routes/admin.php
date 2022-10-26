@@ -12,6 +12,8 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth', 'v
     Route::get('dashboard', fn () => Inertia::render('Admin/Dashboard/Index'))->name('dashboard.index');
 
     //Modules
+    Route::put('customers/toggle-suspend/{customer}', [Admin\CustomerController::class, 'toggleSuspend'])->name('customers.toggle-suspend');
+    Route::put('customers/change-password/{customer}', [Admin\CustomerController::class, 'changePassword'])->name('customers.change-password');
     Route::resource('customers', Admin\CustomerController::class);
 
     Route::group(['prefix' => 'settings', 'as' => 'settings.'], function () {

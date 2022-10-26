@@ -19,12 +19,18 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->string('username')->unique();
             $table->string('phone')->nullable();
-            $table->string('language')->default('en');
+            $table->string('password');
+
             $table->string('role')->default('customer');
             $table->tinyInteger('status')->default(1)->comment('0 inactive, 1 active, 2 suspended');
+            $table->string('facebook_id')->nullable();
+            $table->string('google_id')->nullable();
+            $table->string('website')->nullable();
+            $table->string('language')->default('en');
 
+            $table->foreignId('created_by')->nullable()->constrained('users')->nullOnDelete();
+            $table->foreignId('currency_id')->nullable()->constrained('currencies')->nullOnDelete();
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
             $table->rememberToken();
             $table->timestamps();
             $table->softDeletes();

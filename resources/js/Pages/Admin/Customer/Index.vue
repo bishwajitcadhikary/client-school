@@ -1,7 +1,7 @@
 <script setup>
-import moment from "moment"
-import Pagination from "@/Components/Pagination.vue"
 import {inject} from "vue"
+import Pagination from "@/Components/Pagination.vue"
+import {useDeleteDialogStore} from "@/Stores/useDeleteDialogStore"
 
 const props = defineProps({
   customers: {
@@ -38,7 +38,9 @@ const dateFormat = inject('dateFormat')
                 {{ $t('Status') }}
               </th>
               <th>{{ $t('Registered At') }}</th>
-              <th />
+              <th class="text-center">
+                {{ $t('Actions') }}
+              </th>
             </tr>
           </thead>
           <tbody>
@@ -77,7 +79,43 @@ const dateFormat = inject('dateFormat')
                 </VChip>
               </td>
               <td>{{ dateFormat(customer.created_at) }}</td>
-              <td />
+              <td>
+                <VTooltip :text="$t('View Customer')">
+                  <template #activator="{ props }">
+                    <VBtn
+                      variant="plain"
+                      size="small"
+                      icon="mdi-eye-outline"
+                      v-bind="props"
+                      @click="$inertia.visit(route('admin.customers.show', {customer: customer.id}))"
+                    />
+                  </template>
+                </VTooltip>
+                <VTooltip :text="$t('Edit Customer')">
+                  <template #activator="{ props }">
+                    <VBtn
+                      variant="plain"
+                      size="small"
+                      icon="mdi-clipboard-edit-outline"
+                      v-bind="props"
+                      @click="$inertia.visit(route('admin.customers.edit', {customer: customer.id}))"
+                    />
+                  </template>
+                </VTooltip>
+                <VTooltip
+                  :text="$t('Delete Customer')"
+                >
+                  <template #activator="{props}">
+                    <VBtn
+                      variant="plain"
+                      size="small"
+                      icon="mdi-delete-outline"
+                      v-bind="props"
+                      @click="useDeleteDialogStore().showDialog(route('admin.customers.destroy', {customer: customer.id}))"
+                    />
+                  </template>
+                </VTooltip>
+              </td>
             </tr>
           </tbody>
         </VTable>

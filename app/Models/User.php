@@ -26,20 +26,6 @@ class User extends Authenticatable implements MustVerifyEmail, HasMedia
         'email_verified_at' => 'datetime',
     ];
 
-    protected $appends = [
-        'profile_photo_url',
-    ];
-
-    public function getAvatarUrl()
-    {
-        return asset($this->attributes['avatar']);
-    }
-
-    public function getProfilePhotoUrlAttribute()
-    {
-        return 'abcd.jpg';
-    }
-
     public function scopeWhereSearch($query, $search)
     {
         foreach (explode(' ', $search) as $term) {

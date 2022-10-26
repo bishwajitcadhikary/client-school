@@ -46,6 +46,7 @@ snackbarStore.showNotification(page)
           :title="title"
           :action="action"
           :actions="actions"
+          :back="back"
         >
           <template #actions>
             <slot name="actions" />
