@@ -9,7 +9,9 @@ use Illuminate\Http\Request;
 class FileDisk extends Model
 {
     use HasFactory;
+
     public const DISK_TYPE_SYSTEM = 'SYSTEM';
+
     public const DISK_TYPE_REMOTE = 'REMOTE';
 
     protected $guarded = [

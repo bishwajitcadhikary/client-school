@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 use App\Models\Language;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class LanguageSeeder extends Seeder
@@ -19,8 +18,8 @@ class LanguageSeeder extends Seeder
             [
                 'name' => 'English',
                 'code' => 'en',
-                'is_default' => true
-            ]
+                'is_default' => true,
+            ],
         ];
 
         foreach ($languages as $index => $language) {

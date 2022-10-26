@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Admin\Settings;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\Settings\Mail\MailEnvironmentRequest;
 use App\Space\EnvironmentManager;
-use Illuminate\Http\Request;
 use Inertia\Inertia;
 
 class MailController extends Controller
@@ -38,7 +37,7 @@ class MailController extends Controller
         ];
 
         return Inertia::render('Admin/Settings/Mail/Index', [
-            'mailConfig' => $mailConfig
+            'mailConfig' => $mailConfig,
         ]);
     }
 

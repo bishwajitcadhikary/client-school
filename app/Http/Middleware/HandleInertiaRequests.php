@@ -49,7 +49,7 @@ class HandleInertiaRequests extends Middleware
                 'name' => config('app.name'),
                 'url' => config('app.url'),
                 'date_format' => Setting::getSetting('date_format') ?? 'DD DDD, YYYY',
-                'currency' => Currency::whereIsDefault(true)->selectRaw('name, code, rate, id, symbol')->first()
+                'currency' => Currency::whereIsDefault(true)->selectRaw('name, code, rate, id, symbol')->first(),
             ],
             'flash' => [
                 'success' => fn () => $request->session()->get('success'),

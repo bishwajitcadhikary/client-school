@@ -3,7 +3,6 @@
 namespace App\Http\Requests\Admin\Settings\Mail;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Validation\Rule;
 
 class MailEnvironmentRequest extends FormRequest
 {

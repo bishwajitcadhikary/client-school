@@ -17,7 +17,7 @@ class GatewayController extends Controller
         $gateways = Gateway::with('currency')->latest()->paginate(10);
 
         return Inertia::render('Admin/Settings/Gateway/Index', [
-            'gateways' => $gateways
+            'gateways' => $gateways,
         ]);
     }
 
@@ -26,7 +26,7 @@ class GatewayController extends Controller
         $currencies = Currency::selectRaw('name as title, id as value, rate, code, symbol')->get();
 
         return Inertia::render('Admin/Settings/Gateway/Create', [
-            'currencies' => $currencies
+            'currencies' => $currencies,
         ]);
     }
 
@@ -37,10 +37,10 @@ class GatewayController extends Controller
             $gateway->addMedia($request->file('logo'))
                 ->toMediaCollection('logo');
 
-            Session::flash('success', __("Gateway Created Successfully"));
+            Session::flash('success', __('Gateway Created Successfully'));
 
             return to_route('admin.settings.gateways.index');
-        }catch (Throwable $e){
+        } catch (Throwable $e) {
             Session::flash('error', $e->getMessage());
         }
     }
@@ -48,7 +48,7 @@ class GatewayController extends Controller
     public function edit(Gateway $language)
     {
         return Inertia::render('Admin/Settings/Gateway/Edit', [
-            'language' => $language
+            'language' => $language,
         ]);
     }
 
@@ -57,9 +57,10 @@ class GatewayController extends Controller
         try {
             $language->updateGateway($request);
 
-            Session::flash('success', __("Gateway Updated Successfully"));
+            Session::flash('success', __('Gateway Updated Successfully'));
+
             return to_route('admin.settings.gateways.index');
-        }catch (Throwable $e){
+        } catch (Throwable $e) {
             Session::flash('error', $e->getMessage());
         }
     }
@@ -76,7 +77,7 @@ class GatewayController extends Controller
             $language->destroyGateway();
 
             Session::flash('success', __('Gateway Deleted Successfully'));
-        }catch (Throwable $e){
+        } catch (Throwable $e) {
             Session::flash('error', $e->getMessage());
         }
     }
@@ -84,19 +85,17 @@ class GatewayController extends Controller
     public function changeStatus(Request $request, Gateway $language)
     {
         $data = $request->validate([
-            'is_active' => ['required', 'boolean']
+            'is_active' => ['required', 'boolean'],
         ]);
 
         try {
             $language->update([
-                'is_active' => $data['is_active']
+                'is_active' => $data['is_active'],
             ]);
 
-            Session::flash('success', __("Gateway Status Changed Successfully"));
+            Session::flash('success', __('Gateway Status Changed Successfully'));
         } catch (Throwable $e) {
             Session::flash('error', $e->getMessage());
         }
     }
-
-
 }

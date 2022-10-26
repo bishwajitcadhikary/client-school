@@ -9,7 +9,6 @@ class EnvironmentManager
 {
     private $envPath;
 
-
     public function __construct()
     {
         $this->envPath = base_path('.env');
@@ -18,7 +17,6 @@ class EnvironmentManager
     public function saveMailVariables(MailEnvironmentRequest $request)
     {
         $mailData = $this->getMailData($request);
-
 
         try {
             file_put_contents($this->envPath, str_replace(
@@ -50,13 +48,14 @@ class EnvironmentManager
             'success' => 'mail_variables_save_successfully',
         ];
     }
+
     private function getMailData($request)
     {
-        $mailFromCredential = "";
-        $extraMailData = "";
-        $extraOldMailData = "";
-        $oldMailData = "";
-        $newMailData = "";
+        $mailFromCredential = '';
+        $extraMailData = '';
+        $extraOldMailData = '';
+        $oldMailData = '';
+        $newMailData = '';
 
         if (env('MAIL_FROM_ADDRESS') !== null && env('MAIL_FROM_NAME') !== null) {
             $mailFromCredential =
@@ -180,7 +179,6 @@ class EnvironmentManager
                     'MAIL_FROM_NAME="'.$basic['mail_from_name']."\"\n\n";
 
                 break;
-
         }
 
         return [

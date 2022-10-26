@@ -26,16 +26,16 @@ class Currency extends Model
     public static function createCurrency(Request $request): Currency
     {
         $data = $request->validate([
-            "name" => ['required', 'string', Rule::unique('currencies')],
-            "code" => ['required', 'string', Rule::unique('currencies')],
-            "rate" => ['required', 'numeric'],
-            "symbol" => ['required', 'string'],
-            "precision" => ['required', 'integer'],
-            "thousand_separator" => ['required', 'string'],
-            "decimal_separator" => ['required', 'string'],
-            "swap_currency_symbol" => 'nullable', ['boolean'],
-            "is_active" => ['nullable', 'boolean'],
-            "is_default" => ['nullable', 'boolean'],
+            'name' => ['required', 'string', Rule::unique('currencies')],
+            'code' => ['required', 'string', Rule::unique('currencies')],
+            'rate' => ['required', 'numeric'],
+            'symbol' => ['required', 'string'],
+            'precision' => ['required', 'integer'],
+            'thousand_separator' => ['required', 'string'],
+            'decimal_separator' => ['required', 'string'],
+            'swap_currency_symbol' => 'nullable', ['boolean'],
+            'is_active' => ['nullable', 'boolean'],
+            'is_default' => ['nullable', 'boolean'],
         ]);
 
         if ($request->is_default) {
@@ -48,16 +48,16 @@ class Currency extends Model
     public function updateCurrency(Request $request)
     {
         $data = $request->validate([
-            "name" => ['required', 'string', Rule::unique('currencies')->ignore($this->id)],
-            "code" => ['required', 'string', Rule::unique('currencies')->ignore($this->id)],
-            "rate" => ['required', 'numeric'],
-            "symbol" => ['required', 'string'],
-            "precision" => ['required', 'integer'],
-            "thousand_separator" => ['required', 'string'],
-            "decimal_separator" => ['required', 'string'],
-            "swap_currency_symbol" => 'nullable', ['boolean'],
-            "is_active" => ['nullable', 'boolean'],
-            "is_default" => ['nullable', 'boolean'],
+            'name' => ['required', 'string', Rule::unique('currencies')->ignore($this->id)],
+            'code' => ['required', 'string', Rule::unique('currencies')->ignore($this->id)],
+            'rate' => ['required', 'numeric'],
+            'symbol' => ['required', 'string'],
+            'precision' => ['required', 'integer'],
+            'thousand_separator' => ['required', 'string'],
+            'decimal_separator' => ['required', 'string'],
+            'swap_currency_symbol' => 'nullable', ['boolean'],
+            'is_active' => ['nullable', 'boolean'],
+            'is_default' => ['nullable', 'boolean'],
         ]);
 
         if (! $this->is_default) {
@@ -90,35 +90,35 @@ class Currency extends Model
         $defaultCurrency = Currency::whereIsDefault(1)->firstOrFail();
         $allCurrencies = Currency::whereNotIn('is_default', [1])->pluck('code');
 
-        if ($allCurrencies->count() > 0 ){
-            $allCurrencies = $allCurrencies->map(fn($currency) => $currency)->implode(',');
+        if ($allCurrencies->count() > 0) {
+            $allCurrencies = $allCurrencies->map(fn ($currency) => $currency)->implode(',');
 
             $curl = curl_init();
 
-            curl_setopt_array($curl, array(
-                CURLOPT_URL => "https://api.apilayer.com/exchangerates_data/latest?symbols=".$allCurrencies."&base=".$defaultCurrency->code,
-                CURLOPT_HTTPHEADER => array(
-                    "Content-Type: text/plain",
-                    "apikey:".config('wovo.api_layer_key')
-                ),
+            curl_setopt_array($curl, [
+                CURLOPT_URL => 'https://api.apilayer.com/exchangerates_data/latest?symbols='.$allCurrencies.'&base='.$defaultCurrency->code,
+                CURLOPT_HTTPHEADER => [
+                    'Content-Type: text/plain',
+                    'apikey:'.config('wovo.api_layer_key'),
+                ],
                 CURLOPT_RETURNTRANSFER => true,
-                CURLOPT_ENCODING => "",
+                CURLOPT_ENCODING => '',
                 CURLOPT_MAXREDIRS => 10,
                 CURLOPT_TIMEOUT => 0,
                 CURLOPT_FOLLOWLOCATION => true,
                 CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-                CURLOPT_CUSTOMREQUEST => "GET"
-            ));
+                CURLOPT_CUSTOMREQUEST => 'GET',
+            ]);
 
             $response = curl_exec($curl);
             curl_close($curl);
 
             $response = json_decode($response, true);
 
-            if (isset($response['success'])){
+            if (isset($response['success'])) {
                 foreach ($response['rates'] as $code => $rate) {
                     Currency::whereCode($code)->first()->update([
-                        'rate' => round($rate, 2)
+                        'rate' => round($rate, 2),
                     ]);
                 }
 
@@ -128,7 +128,6 @@ class Currency extends Model
 
                 return true;
             }
-
 
             Session::flash('success', __('Currency Synced Failed'));
 

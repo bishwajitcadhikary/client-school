@@ -16,15 +16,16 @@ class FileDiskController extends Controller
         $disks = FileDisk::latest()->paginate(10);
 
         return Inertia::render('Admin/Settings/FileDisk/Index', [
-            'disks' => $disks
+            'disks' => $disks,
         ]);
     }
 
     public function create()
     {
         $local_root = storage_path('app');
+
         return Inertia::render('Admin/Settings/FileDisk/Create', [
-            'local_root' => $local_root
+            'local_root' => $local_root,
         ]);
     }
 
@@ -46,7 +47,7 @@ class FileDiskController extends Controller
 
         FileDisk::createDisk($request);
 
-        Session::flash('success', __("File Disk Created Successfully"));
+        Session::flash('success', __('File Disk Created Successfully'));
 
         return to_route('admin.settings.file-disks.index');
     }
@@ -59,7 +60,7 @@ class FileDiskController extends Controller
     public function edit(FileDisk $fileDisk)
     {
         return Inertia::render('Admin/Settings/FileDisk/Edit', [
-            'disk' => $fileDisk
+            'disk' => $fileDisk,
         ]);
     }
 
@@ -92,7 +93,7 @@ class FileDiskController extends Controller
             $fileDisk->setAsDefaultDisk();
         }
 
-        Session::flash('success', __("File Disk Updated Successfully"));
+        Session::flash('success', __('File Disk Updated Successfully'));
 
         return to_route('admin.settings.file-disks.index');
     }
@@ -101,11 +102,12 @@ class FileDiskController extends Controller
     {
         if ($fileDisk->setAsDefault() && $fileDisk->type === 'SYSTEM') {
             Session::flash('error', 'Not Allowed');
+
             return redirect()->back();
         }
 
         $fileDisk->delete();
-        Session::flash('success', __("File Disk Deleted Successfully"));
+        Session::flash('success', __('File Disk Deleted Successfully'));
 
         return redirect()->back();
     }

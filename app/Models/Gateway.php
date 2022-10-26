@@ -53,7 +53,7 @@ class Gateway extends Model implements HasMedia
             'name' => ['required', 'string'],
             'currency' => ['required', 'exists:currencies,id'],
             'charge' => ['required', 'numeric'],
-            'is_active' => ['boolean']
+            'is_active' => ['boolean'],
         ]);
         $data['currency_id'] = $data['currency'];
 

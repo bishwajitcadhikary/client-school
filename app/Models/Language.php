@@ -5,8 +5,9 @@ namespace App\Models;
 use App\Space\Languages;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Validation\Rule;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
+
 class Language extends Model
 {
     use HasFactory;
@@ -42,7 +43,7 @@ class Language extends Model
             'name' => Languages::getByCode($data['name'])['name'],
             'code' => $data['code'],
             'is_active' => $data['is_active'],
-            'is_default' => $data['is_default']
+            'is_default' => $data['is_default'],
         ]);
     }
 
@@ -65,7 +66,7 @@ class Language extends Model
         $this->update([
             'name' => $data['name'],
             'is_active' => $data['is_active'],
-            'is_default' => $data['is_default']
+            'is_default' => $data['is_default'],
         ]);
 
         return $this;
@@ -73,7 +74,7 @@ class Language extends Model
 
     public function destroyLanguage(): bool
     {
-        if (\File::exists(lang_path($this->code.'.json'))){
+        if (\File::exists(lang_path($this->code.'.json'))) {
             \File::delete(lang_path($this->code.'.json'));
         }
 

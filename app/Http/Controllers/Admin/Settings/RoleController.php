@@ -25,7 +25,7 @@ class RoleController extends Controller
         $roles = Role::orderBy('name')->paginate();
 
         return Inertia::render('Admin/Settings/Roles/Index', [
-            'roles' => $roles
+            'roles' => $roles,
         ]);
     }
 
@@ -37,14 +37,14 @@ class RoleController extends Controller
     public function store(Request $request)
     {
         $data = $request->validate([
-            'name' => ['required', 'string', Rule::unique('roles', 'name')]
+            'name' => ['required', 'string', Rule::unique('roles', 'name')],
         ]);
 
         Role::create([
-            'name' => $data['name']
+            'name' => $data['name'],
         ]);
 
-        Session::flash('success', __("Role Created Successfully"));
+        Session::flash('success', __('Role Created Successfully'));
 
         return to_route('admin.settings.roles.index');
     }
@@ -52,21 +52,21 @@ class RoleController extends Controller
     public function edit(Role $role)
     {
         return Inertia::render('Admin/Settings/Roles/Edit', [
-            'role' => $role
+            'role' => $role,
         ]);
     }
 
     public function update(Request $request, Role $role)
     {
         $data = $request->validate([
-            'name' => ['required', 'string', Rule::unique('roles', 'name')->ignore($role->id)]
+            'name' => ['required', 'string', Rule::unique('roles', 'name')->ignore($role->id)],
         ]);
 
         $role->update([
-            'name' => $data['name']
+            'name' => $data['name'],
         ]);
 
-        Session::flash('success', __("Role Updated Successfully"));
+        Session::flash('success', __('Role Updated Successfully'));
 
         return to_route('admin.settings.roles.index');
     }
@@ -92,19 +92,19 @@ class RoleController extends Controller
         return Inertia::render('Admin/Settings/Roles/AssignPermission', [
             'role' => $role,
             'groups' => $groups,
-            'permissionIds' => $permissionIds
+            'permissionIds' => $permissionIds,
         ]);
     }
 
     public function assignPermissionUpdate(Request $request, Role $role)
     {
         $request->validate([
-            'permissions' => ['nullable', 'array']
+            'permissions' => ['nullable', 'array'],
         ]);
 
         $role->permissions()->sync($request->input('permissions'));
 
-        Session::flash('success', __("Permission Assigns Successfully Completed"));
+        Session::flash('success', __('Permission Assigns Successfully Completed'));
 
         return to_route('admin.settings.roles.index');
     }

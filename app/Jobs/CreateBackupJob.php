@@ -4,7 +4,6 @@ namespace App\Jobs;
 
 use App\Models\FileDisk;
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldBeUnique;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
@@ -49,7 +48,7 @@ class CreateBackupJob implements ShouldQueue
             $backupJob->setFilename($prefix.date('Y-m-d-H-i-s').'.zip');
         }
 
-        if ($this->data['backup_type'] === 'full'){
+        if ($this->data['backup_type'] === 'full') {
             \Artisan::call('backup:run');
         }
 

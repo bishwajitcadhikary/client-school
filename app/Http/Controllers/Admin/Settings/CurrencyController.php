@@ -17,9 +17,10 @@ class CurrencyController extends Controller
     {
         $last_sync_at = Setting::getSetting('currency_last_sync_at');
         $currencies = Currency::latest()->paginate(10);
+
         return Inertia::render('Admin/Settings/Currency/Index', [
             'currencies' => $currencies,
-            'last_sync_at' => Wovo::formatDate($last_sync_at, 'd M, Y h:i A')
+            'last_sync_at' => Wovo::formatDate($last_sync_at, 'd M, Y h:i A'),
         ]);
     }
 
@@ -32,7 +33,7 @@ class CurrencyController extends Controller
     {
         Currency::createCurrency($request);
 
-        Session::flash('success', __("Currency Created Successfully"));
+        Session::flash('success', __('Currency Created Successfully'));
 
         return to_route('admin.settings.currencies.index');
     }
@@ -45,7 +46,7 @@ class CurrencyController extends Controller
     public function edit(Currency $currency)
     {
         return Inertia::render('Admin/Settings/Currency/Edit', [
-            'currency' => $currency
+            'currency' => $currency,
         ]);
     }
 
@@ -53,7 +54,7 @@ class CurrencyController extends Controller
     {
         $currency->updateCurrency($request);
 
-        Session::flash('success', __("Currency Updated Successfully"));
+        Session::flash('success', __('Currency Updated Successfully'));
 
         return to_route('admin.settings.currencies.index');
     }
@@ -68,15 +69,15 @@ class CurrencyController extends Controller
     public function changeStatus(Request $request, Currency $currency)
     {
         $data = $request->validate([
-            'is_active' => ['required', 'boolean']
+            'is_active' => ['required', 'boolean'],
         ]);
 
         try {
             $currency->update([
-                'is_active' => $data['is_active']
+                'is_active' => $data['is_active'],
             ]);
 
-            Session::flash('success', __("Currency Status Changed Successfully"));
+            Session::flash('success', __('Currency Status Changed Successfully'));
         } catch (Throwable $e) {
             Session::flash('error', $e->getMessage());
         }
@@ -85,19 +86,19 @@ class CurrencyController extends Controller
     public function changeDefault(Request $request, Currency $currency)
     {
         $request->validate([
-            'is_default' => ['required', 'boolean']
+            'is_default' => ['required', 'boolean'],
         ]);
 
         try {
             Currency::updateDefaults();
             $currency->update([
                 'is_default' => true,
-                'rate' => 1
+                'rate' => 1,
             ]);
 
             Currency::sync();
 
-            Session::flash('success', __("Currency set as default"));
+            Session::flash('success', __('Currency set as default'));
         } catch (Throwable $e) {
             Session::flash('error', $e->getMessage());
         }

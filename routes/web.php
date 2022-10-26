@@ -1,13 +1,14 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+
 Route::get('/', function () {
     return Inertia::render('Welcome');
 });
 
-Route::get('test', function (){
+Route::get('test', function () {
     return \App\Models\Setting::getSetting('date_format');
 });
 

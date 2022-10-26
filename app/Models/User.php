@@ -27,7 +27,7 @@ class User extends Authenticatable implements MustVerifyEmail, HasMedia
     ];
 
     protected $appends = [
-        'profile_photo_url'
+        'profile_photo_url',
     ];
 
     public function getAvatarUrl()
