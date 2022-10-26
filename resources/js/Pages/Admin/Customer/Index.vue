@@ -1,3 +1,20 @@
+<script setup>
+import moment from "moment"
+import Pagination from "@/Components/Pagination.vue"
+import {inject} from "vue"
+
+const props = defineProps({
+  customers: {
+    type: Object,
+    default: null,
+  },
+})
+
+const currencyFormat = inject('currencyFormat')
+const dateFormat = inject('dateFormat')
+</script>
+
+
 <template>
   <AdminLayout :title="$t('Customers')">
     <VContainer>
@@ -51,7 +68,7 @@
                   {{ $t('Suspended') }}
                 </VChip>
               </td>
-              <td>{{ moment(customer.created_at).format($page.props.app.date_format) }}</td>
+              <td>{{ dateFormat(customer.created_at) }}</td>
               <td />
             </tr>
           </tbody>
@@ -64,15 +81,3 @@
     </VContainer>
   </AdminLayout>
 </template>
-
-<script setup>
-import moment from "moment"
-import Pagination from "@/Components/Pagination.vue"
-
-const props = defineProps({
-  customers: {
-    type: Object,
-    default: null,
-  },
-})
-</script>

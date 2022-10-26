@@ -6,7 +6,7 @@ const page = usePage()
 export default {
   install: (app, options) => {
     const dateFormat = function (date, format = 'DD MMM, YYYY') {
-      return moment(date, format)
+      return moment(date).format(format)
     }
     const currencyFormat = function(amount, code = page.props.app.currency.code) {
       return new Intl.NumberFormat('en-US', {
@@ -15,6 +15,7 @@ export default {
       }).format(amount)
     }
 
+    app.provide('dateFormat', dateFormat)
     app.provide('currencyFormat', currencyFormat)
   },
 }
