@@ -9,12 +9,33 @@ import {
   VerticalSubNavLink,
 } from '@layouts'
 import { useTheme } from 'vuetify'
-import menus from '@/plugins/menus'
+import {trans} from "laravel-vue-i18n"
 
 const vuetifyTheme = useTheme()
 const upgradeBanner = computed(() => {
   return vuetifyTheme.global.name.value === 'light' ? upgradeBannerLight : upgradeBannerDark
 })
+
+const menus = [
+  {
+    title: trans('Dashboard'),
+    href: route('admin.dashboard.index'),
+    icon: 'mdi-home-outline',
+    active: route().current('admin.dashboard.*'),
+  },
+  {
+    title: trans('Customers'),
+    href: route('admin.customers.index'),
+    icon: 'mdi-users',
+    active: route().current('admin.customers.*'),
+  },
+  {
+    title: trans('Settings'),
+    href: route('admin.settings.account-settings.index'),
+    icon: 'mdi-cog-outline',
+    active: route().current('admin.settings.*'),
+  },
+]
 </script>
 
 <template>
@@ -38,7 +59,7 @@ const upgradeBanner = computed(() => {
   <!-- 👉 Nav items -->
   <ul>
     <VerticalNavLink
-      v-for="(menu, key) in menus.adminMenu"
+      v-for="(menu, key) in menus"
       :key="key"
       :item="{
         title: menu.title,

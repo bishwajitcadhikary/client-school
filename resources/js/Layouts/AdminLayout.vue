@@ -6,6 +6,7 @@ import DefaultLayoutWithVerticalNav from './Components/DefaultLayoutWithVertical
 import {usePage} from "@inertiajs/inertia-vue3"
 import {useSnackbarStore} from "@/Stores/useSnackbarStore"
 import {useDeleteDialogStore} from "@/Stores/useDeleteDialogStore"
+import PageHeading from "@/Components/PageHeading.vue"
 
 defineProps({
   title: {
@@ -41,35 +42,20 @@ snackbarStore.showNotification(page)
     <VLayout class="layout-wrapper layout-nav-type-vertical">
       <DefaultLayoutWithVerticalNav>
         <slot name="sub-navbar" />
-        <VAppBar
-          v-if="title || actions"
-          elevation="4"
+        <PageHeading
+          :title="title"
+          :action="action"
+          :actions="actions"
         >
-          <VToolbarTitle>{{ title }}</VToolbarTitle>
-          <VSpacer />
-          <slot name="actions" />
-          <VBtn
-            v-if="action"
-            @click="$inertia.visit(action.href)"
-          >
-            <VIcon v-if="action.icon">
-              {{ action.icon }}
-            </VIcon>
-            {{ action.title }}
-          </VBtn>
-          <VBtn
-            v-if="back"
-            @click="$inertia.visit(back)"
-          >
-            <VIcon>mdi-arrow-left</VIcon>
-            {{ $t('Back') }}
-          </VBtn>
-        </VAppBar>
-        <!-- Main Content -->
+          <template #actions>
+            <slot name="actions" />
+          </template>
+        </PageHeading>
 
+        <!-- Main Content -->
         <slot />
       </DefaultLayoutWithVerticalNav>
-      <!--      <BuyNow/> -->
+      <!-- <BuyNow/> -->
 
       <VSnackbar
         v-model="snackbarStore.isShow"

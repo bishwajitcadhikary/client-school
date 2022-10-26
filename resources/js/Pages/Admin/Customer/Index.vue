@@ -14,9 +14,17 @@ const currencyFormat = inject('currencyFormat')
 const dateFormat = inject('dateFormat')
 </script>
 
-
 <template>
-  <AdminLayout :title="$t('Customers')">
+  <AdminLayout
+    :title="$t('Customers')"
+    :actions="[
+      {
+        title: $t('New Customer'),
+        href: route('admin.customers.create'),
+        icon: 'mdi-plus'
+      }
+    ]"
+  >
     <VContainer>
       <VCard>
         <VTable>
@@ -24,8 +32,8 @@ const dateFormat = inject('dateFormat')
             <tr>
               <th>#</th>
               <th>{{ $t('Name') }}</th>
+              <th>{{ $t('Username') }}</th>
               <th>{{ $t('Email') }}</th>
-              <th>{{ $t('Balance') }}</th>
               <th class="text-center">
                 {{ $t('Status') }}
               </th>
@@ -42,8 +50,8 @@ const dateFormat = inject('dateFormat')
                 {{ key + 1 }}
               </td>
               <td>{{ customer.name }}</td>
+              <td>{{ customer.username }}</td>
               <td>{{ customer.email }}</td>
-              <td>{{ customer.balance }}</td>
               <td class="text-center">
                 <VChip
                   v-if="customer.status === 1"
