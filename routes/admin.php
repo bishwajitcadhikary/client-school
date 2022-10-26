@@ -35,6 +35,10 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth', 'v
         Route::get('languages/edit-phrases/{language}', [Settings\LanguageController::class, 'editPhrases'])->name('languages.edit-phrases');
         Route::put('languages/update-phrases/{language}', [Settings\LanguageController::class, 'updatePhrases'])->name('languages.update-phrases');
         Route::resource('languages', Settings\LanguageController::class);
+        Route::put('currencies/change-status/{currency}', [Settings\CurrencyController::class, 'changeStatus'])->name('currencies.change-status');
+        Route::put('currencies/change-default/{currency}', [Settings\CurrencyController::class, 'changeDefault'])->name('currencies.change-default');
+        Route::put('currencies/sync', [Settings\CurrencyController::class, 'sync'])->name('currencies.sync');
+        Route::resource('currencies', Settings\CurrencyController::class);
         Route::resource('gateways', Settings\GatewayController::class);
     });
 });

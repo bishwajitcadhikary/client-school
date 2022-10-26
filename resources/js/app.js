@@ -12,7 +12,7 @@ import {createPinia} from 'pinia'
 import { i18nVue } from 'laravel-vue-i18n'
 
 import AdminLayout from '@/Layouts/AdminLayout.vue'
-import notifications from '@/plugins/notifications'
+import functions from "@/plugins/functions"
 
 const pinia = createPinia()
 const appName = window.document.getElementsByTagName('title')[0]?.innerText || 'Laravel'
@@ -33,7 +33,7 @@ createInertiaApp({
       })
       .use(Vuetify)
       .use(pinia)
-      .use(notifications)
+      .use(functions)
       .component('AdminLayout', AdminLayout)
       .component('Link', Link)
       .component('Head', Head)

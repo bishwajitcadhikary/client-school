@@ -3,6 +3,7 @@ import {trans} from "laravel-vue-i18n"
 import {inject, ref} from "vue"
 import {useForm} from "@inertiajs/inertia-vue3"
 import SettingsDrawerContent from '@/Pages/Admin/Settings/SettingsDrawerContent.vue'
+import {useSnackbarStore} from "@/Stores/useSnackbarStore"
 
 const props = defineProps({
   languages: {
@@ -11,9 +12,8 @@ const props = defineProps({
   },
 })
 
-const Notification = inject('Notification')
-const statuses = ref([])
-const defaults = ref([])
+const snackbarStore = useSnackbarStore()
+
 const dialog = ref(false)
 const deletableLangId = ref(null)
 
@@ -34,14 +34,8 @@ function updateLanguageStatus(key, id) {
     _method: 'PUT',
     is_active: statusForm.statuses[key],
   }).post(route('admin.settings.languages.change-status', {language: id}), {
-
     onSuccess: page => {
-      if (page.props.flash.success){
-        Notification.success(page.props.flash.success)
-      }
-      if(page.props.flash.error){
-        Notification.error(page.props.flash.error)
-      }
+      snackbarStore.showNotification(page)
       statusForm.statuses = page.props.languages.data.map(i => !!i['is_active'])
     },
   })
@@ -56,12 +50,7 @@ function changeDefaultLanguage(key, id) {
     is_default: statusForm.statuses[key],
   }).post(route('admin.settings.languages.change-default', {language: id}), {
     onSuccess: page => {
-      if (page.props.flash.success){
-        Notification.success(page.props.flash.success)
-      }
-      if(page.props.flash.error){
-        Notification.error(page.props.flash.error)
-      }
+      snackbarStore.showNotification(page)
       defaultForm.statuses = page.props.languages.data.map(i => !!i['is_default'])
     },
   })
@@ -72,12 +61,7 @@ function deleteLanguage() {
   useForm({})
     .delete(route('admin.settings.languages.destroy', {language: deletableLangId.value}), {
       onSuccess: page => {
-        if (page.props.flash.success){
-          Notification.success(page.props.flash.success)
-        }
-        if(page.props.flash.error){
-          Notification.error(page.props.flash.error)
-        }
+        snackbarStore.showNotification(page)
         statusForm.statuses = page.props.languages.data.map(i => !!i['is_active'])
         defaultForm.statuses = page.props.languages.data.map(i => !!i['is_default'])
       },

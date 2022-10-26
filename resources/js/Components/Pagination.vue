@@ -23,21 +23,13 @@ function selectPage(page) {
     v-if="pagination.last_page > 1"
     class="text-center"
   >
-    <VContainer>
-      <VRow justify="center">
-        <VCol cols="8">
-          <VContainer class="max-width">
-            <VPagination
-              v-model="current_page"
-              class="my-4"
-              :length="pagination.last_page"
-              @prev="$inertia.visit(pagination.prev_page_url)"
-              @next="$inertia.visit(pagination.next_page_url)"
-              @update:modelValue="selectPage"
-            />
-          </VContainer>
-        </VCol>
-      </VRow>
-    </VContainer>
+    <VPagination
+      v-model="current_page"
+      class="my-4"
+      :length="pagination.last_page"
+      @prev="$inertia.visit(pagination.prev_page_url)"
+      @next="$inertia.visit(pagination.next_page_url)"
+      @update:modelValue="selectPage"
+    />
   </div>
 </template>

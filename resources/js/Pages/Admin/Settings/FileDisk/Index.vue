@@ -2,6 +2,7 @@
 import {ref,inject} from "vue"
 import {useForm} from "@inertiajs/inertia-vue3"
 import SettingsDrawerContent from '@/Pages/Admin/Settings/SettingsDrawerContent.vue'
+import {useSnackbarStore} from "@/Stores/useSnackbarStore"
 
 defineProps({
   disks: {
@@ -10,7 +11,7 @@ defineProps({
   },
 })
 
-const Notification = inject('Notification')
+const snackbarStore = useSnackbarStore()
 
 const dialog = ref(false)
 let deletableId = ref(null)
@@ -18,12 +19,7 @@ function destroy() {
   dialog.value = false
   useForm({}).delete(route('admin.settings.file-disks.destroy', {file_disk: deletableId?.value}), {
     onSuccess: page => {
-      if (page.props.flash.error){
-        Notification.error(page.props.flash.error)
-      }
-      if (page.props.flash.success){
-        Notification.success(page.props.flash.success)
-      }
+      snackbarStore.showNotification(page)
     },
   })
 }

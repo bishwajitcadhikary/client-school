@@ -3,6 +3,7 @@ import {useForm} from "@inertiajs/inertia-vue3"
 import rules from '@/plugins/rules'
 import {inject} from "vue"
 import SettingsDrawerContent from '@/Pages/Admin/Settings/SettingsDrawerContent.vue'
+import {useSnackbarStore} from "@/Stores/useSnackbarStore"
 
 const props = defineProps({
   languages: {
@@ -11,7 +12,8 @@ const props = defineProps({
   },
 })
 
-const Notification = inject('Notification')
+const snackbarStore = useSnackbarStore()
+
 const form = useForm({
   name: null,
   code: null,
@@ -22,9 +24,7 @@ const form = useForm({
 function submit() {
   form.post(route('admin.settings.languages.store'),{
     onSuccess: page => {
-      if(page.props.flash.error){
-        Notification.error(page.props.flash.error)
-      }
+      snackbarStore.showNotification(page)
     },
   })
 }

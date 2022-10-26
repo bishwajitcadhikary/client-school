@@ -3,8 +3,9 @@ import '@/@iconify/icons-bundle'
 import {loadFonts} from '@/plugins/webfontloader'
 import BuyNow from '@core/components/BuyNow.vue'
 import DefaultLayoutWithVerticalNav from './Components/DefaultLayoutWithVerticalNav.vue'
-import {inject, onMounted} from "vue"
 import {usePage} from "@inertiajs/inertia-vue3"
+import {useSnackbarStore} from "@/Stores/useSnackbarStore"
+import {useDeleteDialogStore} from "@/Stores/useDeleteDialogStore"
 
 defineProps({
   title: {
@@ -27,84 +28,98 @@ defineProps({
 
 loadFonts()
 
-const flash = usePage().props.value.flash
-const Notification = inject('Notification')
-
-const snackbar = ref(false)
-const message = ref(null)
-
-if (flash.success){
-  snackbar.value = true
-  message.value = flash.success
-}
-if (flash.error){
-  snackbar.value = true
-  message.value = flash.success
-}
+const snackbarStore = useSnackbarStore()
+const dialogStore = useDeleteDialogStore()
+const page = usePage()
+snackbarStore.showNotification(page)
 </script>
 
 <template>
-  <Head
-    v-if="title"
-    :title="title"
-  />
+  <Head :title="title" />
 
   <VApp>
     <VLayout class="layout-wrapper layout-nav-type-vertical">
       <DefaultLayoutWithVerticalNav>
         <slot name="sub-navbar" />
-        <VContainer v-if="title || actions">
-          <div class="d-flex justify-space-between align-center">
-            <h3>{{ title }}</h3>
-
-            <slot name="actions">
-              <Link
-                v-for="(action, index) in actions"
-                v-if="actions"
-                :key="index"
-                :href="action.href"
-              >
-                <VBtn>
-                  <VIcon v-if="action.icon">
-                    {{ action.icon }}
-                  </VIcon>
-                  {{ action.title }}
-                </VBtn>
-              </Link>
-              <Link
-                v-if="action"
-                :href="action.href"
-              >
-                <VBtn>
-                  <VIcon
-                    v-if="action.icon"
-                    class="mr-2"
-                  >
-                    {{ action.icon }}
-                  </VIcon>
-                  {{ action.title }}
-                </VBtn>
-              </Link>
-              <Link
-                v-if="back"
-                :href="back"
-              >
-                <VBtn>
-                  <VIcon
-                    class="mr-2"
-                    icon="mdi-arrow-left"
-                  />
-
-                  {{ $t('Back') }}
-                </VBtn>
-              </Link>
-            </slot>
-          </div>
-        </VContainer>
+        <VAppBar
+          v-if="title || actions"
+          elevation="4"
+        >
+          <VToolbarTitle>{{ title }}</VToolbarTitle>
+          <VSpacer />
+          <slot name="actions" />
+          <VBtn
+            v-if="action"
+            @click="$inertia.visit(action.href)"
+          >
+            <VIcon v-if="action.icon">
+              {{ action.icon }}
+            </VIcon>
+            {{ action.title }}
+          </VBtn>
+          <VBtn
+            v-if="back"
+            @click="$inertia.visit(back)"
+          >
+            <VIcon>mdi-arrow-left</VIcon>
+            {{ $t('Back') }}
+          </VBtn>
+        </VAppBar>
+        <!-- Main Content -->
 
         <slot />
       </DefaultLayoutWithVerticalNav>
       <!--      <BuyNow/> -->
+
+      <VSnackbar
+        v-model="snackbarStore.isShow"
+        :timeout="5000"
+      >
+        {{ snackbarStore.message }}
+
+        <template #actions>
+          <VBtn
+            :color="snackbarStore.color"
+            variant="text"
+            @click="snackbarStore.hideSnackbar()"
+          >
+            {{ $t('Close') }}
+          </VBtn>
+        </template>
+      </VSnackbar>
+
+      <VDialog
+        v-model="dialogStore.isShow"
+        max-width="290"
+      >
+        <VCard class="pa-3">
+          <VCardTitle class="text-h5 text-center">
+            {{ $t('Are your sure to delete?') }}
+          </VCardTitle>
+
+          <VCardText class="text-center">
+            <p>{{ $t('Action cannot be undone') }}</p>
+          </VCardText>
+
+          <VCardActions>
+            <VSpacer />
+
+            <VBtn
+              @click="dialogStore.isShow = false"
+            >
+              {{ $t('Cancel') }}
+            </VBtn>
+
+            <VBtn
+              color="error"
+              :loading="dialogStore.loading"
+              @click.stop="dialogStore.onDelete()"
+            >
+              {{ $t('Delete') }}
+            </VBtn>
+          </VCardActions>
+        </VCard>
+      </VDialog>
     </VLayout>
   </VApp>
 </template>

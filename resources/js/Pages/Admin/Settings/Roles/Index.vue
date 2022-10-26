@@ -7,6 +7,7 @@ import {ref} from "vue"
 import {useForm} from "@inertiajs/inertia-vue3"
 import Pagination from "@/Components/Pagination.vue"
 import SettingsDrawerContent from '@/Pages/Admin/Settings/SettingsDrawerContent.vue'
+import {useSnackbarStore} from "@/Stores/useSnackbarStore"
 
 defineProps({
   roles: {
@@ -14,7 +15,7 @@ defineProps({
     default: null,
   },
 })
-
+const snackbarStore = useSnackbarStore()
 const avatars = [
   avatar1,
   avatar2,
@@ -30,9 +31,7 @@ function destroy(id) {
   dialog.value = false
 
   useForm({}).delete(route('admin.settings.roles.destroy', {role: id}), {
-    onFinish: params => {
-
-    },
+    onSuccess: page => snackbarStore.showNotification(page),
   })
 }
 </script>

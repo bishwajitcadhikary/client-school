@@ -16,7 +16,6 @@ return new class extends Migration
         Schema::create('gateways', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('logo')->nullable();
             $table->string('namespace')->nullable();
 
             $table->integer('charge')->default(0);
@@ -27,7 +26,7 @@ return new class extends Migration
             $table->boolean('image_accept')->nullable();
             $table->boolean('phone_required')->default(0);
             $table->boolean('test_mode')->default(0);
-            $table->boolean('status')->default(1);
+            $table->boolean('is_active')->default(1);
             $table->text('data')->nullable();
             $table->foreignId('currency_id')->constrained();
             $table->timestamps();

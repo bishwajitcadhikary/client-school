@@ -1,6 +1,7 @@
 <script setup>
 import {useForm} from "@inertiajs/inertia-vue3"
 import SettingsDrawerContent from '@/Pages/Admin/Settings/SettingsDrawerContent.vue'
+import {useSnackbarStore} from "@/Stores/useSnackbarStore"
 
 const props = defineProps({
   settings: {
@@ -28,7 +29,7 @@ const props = defineProps({
     default: null,
   },
 })
-
+const snackbarStore = useSnackbarStore()
 const form = useForm({
   _method: 'PUT',
   currency: props.currencies.find(c => c.value == props.settings?.currency),
@@ -39,7 +40,9 @@ const form = useForm({
 })
 
 function updateSettings() {
-  form.post(route('admin.settings.preferences.update'))
+  form.post(route('admin.settings.preferences.update'), {
+    onSuccess: page => snackbarStore.showSnackbar(page),
+  })
 }
 </script>
 

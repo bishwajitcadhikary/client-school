@@ -3,6 +3,7 @@ import {useForm} from "@inertiajs/inertia-vue3"
 import rules from '@/plugins/rules'
 import {inject} from "vue"
 import SettingsDrawerContent from '@/Pages/Admin/Settings/SettingsDrawerContent.vue'
+import {useSnackbarStore} from "@/Stores/useSnackbarStore"
 
 const props = defineProps({
   currencies: {
@@ -11,28 +12,42 @@ const props = defineProps({
   },
 })
 
-const Notification = inject('Notification')
+const snackbarStore = useSnackbarStore()
 const form = useForm({
   name: null,
   logo: null,
   currency: null,
+  charge: 0,
+  is_active: true,
+  instruction: null,
+})
+
+const currencyForm = useForm({
   code: null,
   rate: null,
-  status: null,
+  symbol: null,
 })
 
 function submit() {
   form.post(route('admin.settings.gateways.store'),{
     onSuccess: page => {
-      if(page.props.flash.error){
-        Notification.error(page.props.flash.error)
-      }
+      snackbarStore.showNotification(page)
     },
   })
 }
 
+function selectLogo(e) {
+  if (e.length > 0){
+    form.logo = e[0]
+  }else {
+    form.logo = null
+  }
+}
+
 function selectCurrency(e) {
-  form.rate = props.currencies.find(c => c.value == e)?.rate
+  currencyForm.code = props.currencies.find(c => c.value == e)?.code
+  currencyForm.rate = props.currencies.find(c => c.value == e)?.rate
+  currencyForm.symbol = props.currencies.find(c => c.value == e)?.symbol
 }
 </script>
 
@@ -52,7 +67,7 @@ function selectCurrency(e) {
         >
           <VCard>
             <VCardTitle>{{ $t('Create Gateway') }}</VCardTitle>
-            <VCardSubtitle>{{ $t('Here you can create new language') }}</VCardSubtitle>
+            <VCardSubtitle>{{ $t('Here you can create new payment gateway') }}</VCardSubtitle>
             <VCardText>
               <VForm @submit.prevent="submit">
                 <VTextField
@@ -63,18 +78,18 @@ function selectCurrency(e) {
                 />
 
                 <VFileInput
-                  :prepend-icon="false"
                   class="mb-5"
                   accept="image/png, image/jpeg, image/jpg"
                   :label="$t('Logo')"
-                  :rules="rules.image_size_1MB"
                   :placeholder="$t('Pick gateway logo')"
+                  :error-messages="form.errors.logo"
+                  @update:modelValue="selectLogo"
                 />
 
                 <VSelect
                   v-model="form.currency"
                   class="mb-5"
-                  :label="$t('Gateway Code')"
+                  :label="$t('Currency')"
                   :items="currencies"
                   :rules="[rules.required]"
                   :error-messages="form.errors.currency"
@@ -82,17 +97,34 @@ function selectCurrency(e) {
                 />
 
                 <VTextField
-                  v-model="form.code"
+                  v-model="currencyForm.code"
                   class="mb-5"
-                  :label="$t('Gateway Code')"
+                  :label="$t('Currency Code')"
                   disabled
                 />
 
                 <VTextField
-                  v-model="form.rate"
+                  v-model="currencyForm.rate"
                   class="mb-5"
-                  :label="$t('Gateway Rate')"
+                  :prefix="currencyForm.symbol"
+                  :label="$t('Currency Rate')"
                   disabled
+                />
+
+                <VTextField
+                  v-model="form.charge"
+                  type="number"
+                  class="mb-5"
+                  :prefix="currencyForm.symbol"
+                  :label="$t('Gateway Charge')"
+                  :error-messages="form.errors.charge"
+                />
+
+                <VTextarea
+                  v-model="form.instruction"
+                  class="mb-5"
+                  :label="$t('Payment Instruction')"
+                  :error-messages="form.errors.instruction"
                 />
 
                 <VSwitch

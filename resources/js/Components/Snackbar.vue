@@ -1,6 +1,15 @@
-<script>
+<script setup>
+import {ref,provide} from 'vue'
+
 const snackbar = ref(false)
 const message = ref(null)
+
+const showSnackbar = message => {
+  snackbar.value = true
+  message.value = message
+}
+
+provide('showSnackbar', showSnackbar)
 </script>
 
 <template>

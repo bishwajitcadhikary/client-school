@@ -1,6 +1,7 @@
 <?php
 
 return [
+    'api_layer_key' => env('API_LAYER_KEY', false),
     'financial_years' => [
         ['key' => 'january-december' , 'value' => '1-12'],
         ['key' => 'february-january' , 'value' => '2-1'],

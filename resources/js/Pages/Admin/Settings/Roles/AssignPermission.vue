@@ -2,6 +2,7 @@
 import {useForm} from "@inertiajs/inertia-vue3"
 import {computed, ref} from "vue"
 import SettingsDrawerContent from '@/Pages/Admin/Settings/SettingsDrawerContent.vue'
+import {useSnackbarStore} from "@/Stores/useSnackbarStore"
 const props = defineProps({
   role: {
     type: Object,
@@ -16,7 +17,7 @@ const props = defineProps({
     default: null,
   },
 })
-
+const snackbarStore = useSnackbarStore()
 const form = useForm({
   permissions: [...props.permissionIds],
   name: null,
@@ -33,9 +34,7 @@ function selectAll() {
 
 function submit() {
   form.put(route('admin.settings.roles.assign-permission-update', {role: props.role.id}), {
-    onSuccess: page => {
-      console.log(page)
-    },
+    onSuccess: page => snackbarStore.showSnackbar(page),
   })
 }
 </script>

@@ -3,6 +3,7 @@ import {computed, inject, provide, ref} from "vue"
 import rules from "@/plugins/rules"
 import {useForm} from "@inertiajs/inertia-vue3"
 import SettingsDrawerContent from '@/Pages/Admin/Settings/SettingsDrawerContent.vue'
+import {useSnackbarStore} from "@/Stores/useSnackbarStore"
 
 const props = defineProps({
   languages: {
@@ -15,10 +16,11 @@ const props = defineProps({
   },
 })
 
-const Notification = inject('Notification')
+const snackbarStore = useSnackbarStore()
 
 const showPassword = ref(false)
 const showConfirmPassword = ref(false)
+
 const form = useForm({
   _method: 'PUT',
   name: props.user.name,
@@ -31,25 +33,14 @@ const form = useForm({
 function submit() {
   form.post(route('admin.settings.account-settings.update'), {
     onSuccess: page => {
-      if (page.props.flash.success){
-        Notification.success(page.props.flash.success)
-      }
-      if(page.props.flash.error){
-        Notification.error(page.props.flash.error)
-      }
-
-      form.password = null
-      form.password_confirmation = null
+      snackbarStore.showNotification(page)
     },
   })
 }
-
-const adminLayout = ref()
 </script>
 
 <template>
   <AdminLayout
-    ref="adminLayout"
     :title="$t('Account Settings')"
   >
     <template #sub-navbar>

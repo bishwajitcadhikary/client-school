@@ -11,7 +11,7 @@ class Wovo
      * @param string $format
      * @return string|null
      */
-    public function formatDate($date, string $format = 'd M, Y'): string|null
+    public static function formatDate($date, string $format = 'd M, Y'): string|null
     {
         return $date ? Date::parse($date)->format($format) : null;
     }

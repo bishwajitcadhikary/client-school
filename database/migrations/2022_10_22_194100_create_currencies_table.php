@@ -17,11 +17,14 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('code');
+            $table->integer('rate')->default(100);
             $table->string('symbol')->nullable();
             $table->integer('precision');
             $table->string('thousand_separator');
             $table->string('decimal_separator');
             $table->boolean('swap_currency_symbol')->default(false);
+            $table->boolean('is_active')->default(1);
+            $table->boolean('is_default')->default(0);
             $table->timestamps();
         });
     }

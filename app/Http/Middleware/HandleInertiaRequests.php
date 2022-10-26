@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use App\Models\Currency;
 use App\Models\Setting;
 use Illuminate\Http\Request;
 use Inertia\Middleware;
@@ -47,7 +48,8 @@ class HandleInertiaRequests extends Middleware
             'app' => [
                 'name' => config('app.name'),
                 'url' => config('app.url'),
-                'date_format' => Setting::getSetting('date_format')
+                'date_format' => Setting::getSetting('date_format'),
+                'currency' => Currency::whereIsDefault(true)->selectRaw('name, code, rate, id, symbol')->first()
             ],
             'flash' => [
                 'success' => fn () => $request->session()->get('success'),

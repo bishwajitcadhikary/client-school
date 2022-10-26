@@ -3,6 +3,7 @@ import {ref,inject} from "vue"
 import {useForm} from "@inertiajs/inertia-vue3"
 
 import SettingsDrawerContent from '@/Pages/Admin/Settings/SettingsDrawerContent.vue'
+import {useSnackbarStore} from "@/Stores/useSnackbarStore"
 
 defineProps({
   backups: {
@@ -11,8 +12,7 @@ defineProps({
   },
 })
 
-const Notification = inject('Notification')
-
+const snackbarStore = useSnackbarStore()
 const dialog = ref(false)
 const deletablePath = ref(null)
 const disk = ref(null)
@@ -23,12 +23,7 @@ function destroy(path) {
     path: deletablePath?.value,
   }).delete(route('admin.settings.backups.destroy', {backup: 'delete'}), {
     onSuccess: page => {
-      if (page.props.flash.error){
-        Notification.error(page.props.flash.error)
-      }
-      if (page.props.flash.success){
-        Notification.success(page.props.flash.success)
-      }
+      snackbarStore.showNotification(page)
     },
   })
 }

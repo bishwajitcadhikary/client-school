@@ -21,6 +21,12 @@ const menus = [
     active: route().current('admin.settings.preferences.*'),
   },
   {
+    title: trans('Currencies'),
+    href: route('admin.settings.currencies.index'),
+    icon: 'mdi-money',
+    active: route().current('admin.settings.currencies.*'),
+  },
+  {
     title: trans('Gateways'),
     href: route('admin.settings.gateways.index'),
     icon: 'mdi-credit-card-outline',
