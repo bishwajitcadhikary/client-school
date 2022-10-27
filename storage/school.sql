@@ -230,7 +230,7 @@ CREATE TABLE IF NOT EXISTS `branch` (
 --
 
 INSERT INTO `branch` (`id`, `name`, `school_name`, `email`, `mobileno`, `currency`, `symbol`, `city`, `state`, `address`, `stu_generate`, `stu_username_prefix`, `stu_default_password`, `grd_generate`, `grd_username_prefix`, `grd_default_password`, `teacher_restricted`, `due_days`, `due_with_fine`, `unique_roll`, `created_at`, `updated_at`) VALUES
-(1, 'Dhaka', 'Your School Name', 'superadmin@mail.com', '01234567891', 'BDT', '!', 'Dhaka', 'Dhaka', 'Dhaka', 0, '', '', 0, '', '', 1, 30, 1, 1, '2022-08-31 15:05:43', NULL);
+(1, 'Dhaka', 'Jatrabari Ideal School', 'omithasan118@gmail.com', '01916962118', 'BDT', '!', 'Dhaka', 'Dhaka', 'Dhaka', 0, '', '', 0, '', '', 1, 30, 1, 1, '2022-08-31 15:05:43', NULL);
 
 -- --------------------------------------------------------
 
@@ -1562,7 +1562,7 @@ CREATE TABLE IF NOT EXISTS `global_settings` (
 --
 
 INSERT INTO `global_settings` (`id`, `institute_name`, `institution_code`, `reg_prefix`, `institute_email`, `address`, `mobileno`, `currency`, `currency_symbol`, `sms_service_provider`, `session_id`, `translation`, `footer_text`, `animations`, `timezone`, `date_format`, `facebook_url`, `twitter_url`, `linkedin_url`, `youtube_url`, `cron_secret_key`, `preloader_backend`, `cms_default_branch`, `image_extension`, `image_size`, `file_extension`, `file_size`, `created_at`, `updated_at`) VALUES
-(1, 'Your School Name', 'RSM-', 'on', 'ramom@example.com', '', '', 'USD', '$', 'disabled', 3, 'english', '© 2020 mysofto School Management - Developed by mysofto', 'fadeInUp', 'Asia/Dhaka', 'd.M.Y', '', '', '', '', '', 2, 0, 'jpeg, jpg, bmp, png', 1024, 'txt, pdf, doc, xls, docx, xlsx, jpg, jpeg, png, gif, bmp, zip, mp4, 7z, wmv, rar', 1024, '2018-10-22 09:07:49', '2020-05-01 22:37:06');
+(1, 'Jatrabari Ideal School', 'RSM-', 'on', 'ramom@example.com', '', '', 'USD', '$', 'disabled', 3, 'english', '© 2020 mysofto School Management - Developed by mysofto', 'fadeInUp', 'Asia/Dhaka', 'd.M.Y', '', '', '', '', '', 2, 0, 'jpeg, jpg, bmp, png', 1024, 'txt, pdf, doc, xls, docx, xlsx, jpg, jpeg, png, gif, bmp, zip, mp4, 7z, wmv, rar', 1024, '2018-10-22 09:07:49', '2020-05-01 22:37:06');
 
 -- --------------------------------------------------------
 
@@ -3152,7 +3152,7 @@ CREATE TABLE IF NOT EXISTS `login_credential` (
 --
 
 INSERT INTO `login_credential` (`id`, `user_id`, `username`, `password`, `role`, `active`, `last_login`, `created_at`, `updated_at`) VALUES
-(1, 1, 'superadmin@mail.com', '$2y$10$4M4mfuC0GTvuLPNyutUQIOQDEzKUSR3/3jUydU1HPtHL6JOH1u.ha', 1, 1, '2022-10-11 23:33:01', '2022-03-29 18:19:55', NULL),
+(1, 1, 'omithasan@gmail.com', '$2y$10$4M4mfuC0GTvuLPNyutUQIOQDEzKUSR3/3jUydU1HPtHL6JOH1u.ha', 1, 1, '2022-10-11 23:33:01', '2022-03-29 18:19:55', NULL),
 (2, 1, 'omit118', '$2y$10$Js7cJS26cM/cQ7rhFoHZLuaqJIJohbj0YZun2q1Qvm2soe61dCVz6', 6, 1, NULL, '2022-10-09 08:22:27', NULL);
 
 -- --------------------------------------------------------
@@ -4261,7 +4261,7 @@ CREATE TABLE IF NOT EXISTS `staff` (
 --
 
 INSERT INTO `staff` (`id`, `staff_id`, `name`, `department`, `qualification`, `experience_details`, `total_experience`, `designation`, `joining_date`, `birthday`, `sex`, `religion`, `blood_group`, `present_address`, `permanent_address`, `mobileno`, `email`, `salary_template_id`, `branch_id`, `photo`, `facebook_url`, `linkedin_url`, `twitter_url`, `created_at`, `updated_at`) VALUES
-(1, '32d7def', 'admin', 0, '', NULL, NULL, 0, '2022-03-29', '', '', '', '', '', '', '', 'superadmin@mail.com', 0, NULL, NULL, NULL, NULL, NULL, '2022-03-29 18:19:55', NULL);
+(1, '32d7def', 'admin', 0, '', NULL, NULL, 0, '2022-03-29', '', '', '', '', '', '', '', 'omithasan@gmail.com', 0, NULL, NULL, NULL, NULL, NULL, '2022-03-29 18:19:55', NULL);
 
 -- --------------------------------------------------------
 

@@ -13,12 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('rm_sessions', function (Blueprint $table) {
-            $table->string('id',40)->unique();
-            $table->string('ip_address',45);
-            $table->integer('timestamp',)->unsigned()->default('0');
-            $table->binary('data')->nullable();
-        });
+        DB::statement('CREATE TABLE `rm_sessions` ( `id` varchar(40) NOT NULL, `ip_address` varchar(45) NOT NULL, `timestamp` int UNSIGNED NOT NULL DEFAULT 0, `data` blob NOT NULL )');
+        DB::statement('ALTER TABLE `rm_sessions` ADD PRIMARY KEY (`id`), ADD KEY `ci_sessions_timestamp` (`timestamp`)');
     }
 
     /**
