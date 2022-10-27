@@ -30,6 +30,18 @@ const menus = [
     active: route().current('admin.customers.*'),
   },
   {
+    title: trans('Schools'),
+    href: route('admin.schools.index'),
+    icon: 'mdi-town-hall',
+    active: route().current('admin.schools.*'),
+  },
+  {
+    title: trans('Plans'),
+    href: route('admin.plans.index'),
+    icon: 'mdi-package-variant',
+    active: route().current('admin.plans.*'),
+  },
+  {
     title: trans('Settings'),
     href: route('admin.settings.account-settings.index'),
     icon: 'mdi-cog-outline',

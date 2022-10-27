@@ -1,4 +1,5 @@
 <script setup>
+import {ref} from 'vue'
 import {useForm} from "@inertiajs/inertia-vue3"
 import rules from '@/plugins/rules'
 import {useSnackbarStore} from "@/Stores/useSnackbarStore"
@@ -22,11 +23,20 @@ const props = defineProps({
     type: Object,
     default: null,
   },
+  plans: {
+    type: Object,
+    default: null,
+  },
+  countries: {
+    type: Array,
+    default: null,
+  },
 })
 
 // Create FilePond component
 const FilePond = vueFilePond(FilePondPluginFileValidateType, FilePondPluginImagePreview)
 const snackbarStore = useSnackbarStore()
+const formValid = ref(true)
 
 const form = useForm({
   avatar: null,
@@ -38,7 +48,20 @@ const form = useForm({
   country: null,
   currency: null,
   website: null,
+  plan: null,
+  interval: 'monthly',
 })
+
+const intervals = [
+  {
+    title: trans('Monthly'),
+    value: 'monthly',
+  },
+  {
+    title: trans('Yearly'),
+    value: 'yearly',
+  },
+]
 
 function submit() {
   form.post(route('admin.customers.store'),{
@@ -67,9 +90,16 @@ function addAvatar(error, file) {
         <VCardTitle>{{ $t('Create Customer') }}</VCardTitle>
         <VCardSubtitle>{{ $t('Here you can create new customer') }}</VCardSubtitle>
         <VCardText>
-          <VForm @submit.prevent="submit">
+          <VForm
+            v-model="formValid"
+            @submit.prevent="submit"
+          >
             <VRow>
-              <VCol cols="2">
+              <VCol
+                cols="12"
+                lg="2"
+                md="3"
+              >
                 <FilePond
                   ref="pond"
                   name="test"
@@ -122,7 +152,7 @@ function addAvatar(error, file) {
                   v-model="form.email"
                   type="email"
                   :label="$t('Email')"
-                  :rules="[rules.required]"
+                  :rules="[rules.email]"
                   :error-messages="form.errors.email"
                 />
               </VCol>
@@ -167,6 +197,50 @@ function addAvatar(error, file) {
                   :error-messages="form.errors.currency"
                 />
               </VCol>
+
+              <VCol
+                cols="12"
+                lg="4"
+                sm="6"
+              >
+                <VSelect
+                  v-model="form.country"
+                  :items="countries"
+                  :label="$t('Country')"
+                  :rules="[rules.required]"
+                  :error-messages="form.errors.country"
+                />
+              </VCol>
+
+              <VCol
+                cols="12"
+                lg="4"
+                sm="6"
+              >
+                <VSelect
+                  v-model="form.plan"
+                  open-on-clear
+                  :items="plans"
+                  :label="$t('Plan')"
+                  :error-messages="form.errors.plan"
+                />
+              </VCol>
+
+
+              <VCol
+                v-if="form.plan"
+                cols="12"
+                lg="4"
+                sm="6"
+              >
+                <VSelect
+                  v-model="form.interval"
+                  :items="intervals"
+                  :label="$t('Plan Interval')"
+                  :error-messages="form.errors.interval"
+                />
+              </VCol>
+
 
               <VCol
                 cols="12"

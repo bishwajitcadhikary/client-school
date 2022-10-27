@@ -1,4 +1,5 @@
 import {defineStore} from "pinia"
+import {ref} from "vue"
 
 export const useSnackbarStore = defineStore('useSnackbarStore', {
   state: () => ({
@@ -22,7 +23,7 @@ export const useSnackbarStore = defineStore('useSnackbarStore', {
         this.showSnackbar(page.props.flash.success)
       }
       if (page.props?.flash?.error){
-        this.color = 'default'
+        this.color = 'error'
         this.showSnackbar(page.props.flash.error)
       }
     },

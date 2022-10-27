@@ -1,5 +1,6 @@
 <script setup>
-import {ref, inject} from 'vue'
+import {ref} from 'vue'
+import {Inertia} from "@inertiajs/inertia"
 import {useForm} from "@inertiajs/inertia-vue3"
 import {trans} from "laravel-vue-i18n"
 import {useSnackbarStore} from "@/Stores/useSnackbarStore"
@@ -10,17 +11,8 @@ const props = defineProps({
     required: true,
     default: null,
   },
-  expiration: {
-    type: String,
-    default: null,
-  },
-  percent: {
-    type: String,
-    default: null,
-  },
 })
 
-const currencyFormat = inject('currencyFormat')
 const tab = ref('overview')
 const showPassword = ref(false)
 const showConfirmPassword = ref(false)
@@ -70,13 +62,12 @@ const submitSuspension = () => {
               <VCard>
                 <VCardText class="text-center pt-15">
                   <VAvatar
-                    v-if="customer.avatar"
                     rounded="sm"
                     size="120"
                     variant="tonal"
                   >
                     <VImg
-                      :src="customer.avatar"
+                      src="https://demos.themeselection.com/materio-vuetify-vuejs-admin-template/demo-3/assets/avatar-1.aac046b6.png"
                     />
                   </VAvatar>
                   <h6 class="text-h6 mt-4">
@@ -111,21 +102,21 @@ const submitSuspension = () => {
                           {{ $t('Status:') }}
                           <span class="text-body-2">
                             <VChip
-                              v-if="customer.status === 1"
+                              v-if="customer.status == 1"
                               color="primary"
                               variant="tonal"
                             >
                               {{ $t('Active') }}
                             </VChip>
                             <VChip
-                              v-if="customer.status === 0"
+                              v-if="customer.status == 0"
                               color="secondary"
                               variant="tonal"
                             >
                               {{ $t('Inactive') }}
                             </VChip>
                             <VChip
-                              v-if="customer.status === 2"
+                              v-if="customer.status == 2"
                               class="text-white"
                               color="red"
                               variant="tonal"
@@ -144,23 +135,15 @@ const submitSuspension = () => {
                         </h6>
                       </VListItemSubtitle>
                     </VListItem>
-                    <VListItem v-if="customer.currency">
-                      <VListItemSubtitle>
-                        <h6 class="text-sm">
-                          {{ $t('Currency:') }}
-                          <span class="text-body-2">{{ customer.currency.name }}</span>
-                        </h6>
-                      </VListItemSubtitle>
-                    </VListItem>
-                    <VListItem v-if="customer.language">
+                    <VListItem>
                       <VListItemSubtitle>
                         <h6 class="text-sm">
                           {{ $t('Language:') }}
-                          <span class="text-body-2">{{ customer.language.name }}</span>
+                          <span class="text-body-2">{{ customer.langauage }}</span>
                         </h6>
                       </VListItemSubtitle>
                     </VListItem>
-                    <VListItem v-if="customer.country">
+                    <VListItem>
                       <VListItemSubtitle>
                         <h6 class="text-sm">
                           {{ $t('Country:') }}
@@ -168,7 +151,7 @@ const submitSuspension = () => {
                         </h6>
                       </VListItemSubtitle>
                     </VListItem>
-                    <VListItem v-if="customer.website">
+                    <VListItem>
                       <VListItemSubtitle>
                         <h6 class="text-sm">
                           {{ $t('Website:') }}
@@ -202,22 +185,18 @@ const submitSuspension = () => {
                 </VCardText>
               </VCard>
             </VCol>
-            <VCol
-              v-if="customer.plan"
-              cols="12"
-            >
+            <VCol cols="12">
               <VCard variant="elevated">
                 <VCardText class="d-flex">
-                  <VChip color="primary">
-                    {{ customer.plan.name }}
-                  </VChip>
+                  <VChip>Standard</VChip>
                   <div class="flex-grow-1" />
+                  <sup class="text-primary text-sm font-weight-regular">$</sup>
                   <h3 class="text-h3 text-primary font-weight-semibold">
-                    {{ currencyFormat(customer.inertval === 'monthly' ? customer.plan.monthly_price : customer.plan.yearly_price, $page.props.app.currency.code) }}
+                    99
                   </h3>
                   <sub class="mt-3">
                     <h6 class="text-sm font-weight-regular">
-                      / {{ customer.interval.replace('ly', '') }}
+                      / month
                     </h6>
                   </sub>
                 </VCardText>
@@ -226,18 +205,24 @@ const submitSuspension = () => {
                   <div class="my-6">
                     <div class="d-flex font-weight-semibold mt-3 mb-2">
                       <h6 class="text-sm">
-                        {{ $t('Expiration') }}
+                        Days
                       </h6>
                       <div class="flex-grow-1" />
                       <h6 class="text-sm">
-                        {{ expiration }}
+                        26 of 30 Days
                       </h6>
                     </div>
                     <VProgressLinear
                       rounded
-                      :model-value="percent"
+                      model-value="50"
                       color="primary"
                     />
+                    <p
+                      class="text-xs mt-2"
+                      data-v-89ffa39a=""
+                    >
+                      4 days remaining
+                    </p>
                   </div>
                   <VBtn block>
                     {{ $t('Upgrade Plan') }}

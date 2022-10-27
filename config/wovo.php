@@ -1,6 +1,8 @@
 <?php
 
 return [
+    'email_send_to' => env('EMAIL_SEND_TO', 'no-reply@mail.com'),
+    'plan_trial_duration' => env('PLAN_TRIAL_DURATION', 30),
     'api_layer_key' => env('API_LAYER_KEY', false),
     'financial_years' => [
         ['key' => 'january-december', 'value' => '1-12'],

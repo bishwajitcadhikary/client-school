@@ -15,6 +15,10 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth', 'v
     Route::put('customers/toggle-suspend/{customer}', [Admin\CustomerController::class, 'toggleSuspend'])->name('customers.toggle-suspend');
     Route::put('customers/change-password/{customer}', [Admin\CustomerController::class, 'changePassword'])->name('customers.change-password');
     Route::resource('customers', Admin\CustomerController::class);
+    Route::post('schools/database-creation-retry/{school}', [Admin\SchoolController::class, 'databaseCreationRetry'])->name('schools.database-creation-retry');
+    Route::resource('schools', Admin\SchoolController::class);
+
+    Route::resource('plans', Admin\PlanController::class);
 
     Route::group(['prefix' => 'settings', 'as' => 'settings.'], function () {
         Route::get('roles/assign-permissions/{role}', [Settings\RoleController::class, 'assignPermission'])->name('roles.assign-permission');

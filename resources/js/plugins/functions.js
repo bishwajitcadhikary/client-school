@@ -1,6 +1,5 @@
 import moment from "moment"
 import {usePage} from "@inertiajs/inertia-vue3"
-
 const page = usePage()
 
 export default {

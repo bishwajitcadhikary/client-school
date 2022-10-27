@@ -1,5 +1,6 @@
 <?php
 
+use App\Jobs\ImportSchoolDatabase;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -9,7 +10,7 @@ Route::get('/', function () {
 });
 
 Route::get('test', function () {
-    return \App\Models\Setting::getSetting('date_format');
+    return \App\Models\School::whereDomain($_SERVER['HTTP_HOST'])->get();
 });
 
 Route::get('install', function () {

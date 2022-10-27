@@ -4,7 +4,7 @@ import Pagination from "@/Components/Pagination.vue"
 import {useDeleteDialogStore} from "@/Stores/useDeleteDialogStore"
 
 const props = defineProps({
-  customers: {
+  plans: {
     type: Object,
     default: null,
   },
@@ -16,11 +16,11 @@ const dateFormat = inject('dateFormat')
 
 <template>
   <AdminLayout
-    :title="$t('Customers')"
+    :title="$t('Plans')"
     :actions="[
       {
-        title: $t('New Customer'),
-        href: route('admin.customers.create'),
+        title: $t('New Plan'),
+        href: route('admin.plans.create'),
         icon: 'mdi-plus'
       }
     ]"
@@ -32,12 +32,18 @@ const dateFormat = inject('dateFormat')
             <tr>
               <th>#</th>
               <th>{{ $t('Name') }}</th>
-              <th>{{ $t('Username') }}</th>
-              <th>{{ $t('Email') }}</th>
+              <th>{{ $t('Monthly Price') }}</th>
+              <th>{{ $t('Yearly Price') }}</th>
+              <th>{{ $t('School Limit') }}</th>
+              <th>{{ $t('Customer Limit') }}</th>
+              <th>{{ $t('Total Customer') }}</th>
               <th class="text-center">
                 {{ $t('Status') }}
               </th>
-              <th>{{ $t('Registered At') }}</th>
+              <th class="text-center">
+                {{ $t('Trial') }}
+              </th>
+              <th>{{ $t('Created At') }}</th>
               <th
                 class="text-center"
                 width="15%"
@@ -48,65 +54,76 @@ const dateFormat = inject('dateFormat')
           </thead>
           <tbody>
             <tr
-              v-for="(customer, key) in customers.data"
+              v-for="(plan, key) in plans.data"
               :key="key"
             >
               <td width="5%">
                 {{ key + 1 }}
               </td>
-              <td>{{ customer.name }}</td>
-              <td>{{ customer.username }}</td>
-              <td>{{ customer.email }}</td>
+              <td>{{ plan.name }}</td>
+              <td>{{ currencyFormat(plan.monthly_price, $page.props.app.currency.code) }}</td>
+              <td>{{ currencyFormat(plan.yearly_price, $page.props.app.currency.code) }}</td>
+              <td>{{ plan.school_limit }}</td>
+              <td>{{ plan.max_limit }}</td>
+              <td>{{ plan.max_limit }}</td>
               <td class="text-center">
                 <VChip
-                  v-if="customer.status === 1"
+                  v-if="plan.is_active"
                   class="ma-2"
                   color="primary"
                 >
                   {{ $t('Active') }}
                 </VChip>
                 <VChip
-                  v-if="customer.status === 0"
+                  v-if="!plan.is_active"
                   class="ma-2"
                   color="secondary"
                 >
                   {{ $t('Inactive') }}
                 </VChip>
+              </td>
+              <td class="text-center">
                 <VChip
-                  v-if="customer.status === 2"
+                  v-if="plan.is_trial"
                   class="ma-2"
-                  color="red"
-                  text-color="white"
+                  color="primary"
                 >
-                  {{ $t('Suspended') }}
+                  {{ $t('Yes') }}
+                </VChip>
+                <VChip
+                  v-if="!plan.is_trial"
+                  class="ma-2"
+                  color="secondary"
+                >
+                  {{ $t('No') }}
                 </VChip>
               </td>
-              <td>{{ dateFormat(customer.created_at) }}</td>
+              <td>{{ dateFormat(plan.created_at) }}</td>
               <td class="text-center">
-                <VTooltip :text="$t('View Customer')">
+                <VTooltip :text="$t('View Plan')">
                   <template #activator="{ props }">
                     <VBtn
                       variant="plain"
                       size="small"
                       icon="mdi-eye-outline"
                       v-bind="props"
-                      @click="$inertia.visit(route('admin.customers.show', {customer: customer.id}))"
+                      @click="$inertia.visit(route('admin.plans.show', {plan: plan.id}))"
                     />
                   </template>
                 </VTooltip>
-                <VTooltip :text="$t('Edit Customer')">
+                <VTooltip :text="$t('Edit Plan')">
                   <template #activator="{ props }">
                     <VBtn
                       variant="plain"
                       size="small"
                       icon="mdi-clipboard-edit-outline"
                       v-bind="props"
-                      @click="$inertia.visit(route('admin.customers.edit', {customer: customer.id}))"
+                      @click="$inertia.visit(route('admin.plans.edit', {plan: plan.id}))"
                     />
                   </template>
                 </VTooltip>
                 <VTooltip
-                  :text="$t('Delete Customer')"
+                  :text="$t('Delete Plan')"
                 >
                   <template #activator="{props}">
                     <VBtn
@@ -114,7 +131,7 @@ const dateFormat = inject('dateFormat')
                       size="small"
                       icon="mdi-delete-outline"
                       v-bind="props"
-                      @click="useDeleteDialogStore().showDialog(route('admin.customers.destroy', {customer: customer.id}))"
+                      @click="useDeleteDialogStore().showDialog(route('admin.plans.destroy', {plan: plan.id}))"
                     />
                   </template>
                 </VTooltip>
@@ -124,7 +141,7 @@ const dateFormat = inject('dateFormat')
         </VTable>
 
         <div class="mb-5 mt-5">
-          <Pagination :pagination="customers" />
+          <Pagination :pagination="plans" />
         </div>
       </VCard>
     </VContainer>
