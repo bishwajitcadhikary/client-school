@@ -36,7 +36,7 @@ class SchoolController extends Controller
             'domain' => ['required', 'unique:schools', new Domain()]
         ]);
 
-        $databaseName = Str::random();
+        $databaseName = 'sub_'.Str::random();
 
         $school = School::create([
             'name' => $data['name'],
