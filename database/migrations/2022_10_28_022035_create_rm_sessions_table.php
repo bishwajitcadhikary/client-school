@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('rm_sessions', function (Blueprint $table) {
-            $table->string('id',40);
+            $table->string('id',40)->unique();
             $table->string('ip_address',45);
             $table->integer('timestamp',)->unsigned()->default('0');
             $table->binary('data')->nullable();
