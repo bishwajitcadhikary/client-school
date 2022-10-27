@@ -1,1 +1,0 @@
-/* empty css              */import{p as n,z as o,x as s,b as r}from"./app.dc2d0110.js";const p=n({name:"VContainer",props:{fluid:{type:Boolean,default:!1},...o()},setup(e,a){let{slots:t}=a;return s(()=>r(e.tag,{class:["v-container",{"v-container--fluid":e.fluid}]},t)),{}}});export{p as V};
