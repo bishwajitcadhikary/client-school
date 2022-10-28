@@ -70,7 +70,7 @@ function deleteLanguage() {
 </script>
 
 <template>
-  <AdminLayout
+  <AppLayout
     :title="$t('Languages')"
     :action="{href: route('admin.settings.languages.create'), icon: 'mdi-plus', title: $t('Add New')}"
   >
@@ -187,5 +187,5 @@ function deleteLanguage() {
         </VCardActions>
       </VCard>
     </VDialog>
-  </AdminLayout>
+  </AppLayout>
 </template>

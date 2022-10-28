@@ -25,7 +25,7 @@ function submit() {
 </script>
 
 <template>
-  <AdminLayout
+  <AppLayout
     :back="route('admin.settings.languages.index')"
     :title="$t('Create Language')"
   >
@@ -173,5 +173,5 @@ function submit() {
         </VCardText>
       </VCard>
     </VContainer>
-  </AdminLayout>
+  </AppLayout>
 </template>

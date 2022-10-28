@@ -40,7 +40,7 @@ function submit() {
 </script>
 
 <template>
-  <AdminLayout
+  <AppLayout
     :title="$t('Account Settings')"
   >
     <template #sub-navbar>
@@ -128,5 +128,5 @@ function submit() {
         </VCardText>
       </VCard>
     </VContainer>
-  </AdminLayout>
+  </AppLayout>
 </template>

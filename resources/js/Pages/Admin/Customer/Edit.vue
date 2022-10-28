@@ -63,7 +63,7 @@ function addAvatar(error, file) {
 </script>
 
 <template>
-  <AdminLayout
+  <AppLayout
     :title="$t('Edit Customer')"
     :back="route('admin.customers.index')"
   >
@@ -202,5 +202,5 @@ function addAvatar(error, file) {
         </VCardText>
       </VCard>
     </VContainer>
-  </AdminLayout>
+  </AppLayout>
 </template>

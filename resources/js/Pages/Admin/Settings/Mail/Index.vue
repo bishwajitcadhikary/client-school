@@ -34,7 +34,7 @@ function onChangeDriver() {
 </script>
 
 <template>
-  <AdminLayout :title="$t('Mail Configuration')">
+  <AppLayout :title="$t('Mail Configuration')">
     <template #sub-navbar>
       <SettingsDrawerContent />
     </template>
@@ -59,5 +59,5 @@ function onChangeDriver() {
         </VCardText>
       </VCard>
     </VContainer>
-  </AdminLayout>
+  </AppLayout>
 </template>

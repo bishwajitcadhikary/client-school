@@ -30,7 +30,7 @@ function destroy(path) {
 </script>
 
 <template>
-  <AdminLayout
+  <AppLayout
     :title="$t('Backups')"
     :action="{
       title: $t('Add New'),
@@ -117,5 +117,5 @@ function destroy(path) {
         </VCardText>
       </VCard>
     </VContainer>
-  </AdminLayout>
+  </AppLayout>
 </template>

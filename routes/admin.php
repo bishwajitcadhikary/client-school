@@ -5,10 +5,7 @@ use App\Http\Controllers\Admin\Settings;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
-Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth', 'verified']], function () {
-    Route::get('test', function () {
-        return \App\Space\Languages::getByCode('en');
-    });
+Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth', 'verified', 'admin']], function () {
     Route::get('dashboard', fn () => Inertia::render('Admin/Dashboard/Index'))->name('dashboard.index');
 
     //Modules

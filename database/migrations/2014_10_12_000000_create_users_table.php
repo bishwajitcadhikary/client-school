@@ -34,6 +34,7 @@ return new class extends Migration
             $table->foreignId('plan_id')->nullable()->constrained('plans')->nullOnDelete();
             $table->foreignId('created_by')->nullable()->constrained('users')->nullOnDelete();
             $table->foreignId('currency_id')->nullable()->constrained('currencies')->nullOnDelete();
+            $table->string('timezone')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->ipAddress('last_login_ip')->nullable();
             $table->timestamp('last_login_at')->nullable();

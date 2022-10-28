@@ -6,49 +6,65 @@ import authV1MaskDark from '@/assets/images/pages/auth-v1-mask-dark.png'
 import authV1MaskLight from '@/assets/images/pages/auth-v1-mask-light.png'
 import authV1Tree2 from '@/assets/images/pages/auth-v1-tree-2.png'
 import authV1Tree from '@/assets/images/pages/auth-v1-tree.png'
-import {useForm} from "@inertiajs/inertia-vue3";
-import {computed, onMounted, ref} from "vue";
-import { useReCaptcha } from "vue-recaptcha-v3";
+import {useForm} from "@inertiajs/inertia-vue3"
+import {computed, ref} from "vue"
 
-const { executeRecaptcha, recaptchaLoaded } = useReCaptcha();
-
-const recaptcha = async () => {
-  // (optional) Wait until recaptcha has been loaded.
-  await recaptchaLoaded();
-
-  // Execute reCAPTCHA with action "login".
-  form.token = await executeRecaptcha("login");
-};
-
-onMounted(() => {
-  recaptcha()
+const props = defineProps({
+  showRecaptcha: {
+    type: Boolean,
+    default: false,
+  },
+  recaptchaSiteKey: {
+    type: String,
+    default: '',
+  },
 })
 
-computed(() => {
-
-})
-
+const isValid = ref(false)
 const form = useForm({
   name: '',
   email: '',
   password: '',
   password_confirmation: '',
   terms: false,
-  token: ''
+  recaptcha: '',
 })
 const vuetifyTheme = useTheme()
 const authThemeMask = computed(() => {
   return vuetifyTheme.global.name.value === 'light' ? authV1MaskLight : authV1MaskDark
 })
 const isPasswordVisible = ref(false)
+const vueRecaptchaRef = ref()
 
 const submit = () => {
   form.post(route('register'), {
     preserveScroll: true,
     preserveState: true,
     onFinish: () => form.reset('password', 'password_confirmation'),
-  });
-};
+  })
+}
+
+const recaptchaVerified = function (response) {
+  form.recaptcha = response
+  form.errors.recaptcha = null
+}
+const recaptchaExpired = function () {
+  form.recaptcha = null
+  vueRecaptchaRef.value.reset()
+}
+const recaptchaFailed = function () {
+  form.recaptcha = null
+  vueRecaptchaRef.value.reset()
+}
+</script>
+
+<script>
+import vueRecaptcha from 'vue3-recaptcha2'
+export default {
+  components: {
+    VueRecaptcha: vueRecaptcha,
+  },
+}
 </script>
 
 <template>
@@ -60,7 +76,7 @@ const submit = () => {
       <VCardItem class="justify-center">
         <template #prepend>
           <div class="d-flex">
-            <div v-html="logo"/>
+            <div v-html="logo" />
           </div>
         </template>
 
@@ -74,12 +90,15 @@ const submit = () => {
           {{ $t('Adventure starts here') }}
         </h5>
         <p class="mb-0">
-          {{ $t('Make your app management easy and fun!') }}
+          {{ $t('Make your school management easy and fun!') }}
         </p>
       </VCardText>
 
       <VCardText>
-        <VForm @submit.prevent="submit">
+        <VForm
+          v-model="isValid"
+          @submit.prevent="submit"
+        >
           <VRow>
             <!-- Name -->
             <VCol cols="12">
@@ -108,10 +127,10 @@ const submit = () => {
                 :label="$t('Password')"
                 :type="isPasswordVisible ? 'text' : 'password'"
                 :append-inner-icon="isPasswordVisible ? 'mdi-eye-off-outline' : 'mdi-eye-outline'"
-                @click:append-inner="isPasswordVisible = !isPasswordVisible"
                 :error-messages="form.errors.password"
                 min="8"
                 required
+                @click:append-inner="isPasswordVisible = !isPasswordVisible"
               />
             </VCol>
             <VCol cols="12">
@@ -120,13 +139,35 @@ const submit = () => {
                 :label="$t('Confirm Password')"
                 :type="isPasswordVisible ? 'text' : 'password'"
                 :append-inner-icon="isPasswordVisible ? 'mdi-eye-off-outline' : 'mdi-eye-outline'"
-                @click:append-inner="isPasswordVisible = !isPasswordVisible"
                 :error-messages="form.errors.password_confirmation"
                 min="8"
                 required
+                @click:append-inner="isPasswordVisible = !isPasswordVisible"
               />
+            </VCol>
 
-              <div class="d-flex align-center mt-1 mb-4">
+            <VCol cols="12">
+              <VueRecaptcha
+                v-show="showRecaptcha"
+                ref="vueRecaptchaRef"
+                :sitekey="recaptchaSiteKey"
+                size="normal"
+                theme="light"
+                class="g-recaptcha"
+                @verify="recaptchaVerified"
+                @expire="recaptchaExpired"
+                @fail="recaptchaFailed"
+              />
+              <p
+                v-if="form.errors.recaptcha"
+                class="text-error"
+              >
+                {{ form.errors.recaptcha }}
+              </p>
+            </VCol>
+
+            <VCol cols="12">
+              <div class="d-flex align-center">
                 <VCheckbox
                   id="terms"
                   v-model="form.terms"
@@ -147,9 +188,9 @@ const submit = () => {
             </VCol>
 
             <VCol cols="12">
-
               <VBtn
                 :loading="form.processing"
+                :disabled="!form.isDirty && isValid"
                 type="submit"
                 block
               >
@@ -175,9 +216,9 @@ const submit = () => {
               cols="12"
               class="d-flex align-center"
             >
-              <VDivider/>
+              <VDivider />
               <span class="mx-4">{{ $t('or') }}</span>
-              <VDivider/>
+              <VDivider />
             </VCol>
 
             <!-- auth providers -->
@@ -185,7 +226,7 @@ const submit = () => {
               cols="12"
               class="text-center"
             >
-              <AuthProvider/>
+              <AuthProvider />
             </VCol>
           </VRow>
         </VForm>

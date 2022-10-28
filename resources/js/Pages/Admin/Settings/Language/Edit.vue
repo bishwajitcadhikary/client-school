@@ -33,7 +33,7 @@ function submit() {
 </script>
 
 <template>
-  <AdminLayout
+  <AppLayout
     :title="$t('Edit Language')"
     :back="route('admin.settings.languages.index')"
   >
@@ -94,5 +94,5 @@ function submit() {
         </VCol>
       </VRow>
     </VContainer>
-  </AdminLayout>
+  </AppLayout>
 </template>

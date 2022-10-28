@@ -30,7 +30,7 @@ function submit() {
 </script>
 
 <template>
-  <AdminLayout
+  <AppLayout
     :title="$t('Create Plan')"
     :back="route('admin.plans.index')"
   >
@@ -162,5 +162,5 @@ function submit() {
         </VCol>
       </VRow>
     </VContainer>
-  </AdminLayout>
+  </AppLayout>
 </template>

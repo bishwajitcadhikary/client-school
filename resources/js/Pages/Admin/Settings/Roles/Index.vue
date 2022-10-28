@@ -37,7 +37,7 @@ function destroy(id) {
 </script>
 
 <template>
-  <AdminLayout
+  <AppLayout
     :title="$t('Roles')"
     :actions="[
       {
@@ -158,5 +158,5 @@ function destroy(id) {
       </VRow>
       <Pagination :pagination="roles" />
     </VContainer>
-  </AdminLayout>
+  </AppLayout>
 </template>

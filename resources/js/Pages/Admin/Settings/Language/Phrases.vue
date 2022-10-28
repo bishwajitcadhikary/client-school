@@ -33,7 +33,7 @@ function submit() {
 </script>
 
 <template>
-  <AdminLayout>
+  <AppLayout>
     <VCard>
       <VCardTitle>{{ $t('Edit Phrases') }}</VCardTitle>
       <VCardSubtitle>{{ $t('Edit :language language phrases', {language: language.name}) }}</VCardSubtitle>
@@ -90,5 +90,5 @@ function submit() {
         </VForm>
       </VCardText>
     </VCard>
-  </AdminLayout>
+  </AppLayout>
 </template>

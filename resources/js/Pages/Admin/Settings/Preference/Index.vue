@@ -47,7 +47,7 @@ function updateSettings() {
 </script>
 
 <template>
-  <AdminLayout :title="$t('Preferences')">
+  <AppLayout :title="$t('Preferences')">
     <template #sub-navbar>
       <SettingsDrawerContent />
     </template>
@@ -129,5 +129,5 @@ function updateSettings() {
         </VCard>
       </VForm>
     </VContainer>
-  </AdminLayout>
+  </AppLayout>
 </template>

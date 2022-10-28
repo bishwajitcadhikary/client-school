@@ -27,7 +27,7 @@ const retryDatabaseCreation = school => {
 </script>
 
 <template>
-  <AdminLayout
+  <AppLayout
     :title="$t('Schools')"
     :actions="[
       {
@@ -187,5 +187,5 @@ const retryDatabaseCreation = school => {
         </div>
       </VCard>
     </VContainer>
-  </AdminLayout>
+  </AppLayout>
 </template>

@@ -14,7 +14,7 @@ const dialog = ref(false)
 </script>
 
 <template>
-  <AdminLayout
+  <AppLayout
     :action="{href: route('admin.settings.gateways.create'), icon: 'mdi-plus', title: $t('Add New')}"
     :title="$t('Gateways')"
   >
@@ -120,7 +120,7 @@ const dialog = ref(false)
         </VTable>
       </VCard>
     </VContainer>
-  </AdminLayout>
+  </AppLayout>
 
   <VDialog
     v-model="dialog"

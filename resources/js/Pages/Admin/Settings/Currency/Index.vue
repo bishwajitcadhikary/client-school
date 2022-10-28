@@ -57,7 +57,7 @@ const syncForm = useForm({_method: 'PUT'})
 </script>
 
 <template>
-  <AdminLayout :title="$t('Currencies')">
+  <AppLayout :title="$t('Currencies')">
     <template #sub-navbar>
       <SettingsDrawerContent />
     </template>
@@ -158,5 +158,5 @@ const syncForm = useForm({_method: 'PUT'})
         <Pagination :pagination="currencies" />
       </VCard>
     </VContainer>
-  </AdminLayout>
+  </AppLayout>
 </template>

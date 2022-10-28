@@ -87,6 +87,7 @@
         "vue-recaptcha-v3": "^2.0.1",
         "vue3-apexcharts": "^1.4.1",
         "vue3-perfect-scrollbar": "^1.6.0",
+        "vue3-recaptcha2": "^1.7.0",
         "vue3-youtube": "^0.1.9",
         "vuetify": "3.0.0-beta.11",
         "webfontloader": "^1.6.28"

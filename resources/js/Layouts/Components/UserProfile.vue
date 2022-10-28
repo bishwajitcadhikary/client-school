@@ -1,6 +1,4 @@
 <script setup>
-import avatar1 from '@/assets/images/avatars/avatar-1.png'
-
 const avatarBadgeProps = {
   dot: true,
   location: 'bottom right',
@@ -18,7 +16,7 @@ const avatarBadgeProps = {
       color="primary"
       variant="tonal"
     >
-      <VImg :src="$page.props.auth.user.profile_photo_url" />
+      <VImg :src="$page.props.auth.user.avatar" />
 
       <!-- SECTION Menu -->
       <VMenu
@@ -38,7 +36,7 @@ const avatarBadgeProps = {
                     size="40"
                     variant="tonal"
                   >
-                    <VImg :src="$page.props.auth.user.profile_photo_url" />
+                    <VImg :src="$page.props.auth.user.avatar" />
                   </VAvatar>
                 </VBadge>
               </VListItemAction>
@@ -64,7 +62,9 @@ const avatarBadgeProps = {
               />
             </template>
 
-            <VListItemTitle @click="$inertia.visit(route('admin.settings.account-settings.index'))">
+            <VListItemTitle
+              @click="$inertia.visit($page.props.auth.user.role == 'admin' ? route('admin.settings.account-settings.index') : route('customer.profile.index'))"
+            >
               {{ $t('Profile') }}
             </VListItemTitle>
           </VListItem>

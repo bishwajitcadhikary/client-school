@@ -80,7 +80,7 @@ watchEffect(() => {
 </script>
 
 <template>
-  <AdminLayout
+  <AppLayout
     :title="$t('Edit School')"
     :back="route('admin.schools.index')"
   >
@@ -271,5 +271,5 @@ watchEffect(() => {
         </VCol>
       </VRow>
     </VContainer>
-  </AdminLayout>
+  </AppLayout>
 </template>

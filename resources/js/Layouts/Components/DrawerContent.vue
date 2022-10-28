@@ -16,7 +16,7 @@ const upgradeBanner = computed(() => {
   return vuetifyTheme.global.name.value === 'light' ? upgradeBannerLight : upgradeBannerDark
 })
 
-const menus = [
+const adminMenus = [
   {
     title: trans('Dashboard'),
     href: route('admin.dashboard.index'),
@@ -48,6 +48,21 @@ const menus = [
     active: route().current('admin.settings.*'),
   },
 ]
+
+const customerMenus = [
+  {
+    title: trans('Dashboard'),
+    href: route('customer.dashboard.index'),
+    icon: 'mdi-home-outline',
+    active: route().current('customer.dashboard.*'),
+  },
+  {
+    title: trans('Profile'),
+    href: route('customer.profile.index'),
+    icon: 'mdi-account-outline',
+    active: route().current('customer.profile.*'),
+  },
+]
 </script>
 
 <template>
@@ -71,7 +86,7 @@ const menus = [
   <!-- 👉 Nav items -->
   <ul>
     <VerticalNavLink
-      v-for="(menu, key) in menus"
+      v-for="(menu, key) in $page.props.auth.user.role === 'admin' ? adminMenus : customerMenus"
       :key="key"
       :item="{
         title: menu.title,

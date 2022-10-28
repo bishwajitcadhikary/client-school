@@ -40,7 +40,7 @@ function submit() {
 </script>
 
 <template>
-  <AdminLayout
+  <AppLayout
     :title="$t('Assign Permissions')"
     :back="route('admin.settings.roles.index')"
   >
@@ -101,5 +101,5 @@ function submit() {
         </VCardText>
       </VCard>
     </VContainer>
-  </AdminLayout>
+  </AppLayout>
 </template>

@@ -49,7 +49,7 @@ const submitSuspension = () => {
 </script>
 
 <template>
-  <AdminLayout :title="customer.name">
+  <AppLayout :title="customer.name">
     <VContainer>
       <VRow>
         <VCol
@@ -386,7 +386,7 @@ const submitSuspension = () => {
         </VCol>
       </VRow>
     </VContainer>
-  </AdminLayout>
+  </AppLayout>
 
   <VDialog
     v-model="showSuspendDialog"

@@ -40,7 +40,7 @@ function submit() {
 </script>
 
 <template>
-  <AdminLayout
+  <AppLayout
     :title="$t('Add New Disk')"
     :back="route('admin.settings.file-disks.index')"
   >
@@ -140,5 +140,5 @@ function submit() {
         </VForm>
       </VCard>
     </VContainer>
-  </AdminLayout>
+  </AppLayout>
 </template>

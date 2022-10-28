@@ -8,6 +8,7 @@ import authV1MaskLight from '@/assets/images/pages/auth-v1-mask-light.png'
 import authV1Tree2 from '@/assets/images/pages/auth-v1-tree-2.png'
 import authV1Tree from '@/assets/images/pages/auth-v1-tree.png'
 import {useForm} from "@inertiajs/inertia-vue3"
+import {useSnackbarStore} from "@/Stores/useSnackbarStore"
 
 defineProps({
   canResetPassword: Boolean,
@@ -28,6 +29,9 @@ const isPasswordVisible = ref(false)
 const submit = () => {
   form.post(route('login'), {
     preserveScroll: true,
+    onSuccess: page => {
+      useSnackbarStore().showNotification(page)
+    },
     onFinish: () => form.reset('password'),
   })
 }

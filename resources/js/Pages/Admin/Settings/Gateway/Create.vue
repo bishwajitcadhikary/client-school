@@ -52,7 +52,7 @@ function selectCurrency(e) {
 </script>
 
 <template>
-  <AdminLayout
+  <AppLayout
     :title="$t('Create Gateway')"
     :back="route('admin.settings.gateways.index')"
   >
@@ -147,5 +147,5 @@ function selectCurrency(e) {
         </VCol>
       </VRow>
     </VContainer>
-  </AdminLayout>
+  </AppLayout>
 </template>

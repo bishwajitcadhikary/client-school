@@ -49,7 +49,7 @@ const changeWebsiteStatus = () => {
 </script>
 
 <template>
-  <AdminLayout
+  <AppLayout
     :title="school.name"
     :back="route('admin.schools.index')"
   >
@@ -252,7 +252,7 @@ const changeWebsiteStatus = () => {
         </VCol>
       </VRow>
     </VContainer>
-  </AdminLayout>
+  </AppLayout>
 
   <VDialog
     v-model="showChangeStatusDialog"

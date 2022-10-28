@@ -14,6 +14,12 @@ class Language extends Model
 
     protected $guarded = ['id'];
 
+    public function scopeSelectOptions($query)
+    {
+        $query->where('is_active', '=', true)
+            ->selectRaw('name as title, id as value');
+    }
+
     public static function updateDefaultLanguages(): bool
     {
         $disks = self::get();

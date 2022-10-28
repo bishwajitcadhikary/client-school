@@ -5,6 +5,9 @@ return [
     'email_send_to' => env('EMAIL_SEND_TO', 'no-reply@mail.com'),
     'plan_trial_duration' => env('PLAN_TRIAL_DURATION', 30),
     'api_layer_key' => env('API_LAYER_KEY', false),
+    'show_repcaptcha' => env('SHOW_REPCAPTCHA', false),
+    'recaptcha_site_key' => env('RECAPTCHA_SITE_KEY', null),
+    'recaptcha_secret_key' => env('RECAPTCHA_SECRET_KEY', null),
     'financial_years' => [
         ['key' => 'january-december', 'value' => '1-12'],
         ['key' => 'february-january', 'value' => '2-1'],

@@ -26,7 +26,7 @@ function destroy() {
 </script>
 
 <template>
-  <AdminLayout
+  <AppLayout
     :title="$t('File Disks')"
     :action="{
       title: $t('Add New'),
@@ -122,5 +122,5 @@ function destroy() {
         </VCardText>
       </VCard>
     </VContainer>
-  </AdminLayout>
+  </AppLayout>
 </template>

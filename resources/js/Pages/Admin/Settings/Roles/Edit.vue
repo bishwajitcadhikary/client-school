@@ -19,7 +19,7 @@ function submit() {
 </script>
 
 <template>
-  <AdminLayout
+  <AppLayout
     :title="$t('Edit Role')"
     :back="route('admin.settings.roles.index')"
   >
@@ -63,5 +63,5 @@ function submit() {
         </VCol>
       </VRow>
     </VContainer>
-  </AdminLayout>
+  </AppLayout>
 </template>

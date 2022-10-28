@@ -34,7 +34,7 @@ function submit() {
 </script>
 
 <template>
-  <AdminLayout
+  <AppLayout
     :title="$t('Create Backup')"
     :back="route('admin.settings.file-disks.index')"
   >
@@ -78,5 +78,5 @@ function submit() {
         </VForm>
       </VCard>
     </VContainer>
-  </AdminLayout>
+  </AppLayout>
 </template>

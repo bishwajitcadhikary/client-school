@@ -15,7 +15,7 @@ const dateFormat = inject('dateFormat')
 </script>
 
 <template>
-  <AdminLayout
+  <AppLayout
     :title="$t('Plans')"
     :actions="[
       {
@@ -145,5 +145,5 @@ const dateFormat = inject('dateFormat')
         </div>
       </VCard>
     </VContainer>
-  </AdminLayout>
+  </AppLayout>
 </template>

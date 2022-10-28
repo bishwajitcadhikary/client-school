@@ -36,7 +36,7 @@ function submit() {
 </script>
 
 <template>
-  <AdminLayout
+  <AppLayout
     :back="route('admin.settings.currencies.index')"
     :title="$t('Edit Currency')"
   >
@@ -184,5 +184,5 @@ function submit() {
         </VCardText>
       </VCard>
     </VContainer>
-  </AdminLayout>
+  </AppLayout>
 </template>

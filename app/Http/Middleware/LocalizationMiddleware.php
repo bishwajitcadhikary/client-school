@@ -17,6 +17,8 @@ class LocalizationMiddleware
             App::setLocale(Auth::user()->language->code);
         }elseif (Setting::getSetting('language')) {
             App::setLocale(Setting::getSetting('language'));
+        }else{
+            App::setLocale('en');
         }
 
         return $next($request);

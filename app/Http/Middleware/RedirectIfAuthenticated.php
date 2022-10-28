@@ -6,6 +6,7 @@ use App\Providers\RouteServiceProvider;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class RedirectIfAuthenticated
 {
@@ -23,6 +24,13 @@ class RedirectIfAuthenticated
 
         foreach ($guards as $guard) {
             if (Auth::guard($guard)->check()) {
+                if (Auth::user()->status == 0) {
+                    Session::flash('error', 'Your account has been deactivated. Please contact your administrator.');
+                    return redirect()->route('account.deactivated')->withHeaders([
+                        'Account-Status' => 'Deactivated'
+                    ]);
+                }
+
                 return redirect(RouteServiceProvider::HOME);
             }
         }
