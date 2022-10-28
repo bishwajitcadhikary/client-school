@@ -15,17 +15,14 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth', 'v
     Route::put('customers/toggle-suspend/{customer}', [Admin\CustomerController::class, 'toggleSuspend'])->name('customers.toggle-suspend');
     Route::put('customers/change-password/{customer}', [Admin\CustomerController::class, 'changePassword'])->name('customers.change-password');
     Route::resource('customers', Admin\CustomerController::class);
+
+    Route::put('schools/change-status/{school}', [Admin\SchoolController::class, 'changeStatus'])->name('schools.change-status');
     Route::post('schools/database-creation-retry/{school}', [Admin\SchoolController::class, 'databaseCreationRetry'])->name('schools.database-creation-retry');
     Route::resource('schools', Admin\SchoolController::class);
 
     Route::resource('plans', Admin\PlanController::class);
 
     Route::group(['prefix' => 'settings', 'as' => 'settings.'], function () {
-        Route::get('roles/assign-permissions/{role}', [Settings\RoleController::class, 'assignPermission'])->name('roles.assign-permission');
-        Route::put('roles/assign-permissions/{role}/update', [Settings\RoleController::class, 'assignPermissionUpdate'])->name('roles.assign-permission-update');
-        Route::resource('roles', Settings\RoleController::class);
-        Route::get('permissions', [Settings\PermissionController::class, 'index'])->name('permissions.index');
-
         Route::resource('file-disks', Settings\FileDiskController::class);
         Route::get('backup/download', [Settings\BackupController::class, 'download'])->name('backups.download');
         Route::resource('backups', Settings\BackupController::class)->except('show', 'edit', 'update');

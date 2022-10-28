@@ -24,13 +24,11 @@ const form = useForm({
 
 
 function submit() {
-  if (!!valid.value){
-    form.post(route('admin.settings.languages.update-phrases', {language: props.language.id}),{
-      onSuccess: page => {
-        snackbarStore.showNotification(page)
-      },
-    })
-  }
+  form.post(route('admin.settings.languages.update-phrases', {language: props.language.id}),{
+    onSuccess: page => {
+      snackbarStore.showNotification(page)
+    },
+  })
 }
 </script>
 
@@ -85,7 +83,6 @@ function submit() {
           <VBtn
             type="submit"
             :loading="form.processing"
-            :disabled="!valid"
           >
             <VIcon icon="mdi-content-save" />
             {{ $t('Save') }}

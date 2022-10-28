@@ -27,7 +27,7 @@ const form = useForm({
   email: props.user.email,
   password: null,
   password_confirmation: null,
-  language: props.user.language,
+  language: props.user.language_id,
 })
 
 function submit() {
@@ -113,6 +113,7 @@ function submit() {
                   :items="languages"
                 />
               </VCol>
+
               <VCol cols="12">
                 <VBtn
                   type="submit"

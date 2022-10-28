@@ -14,7 +14,7 @@ class AccountController extends Controller
 {
     public function index(Request $request)
     {
-        $languages = Language::whereIsActive(1)->selectRaw('name as title, code as value')->get();
+        $languages = Language::whereIsActive(1)->selectRaw('name as title, id as value')->get();
 
         return Inertia::render('Admin/Settings/Account/Index', [
             'languages' => $languages,
@@ -28,14 +28,14 @@ class AccountController extends Controller
             'name' => ['required', 'string'],
             'email' => ['required', 'email', Rule::unique('users')->ignore(Auth::id())],
             'password' => ['nullable', Password::default(), 'confirmed'],
-            'language' => ['required', 'exists:languages,code'],
+            'language' => ['required', 'exists:languages,id'],
         ]);
 
         Auth::user()->update([
             'name' => $validated['name'],
             'email' => $validated['email'],
             'password' => $validated['password'] ? bcrypt($validated['password']) : Auth::user()->password,
-            'language' => $validated['language'],
+            'language_id' => $validated['language'],
         ]);
 
         \Session::flash('success', __('Account Settings Updated Successfully'));

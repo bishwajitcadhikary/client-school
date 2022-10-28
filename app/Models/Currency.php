@@ -135,7 +135,7 @@ class Currency extends Model
                 return true;
             }
 
-            Session::flash('success', __('Currency Synced Failed'));
+            Session::flash('success', __('Currency Synchronization Failed'));
 
             return false;
         }

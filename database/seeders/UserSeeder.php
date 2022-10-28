@@ -18,12 +18,11 @@ class UserSeeder extends Seeder
             'name' => 'Super Admin',
             'email' => 'superadmin@mail.com',
             'username' => 'superadmin',
+            'role' => 'superadmin',
             'phone' => '0123456789',
             'email_verified_at' => now(),
             'password' => bcrypt('password'),
             'language_id' => 1,
         ]);
-
-        $admin->assignRole(['Super Admin']);
     }
 }

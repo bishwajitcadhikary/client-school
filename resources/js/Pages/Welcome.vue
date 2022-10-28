@@ -1,23 +1,19 @@
-<script setup>
-</script>
-
 <template>
-  <Link
-    href="/login"
-    class="v-btn v-btn--elevated v-theme--light bg-primary v-btn--density-default v-btn--size-default v-btn--variant-elevated blue lighten-2 mt-5"
-  >
-    Login
-  </Link>
-  <Link
-    href="/register"
-    class="v-btn v-btn--elevated v-theme--light bg-primary v-btn--density-default v-btn--size-default v-btn--variant-elevated blue lighten-2 mt-5"
-  >
-    Register
-  </Link>
-  <Link
-    href="/admin/dashboard"
-    class="v-btn v-btn--elevated v-theme--light bg-primary v-btn--density-default v-btn--size-default v-btn--variant-elevated blue lighten-2 mt-5"
-  >
-    Dashboard
-  </Link>
+  <VLayout style="z-index: 0">
+    <VAppBar color="grey-lighten-2" />
+    <VNavigationDrawer
+      color="grey-darken-2"
+      permanent
+    />
+    <VNavigationDrawer
+      color="grey-darken-2"
+      permanent
+      location="right"
+    />
+    <VMain>
+      <Link href="/login">
+        login
+      </Link>
+    </VMain>
+  </VLayout>
 </template>

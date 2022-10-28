@@ -10,11 +10,10 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
-use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable implements MustVerifyEmail, HasMedia
 {
-    use HasApiTokens, HasFactory, Notifiable, HasRoles, InteractsWithMedia;
+    use HasApiTokens, HasFactory, Notifiable, InteractsWithMedia;
 
     protected $guarded = ['id'];
 
@@ -26,6 +25,9 @@ class User extends Authenticatable implements MustVerifyEmail, HasMedia
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    protected $appends = ['avatar'];
+
 
     public function plan(): BelongsTo
     {
@@ -113,6 +115,6 @@ class User extends Authenticatable implements MustVerifyEmail, HasMedia
             return  asset($avatar->getUrl());
         }
 
-        return 0;
+        return asset('static/avatar.png');
     }
 }

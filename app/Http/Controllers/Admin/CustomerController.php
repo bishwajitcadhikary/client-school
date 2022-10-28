@@ -21,12 +21,25 @@ class CustomerController extends Controller
 {
     public function index()
     {
-        $customers = User::whereRole('customer')
+        $customers = User::where('role', '=', 'customer')
             ->latest()
             ->paginate(10);
 
         return Inertia::render('Admin/Customer/Index', [
             'customers' => $customers,
+        ]);
+    }
+
+    public function create()
+    {
+        $plans = Plan::selectOptions()->get();
+        $currencies = Currency::selectOptions()->get();
+        $countries = Countries::getCountriesArray();
+
+        return Inertia::render('Admin/Customer/Create', [
+            'plans' => $plans,
+            'currencies' => $currencies,
+            'countries' => $countries,
         ]);
     }
 
@@ -74,19 +87,6 @@ class CustomerController extends Controller
         Session::flash('success', __('Customer Created Successfully'));
 
         return to_route('admin.customers.show', $userId);
-    }
-
-    public function create()
-    {
-        $plans = Plan::selectOptions()->get();
-        $currencies = Currency::selectOptions()->get();
-        $countries = Countries::getCountriesArray();
-
-        return Inertia::render('Admin/Customer/Create', [
-            'plans' => $plans,
-            'currencies' => $currencies,
-            'countries' => $countries,
-        ]);
     }
 
     public function show(User $customer)

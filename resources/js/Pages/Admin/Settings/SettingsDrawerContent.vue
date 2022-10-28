@@ -33,12 +33,6 @@ const menus = [
     active: route().current('admin.settings.gateways.*'),
   },
   {
-    title: trans('Roles'),
-    href: route('admin.settings.roles.index'),
-    icon: 'mdi-shield-star',
-    active: route().current('admin.settings.roles.*'),
-  },
-  {
     title: trans('Languages'),
     href: route('admin.settings.languages.index'),
     icon: 'mdi-translate',

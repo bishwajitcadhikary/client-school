@@ -66,7 +66,8 @@ function updateSettings() {
                   v-model="form.currency"
                   :label="$t('Currency')"
                   :items="currencies"
-                  disabled
+                  :error-message="form.errors.currency"
+                  :disabled="settings.currency"
                 />
               </VCol>
 

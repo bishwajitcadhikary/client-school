@@ -20,6 +20,11 @@ class LanguageSeeder extends Seeder
                 'code' => 'en',
                 'is_default' => true,
             ],
+            [
+                'name' => 'Bengali',
+                'code' => 'bn',
+                'is_default' => false,
+            ],
         ];
 
         foreach ($languages as $index => $language) {

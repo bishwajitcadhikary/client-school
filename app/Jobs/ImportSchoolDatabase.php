@@ -43,7 +43,7 @@ class ImportSchoolDatabase implements ShouldQueue
             'database_created' => 1
         ]);
 
-        //Notification::route('mail', Config::get('wovo.email_send_to'))->notify(new DatabaseCreated($this->school));
+        Notification::route('mail', Config::get('wovo.email_send_to'))->notify(new DatabaseCreated($this->school));
     }
 
     public function failed(Throwable $exception)
@@ -54,6 +54,6 @@ class ImportSchoolDatabase implements ShouldQueue
             'database_created' => 2
         ]);
 
-        //Notification::route('mail', Config::get('wovo.email_send_to'))->notify(new DatabaseCreateFailed($this->school, $exception->getMessage()));
+        Notification::route('mail', Config::get('wovo.email_send_to'))->notify(new DatabaseCreateFailed($this->school, $exception->getMessage()));
     }
 }

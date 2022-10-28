@@ -46,7 +46,7 @@ const theme = {
         'on-secondary': '#fff',
         'success': '#56CA00',
         'info': '#16B1FF',
-        'warning': '#FFB400',
+        'warning': '#ffd679',
         'error': '#FF4C51',
         'on-primary': '#FFFFFF',
         'on-success': '#FFFFFF',

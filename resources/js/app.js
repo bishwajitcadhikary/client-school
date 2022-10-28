@@ -1,5 +1,4 @@
 import './bootstrap'
-import 'toastify-js/src/toastify.css'
 
 import {createApp, h} from 'vue'
 import {createInertiaApp, Link, Head} from '@inertiajs/inertia-vue3'
