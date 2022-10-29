@@ -16,7 +16,7 @@ class Gateway extends Model implements HasMedia
 
     protected $guarded = ['id'];
 
-    protected $appends = ['logo', 'logo_path'];
+    protected $appends = ['logo', 'logo_path', 'value', 'title'];
 
     public function currency(): BelongsTo
     {
@@ -86,5 +86,15 @@ class Gateway extends Model implements HasMedia
         }
 
         return null;
+    }
+
+    public function getValueAttribute()
+    {
+        return $this->attributes['id'];
+    }
+
+    public function getTitleAttribute()
+    {
+        return $this->attributes['name'];
     }
 }

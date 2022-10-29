@@ -17,8 +17,11 @@ class DatabaseSeeder extends Seeder
         $this->call([
             CurrencySeeder::class,
             LanguageSeeder::class,
+            FileDiskSeeder::class,
+            GatewaySeeder::class,
             PlanSeeder::class,
             UserSeeder::class,
+            SettingSeeder::class,
         ]);
     }
 }

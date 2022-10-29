@@ -62,6 +62,18 @@ const customerMenus = [
     icon: 'mdi-account-outline',
     active: route().current('customer.profile.*'),
   },
+  {
+    title: trans('Schools'),
+    href: route('customer.schools.index'),
+    icon: 'mdi-town-hall',
+    active: route().current('customer.schools.*'),
+  },
+  {
+    title: trans('Subscription'),
+    href: route('customer.subscription.index'),
+    icon: 'mdi-trophy-outline',
+    active: route().current('customer.subscription.*'),
+  },
 ]
 </script>
 

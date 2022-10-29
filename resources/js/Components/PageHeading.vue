@@ -49,15 +49,6 @@ defineProps({
       {{ action.title }}
     </VBtn>
     <VBtn
-      v-if="action"
-      @click="$inertia.visit(action.href)"
-    >
-      <VIcon v-if="action.icon">
-        {{ action.icon }}
-      </VIcon>
-      {{ action.title }}
-    </VBtn>
-    <VBtn
       v-if="back"
       @click="$inertia.visit(back)"
     >

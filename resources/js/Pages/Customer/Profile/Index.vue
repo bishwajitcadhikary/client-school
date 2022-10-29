@@ -24,6 +24,14 @@ defineProps({
     type: [Array, Object],
     required: true,
   },
+  confirmsTwoFactorAuthentication: {
+    type: Boolean,
+    default: null,
+  },
+  sessions: {
+    type: Array,
+    default: null,
+  },
 })
 
 const activeTab = ref(null)
@@ -39,11 +47,6 @@ const tabs = [
     title: 'Security',
     icon: 'mdi-lock-open-outline',
     tab: 'security',
-  },
-  {
-    title: 'Notifications',
-    icon: 'mdi-bell-outline',
-    tab: 'notification',
   },
 ]
 </script>
@@ -82,6 +85,7 @@ const tabs = [
           :countries="countries"
           :currencies="currencies"
           :time-zones="timeZones"
+          :requires-confirmation="confirmsTwoFactorAuthentication"
         />
       </VWindowItem>
 
@@ -91,9 +95,11 @@ const tabs = [
       </VWindowItem>
 
       <!-- Notification -->
-      <VWindowItem value="notification">
+      <!--
+        <VWindowItem value="notification">
         <AccountSettingsNotification />
-      </VWindowItem>
+        </VWindowItem>
+      -->
     </VWindow>
   </AppLayout>
 </template>
