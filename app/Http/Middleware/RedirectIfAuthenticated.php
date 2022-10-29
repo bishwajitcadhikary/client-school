@@ -24,12 +24,12 @@ class RedirectIfAuthenticated
 
         foreach ($guards as $guard) {
             if (Auth::guard($guard)->check()) {
-                if (Auth::user()->status == 0) {
+                /*if (Auth::user()->status == 0) {
                     Session::flash('error', 'Your account has been deactivated. Please contact your administrator.');
                     return redirect()->route('account.deactivated')->withHeaders([
                         'Account-Status' => 'Deactivated'
                     ]);
-                }
+                }*/
 
                 return redirect(RouteServiceProvider::HOME);
             }
