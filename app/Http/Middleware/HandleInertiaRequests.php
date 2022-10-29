@@ -36,10 +36,11 @@ class HandleInertiaRequests extends Middleware
      */
     public function share(Request $request)
     {
+        $planExpired = auth()->check() ? auth()->user()->plan_expire_at <= now() : true;
         return array_merge(parent::share($request), [
             'auth' => [
                 'user' => $request->user(),
-                'plan_expired' => $request->user()->plan_expire_at <= now() ?? true,
+                'plan_expired' => $planExpired,
             ],
             'ziggy' => function () use ($request) {
                 return array_merge((new Ziggy)->toArray(), [
