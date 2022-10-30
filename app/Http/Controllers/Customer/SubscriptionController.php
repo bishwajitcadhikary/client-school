@@ -67,7 +67,7 @@ class SubscriptionController extends Controller
 
             DB::commit();
 
-            User::whereRole('admin')->first()->notify(new NewSchoolAdded($planOrder));
+            //User::whereRole('admin')->first()->notify(new NewSchoolAdded($planOrder));
 
             return redirect()->route('customer.subscription.index');
         } catch (\Throwable $exception) {
