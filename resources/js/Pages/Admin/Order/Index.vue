@@ -84,7 +84,6 @@ const rejectOrder = order => {
               :key="order.id"
             >
               <td>{{ order.id }}</td>
-              <td>{{ order.customer.name }}</td>
               <td>{{ order.plan.name }}</td>
               <td>{{ order.gateway.name }}</td>
               <td class="text-center">
