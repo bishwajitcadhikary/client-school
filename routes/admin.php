@@ -19,6 +19,11 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth', 'v
 
     Route::resource('plans', Admin\PlanController::class);
 
+    Route::group(['prefix' => 'orders'], function (){
+        Route::get('/', [Admin\OrderController::class, 'index'])->name('orders.index');
+        Route::put('accept/{order}', [Admin\OrderController::class, 'accept'])->name('orders.accept');
+    });
+
     Route::group(['prefix' => 'settings', 'as' => 'settings.'], function () {
         Route::resource('file-disks', Settings\FileDiskController::class);
         Route::get('backup/download', [Settings\BackupController::class, 'download'])->name('backups.download');

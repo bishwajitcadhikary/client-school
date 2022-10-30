@@ -6,9 +6,10 @@ use App\Http\Controllers\Controller;
 use App\Models\Gateway;
 use App\Models\Plan;
 use App\Models\PlanOrder;
+use DB;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 use Inertia\Inertia;
-use Session;
 
 class SubscriptionController extends Controller
 {
@@ -44,13 +45,33 @@ class SubscriptionController extends Controller
             'description' => ['required', 'string'],
         ]);
 
-        $data['gateway_id'] = $data['gateway'];
-        unset($data['gateway']);
+        DB::beginTransaction();
+        try {
+            $planOrder = PlanOrder::create([
+                'plan_id' => $plan->id,
+                'customer_id' => auth()->id(),
+                'interval' => $data['interval'],
+                'gateway_id' => $data['gateway'],
+                'trx_id' => $data['trx_id'],
+                'description' => $data['description'],
+            ]);
 
-        PlanOrder::create($data);
+            if ($request->hasFile('screenshot')) {
+                $planOrder->addMediaFromRequest('screenshot')->toMediaCollection('screenshot');
+            }
 
-        Session::flash('success', 'Your order has been placed successfully. We will review your order and get back to you soon.');
+            Session::flash('success', 'Your order has been placed successfully. We will review your order and get back to you soon.');
 
-        return redirect()->route('customer.subscription.index');
+            DB::commit();
+
+            return redirect()->route('customer.subscription.index');
+        }catch (\Throwable $exception){
+            DB::rollBack();
+
+            Session::flash('error', $exception->getMessage());
+//            Session::flash('error', 'Something went wrong. Please try again later.');
+
+            return redirect()->back();
+        }
     }
 }

@@ -42,6 +42,12 @@ const adminMenus = [
     active: route().current('admin.plans.*'),
   },
   {
+    title: trans('Orders'),
+    href: route('admin.orders.index'),
+    icon: 'mdi-cart',
+    active: route().current('admin.orders.*'),
+  },
+  {
     title: trans('Settings'),
     href: route('admin.settings.account-settings.index'),
     icon: 'mdi-cog-outline',

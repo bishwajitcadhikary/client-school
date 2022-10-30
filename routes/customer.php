@@ -16,5 +16,6 @@ Route::group(['as' => 'customer.', 'middleware' => ['auth', 'verified', 'custome
     Route::group(['prefix' => 'subscription', 'excluded_middleware' => 'subscription'], function (){
         Route::get('/', [Customer\SubscriptionController::class, 'index'])->name('subscription.index');
         Route::get('/{plan}/payment', [Customer\SubscriptionController::class, 'payment'])->name('subscription.payment');
+        Route::post('/{plan}/payment', [Customer\SubscriptionController::class, 'paymentStore'])->name('subscription.payment.store');
     });
 });

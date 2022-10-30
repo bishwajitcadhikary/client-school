@@ -26,15 +26,16 @@ const form = useForm({
 })
 
 const screenshotAdded = file => {
-  form.screenshot = file[0]
-  console.log(file[0])
+  if (file) {
+    form.screenshot = file[0]
+  }
 }
 
 const submit = () => {
-  form.post(route('customer.subscription.payment.store'), {
+  form.post(route('customer.subscription.payment.store', {plan: props.plan.id}), {
     preserveScroll: true,
     preserveState: true,
-    onSuccess: () => {
+    onSuccess: page => {
       useSnackbarStore().showNotification(page)
       form.reset()
     },
@@ -52,7 +53,7 @@ const submit = () => {
         >
           <VCard>
             <VCardText>
-              <VForm>
+              <VForm @submit.prevent="submit">
                 <VSelect
                   v-model="form.gateway"
                   :label="$t('Payment Gateway')"
