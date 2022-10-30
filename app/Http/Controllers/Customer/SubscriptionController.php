@@ -72,7 +72,8 @@ class SubscriptionController extends Controller
             return redirect()->route('customer.subscription.index');
         } catch (\Throwable $exception) {
             DB::rollBack();
-            Session::flash('error', 'Something went wrong. Please try again later.');
+            Session::flash('error', $exception->getMessage());
+//            Session::flash('error', 'Something went wrong. Please try again later.');
             return redirect()->back();
         }
     }

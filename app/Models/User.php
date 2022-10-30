@@ -48,7 +48,7 @@ class User extends Authenticatable implements MustVerifyEmail, HasMedia
 
     public function schools(): HasMany
     {
-        return $this->hasMany(School::class);
+        return $this->hasMany(School::class, 'customer_id', 'id');
     }
 
     public function scopeWhereSearch($query, $search)
