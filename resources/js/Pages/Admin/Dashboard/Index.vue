@@ -25,7 +25,7 @@ const currencyFormat = inject('currencyFormat')
 </script>
 
 <template>
-  <AppLayout>
+  <AppLayout :title="$t('Dashboard')">
     <VRow class="match-height">
       <VCol
         cols="12"
