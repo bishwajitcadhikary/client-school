@@ -1,7 +1,7 @@
 <script setup>
 import {computed, ref} from 'vue'
 import { useTheme } from 'vuetify'
-import logo from '@/assets/logo.svg?raw'
+import logo from '@/assets/logo.jpg'
 import AuthProvider from './AuthProvider.vue'
 import authV1MaskDark from '@/assets/images/pages/auth-v1-mask-dark.png'
 import authV1MaskLight from '@/assets/images/pages/auth-v1-mask-light.png'
@@ -46,13 +46,12 @@ const submit = () => {
       <VCardItem class="justify-center">
         <template #prepend>
           <div class="d-flex">
-            <div v-html="logo" />
+            <img
+              :src="logo"
+              class="w-100"
+            >
           </div>
         </template>
-
-        <VCardTitle class="font-weight-semibold text-2xl text-uppercase">
-          {{ $page.props.app.name }}
-        </VCardTitle>
       </VCardItem>
 
       <VCardText class="pt-2">

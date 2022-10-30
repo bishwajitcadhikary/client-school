@@ -1,7 +1,7 @@
 <script setup>
 import upgradeBannerDark from '@/assets/images/pro/upgrade-banner-dark.png'
 import upgradeBannerLight from '@/assets/images/pro/upgrade-banner-light.png'
-import logo from '@/assets/logo.svg?raw'
+import logo from '@/assets/logo.jpg'
 import {
   VerticalNavLink,
   VerticalNavSectionTitle,
@@ -109,7 +109,11 @@ const customerMenus = [
       class="app-logo d-flex align-center gap-x-3 app-title-wrapper"
     >
       <!-- ℹ️ You can also use img tag or VImg here -->
-      <div v-html="logo" />
+      <VImg
+        :src="logo"
+        alt=""
+        class="w-100"
+      />
 
       <Transition name="vertical-nav-app-title">
         <h1 class="font-weight-semibold leading-normal text-xl text-uppercase">

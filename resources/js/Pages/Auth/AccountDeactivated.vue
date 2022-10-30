@@ -1,5 +1,5 @@
 <script setup>
-import logo from '@/assets/logo.svg?raw'
+import logo from '@/assets/logo.jpg'
 </script>
 
 <template>
@@ -12,13 +12,12 @@ import logo from '@/assets/logo.svg?raw'
       <VCardItem class="justify-center">
         <template #prepend>
           <div class="d-flex">
-            <div v-html="logo" />
+            <img
+              :src="logo"
+              class="w-100"
+            >
           </div>
         </template>
-
-        <VCardTitle class="font-weight-semibold text-2xl text-uppercase">
-          {{ $page.props.app.name }}
-        </VCardTitle>
       </VCardItem>
 
       <VCardText class="pt-2">

@@ -1,25 +1,25 @@
 <script setup>
-import {computed, ref} from 'vue';
+import {computed, ref} from 'vue'
 import { useTheme } from 'vuetify'
-import logo from '@/assets/logo.svg?raw'
+import logo from '@/assets/logo.jpg'
 import AuthProvider from './AuthProvider.vue'
 import authV1MaskDark from '@/assets/images/pages/auth-v1-mask-dark.png'
 import authV1MaskLight from '@/assets/images/pages/auth-v1-mask-light.png'
 import authV1Tree2 from '@/assets/images/pages/auth-v1-tree-2.png'
 import authV1Tree from '@/assets/images/pages/auth-v1-tree.png'
-import {useForm} from "@inertiajs/inertia-vue3";
+import {useForm} from "@inertiajs/inertia-vue3"
 
 const props = defineProps({
   email: String,
   token: String,
-});
+})
 
 const form = useForm({
   token: props.token,
   email: props.email,
   password: '',
   password_confirmation: '',
-});
+})
 
 const isPasswordVisible = ref(false)
 const vuetifyTheme = useTheme()
@@ -30,12 +30,12 @@ const authThemeMask = computed(() => {
 const submit = () => {
   form.post(route('password.update'), {
     onFinish: () => form.reset('password', 'password_confirmation'),
-  });
-};
+  })
+}
 </script>
 
 <template>
-  <Head :title="$t('Forgot Password')"></Head>
+  <Head :title="$t('Forgot Password')" />
   <div class="auth-wrapper d-flex align-center justify-center pa-4">
     <VCard
       class="auth-card pa-4 pt-7"
@@ -44,7 +44,10 @@ const submit = () => {
       <VCardItem class="justify-center">
         <template #prepend>
           <div class="d-flex">
-            <div v-html="logo" />
+            <img
+              :src="logo"
+              class="w-100"
+            >
           </div>
         </template>
 
@@ -62,7 +65,6 @@ const submit = () => {
       <VCardText>
         <VForm @submit.prevent="submit">
           <VRow>
-
             <VCol cols="12">
               <VTextField
                 v-model="form.email"
@@ -80,10 +82,10 @@ const submit = () => {
                 :label="$t('Password')"
                 :type="isPasswordVisible ? 'text' : 'password'"
                 :append-inner-icon="isPasswordVisible ? 'mdi-eye-off-outline' : 'mdi-eye-outline'"
-                @click:append-inner="isPasswordVisible = !isPasswordVisible"
                 :error-messages="form.errors.password"
                 min="8"
                 required
+                @click:append-inner="isPasswordVisible = !isPasswordVisible"
               />
             </VCol>
             <VCol cols="12">
@@ -92,10 +94,10 @@ const submit = () => {
                 :label="$t('Confirm Password')"
                 :type="isPasswordVisible ? 'text' : 'password'"
                 :append-inner-icon="isPasswordVisible ? 'mdi-eye-off-outline' : 'mdi-eye-outline'"
-                @click:append-inner="isPasswordVisible = !isPasswordVisible"
                 :error-messages="form.errors.password_confirmation"
                 min="8"
                 required
+                @click:append-inner="isPasswordVisible = !isPasswordVisible"
               />
             </VCol>
             <VCol cols="12">

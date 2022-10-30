@@ -1,19 +1,19 @@
 <script setup>
-import {computed, ref} from 'vue';
+import {computed, ref} from 'vue'
 import { useTheme } from 'vuetify'
-import logo from '@/assets/logo.svg?raw'
+import logo from '@/assets/logo.jpg'
 import AuthProvider from './AuthProvider.vue'
 import authV1MaskDark from '@/assets/images/pages/auth-v1-mask-dark.png'
 import authV1MaskLight from '@/assets/images/pages/auth-v1-mask-light.png'
 import authV1Tree2 from '@/assets/images/pages/auth-v1-tree-2.png'
 import authV1Tree from '@/assets/images/pages/auth-v1-tree.png'
-import {useForm} from "@inertiajs/inertia-vue3";
+import {useForm} from "@inertiajs/inertia-vue3"
 
 const props = defineProps({
   status: String,
-});
+})
 
-const form = useForm();
+const form = useForm()
 
 const isPasswordVisible = ref(false)
 const vuetifyTheme = useTheme()
@@ -24,15 +24,15 @@ const authThemeMask = computed(() => {
 const submit = () => {
   form.post(route('verification.send'), {
     preserveState: true,
-    preserveScroll: true
-  });
-};
+    preserveScroll: true,
+  })
+}
 
-const verificationLinkSent = computed(() => props.status === 'verification-link-sent');
+const verificationLinkSent = computed(() => props.status === 'verification-link-sent')
 </script>
 
 <template>
-  <Head :title="$t('Forgot Password')"></Head>
+  <Head :title="$t('Forgot Password')" />
   <div class="auth-wrapper d-flex align-center justify-center pa-4">
     <VCard
       class="auth-card pa-4 pt-7"
@@ -41,7 +41,10 @@ const verificationLinkSent = computed(() => props.status === 'verification-link-
       <VCardItem class="justify-center">
         <template #prepend>
           <div class="d-flex">
-            <div v-html="logo" />
+            <img
+              :src="logo"
+              class="w-100"
+            >
           </div>
         </template>
 
@@ -72,7 +75,6 @@ const verificationLinkSent = computed(() => props.status === 'verification-link-
       <VCardText>
         <VForm @submit.prevent="submit">
           <VRow>
-
             <VCol cols="12">
               <VBtn
                 :loading="form.processing"
