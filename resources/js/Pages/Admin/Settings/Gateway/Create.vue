@@ -19,7 +19,7 @@ const form = useForm({
   currency: null,
   charge: 0,
   is_active: true,
-  instruction: null,
+  instructions: null,
 })
 
 const currencyForm = useForm({
@@ -121,10 +121,10 @@ function selectCurrency(e) {
                 />
 
                 <VTextarea
-                  v-model="form.instruction"
+                  v-model="form.instructions"
                   class="mb-5"
-                  :label="$t('Payment Instruction')"
-                  :error-messages="form.errors.instruction"
+                  :label="$t('Payment Instructions')"
+                  :error-messages="form.errors.instructions"
                 />
 
                 <VSwitch

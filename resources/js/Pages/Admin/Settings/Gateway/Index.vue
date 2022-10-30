@@ -1,6 +1,7 @@
 <script setup>
 import SettingsDrawerContent from '@/Pages/Admin/Settings/SettingsDrawerContent.vue'
 import {inject, ref} from "vue"
+import {useDeleteDialogStore} from "@/Stores/useDeleteDialogStore"
 
 const props = defineProps({
   gateways: {
@@ -85,15 +86,6 @@ const dialog = ref(false)
                 <VBtnToggle
                   rounded="xl"
                 >
-                  <VTooltip :text="$t('Show Gateway Infomation')">
-                    <template #activator="{ props }">
-                      <VBtn
-                        icon="mdi-clipboard-edit-outline"
-                        v-bind="props"
-                        @click="dialog = true"
-                      />
-                    </template>
-                  </VTooltip>
                   <VTooltip :text="$t('Edit Gateway')">
                     <template #activator="{ props }">
                       <VBtn
@@ -109,7 +101,7 @@ const dialog = ref(false)
                         v-if="!gateway.is_default"
                         icon="mdi-delete-outline"
                         v-bind="props"
-                        @click="dialog = true; deletableLangId = gateway.id"
+                        @click="useDeleteDialogStore().showDialog(route('admin.settings.gateways.destroy', {gateway: gateway.id}))"
                       />
                     </template>
                   </VTooltip>
@@ -121,24 +113,4 @@ const dialog = ref(false)
       </VCard>
     </VContainer>
   </AppLayout>
-
-  <VDialog
-    v-model="dialog"
-    max-width="50%"
-  >
-    <VCard>
-      <VCardText>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-      </VCardText>
-      <VCardActions>
-        <VBtn
-          color="primary"
-          block
-          @click="dialog = false"
-        >
-          Close Dialog
-        </VBtn>
-      </VCardActions>
-    </VCard>
-  </VDialog>
 </template>

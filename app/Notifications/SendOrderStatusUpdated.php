@@ -29,7 +29,7 @@ class SendOrderStatusUpdated extends Notification
         return (new MailMessage)
             ->subject('Subscription order status updated')
             ->line('Your subscription order status has been updated.')
-            ->action('Check Now', route('customer.subscription.index'))
+            ->action('Check Now', route('customer.orders.index'))
             ->line('Thank you for using our application!');
     }
 
@@ -37,7 +37,7 @@ class SendOrderStatusUpdated extends Notification
     {
         return [
             'message' => 'Your subscription order status has been updated.',
-            'link' => route('customer.subscription.index'),
+            'link' => route('customer.orders.index'),
         ];
     }
 
@@ -45,7 +45,7 @@ class SendOrderStatusUpdated extends Notification
     {
         return [
             'message' => 'Your subscription order status has been updated.',
-            'link' => route('customer.subscription.index'),
+            'link' => route('customer.orders.index'),
         ];
     }
 }

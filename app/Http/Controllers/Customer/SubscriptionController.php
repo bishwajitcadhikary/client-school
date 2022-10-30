@@ -7,6 +7,7 @@ use App\Models\Gateway;
 use App\Models\Plan;
 use App\Models\PlanOrder;
 use App\Models\User;
+use App\Notifications\NewOrderSubmitted;
 use App\Notifications\NewSchoolAdded;
 use DB;
 use Illuminate\Http\Request;
@@ -26,6 +27,10 @@ class SubscriptionController extends Controller
 
     public function payment(Request $request, Plan $plan)
     {
+        if ($plan->name == 'Free' || ($plan->monthly_price == 0 && $plan->yearly_price == 0)) {
+            Session::flash('error', 'You can not subscribe to free plan.');
+            return to_route('customer.subscription.index');
+        }
         $interval = $request->header('X-Interval');
 
         $gateways = Gateway::whereIsActive(true)->get();
@@ -42,7 +47,6 @@ class SubscriptionController extends Controller
         $data = $request->validate([
             'gateway' => ['required', 'exists:gateways,id'],
             'trx_id' => ['required', 'string'],
-            'screenshot' => ['required', 'image', 'max:1024'],
             'interval' => ['required', 'in:monthly,yearly'],
             'description' => ['required', 'string'],
         ]);
@@ -59,21 +63,18 @@ class SubscriptionController extends Controller
                 'description' => $data['description'],
             ]);
 
-            if ($request->hasFile('screenshot')) {
-                $planOrder->addMediaFromRequest('screenshot')->toMediaCollection('screenshot');
-            }
-
             Session::flash('success', 'Your order has been placed successfully. We will review your order and get back to you soon.');
 
             DB::commit();
 
-            User::whereRole('admin')->first()->notify(new NewSchoolAdded($planOrder));
+            User::whereRole('admin')->first()->notify(new NewOrderSubmitted($planOrder));
 
             return redirect()->route('customer.subscription.index');
         } catch (\Throwable $exception) {
             DB::rollBack();
-            Session::flash('error', $exception->getMessage());
-//            Session::flash('error', 'Something went wrong. Please try again later.');
+            throw $exception;
+
+            Session::flash('error', 'Something went wrong. Please try again later.');
             return redirect()->back();
         }
     }

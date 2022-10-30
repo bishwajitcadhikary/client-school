@@ -28,6 +28,7 @@ return new class extends Migration
             $table->boolean('test_mode')->default(0);
             $table->boolean('is_active')->default(1);
             $table->text('data')->nullable();
+            $table->text('instructions')->nullable();
             $table->foreignId('currency_id')->constrained();
             $table->timestamps();
         });

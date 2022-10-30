@@ -45,7 +45,7 @@ class SchoolController extends Controller
     {
         if (!$this->checkSchoolLimit()) {
             Session::flash('error', 'You have reached your school limit. Please upgrade your plan to add more schools.');
-            return redirect()->route('customer.school.index');
+            return to_route('customer.schools.index');
         }
 
         return Inertia::render('Customer/School/Create');
@@ -55,12 +55,20 @@ class SchoolController extends Controller
     {
         if (!$this->checkSchoolLimit()) {
             Session::flash('error', 'You have reached your school limit. Please upgrade your plan to add more schools.');
-            return redirect()->route('customer.school.index');
+            return to_route('customer.schools.index');
         }
         $data = $request->validate([
             'name' => ['required', 'string'],
-            'domain' => ['required', 'unique:schools', new Domain()]
         ]);
+
+        $domain = str('Ruhea High School')->lower()->explode(' ')->map(function ($item){
+            return substr($item, 0, 1);
+        })->implode('');
+
+        if (School::whereDomain($domain)->exists()) {
+            $domain = $domain . '_' . Str::random(5);
+        }
+        $domain = $domain . '.'. config('wovo.main_domain');
 
         DB::beginTransaction();
         try {
@@ -74,7 +82,7 @@ class SchoolController extends Controller
                 'username' => config('database.connections.school.username'),
                 'password' => config('database.connections.school.password'),
                 'database' => $databaseName,
-                'domain' => str($data['domain'])->remove(['https://', 'http://', 'www.', '/*', ' ']),
+                'domain' => $domain,
                 'is_active' => true
             ]);
 

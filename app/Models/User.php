@@ -134,4 +134,20 @@ class User extends Authenticatable implements MustVerifyEmail, HasMedia
     {
         return $this->role == 'customer';
     }
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::created(function ($user) {
+            $plan = Plan::whereName('Free')->first();
+
+            if ($plan) {
+                $user->update([
+                    'plan_id' => $plan->id,
+                    'plan_expire_at' => now()->addDays(config('wovo.free_plan_duration')),
+                ]);
+            }
+        });
+    }
 }

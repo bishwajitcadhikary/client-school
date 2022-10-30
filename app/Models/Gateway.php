@@ -53,11 +53,28 @@ class Gateway extends Model implements HasMedia
             'name' => ['required', 'string'],
             'currency' => ['required', 'exists:currencies,id'],
             'charge' => ['required', 'numeric'],
+            'instructions' => ['nullable', 'string'],
             'is_active' => ['boolean'],
         ]);
         $data['currency_id'] = $data['currency'];
 
         return self::create($data);
+    }
+
+    public function updateGateway(Request $request): Gateway
+    {
+        $data = $request->validate([
+            'name' => ['required', 'string'],
+            'currency' => ['required', 'exists:currencies,id'],
+            'charge' => ['required', 'numeric'],
+            'instructions' => ['nullable', 'string'],
+            'is_active' => ['boolean'],
+        ]);
+        $data['currency_id'] = $data['currency'];
+
+        $this->update($data);
+
+        return $this;
     }
 
     public function getLogoPathAttribute()

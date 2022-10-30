@@ -45,17 +45,20 @@ class GatewayController extends Controller
         }
     }
 
-    public function edit(Gateway $language)
+    public function edit(Gateway $gateway)
     {
+        $currencies = Currency::selectRaw('name as title, id as value, rate, code, symbol')->get();
+        $gateway->load('currency');
         return Inertia::render('Admin/Settings/Gateway/Edit', [
-            'language' => $language,
+            'currencies' => $currencies,
+            'gateway' => $gateway,
         ]);
     }
 
-    public function update(Request $request, Gateway $language)
+    public function update(Request $request, Gateway $gateway)
     {
         try {
-            $language->updateGateway($request);
+            $gateway->updateGateway($request);
 
             Session::flash('success', __('Gateway Updated Successfully'));
 
@@ -65,16 +68,10 @@ class GatewayController extends Controller
         }
     }
 
-    public function destroy(Gateway $language)
+    public function destroy(Gateway $gateway)
     {
         try {
-            //TODO:: Remove comments after development complete
-            /*$path = lang_path($language->code.'.json');
-            if (File::exists($path)){
-                File::delete($path);
-            }*/
-
-            $language->destroyGateway();
+            $gateway->delete();
 
             Session::flash('success', __('Gateway Deleted Successfully'));
         } catch (Throwable $e) {
@@ -82,14 +79,14 @@ class GatewayController extends Controller
         }
     }
 
-    public function changeStatus(Request $request, Gateway $language)
+    public function changeStatus(Request $request, Gateway $gateway)
     {
         $data = $request->validate([
             'is_active' => ['required', 'boolean'],
         ]);
 
         try {
-            $language->update([
+            $gateway->update([
                 'is_active' => $data['is_active'],
             ]);
 

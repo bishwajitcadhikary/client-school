@@ -9,7 +9,6 @@ const snackbarStore = useSnackbarStore()
 
 const form = useForm({
   name: null,
-  domain: null,
 })
 
 function submit() {
@@ -48,17 +47,6 @@ function submit() {
                       :label="$t('School Name')"
                       :rules="[rules.required]"
                       :error-messages="form.errors.name"
-                    />
-                  </VCol>
-                  <VCol
-                    cols="12"
-                  >
-                    <VTextField
-                      v-model="form.domain"
-                      :label="$t('Domain')"
-                      :rules="[rules.required]"
-                      :error-messages="form.errors.domain"
-                      hint="example: school.com or school.example.com"
                     />
                   </VCol>
 

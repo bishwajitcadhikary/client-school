@@ -24,4 +24,6 @@ return [
     ],
     'new_school_admin_mail' => env('NEW_SCHOOL_ADMIN_MAIL', 'admin@mail.com'),
     'new_school_admin_password' => env('NEW_SCHOOL_ADMIN_PASSWORD', 'password'),
+    'main_domain' => env('MAIN_DOMAIN', parse_url(env('app_url'))['path'] ?? null),
+    'free_plan_duration' => env('FREE_PLAN_DURATION', 30),
 ];

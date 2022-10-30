@@ -1,4 +1,5 @@
 <script setup>
+import {ref} from 'vue'
 import {useForm} from "@inertiajs/inertia-vue3"
 import {useSnackbarStore} from "@/Stores/useSnackbarStore"
 
@@ -21,15 +22,8 @@ const form = useForm({
   trx_id: null,
   description: null,
   gateway: null,
-  screenshot: null,
   interval: !!props.interval ? 'monthly' : 'yearly',
 })
-
-const screenshotAdded = file => {
-  if (file) {
-    form.screenshot = file[0]
-  }
-}
 
 const submit = () => {
   form.post(route('customer.subscription.payment.store', {plan: props.plan.id}), {
@@ -40,6 +34,13 @@ const submit = () => {
       form.reset()
     },
   })
+}
+
+const showInstruction = ref(false)
+const instructions = ref(null)
+const showPaymentInstruction = () => {
+  showInstruction.value = true
+  instructions.value = props.gateways.find(gateway => gateway.value === form.gateway)?.instructions
 }
 </script>
 
@@ -60,19 +61,13 @@ const submit = () => {
                   :items="gateways"
                   :error-messages="form.errors.gateway"
                   class="mb-5"
+                  @update:modelValue="showPaymentInstruction"
                 />
-                <VFileInput
-                  class="mb-5"
-                  prepend-icon="mdi-camera"
-                  @update:modelValue="screenshotAdded"
-                >
-                  <template #label>
-                    {{ $t('Transaction Screenshot') }}
-                  </template>
-                  <template #message>
-                    {{ $t('Please upload your transaction ID') }}
-                  </template>
-                </VFileInput>
+
+                <VCardText v-if="showInstruction">
+                  {{ instructions }}
+                </VCardText>
+
                 <VTextField
                   v-model="form.trx_id"
                   :label="$t('Transaction ID')"

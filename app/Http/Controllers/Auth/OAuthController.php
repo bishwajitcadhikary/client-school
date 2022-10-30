@@ -7,6 +7,7 @@ use App\Mail\SendOauthRegisteredUserPassword;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Laravel\Socialite\Facades\Socialite;
+use Mail;
 
 class OAuthController extends Controller
 {
@@ -52,9 +53,9 @@ class OAuthController extends Controller
 
             auth()->login($newUser, true);
 
-            \Mail::to($newUser)->send(new SendOauthRegisteredUserPassword($newUser->email, $password));
+            Mail::to($newUser)->send(new SendOauthRegisteredUserPassword($newUser->email, $password));
 
-            return redirect()->route('customer.subscription.index');
+            return redirect()->route('customer.dashboard.index');
         }
     }
 
