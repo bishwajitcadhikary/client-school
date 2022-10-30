@@ -10,13 +10,12 @@ class CustomerMiddleware
 {
     public function handle(Request $request, Closure $next)
     {
-        /*if (auth()->user()->isCustomer()) {
+        if (auth()->user()->role == 'customer') {
             return $next($request);
         }
 
         Session::flash('error', __("You don't have permission to access this page."));
 
-        return redirect()->route('admin.dashboard.index');*/
-        return $next($request);
+        return redirect()->route('login');
     }
 }

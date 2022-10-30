@@ -1,32 +1,22 @@
 <?php
 
-use App\Jobs\ImportSchoolDatabase;
-use Illuminate\Support\Facades\Artisan;
+use App\Http\Controllers\CommonController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
 Route::get('/', function () {
     return to_route('login');
-//    return Inertia::render('Welcome');
 });
 
+Route::get('notifications/{notification}', [CommonController::class, 'visitNotification'])->name('notifications.visit');
+
 Route::get('account-deactivated', function (\Illuminate\Http\Request $request) {
-    dd($request->headers->all());
     if ($request->header('Account-Status') == 'Deactivated') {
         return Inertia::render('AccountDeactivated');
     }else{
         abort(404);
     }
 })->name('account.deactivated');
-
-Route::get('test', function () {
-    return \App\Models\School::whereDomain($_SERVER['HTTP_HOST'])->get();
-});
-
-Route::get('install', function () {
-    Artisan::call('migrate:fresh');
-    Artisan::call('db:seed');
-});
 
 require __DIR__.'/customer.php';
 require __DIR__.'/admin.php';

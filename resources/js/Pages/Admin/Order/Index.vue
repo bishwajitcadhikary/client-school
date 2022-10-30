@@ -28,9 +28,12 @@ const acceptOrder = order => {
   }, {
     preserveState: true,
     preserveScroll: true,
-    only: ['orders'],
+    only: ['orders', 'flash'],
     onSuccess: page => {
       useSnackbarStore().showNotification(page)
+    },
+    onFinish: () => {
+      showDetails.value = false
     },
   })
 }
@@ -44,6 +47,9 @@ const rejectOrder = order => {
     only: ['orders', 'flash'],
     onSuccess: page => {
       useSnackbarStore().showNotification(page)
+    },
+    onFinish: () => {
+      showDetails.value = false
     },
   })
 }

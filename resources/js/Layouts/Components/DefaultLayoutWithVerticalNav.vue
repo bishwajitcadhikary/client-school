@@ -6,6 +6,7 @@ import { VerticalNavLayout } from '@layouts'
 import Footer from '@/Layouts/Components/Footer.vue'
 import NavbarThemeSwitcher from '@/Layouts/Components/NavbarThemeSwitcher.vue'
 import UserProfile from '@/Layouts/Components/UserProfile.vue'
+import NotificationAlert from '@/Layouts/Components/NotificationAlert.vue'
 </script>
 
 <template>
@@ -22,30 +23,8 @@ import UserProfile from '@/Layouts/Components/UserProfile.vue'
 
       <VSpacer />
 
-      <a
-        href="https://github.com/themeselection/materio-vuetify-vuejs-admin-template-free"
-        target="_blank"
-        rel="noopener noreferrer"
-        style="color: inherit"
-      >
-        <VIcon
-          class="ms-6 me-4"
-          icon="mdi-github"
-        />
-      </a>
       <NavbarThemeSwitcher />
-      <VBtn
-        icon
-        variant="text"
-        color="default"
-        class="me-2"
-        size="small"
-      >
-        <VIcon
-          icon="mdi-bell-outline"
-          size="24"
-        />
-      </VBtn>
+      <NotificationAlert />
       <UserProfile />
     </template>
 
@@ -56,7 +35,7 @@ import UserProfile from '@/Layouts/Components/UserProfile.vue'
 
     <!-- 👉 Pages -->
     <div class="layout-page-content">
-      <slot></slot>
+      <slot />
     </div>
 
     <!-- 👉 Footer -->

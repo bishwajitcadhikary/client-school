@@ -48,6 +48,12 @@ const adminMenus = [
     active: route().current('admin.orders.*'),
   },
   {
+    title: trans('Notifications'),
+    href: route('admin.notifications.index'),
+    icon: 'mdi-bell-outline',
+    active: route().current('admin.notifications.*'),
+  },
+  {
     title: trans('Settings'),
     href: route('admin.settings.account-settings.index'),
     icon: 'mdi-cog-outline',
@@ -79,6 +85,12 @@ const customerMenus = [
     href: route('customer.subscription.index'),
     icon: 'mdi-trophy-outline',
     active: route().current('customer.subscription.*'),
+  },
+  {
+    title: trans('Notifications'),
+    href: route('customer.notifications.index'),
+    icon: 'mdi-bell-outline',
+    active: route().current('customer.notifications.*'),
   },
 ]
 </script>
@@ -113,26 +125,7 @@ const customerMenus = [
         class: {'active' : menu.active}
       }"
     />
-
-    <VerticalNavSectionTitle :item="{ heading: 'Pages' }" />
   </ul>
-
-  <!-- 👉 illustration -->
-<!--
-  <a
-  href="https://themeselection.com/item/materio-vuetify-vuejs-admin-template"
-  target="_blank"
-  rel="noopener noreferrer"
-  >
-  <img
-  :src="upgradeBanner"
-  alt="upgrade-banner"
-  transition="scale-transition"
-  class="upgrade-banner mx-auto"
-  style="max-width: 230px"
-  >
-  </a>
--->
 </template>
 
 <style lang="scss">

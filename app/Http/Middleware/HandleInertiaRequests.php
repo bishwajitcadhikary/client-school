@@ -52,6 +52,10 @@ class HandleInertiaRequests extends Middleware
                 'url' => config('app.url'),
                 'date_format' => Setting::getSetting('date_format') ?? 'DD DDD, YYYY',
                 'currency' => Currency::whereIsDefault(true)->selectRaw('name, code, rate, id, symbol')->first(),
+                'notifications' => [
+                    'items' => auth()->check() ? auth()->user()->notifications()->orderBy('read_at', 'desc')->limit(5)->get() : [],
+                    'new' => auth()->check() ? auth()->user()->notifications()->whereNull('read_at')->count() : 0,
+                ],
             ],
             'flash' => [
                 'success' => fn () => $request->session()->get('success'),

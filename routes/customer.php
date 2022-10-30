@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CommonController;
 use App\Http\Controllers\Customer;
 use Illuminate\Support\Facades\Route;
 
@@ -18,4 +19,6 @@ Route::group(['as' => 'customer.', 'middleware' => ['auth', 'verified', 'custome
         Route::get('/{plan}/payment', [Customer\SubscriptionController::class, 'payment'])->name('subscription.payment');
         Route::post('/{plan}/payment', [Customer\SubscriptionController::class, 'paymentStore'])->name('subscription.payment.store');
     });
+
+    Route::get('notifications', [CommonController::class, 'notifications'])->name('notifications.index');
 });

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin;
 use App\Http\Controllers\Admin\Settings;
+use App\Http\Controllers\CommonController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -23,6 +24,8 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth', 'v
         Route::get('/', [Admin\OrderController::class, 'index'])->name('orders.index');
         Route::put('accept/{order}', [Admin\OrderController::class, 'accept'])->name('orders.accept');
     });
+
+    Route::get('notifications', [CommonController::class, 'notifications'])->name('notifications.index');
 
     Route::group(['prefix' => 'settings', 'as' => 'settings.'], function () {
         Route::resource('file-disks', Settings\FileDiskController::class);

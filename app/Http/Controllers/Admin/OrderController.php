@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\PlanOrder;
+use App\Notifications\SendOrderStatusUpdated;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
@@ -42,10 +43,34 @@ class OrderController extends Controller
             }
 
             Session::flash('success', 'Order accepted successfully');
+
+            $order->customer->notify(new SendOrderStatusUpdated($order));
+
+            return redirect()->back();
         } elseif ($order->status === 2){
             Session::flash('error', 'Order already rejected');
+            return redirect()->back();
         } else {
             Session::flash('error', 'Order already accepted');
+            return redirect()->back();
+        }
+    }
+
+    public function reject(PlanOrder $order)
+    {
+        if ($order->status == 0) {
+            $order->update([
+                'status' => 2,
+            ]);
+
+            Session::flash('success', 'Order rejected successfully');
+            return redirect()->back();
+        } elseif ($order->status === 1){
+            Session::flash('error', 'Order already accepted');
+            return redirect()->back();
+        } else {
+            Session::flash('error', 'Order already rejected');
+            return redirect()->back();
         }
     }
 }

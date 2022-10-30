@@ -7,6 +7,7 @@ use App\Jobs\ImportSchoolDatabase;
 use App\Models\School;
 use App\Models\User;
 use App\Notifications\NewSchoolAdded;
+use App\Notifications\SendSchoolCredentials;
 use App\Rules\Domain;
 use Auth;
 use Illuminate\Http\Request;
@@ -68,13 +69,14 @@ class SchoolController extends Controller
                 'is_active' => true
             ]);
 
+            DB::commit();
+
             ImportSchoolDatabase::dispatch($databaseName, $school);
 
             User::whereRole('admin')->firstOrFail()->notify(new NewSchoolAdded($school));
+            Auth::user()->notify(new SendSchoolCredentials($school));
 
             Session::flash('success', __("School Created Successfully"));
-
-            DB::commit();
 
             return to_route('customer.schools.index');
         }catch (Throwable $e){

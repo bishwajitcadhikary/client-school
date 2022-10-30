@@ -22,4 +22,6 @@ return [
         ['key' => 'november-october', 'value' => '11-10'],
         ['key' => 'december-november', 'value' => '12-11'],
     ],
+    'new_school_admin_mail' => env('NEW_SCHOOL_ADMIN_MAIL', 'admin@mail.com'),
+    'new_school_admin_password' => env('NEW_SCHOOL_ADMIN_PASSWORD', 'password'),
 ];

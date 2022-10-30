@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\Gateway;
 use App\Models\Plan;
 use App\Models\PlanOrder;
+use App\Models\User;
+use App\Notifications\NewSchoolAdded;
 use DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
@@ -63,6 +65,8 @@ class SubscriptionController extends Controller
             Session::flash('success', 'Your order has been placed successfully. We will review your order and get back to you soon.');
 
             DB::commit();
+
+            User::whereRole('admin')->first()->notify(new NewSchoolAdded($planOrder));
 
             return redirect()->route('customer.subscription.index');
         }catch (\Throwable $exception){

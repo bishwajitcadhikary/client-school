@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Jobs\ImportSchoolDatabase;
 use App\Models\School;
 use App\Models\User;
+use App\Notifications\SendSchoolCredentials;
 use App\Rules\Domain;
 use Config;
 use Illuminate\Http\Request;
@@ -60,6 +61,8 @@ class SchoolController extends Controller
         ImportSchoolDatabase::dispatch($databaseName, $school);
 
         Session::flash('success', __("School Created Successfully"));
+
+        User::find($data['customer'])->notify(new SendSchoolCredentials($school));
 
         return to_route('admin.schools.index');
     }
