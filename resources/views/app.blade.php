@@ -16,7 +16,7 @@
     <div id="app" data-page="{{ json_encode($page) }}">
         <div id="loading-bg">
             <div class="loading-logo">
-                <img src="{{ asset('logo.png') }}" height="50" alt="Logo" />
+                <img src="{{ asset('static/logo.jpg') }}" height="50" alt="Logo" />
             </div>
             <div class="loading">
                 <div class="effect-1 effects"></div>
