@@ -13,6 +13,7 @@ Route::group(['as' => 'customer.', 'middleware' => ['auth', 'verified', 'custome
     Route::put('profile/change-password', [Customer\ProfileController::class, 'changePassword'])->name('profile.change-password');
 
     Route::resource('schools', Customer\SchoolController::class)->except('show');
+    Route::get('orders', [Customer\OrderController::class, 'index'])->name('orders.index');
 
     Route::group(['prefix' => 'subscription', 'excluded_middleware' => 'subscription'], function (){
         Route::get('/', [Customer\SubscriptionController::class, 'index'])->name('subscription.index');

@@ -18,6 +18,7 @@ return new class extends Migration
             $table->foreignId('plan_id')->constrained()->cascadeOnDelete();
             $table->foreignId('customer_id')->constrained('users')->cascadeOnDelete();
             $table->foreignId('gateway_id')->nullable()->constrained('gateways')->nullOnDelete();
+            $table->integer('amount')->default(0);
             $table->boolean('is_paid')->default(0);
             $table->string('trx_id')->nullable();
             $table->text('description')->nullable();

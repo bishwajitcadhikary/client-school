@@ -43,11 +43,20 @@ class SchoolController extends Controller
 
     public function create()
     {
+        if (!$this->checkSchoolLimit()) {
+            Session::flash('error', 'You have reached your school limit. Please upgrade your plan to add more schools.');
+            return redirect()->route('customer.school.index');
+        }
+
         return Inertia::render('Customer/School/Create');
     }
 
     public function store(Request $request)
     {
+        if (!$this->checkSchoolLimit()) {
+            Session::flash('error', 'You have reached your school limit. Please upgrade your plan to add more schools.');
+            return redirect()->route('customer.school.index');
+        }
         $data = $request->validate([
             'name' => ['required', 'string'],
             'domain' => ['required', 'unique:schools', new Domain()]

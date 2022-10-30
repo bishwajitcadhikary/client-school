@@ -54,6 +54,7 @@ class SubscriptionController extends Controller
                 'customer_id' => auth()->id(),
                 'interval' => $data['interval'],
                 'gateway_id' => $data['gateway'],
+                'amount' => $data['interval'] == 'monthly' ? $plan->monthly_price : $plan->yearly_price,
                 'trx_id' => $data['trx_id'],
                 'description' => $data['description'],
             ]);
@@ -69,12 +70,9 @@ class SubscriptionController extends Controller
             User::whereRole('admin')->first()->notify(new NewSchoolAdded($planOrder));
 
             return redirect()->route('customer.subscription.index');
-        }catch (\Throwable $exception){
+        } catch (\Throwable $exception) {
             DB::rollBack();
-
-            Session::flash('error', $exception->getMessage());
-//            Session::flash('error', 'Something went wrong. Please try again later.');
-
+            Session::flash('error', 'Something went wrong. Please try again later.');
             return redirect()->back();
         }
     }

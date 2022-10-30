@@ -87,6 +87,12 @@ const customerMenus = [
     active: route().current('customer.subscription.*'),
   },
   {
+    title: trans('Orders'),
+    href: route('customer.orders.index'),
+    icon: 'mdi-cart',
+    active: route().current('customer.orders.*'),
+  },
+  {
     title: trans('Notifications'),
     href: route('customer.notifications.index'),
     icon: 'mdi-bell-outline',

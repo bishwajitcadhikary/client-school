@@ -1,13 +1,8 @@
 <script setup>
 import {inject, ref} from "vue"
-import Pagination from '@/Components/Pagination.vue'
 
 const props = defineProps({
   orders: {
-    type: Object,
-    default: null,
-  },
-  schools: {
     type: Object,
     default: null,
   },
@@ -27,161 +22,10 @@ const showOrderDetails = id => {
 </script>
 
 <template>
-  <AppLayout :title="$t('Dashboard')">
+  <AppLayout :title="$t('Orders')">
     <VRow class="match-height">
-      <VCol
-        cols="12"
-        md="6"
-      >
+      <VCol cols="12">
         <VCard>
-          <VCardTitle>
-            <h3 class="mb-0">
-              {{ $t('Schools') }}
-            </h3>
-            <VTable>
-              <thead>
-                <tr>
-                  <th>#</th>
-                  <th>{{ $t('School Name') }}</th>
-                  <th>{{ $t('Domain') }}</th>
-                  <th class="text-center">
-                    {{ $t('Database') }}
-                  </th>
-                  <th class="text-center">
-                    {{ $t('Status') }}
-                  </th>
-                  <th>{{ $t('Created At') }}</th>
-                  <th
-                    class="text-center"
-                    width="15%"
-                  >
-                    {{ $t('Actions') }}
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr
-                  v-for="(school, key) in schools.data"
-                  :key="key"
-                >
-                  <td width="5%">
-                    {{ key + 1 }}
-                  </td>
-                  <td>{{ school.name }}</td>
-                  <td>{{ school.domain }}</td>
-                  <td class="text-center">
-                    <VChip
-                      v-if="school.database_created === 1"
-                      class="ma-2"
-                      color="primary"
-                    >
-                      {{ $t('Created') }}
-                    </VChip>
-
-
-                    <VTooltip :text="$t('Click to refresh')">
-                      <template #activator="{ props }">
-                        <VBtn
-                          v-if="school.database_created === 0"
-                          class="ma-2"
-                          color="secondary"
-                          rounded
-                          size="small"
-                          v-bind="props"
-                          @click="$inertia.reload()"
-                        >
-                          {{ $t('Creating') }}
-
-                          <VProgressCircular
-                            class="ml-3"
-                            :width="3"
-                            size="x-small"
-                            color="red"
-                            indeterminate
-                          />
-                        </VBtn>
-                      </template>
-                    </VTooltip>
-
-                    <VTooltip :text="$t('Click to retry')">
-                      <template #activator="{props}">
-                        <VBtn
-                          v-if="school.database_created === 2"
-                          class="ma-2 text-white"
-                          color="error"
-                          rounded
-                          size="small"
-                          v-bind="props"
-                          @click="retryDatabaseCreation(school.id)"
-                        >
-                          {{ $t('Failed') }}
-
-                          <VIcon>mdi-reload</VIcon>
-                        </VBtn>
-                      </template>
-                    </VTooltip>
-                  </td>
-                  <td class="text-center">
-                    <VChip
-                      v-if="school.is_active"
-                      class="ma-2"
-                      color="primary"
-                    >
-                      {{ $t('Active') }}
-                    </VChip>
-                    <VChip
-                      v-if="!school.is_active"
-                      class="ma-2"
-                      color="secondary"
-                    >
-                      {{ $t('Inactive') }}
-                    </VChip>
-                  </td>
-                  <td>{{ dateFormat(school.created_at) }}</td>
-                  <td class="text-center">
-                    <VTooltip :text="$t('Edit School')">
-                      <template #activator="{ props }">
-                        <VBtn
-                          variant="plain"
-                          size="small"
-                          icon="mdi-clipboard-edit-outline"
-                          v-bind="props"
-                          @click="$inertia.visit(route('customer.schools.edit', {school: school.id}))"
-                        />
-                      </template>
-                    </VTooltip>
-                    <VTooltip
-                      :text="$t('Delete School')"
-                    >
-                      <template #activator="{props}">
-                        <VBtn
-                          variant="plain"
-                          size="small"
-                          icon="mdi-delete-outline"
-                          v-bind="props"
-                          @click="useDeleteDialogStore().showDialog(route('customer.schools.destroy', {school: school.id}))"
-                        />
-                      </template>
-                    </VTooltip>
-                  </td>
-                </tr>
-              </tbody>
-            </VTable>
-
-            <div class="mb-5 mt-5">
-              <Pagination :pagination="schools" />
-            </div>
-          </vcardtitle>
-        </VCard>
-      </VCol>
-      <VCol
-        cols="12"
-        md="6"
-      >
-        <VCard>
-          <VCardTitle>
-            {{ $t('Orders') }}
-          </VCardTitle>
           <VTable
             class="table-rounded"
             hide-default-footer
