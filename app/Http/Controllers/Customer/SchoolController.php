@@ -107,7 +107,7 @@ class SchoolController extends Controller
 
     public function edit(Request $request, School $school)
     {
-        abort_if($school->customer_id !== Auth::id(), 403);
+        abort_if(!$school->customer_id === Auth::id(), 403);
         return Inertia::render('Customer/School/Edit', [
             'school' => $school
         ]);
@@ -115,7 +115,7 @@ class SchoolController extends Controller
 
     public function update(Request $request, School $school)
     {
-        abort_if($school->customer_id !== Auth::id(), 403);
+        abort_if(!$school->customer_id === Auth::id(), 403);
         $request->validate([
             'name' => ['required', 'string'],
             'domain' => ['required', new Domain(), Rule::unique('schools')->ignore($school->id)],
@@ -131,7 +131,7 @@ class SchoolController extends Controller
 
     public function destroy(School $school)
     {
-        abort_if($school->customer_id !== Auth::id(), 403);
+        abort_if(!$school->customer_id === Auth::id(), 403);
         try {
             if ($school->database_created) {
                 DB::statement('DROP DATABASE ' . $school->database);
