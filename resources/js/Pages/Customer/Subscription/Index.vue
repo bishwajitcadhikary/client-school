@@ -116,7 +116,7 @@ const goToPayment = plan => {
 
                     <VCardActions>
                       <VBtn
-                        v-if="$page.props.auth.user.plan_id === plan.id && !$page.props.auth.plan_expired"
+                        v-if="$page.props.auth.user.plan_id == plan.id && !$page.props.auth.plan_expired"
                         color="success"
                         variant="success"
                         depressed
@@ -126,7 +126,7 @@ const goToPayment = plan => {
                         {{ $t('Your Current Plan') }}
                       </VBtn>
                       <VBtn
-                        v-else-if="$page.props.auth.user.plan_id === plan.id && $page.props.auth.plan_expired"
+                        v-else-if="$page.props.auth.user.plan_id == plan.id && $page.props.auth.plan_expired"
                         color="success"
                         variant="success"
                         depressed
