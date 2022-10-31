@@ -61,7 +61,7 @@ class SchoolController extends Controller
             'name' => ['required', 'string'],
         ]);
 
-        $domain = str('Ruhea High School')->lower()->explode(' ')->map(function ($item){
+        $domain = str($data['name'])->lower()->explode(' ')->map(function ($item){
             return substr($item, 0, 1);
         })->implode('');
 

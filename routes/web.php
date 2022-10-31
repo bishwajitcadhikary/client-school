@@ -13,12 +13,3 @@ Route::get('notifications/{notification}', [CommonController::class, 'visitNotif
 require __DIR__ . '/customer.php';
 require __DIR__ . '/admin.php';
 require __DIR__ . '/auth.php';
-
-/*Route::get('test', function (){
-    DB::connection('school')->statement('CREATE DATABASE bilash');
-    DB::connection('school')->disconnect();
-    Config::set([
-        'database.connections.school.database' => 'bilash'
-    ]);
-    DB::connection('school')->unprepared(file_get_contents(storage_path('school.sql')));
-});*/
