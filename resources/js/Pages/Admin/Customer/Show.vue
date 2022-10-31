@@ -111,21 +111,21 @@ const submitSuspension = () => {
                           {{ $t('Status:') }}
                           <span class="text-body-2">
                             <VChip
-                              v-if="customer.status === 1"
+                              v-if="customer.status == 1"
                               color="primary"
                               variant="tonal"
                             >
                               {{ $t('Active') }}
                             </VChip>
                             <VChip
-                              v-if="customer.status === 0"
+                              v-if="customer.status == 0"
                               color="secondary"
                               variant="tonal"
                             >
                               {{ $t('Inactive') }}
                             </VChip>
                             <VChip
-                              v-if="customer.status === 2"
+                              v-if="customer.status == 2"
                               class="text-white"
                               color="red"
                               variant="tonal"
@@ -197,7 +197,7 @@ const submitSuspension = () => {
                     :color="customer.status!==2?'error':'success'"
                     @click="showSuspendDialog = true"
                   >
-                    {{ customer.status === 2 ? $t('Activate') : $t('Suspend') }}
+                    {{ customer.status == 2 ? $t('Activate') : $t('Suspend') }}
                   </VBtn>
                 </VCardText>
               </VCard>

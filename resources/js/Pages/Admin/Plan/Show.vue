@@ -180,7 +180,7 @@ const submitSuspension = () => {
                     :color="customer.status!==2?'error':'success'"
                     @click="showSuspendDialog = true"
                   >
-                    {{ customer.status === 2 ? $t('Activate') : $t('Suspend') }}
+                    {{ customer.status == 2 ? $t('Activate') : $t('Suspend') }}
                   </VBtn>
                 </VCardText>
               </VCard>

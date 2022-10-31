@@ -59,21 +59,21 @@ const dateFormat = inject('dateFormat')
               <td>{{ customer.email }}</td>
               <td class="text-center">
                 <VChip
-                  v-if="customer.status === 1"
+                  v-if="customer.status == 1"
                   class="ma-2"
                   color="primary"
                 >
                   {{ $t('Active') }}
                 </VChip>
                 <VChip
-                  v-if="customer.status === 0"
+                  v-if="customer.status == 0"
                   class="ma-2"
                   color="secondary"
                 >
                   {{ $t('Inactive') }}
                 </VChip>
                 <VChip
-                  v-if="customer.status === 2"
+                  v-if="customer.status == 2"
                   class="ma-2"
                   color="red"
                   text-color="white"

@@ -86,7 +86,7 @@ const rejectOrder = order => {
           <td>{{ order.gateway.name }}</td>
           <td class="text-center">
             <VChip
-              v-if="order.status === 0"
+              v-if="order.status == 0"
               color="warning"
               dark
             >
@@ -100,7 +100,7 @@ const rejectOrder = order => {
               {{ $t('Pending') }}
             </VChip>
             <VChip
-              v-else-if="order.status === 1"
+              v-else-if="order.status == 1"
               color="primary"
               dark
               prepend-icon="mdi-check"
@@ -178,7 +178,7 @@ const rejectOrder = order => {
               <td>{{ $t('Status') }}</td>
               <td>
                 <VChip
-                  v-if="orderInfo.status === 0"
+                  v-if="orderInfo.status == 0"
                   color="warning"
                   dark
                 >
@@ -192,7 +192,7 @@ const rejectOrder = order => {
                   {{ $t('Pending') }}
                 </VChip>
                 <VChip
-                  v-else-if="orderInfo.status === 1"
+                  v-else-if="orderInfo.status == 1"
                   color="primary"
                   dark
                   prepend-icon="mdi-check"
@@ -232,7 +232,7 @@ const rejectOrder = order => {
       </VCardText>
       <VCardActions class="justify-space-between">
         <VBtn
-          v-if="orderInfo.status === 0"
+          v-if="orderInfo.status == 0"
           color="primary"
           variant="text"
           @click="acceptOrder(orderInfo.id)"
@@ -240,7 +240,7 @@ const rejectOrder = order => {
           {{ $t('Accept') }}
         </VBtn>
         <VBtn
-          v-if="orderInfo.status === 0"
+          v-if="orderInfo.status == 0"
           color="error"
           variant="text"
           @click="rejectOrder(orderInfo.id)"

@@ -28,7 +28,7 @@ const submit = () => {
   })
 }
 
-const verificationLinkSent = computed(() => props.status === 'verification-link-sent')
+const verificationLinkSent = computed(() => props.status == 'verification-link-sent')
 </script>
 
 <template>
@@ -47,10 +47,6 @@ const verificationLinkSent = computed(() => props.status === 'verification-link-
             >
           </div>
         </template>
-
-        <VCardTitle class="font-weight-semibold text-2xl text-uppercase">
-          {{ $page.props.app.name }}
-        </VCardTitle>
       </VCardItem>
 
       <VCardText class="pt-2">

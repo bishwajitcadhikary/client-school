@@ -71,7 +71,7 @@ const showOrderDetails = id => {
                   <td>{{ school.domain }}</td>
                   <td class="text-center">
                     <VChip
-                      v-if="school.database_created === 1"
+                      v-if="school.database_created == 1"
                       class="ma-2"
                       color="primary"
                     >
@@ -82,7 +82,7 @@ const showOrderDetails = id => {
                     <VTooltip :text="$t('Click to refresh')">
                       <template #activator="{ props }">
                         <VBtn
-                          v-if="school.database_created === 0"
+                          v-if="school.database_created == 0"
                           class="ma-2"
                           color="secondary"
                           rounded
@@ -106,7 +106,7 @@ const showOrderDetails = id => {
                     <VTooltip :text="$t('Click to retry')">
                       <template #activator="{props}">
                         <VBtn
-                          v-if="school.database_created === 2"
+                          v-if="school.database_created == 2"
                           class="ma-2 text-white"
                           color="error"
                           rounded
@@ -211,7 +211,7 @@ const showOrderDetails = id => {
                 <td>{{ order.gateway.name }}</td>
                 <td class="text-center">
                   <VChip
-                    v-if="order.status === 0"
+                    v-if="order.status == 0"
                     color="warning"
                     dark
                   >
@@ -225,7 +225,7 @@ const showOrderDetails = id => {
                     {{ $t('Pending') }}
                   </VChip>
                   <VChip
-                    v-else-if="order.status === 1"
+                    v-else-if="order.status == 1"
                     color="primary"
                     dark
                     prepend-icon="mdi-check"
@@ -297,7 +297,7 @@ const showOrderDetails = id => {
               <td>{{ $t('Status') }}</td>
               <td>
                 <VChip
-                  v-if="orderInfo.status === 0"
+                  v-if="orderInfo.status == 0"
                   color="warning"
                   dark
                 >
@@ -311,7 +311,7 @@ const showOrderDetails = id => {
                   {{ $t('Pending') }}
                 </VChip>
                 <VChip
-                  v-else-if="orderInfo.status === 1"
+                  v-else-if="orderInfo.status == 1"
                   color="primary"
                   dark
                   prepend-icon="mdi-check"

@@ -74,7 +74,7 @@ const retryDatabaseCreation = school => {
               <td>{{ school.customer?.name }}</td>
               <td class="text-center">
                 <VChip
-                  v-if="school.database_created === 1"
+                  v-if="school.database_created == 1"
                   class="ma-2"
                   color="primary"
                 >
@@ -85,7 +85,7 @@ const retryDatabaseCreation = school => {
                 <VTooltip :text="$t('Click to refresh')">
                   <template #activator="{ props }">
                     <VBtn
-                      v-if="school.database_created === 0"
+                      v-if="school.database_created == 0"
                       class="ma-2"
                       color="secondary"
                       rounded
@@ -109,7 +109,7 @@ const retryDatabaseCreation = school => {
                 <VTooltip :text="$t('Click to retry')">
                   <template #activator="{props}">
                     <VBtn
-                      v-if="school.database_created === 2"
+                      v-if="school.database_created == 2"
                       class="ma-2 text-white"
                       color="error"
                       rounded

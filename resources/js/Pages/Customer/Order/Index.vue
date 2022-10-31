@@ -55,7 +55,7 @@ const showOrderDetails = id => {
                 <td>{{ order.gateway.name }}</td>
                 <td class="text-center">
                   <VChip
-                    v-if="order.status === 0"
+                    v-if="order.status == 0"
                     color="warning"
                     dark
                   >
@@ -69,7 +69,7 @@ const showOrderDetails = id => {
                     {{ $t('Pending') }}
                   </VChip>
                   <VChip
-                    v-else-if="order.status === 1"
+                    v-else-if="order.status == 1"
                     color="primary"
                     dark
                     prepend-icon="mdi-check"
@@ -141,7 +141,7 @@ const showOrderDetails = id => {
               <td>{{ $t('Status') }}</td>
               <td>
                 <VChip
-                  v-if="orderInfo.status === 0"
+                  v-if="orderInfo.status == 0"
                   color="warning"
                   dark
                 >
@@ -155,7 +155,7 @@ const showOrderDetails = id => {
                   {{ $t('Pending') }}
                 </VChip>
                 <VChip
-                  v-else-if="orderInfo.status === 1"
+                  v-else-if="orderInfo.status == 1"
                   color="primary"
                   dark
                   prepend-icon="mdi-check"
