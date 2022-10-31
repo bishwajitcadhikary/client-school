@@ -136,9 +136,9 @@ class SchoolController extends Controller
         try {
             DB::statement('DROP DATABASE ' . $school->database);
 
-            $school->delete();
         } catch (Throwable $th) {}
 
+        $school->delete();
         Session::flash('success', __("School Deleted Successfully"));
 
         return to_route('admin.schools.index');

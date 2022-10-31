@@ -34,6 +34,7 @@ class ImportSchoolDatabase implements ShouldQueue
     public function handle()
     {
         DB::connection('school')->statement('CREATE DATABASE '.$this->databaseName);
+        DB::connection('school')->disconnect();
 
         Config::set([
             'database.connections.school.database' => $this->databaseName
