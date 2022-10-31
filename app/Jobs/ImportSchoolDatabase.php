@@ -3,6 +3,7 @@
 namespace App\Jobs;
 
 use App\Models\School;
+use App\Models\User;
 use App\Notifications\DatabaseCreated;
 use App\Notifications\DatabaseCreateFailed;
 use App\Notifications\SendSchoolCredentials;
@@ -32,11 +33,11 @@ class ImportSchoolDatabase implements ShouldQueue
 
     public function handle()
     {
-        DB::statement('CREATE DATABASE '.$this->databaseName);
-
         Config::set([
             'database.connections.school.database' => $this->databaseName
         ]);
+
+        DB::statement('CREATE DATABASE '.$this->databaseName);
 
         DB::connection('school')->unprepared(file_get_contents(storage_path('school.sql')));
 
@@ -44,17 +45,25 @@ class ImportSchoolDatabase implements ShouldQueue
             'database_created' => 1
         ]);
 
-        //Notification::route('mail', Config::get('wovo.email_send_to'))->notify(new DatabaseCreated($this->school));
+        try {
+            User::whereRole('admin')->first()->notify(new DatabaseCreated($this->school));
+        }catch (Throwable $e){};
     }
 
     public function failed(Throwable $exception)
     {
+        Config::set([
+            'database.connections.school.database' => $this->databaseName
+        ]);
+
         DB::statement('DROP DATABASE '.$this->databaseName);
 
         $this->school->update([
             'database_created' => 2
         ]);
 
-        //Notification::route('mail', Config::get('wovo.email_send_to'))->notify(new DatabaseCreateFailed($this->school, $exception->getMessage()));
+        try {
+            User::whereRole('admin')->first()->notify(new DatabaseCreateFailed($this->school,  $exception->getMessage()));
+        }catch (Throwable $e){};
     }
 }
