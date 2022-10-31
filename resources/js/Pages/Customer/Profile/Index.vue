@@ -24,14 +24,6 @@ defineProps({
     type: [Array, Object],
     required: true,
   },
-  confirmsTwoFactorAuthentication: {
-    type: Boolean,
-    default: null,
-  },
-  sessions: {
-    type: Array,
-    default: null,
-  },
 })
 
 const activeTab = ref(null)
@@ -85,7 +77,7 @@ const tabs = [
           :countries="countries"
           :currencies="currencies"
           :time-zones="timeZones"
-          :requires-confirmation="confirmsTwoFactorAuthentication"
+          :requires-confirmation="false"
         />
       </VWindowItem>
 
