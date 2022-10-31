@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CommonController;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -14,10 +15,5 @@ require __DIR__ . '/admin.php';
 require __DIR__ . '/auth.php';
 
 Route::get('test', function (){
-
-    $dm = str('Ruhea High School')->lower()->explode(' ')->map(function ($item){
-        return substr($item, 0, 1);
-    })->implode('');
-
-    return $dm;
+    return DB::connection('school')->statement('CREATE DATABASE wow');
 });
