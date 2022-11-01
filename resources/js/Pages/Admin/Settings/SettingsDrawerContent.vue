@@ -44,7 +44,8 @@ const menus = [
     icon: 'mdi-folder-arrow-up-down-outline',
     active: route().current('admin.settings.file-disks.*'),
   },
-  {
+
+  /* {
     title: trans('Backups'),
     href: route('admin.settings.backups.index'),
     icon: 'mdi-google-cloud',
@@ -55,7 +56,7 @@ const menus = [
     href: route('admin.settings.mail.index'),
     icon: 'mdi-email-sync-outline',
     active: route().current('admin.settings.mail.*'),
-  },
+  },*/
 ]
 
 const selectMenu = menus.map(menu => {

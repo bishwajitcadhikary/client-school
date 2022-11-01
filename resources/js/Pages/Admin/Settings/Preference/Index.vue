@@ -36,7 +36,6 @@ const form = useForm({
   language: props.languages.find(c => c.value == props.settings?.language),
   time_zone: props.timeZones.find(c => c.value == props.settings?.time_zone),
   date_format: props.dateFormatters.find(c => c.value == props.settings?.date_format),
-  financial_year: props.financialYears.find(c => c.value == props.settings?.financial_year),
 })
 
 function updateSettings() {
@@ -101,17 +100,6 @@ function updateSettings() {
                   v-model="form.date_format"
                   :label="$t('Date Format')"
                   :items="dateFormatters"
-                />
-              </VCol>
-
-              <VCol
-                class="12"
-                sm="6"
-              >
-                <VSelect
-                  v-model="form.financial_year"
-                  :label="$t('Financial Year')"
-                  :items="financialYears"
                 />
               </VCol>
 

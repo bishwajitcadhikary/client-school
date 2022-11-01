@@ -176,14 +176,6 @@ const submitSuspension = () => {
                         </h6>
                       </VListItemSubtitle>
                     </VListItem>
-                    <VListItem>
-                      <VListItemSubtitle>
-                        <h6 class="text-sm">
-                          {{ $t('Last Login IP:') }}
-                          <span class="text-body-2">{{ customer.last_login_ip }}</span>
-                        </h6>
-                      </VListItemSubtitle>
-                    </VListItem>
                   </VList>
                 </VCardText>
                 <VCardText class="d-flex justify-center">
@@ -198,49 +190,6 @@ const submitSuspension = () => {
                     @click="showSuspendDialog = true"
                   >
                     {{ customer.status == 2 ? $t('Activate') : $t('Suspend') }}
-                  </VBtn>
-                </VCardText>
-              </VCard>
-            </VCol>
-            <VCol
-              v-if="customer.plan"
-              cols="12"
-            >
-              <VCard variant="elevated">
-                <VCardText class="d-flex">
-                  <VChip color="primary">
-                    {{ customer.plan.name }}
-                  </VChip>
-                  <div class="flex-grow-1" />
-                  <h3 class="text-h3 text-primary font-weight-semibold">
-                    {{ currencyFormat(customer.inertval === 'monthly' ? customer.plan.monthly_price : customer.plan.yearly_price, $page.props.app.currency.code) }}
-                  </h3>
-                  <sub class="mt-3">
-                    <h6 class="text-sm font-weight-regular">
-                      / {{ customer.interval.replace('ly', '') }}
-                    </h6>
-                  </sub>
-                </VCardText>
-                <VCardText />
-                <VCardText>
-                  <div class="my-6">
-                    <div class="d-flex font-weight-semibold mt-3 mb-2">
-                      <h6 class="text-sm">
-                        {{ $t('Expiration') }}
-                      </h6>
-                      <div class="flex-grow-1" />
-                      <h6 class="text-sm">
-                        {{ expiration }}
-                      </h6>
-                    </div>
-                    <VProgressLinear
-                      rounded
-                      :model-value="percent"
-                      color="primary"
-                    />
-                  </div>
-                  <VBtn block>
-                    {{ $t('Upgrade Plan') }}
                   </VBtn>
                 </VCardText>
               </VCard>
@@ -269,18 +218,6 @@ const submitSuspension = () => {
                   mdi-lock
                 </VIcon>
                 {{ $t('Security') }}
-              </VTab>
-              <VTab value="notifications">
-                <VIcon class="mr-2">
-                  mdi-bell
-                </VIcon>
-                {{ $t('Notifications') }}
-              </VTab>
-              <VTab value="connections">
-                <VIcon class="mr-2">
-                  mdi-link
-                </VIcon>
-                {{ $t('Connections') }}
               </VTab>
             </VTabs>
           </VCard>
@@ -380,23 +317,6 @@ const submitSuspension = () => {
                 </VCardText>
               </VCard>
             </VWindowItem>
-            <VWindowItem value="notifications">
-              <VCard>
-                <VCardItem>
-                  <VCardTitle>{{ $t('Notifications') }}</VCardTitle>
-                  <VCardSubtitle>{{ $t('You will receive notification for the below selected items.') }}</VCardSubtitle>
-                </VCardItem>
-                <VCardText />
-              </vcard>
-            </vwindowitem>
-            <VWindowItem value="connections">
-              <VCard>
-                <VCardItem>
-                  <VCardTitle>{{ $t('Connections') }}</VCardTitle>
-                </VCardItem>
-                <VCardText />
-              </vcard>
-            </vwindowitem>
           </VWindow>
         </VCol>
       </VRow>

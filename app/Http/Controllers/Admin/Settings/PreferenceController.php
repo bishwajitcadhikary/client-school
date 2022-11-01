@@ -9,8 +9,8 @@ use App\Models\Setting;
 use App\Space\DateFormatter;
 use App\Space\TimeZone;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 use Inertia\Inertia;
-use Session;
 
 class PreferenceController extends Controller
 {
@@ -48,13 +48,10 @@ class PreferenceController extends Controller
             'language' => ['required', 'string'],
             'date_format' => ['required', 'string'],
             'time_zone' => ['required', 'string'],
-            'financial_year' => ['required', 'string'],
         ]);
 
         Setting::setSettings($validated);
 
         Session::flash('success', __('Preferences Updated Successfully'));
-
-        return redirect()->back();
     }
 }
