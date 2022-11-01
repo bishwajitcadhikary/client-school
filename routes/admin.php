@@ -27,6 +27,9 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth', 'v
 
     Route::get('notifications', [CommonController::class, 'notifications'])->name('notifications.index');
 
+    Route::get('dns', [Admin\DNSController::class, 'index'])->name('dns.index');
+    Route::put('dns', [Admin\DNSController::class, 'update'])->name('dns.update');
+
     Route::group(['prefix' => 'settings', 'as' => 'settings.'], function () {
         Route::resource('file-disks', Settings\FileDiskController::class);
         Route::get('backup/download', [Settings\BackupController::class, 'download'])->name('backups.download');

@@ -4,12 +4,10 @@ import upgradeBannerLight from '@/assets/images/pro/upgrade-banner-light.png'
 import logo from '@/assets/logo.jpg'
 import {
   VerticalNavLink,
-  VerticalNavSectionTitle,
-  VerticalNavGroup,
-  VerticalSubNavLink,
 } from '@layouts'
 import { useTheme } from 'vuetify'
 import {trans} from "laravel-vue-i18n"
+import {computed} from "vue"
 
 const vuetifyTheme = useTheme()
 const upgradeBanner = computed(() => {
@@ -52,6 +50,12 @@ const adminMenus = [
     href: route('admin.notifications.index'),
     icon: 'mdi-bell-outline',
     active: route().current('admin.notifications.*'),
+  },
+  {
+    title: trans('DNS Instruction'),
+    href: route('admin.dns.index'),
+    icon: 'mdi-network',
+    active: route().current('admin.dns.*'),
   },
   {
     title: trans('Settings'),
@@ -97,6 +101,12 @@ const customerMenus = [
     href: route('customer.notifications.index'),
     icon: 'mdi-bell-outline',
     active: route().current('customer.notifications.*'),
+  },
+  {
+    title: trans('DNS Instruction'),
+    href: route('customer.dns.index'),
+    icon: 'mdi-network',
+    active: route().current('customer.dns.*'),
   },
 ]
 </script>

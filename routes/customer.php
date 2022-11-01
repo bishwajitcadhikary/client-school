@@ -24,4 +24,5 @@ Route::group(['as' => 'customer.', 'middleware' => ['auth', 'verified', 'custome
     });
 
     Route::get('notifications', [CommonController::class, 'notifications'])->name('notifications.index');
+    Route::get('dns', [Customer\DNSController::class, 'index'])->name('dns.index');
 });
