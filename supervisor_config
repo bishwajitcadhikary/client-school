@@ -1,0 +1,12 @@
+[program:laravel-worker]
+process_name=%(program_name)s_%(process_num)02d
+command=php /home/edusofto/public_html/artisan queue:work sqs --sleep=3 --tries=3 --max-time=3600
+autostart=true
+autorestart=true
+stopasgroup=true
+killasgroup=true
+user=edusofto
+numprocs=8
+redirect_stderr=true
+stdout_logfile=/home/edusofto/public_html/worker.log
+stopwaitsecs=3600

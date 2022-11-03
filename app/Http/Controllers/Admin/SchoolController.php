@@ -134,14 +134,25 @@ class SchoolController extends Controller
     public function destroy(School $school)
     {
         try {
-            DB::statement('DROP DATABASE ' . $school->database);
+            Config::set([
+                'database.connections.school.database' => $school->database,
+            ]);
 
-        } catch (Throwable $th) {}
+            DB::connection('school')->statement('DROP DATABASE ' . $school->database);
 
-        $school->delete();
-        Session::flash('success', __("School Deleted Successfully"));
+            DB::connection('school')->disconnect();
 
-        return to_route('admin.schools.index');
+            $school->delete();
+            Session::flash('success', __("School Deleted Successfully"));
+
+            return to_route('admin.schools.index');
+
+        } catch (Throwable $th) {
+
+            Session::flash('success', __("School Failed to Delete"));
+
+            return to_route('admin.schools.index');
+        }
     }
 
     public function databaseCreationRetry(School $school)
