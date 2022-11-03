@@ -69,7 +69,7 @@ const props = defineProps({
                     </td>
                     <td>
                       <VTextField
-                        model-value="*"
+                        model-value="@"
                         disabled
                       />
                     </td>

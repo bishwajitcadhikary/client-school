@@ -87,6 +87,7 @@ const submit = () => {
                       </td>
                       <td>
                         <VTextField
+                          model-value="@"
                           disabled
                         />
                       </td>
