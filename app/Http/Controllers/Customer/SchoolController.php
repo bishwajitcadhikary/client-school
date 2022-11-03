@@ -11,6 +11,7 @@ use App\Notifications\SendSchoolCredentials;
 use App\Rules\Domain;
 use Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Str;
@@ -34,7 +35,10 @@ class SchoolController extends Controller
 
     public function index()
     {
-        $schools = School::whereCustomerId(Auth::id())->latest()->paginate(10);
+        $schools = School::whereCustomerId(Auth::id())
+            ->select(['id', 'name', 'domain', 'created_at', 'is_active', 'database_created'])
+            ->latest()
+            ->paginate(10);
 
         return Inertia::render('Customer/School/Index', [
             'schools' => $schools
@@ -108,6 +112,7 @@ class SchoolController extends Controller
     public function edit(Request $request, School $school)
     {
         abort_if(!$school->customer_id === Auth::id(), 403);
+        $school->only(['id', 'name', 'domain', 'is_active', 'created_at']);
         return Inertia::render('Customer/School/Edit', [
             'school' => $school
         ]);
@@ -134,16 +139,21 @@ class SchoolController extends Controller
         abort_if(!$school->customer_id === Auth::id(), 403);
         try {
             if ($school->database_created) {
-                DB::statement('DROP DATABASE ' . $school->database);
+                Config::set([
+                    'database.connections.school.database' => $school->database,
+                ]);
+
+                DB::connection('school')->statement('DROP DATABASE ' . $school->database);
+
+                DB::connection('school')->disconnect();
             }
 
             $school->delete();
-
             Session::flash('success', __("School Deleted Successfully"));
 
             return to_route('customer.schools.index');
         } catch (Throwable $th) {
-            Session::flash('success', $th->getMessage());
+            Session::flash('error', 'School could not be deleted');
 
             return to_route('customer.schools.index');
         }
