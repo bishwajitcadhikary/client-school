@@ -109,10 +109,13 @@ class SchoolController extends Controller
         }
     }
 
-    public function edit(Request $request, School $school)
+    public function edit(Request $request, $id)
     {
+        $school = School::whereCustomerId(Auth::id())
+            ->select(['id', 'name', 'domain'])
+            ->findOrFail($id);
         abort_if(!$school->customer_id === Auth::id(), 403);
-        $school->only(['id', 'name', 'domain', 'is_active', 'created_at']);
+
         return Inertia::render('Customer/School/Edit', [
             'school' => $school
         ]);
