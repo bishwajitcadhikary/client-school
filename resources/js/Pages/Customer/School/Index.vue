@@ -71,8 +71,8 @@ const retryDatabaseCreation = school => {
               <td>{{ school.name }}</td>
               <td>
                 <a
-                  :href="school.domain"
-                  _target="_blank"
+                  :href="'https://'+school.domain"
+                  target="_blank"
                 >
                   {{ school.domain }}
                 </a>
