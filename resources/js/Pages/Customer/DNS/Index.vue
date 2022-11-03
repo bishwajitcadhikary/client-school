@@ -63,12 +63,14 @@ const props = defineProps({
                   <tr>
                     <td class="pa-3">
                       <VTextField
+                        label="type"
                         model-value="A"
                         disabled
                       />
                     </td>
                     <td>
                       <VTextField
+                        label="name"
                         model-value="@"
                         disabled
                       />
