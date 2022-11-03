@@ -69,7 +69,14 @@ const retryDatabaseCreation = school => {
                 {{ key + 1 }}
               </td>
               <td>{{ school.name }}</td>
-              <td>{{ school.domain }}</td>
+              <td>
+                <a
+                  :href="school.domain"
+                  _target="_blank"
+                >
+                  {{ school.domain }}
+                </a>
+              </td>
               <td class="text-center">
                 <VChip
                   v-if="school.database_created == 1"
