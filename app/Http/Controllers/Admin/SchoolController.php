@@ -223,6 +223,7 @@ class SchoolController extends Controller
 
             return response()->download(storage_path("app/backup/{$database}"));
         }catch (Throwable $th){
+            throw $th;
             Session::flash('error', $th->getMessage());
             return redirect()->back();
         }
