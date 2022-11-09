@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
+use Session;
 
 class CommonController extends Controller
 {
@@ -20,5 +22,14 @@ class CommonController extends Controller
         return Inertia::render('Notifications', [
             'notifications' => $notifications
         ]);
+    }
+
+    public function markAllAsRead()
+    {
+        auth()->user()->unreadNotifications->markAsRead();
+
+        Session::flash('success', __('All notifications marked as read.'));
+
+        return redirect()->back();
     }
 }

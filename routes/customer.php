@@ -24,5 +24,6 @@ Route::group(['as' => 'customer.', 'middleware' => ['auth', 'verified', 'custome
     });
 
     Route::get('notifications', [CommonController::class, 'notifications'])->name('notifications.index');
+    Route::get('notifications/mark-all-as-read', [CommonController::class, 'markAllAsRead'])->name('notifications.mark-all-as-read');
     Route::get('dns', [Customer\DNSController::class, 'index'])->name('dns.index');
 });

@@ -16,18 +16,19 @@ const props = defineProps({
   },
   recaptchaSiteKey: {
     type: String,
-    default: '',
+    default: null,
   },
 })
 
 const isValid = ref(false)
 const form = useForm({
-  name: '',
-  email: '',
-  password: '',
-  password_confirmation: '',
+  name: null,
+  phone: null,
+  email: null,
+  password: null,
+  password_confirmation: null,
   terms: false,
-  recaptcha: '',
+  recaptcha: null,
 })
 const vuetifyTheme = useTheme()
 const authThemeMask = computed(() => {
@@ -68,6 +69,7 @@ export default {
 </script>
 
 <template>
+  <Head :title="$t('Register')" />
   <div class="auth-wrapper d-flex align-center justify-center pa-4">
     <VCard
       class="auth-card pa-4 pt-7"
@@ -105,6 +107,17 @@ export default {
                 v-model="form.name"
                 :label="$t('Name')"
                 :error-message="form.errors.name"
+                :rules="[v => !!v || $t('Name is required')]"
+                required
+              />
+            </VCol>
+            <!-- Phone -->
+            <VCol cols="12">
+              <VTextField
+                v-model="form.phone"
+                :label="$t('Phone')"
+                :error-message="form.errors.phone"
+                :rules="[v => !!v || $t('Phone is required')]"
                 required
               />
             </VCol>
@@ -115,6 +128,7 @@ export default {
                 :label="$t('Email')"
                 type="email"
                 :error-messages="form.errors.email"
+                :rules="[v => !!v || $t('Email is required'), v => /.+@.+\..+/.test(v) || $t('Email must be valid'), v => v.length <= 255 || $t('Email must be less than 255 characters')]"
                 required
               />
             </VCol>
@@ -127,6 +141,7 @@ export default {
                 :type="isPasswordVisible ? 'text' : 'password'"
                 :append-inner-icon="isPasswordVisible ? 'mdi-eye-off-outline' : 'mdi-eye-outline'"
                 :error-messages="form.errors.password"
+                :rules="[v => !!v || $t('Password is required'), v => v.length >= 8 || $t('Password must be at least 8 characters'), v => v.length <= 255 || $t('Password must be less than 255 characters'), v => /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/.test(v) || $t('Password must contain at least one uppercase letter, one lowercase letter and one number'), v => /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/.test(v) || $t('Password must contain at least one uppercase letter, one lowercase letter and one number')]"
                 min="8"
                 required
                 @click:append-inner="isPasswordVisible = !isPasswordVisible"

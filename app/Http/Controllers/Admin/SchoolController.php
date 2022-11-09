@@ -210,4 +210,21 @@ class SchoolController extends Controller
             ->limit(10)
             ->get();
     }
+
+    public function databaseDownload(School $school)
+    {
+
+        try {
+            $database = $school->database .now()->format('_d_m_y_h_i_s'). '.sql';
+
+            $command = "mysqldump --user={$school->username} --password={$school->password} --host={$school->host} --port={$school->port} {$school->database} > " . storage_path("app/backup/{$database}");
+
+            exec($command);
+
+            return response()->download(storage_path("app/backup/{$database}"));
+        }catch (Throwable $th){
+            Session::flash('error', $th->getMessage());
+            return redirect()->back();
+        }
+    }
 }

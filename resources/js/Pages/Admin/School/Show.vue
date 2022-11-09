@@ -46,6 +46,8 @@ const changeWebsiteStatus = () => {
     },
   })
 }
+
+
 </script>
 
 <template>
@@ -177,6 +179,13 @@ const changeWebsiteStatus = () => {
                     @click="$inertia.visit(route('admin.schools.edit', {school: school.id}))"
                   >
                     {{ $t('Edit') }}
+                  </VBtn>
+                  <VBtn
+                    class="me-3"
+                    prepend-icon="mdi-database"
+                    :href="route('admin.schools.database-download', {school: school.id})"
+                  >
+                    {{ $t('Download') }}
                   </VBtn>
                   <VBtn
                     :color="!!school.is_active ? 'error' : 'primary'"

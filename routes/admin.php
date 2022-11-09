@@ -16,9 +16,13 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth', 'v
 
     Route::put('schools/change-status/{school}', [Admin\SchoolController::class, 'changeStatus'])->name('schools.change-status');
     Route::post('schools/database-creation-retry/{school}', [Admin\SchoolController::class, 'databaseCreationRetry'])->name('schools.database-creation-retry');
+    Route::get('schools/database-download/{school}', [Admin\SchoolController::class, 'databaseDownload'])->name('schools.database-download');
     Route::resource('schools', Admin\SchoolController::class);
 
     Route::resource('plans', Admin\PlanController::class);
+
+    Route::get('database-upgrades/download-backup', [Admin\DatabaseUpgradeController::class, 'downloadBackup'])->name('database-upgrades.download-backup');
+    Route::resource('database-upgrades', Admin\DatabaseUpgradeController::class);
 
     Route::group(['prefix' => 'orders'], function (){
         Route::get('/', [Admin\OrderController::class, 'index'])->name('orders.index');
@@ -26,6 +30,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth', 'v
     });
 
     Route::get('notifications', [CommonController::class, 'notifications'])->name('notifications.index');
+    Route::get('notifications/mark-all-as-read', [CommonController::class, 'markAllAsRead'])->name('notifications.mark-all-as-read');
 
     Route::get('dns', [Admin\DNSController::class, 'index'])->name('dns.index');
     Route::put('dns', [Admin\DNSController::class, 'update'])->name('dns.update');

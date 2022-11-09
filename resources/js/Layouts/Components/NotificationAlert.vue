@@ -50,6 +50,14 @@ const notifications = usePage().props.value.app.notifications
             >
               {{ $t(':count New', {count: notifications?.new}) }}
             </VChip>
+
+            <VBtn
+              variant="text"
+              size="x-small"
+              @click="$inertia.visit($page.props.auth.user.role === 'customer' ? route('customer.notifications.mark-all-as-read') : route('admin.notifications.mark-all-as-read'))"
+            >
+              {{ $t('Mark All as Read') }}
+            </VBtn>
           </template>
         </VListItem>
         <VListItem

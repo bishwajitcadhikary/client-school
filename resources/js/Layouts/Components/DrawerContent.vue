@@ -58,6 +58,12 @@ const adminMenus = [
     active: route().current('admin.dns.*'),
   },
   {
+    title: trans('Database Upgrade'),
+    href: route('admin.database-upgrades.index'),
+    icon: 'mdi-cog-outline',
+    active: route().current('admin.database-upgrades.*'),
+  },
+  {
     title: trans('Settings'),
     href: route('admin.settings.account-settings.index'),
     icon: 'mdi-cog-outline',
