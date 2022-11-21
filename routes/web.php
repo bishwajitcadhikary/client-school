@@ -13,3 +13,15 @@ Route::get('notifications/{notification}', [CommonController::class, 'visitNotif
 require __DIR__ . '/customer.php';
 require __DIR__ . '/admin.php';
 require __DIR__ . '/auth.php';
+
+Route::get('test', function (){
+    $stellerbd = new \BCA\StellerBD\StellerBD();
+
+    return  $stellerbd->getLog(
+        now()->subDays(3)->format('Y-m-d'),
+        now()->format('Y-m-d'),
+        now()->subDays(3)->format('H:i:s'),
+        now()->format('H:i:s')
+    );
+
+});
