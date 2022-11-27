@@ -35,6 +35,9 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth', 'v
     Route::get('dns', [Admin\DNSController::class, 'index'])->name('dns.index');
     Route::put('dns', [Admin\DNSController::class, 'update'])->name('dns.update');
 
+    Route::get('finger-prints', [Admin\FPDeviceController::class, 'index'])->name('finger-prints.index');
+    Route::post('finger-prints/sync-devices', [Admin\FPDeviceController::class, 'syncDevices'])->name('finger-prints.sync-devices');
+
     Route::group(['prefix' => 'settings', 'as' => 'settings.'], function () {
         Route::resource('file-disks', Settings\FileDiskController::class);
         Route::get('backup/download', [Settings\BackupController::class, 'download'])->name('backups.download');

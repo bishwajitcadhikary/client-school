@@ -2,7 +2,7 @@
 
 namespace App\Space;
 
-use Date;
+use Illuminate\Support\Facades\Date;
 
 class Wovo
 {

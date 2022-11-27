@@ -15,13 +15,15 @@ require __DIR__ . '/admin.php';
 require __DIR__ . '/auth.php';
 
 Route::get('test', function (){
-    $stellerbd = new \BCA\StellerBD\StellerBD();
+    $stellerbd = new \App\Space\StellarBD();
 
-    return  $stellerbd->getLog(
+/*    return  $stellerbd->getLog(
         now()->subDays(3)->format('Y-m-d'),
         now()->format('Y-m-d'),
         now()->subDays(3)->format('H:i:s'),
         now()->format('H:i:s')
-    );
+    );*/
+
+    return $stellerbd->removeUserFromDevice('ex101', 'ZKAF6P220860489');
 
 });

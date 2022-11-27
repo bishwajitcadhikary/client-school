@@ -64,6 +64,12 @@ const adminMenus = [
     active: route().current('admin.database-upgrades.*'),
   },
   {
+    title: trans('Finger Print'),
+    href: route('admin.finger-prints.index'),
+    icon: 'mdi-fingerprint',
+    active: route().current('admin.finger-prints.*'),
+  },
+  {
     title: trans('Settings'),
     href: route('admin.settings.account-settings.index'),
     icon: 'mdi-cog-outline',
