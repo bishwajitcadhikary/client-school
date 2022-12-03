@@ -1,5 +1,7 @@
 <script setup>
 import {inject, ref} from "vue"
+import DataNotFound from "@/Components/DataNotFound.vue"
+import Pagination from "@/Components/Pagination.vue"
 
 const props = defineProps({
   orders: {
@@ -27,8 +29,8 @@ const showOrderDetails = id => {
       <VCol cols="12">
         <VCard>
           <VTable
+            v-if="orders.data.length"
             class="table-rounded"
-            hide-default-footer
           >
             <thead>
               <tr>
@@ -102,6 +104,12 @@ const showOrderDetails = id => {
               </tr>
             </tbody>
           </VTable>
+
+          <VCardText>
+            <DataNotFound v-if="!!!orders.data.length" />
+
+            <Pagination :pagination="orders" />
+          </VCardText>
         </VCard>
       </VCol>
     </VRow>

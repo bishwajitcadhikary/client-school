@@ -11,10 +11,11 @@ const props = defineProps({
 
 const form = useForm({
   _method: 'PUT',
-  a_ip: props.settings.a_ip,
-  cname_domain: props.settings.cname_domain,
-  dns_instructions: props.settings.dns_instructions,
-  support_instructions: props.settings.support_instructions,
+  a_ip: props.settings?.a_ip,
+  cname_domain: props.settings?.cname_domain,
+  dns_instructions: props.settings?.dns_instructions,
+  support_instructions: props.settings?.support_instructions,
+  video_url: props.settings?.video_url,
 })
 
 const submit = () => {
@@ -52,7 +53,7 @@ const submit = () => {
                   :label="$t('DNS Configuration Instruction')"
                   :placeholder="$t('DNS Configuration Instruction')"
                 />
-              </vcol>
+              </VCol>
             </VRow>
           </VCol>
 
@@ -82,13 +83,13 @@ const submit = () => {
                       <td class="pa-3">
                         <VTextField
                           model-value="A"
-                          disabled
+                          readonly
                         />
                       </td>
                       <td>
                         <VTextField
                           model-value="@"
-                          disabled
+                          readonly
                         />
                       </td>
                       <td>
@@ -103,13 +104,13 @@ const submit = () => {
                       <td class="pa-3">
                         <VTextField
                           model-value="CNAME"
-                          disabled
+                          readonly
                         />
                       </td>
                       <td>
                         <VTextField
                           model-value="www"
-                          disabled
+                          readonly
                         />
                       </td>
                       <td>
@@ -122,7 +123,7 @@ const submit = () => {
                     </tr>
                   </tbody>
                 </VTable>
-              </vcol>
+              </VCol>
             </VRow>
           </VCol>
 
@@ -146,7 +147,27 @@ const submit = () => {
                   :label="$t('Support Instruction')"
                   :placeholder="$t('Support Instruction')"
                 />
-              </vcol>
+              </VCol>
+            </VRow>
+          </VCol>
+
+          <VCol cols="12">
+            <VRow>
+              <VCol
+                cols="12"
+                md="4"
+              />
+              <VCol
+                cols="12"
+                md="8"
+              >
+                <VTextField
+                  v-model="form.video_url"
+                  label="Video URL"
+                  placeholder="Ex: https://www.youtube.com/embed/39uMLYTh40Q"
+                  :error-messages="form.errors.video_url"
+                />
+              </VCol>
             </VRow>
           </VCol>
 
@@ -166,7 +187,7 @@ const submit = () => {
                 >
                   {{ $t('Save') }}
                 </VBtn>
-              </vcol>
+              </VCol>
             </VRow>
           </VCol>
         </VForm>

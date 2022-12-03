@@ -27,14 +27,13 @@ class FPDeviceController extends Controller
             $stellarBD = new StellarBD();
 
             $devices = $stellarBD->getDeviceInfo();
-            $devices = json_decode($devices, true);
 
-            if (count($devices) > 0) {
-                foreach ($devices as $device) {
-                    $device = FPDevice::updateOrCreate(
+            if ($devices['status']) {
+                foreach ($devices['data'] as $device) {
+                    FPDevice::updateOrCreate(
                         ['device_id' => $device['device_id']],
                         [
-                            'name' => $device['name'],
+                            'name' => $device['device_name'],
                             'last_connected' => Date::parse($device['last_connected']),
                         ]
                     );

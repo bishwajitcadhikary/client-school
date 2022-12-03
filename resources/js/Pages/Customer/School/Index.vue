@@ -2,6 +2,7 @@
 import {inject} from "vue"
 import {Inertia} from '@inertiajs/inertia'
 import Pagination from "@/Components/Pagination.vue"
+import DataNotFound from "@/Components/DataNotFound.vue"
 import {useDeleteDialogStore} from "@/Stores/useDeleteDialogStore"
 import {useSnackbarStore} from "@/Stores/useSnackbarStore"
 
@@ -39,7 +40,7 @@ const retryDatabaseCreation = school => {
   >
     <VContainer>
       <VCard>
-        <VTable>
+        <VTable v-if="schools.data.length">
           <thead>
             <tr>
               <th>#</th>
@@ -176,9 +177,11 @@ const retryDatabaseCreation = school => {
           </tbody>
         </VTable>
 
-        <div class="mb-5 mt-5">
+        <VCardText>
+          <DataNotFound v-if="!!!schools.data.length" />
+
           <Pagination :pagination="schools" />
-        </div>
+        </VCardText>
       </VCard>
     </VContainer>
   </AppLayout>

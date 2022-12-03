@@ -12,7 +12,7 @@ class DNSController extends Controller
 {
     public function index()
     {
-        $settings = Setting::getSettings(['dns_instructions', 'support_instructions', 'a_ip', 'cname_domain']);
+        $settings = Setting::getSettings(['dns_instructions', 'support_instructions', 'a_ip', 'cname_domain', 'video_url']);
 
         return Inertia::render('Admin/DNS/Index', [
             'settings' => $settings,
@@ -26,6 +26,7 @@ class DNSController extends Controller
             'support_instructions' => ['required', 'string'],
             'a_ip' => ['required', 'string'],
             'cname_domain' => ['required', 'string'],
+            'video_url' => ['nullable', 'string'],
         ]);
 
         foreach ($data as $option => $value) {
@@ -35,6 +36,6 @@ class DNSController extends Controller
             ]);
         }
 
-        Session::flash('success', 'DNS Configuration Instruction Updated Successfully.');
+        Session::flash('success', __('DNS Configuration Instruction Updated Successfully.'));
     }
 }

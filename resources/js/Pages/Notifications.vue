@@ -1,5 +1,9 @@
 <script setup>
 import {inject} from "vue"
+import DataNotFound from "@/Components/DataNotFound.vue"
+import Pagination from "@/Components/Pagination.vue"
+import {useForm} from "@inertiajs/inertia-vue3"
+import {useSnackbarStore} from "@/Stores/useSnackbarStore"
 
 
 defineProps({
@@ -10,10 +14,31 @@ defineProps({
 })
 
 const dateFormat = inject('dateFormat')
+
+const form = useForm({
+
+})
+const markAllAsRead = () => {
+  form.post(route('customer.notifications.mark-all-as-read'), {
+    preserveScroll: true,
+    preserveState: true,
+    onSuccess: page => useSnackbarStore().showNotification(page),
+  })
+}
 </script>
 
 <template>
   <AppLayout :title="$t('Notifications')">
+    <template #actions>
+      <VBtn
+        color="primary"
+        :loading="form.processing"
+        @click="markAllAsRead"
+      >
+        {{ $t('Mark all as read') }}
+      </VBtn>
+    </template>
+
     <VContainer>
       <VRow justify="center">
         <VCol
@@ -21,7 +46,7 @@ const dateFormat = inject('dateFormat')
           md="8"
         >
           <VCard>
-            <VCardText>
+            <VCardText v-if="notifications.data.length">
               <VList>
                 <VListItem
                   v-for="notification in notifications.data"
@@ -40,6 +65,12 @@ const dateFormat = inject('dateFormat')
                   </template>
                 </VListItem>
               </VList>
+            </VCardText>
+
+            <VCardText>
+              <DataNotFound v-if="!!!notifications.data.length" />
+
+              <Pagination :pagination="notifications" />
             </VCardText>
           </VCard>
         </VCol>

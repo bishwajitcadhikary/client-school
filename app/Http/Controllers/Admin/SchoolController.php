@@ -8,8 +8,8 @@ use App\Models\School;
 use App\Models\User;
 use App\Notifications\SendSchoolCredentials;
 use App\Rules\Domain;
-use Config;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Str;
@@ -134,13 +134,15 @@ class SchoolController extends Controller
     public function destroy(School $school)
     {
         try {
-            Config::set([
-                'database.connections.school.database' => $school->database,
-            ]);
+            try {
+                Config::set([
+                    'database.connections.school.database' => $school->database,
+                ]);
 
-            DB::connection('school')->statement('DROP DATABASE ' . $school->database);
+                DB::connection('school')->statement('DROP DATABASE ' . $school->database);
 
-            DB::connection('school')->disconnect();
+                DB::connection('school')->disconnect();
+            }catch (Throwable $th){}
 
             $school->delete();
             Session::flash('success', __("School Deleted Successfully"));

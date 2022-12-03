@@ -11,7 +11,7 @@ class DNSController extends Controller
 {
     public function index()
     {
-        $settings = Setting::getSettings(['dns_instructions', 'support_instructions', 'a_ip', 'cname_domain']);
+        $settings = Setting::getSettings(['dns_instructions', 'support_instructions', 'a_ip', 'cname_domain', 'video_url']);
 
         return Inertia::render('Customer/DNS/Index', [
             'settings' => $settings,

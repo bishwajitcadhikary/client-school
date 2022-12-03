@@ -64,10 +64,10 @@ const adminMenus = [
     active: route().current('admin.database-upgrades.*'),
   },
   {
-    title: trans('Finger Print'),
-    href: route('admin.finger-prints.index'),
-    icon: 'mdi-fingerprint',
-    active: route().current('admin.finger-prints.*'),
+    title: trans('Queue Dashboard'),
+    href: route('horizon.index'),
+    icon: 'mdi-queue',
+    active: route().current('horizon.index.*'),
   },
   {
     title: trans('Settings'),

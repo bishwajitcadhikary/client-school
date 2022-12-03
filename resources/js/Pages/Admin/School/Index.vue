@@ -4,6 +4,7 @@ import {Inertia} from '@inertiajs/inertia'
 import Pagination from "@/Components/Pagination.vue"
 import {useDeleteDialogStore} from "@/Stores/useDeleteDialogStore"
 import {useSnackbarStore} from "@/Stores/useSnackbarStore"
+import DataNotFound from "@/Components/DataNotFound.vue"
 
 const props = defineProps({
   schools: {
@@ -39,7 +40,7 @@ const retryDatabaseCreation = school => {
   >
     <VContainer>
       <VCard>
-        <VTable>
+        <VTable v-if="schools.data.length">
           <thead>
             <tr>
               <th>#</th>
@@ -55,7 +56,6 @@ const retryDatabaseCreation = school => {
               <th>{{ $t('Created At') }}</th>
               <th
                 class="text-center"
-                width="15%"
               >
                 {{ $t('Actions') }}
               </th>
@@ -160,6 +160,17 @@ const retryDatabaseCreation = school => {
                     />
                   </template>
                 </VTooltip>
+                <VTooltip :text="$t('Finger Print Setting')">
+                  <template #activator="{ props }">
+                    <VBtn
+                      variant="plain"
+                      size="small"
+                      icon="mdi-cog-outline"
+                      v-bind="props"
+                      @click="$inertia.visit(route('admin.schools.settings.index', {school: school.id}))"
+                    />
+                  </template>
+                </VTooltip>
                 <VTooltip :text="$t('Edit School')">
                   <template #activator="{ props }">
                     <VBtn
@@ -189,9 +200,11 @@ const retryDatabaseCreation = school => {
           </tbody>
         </VTable>
 
-        <div class="mb-5 mt-5">
+        <VCardText>
+          <DataNotFound v-if="!!!schools.data.length" />
+
           <Pagination :pagination="schools" />
-        </div>
+        </VCardText>
       </VCard>
     </VContainer>
   </AppLayout>

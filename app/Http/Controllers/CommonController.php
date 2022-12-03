@@ -29,7 +29,5 @@ class CommonController extends Controller
         auth()->user()->unreadNotifications->markAsRead();
 
         Session::flash('success', __('All notifications marked as read.'));
-
-        return redirect()->back();
     }
 }

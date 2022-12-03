@@ -1,6 +1,7 @@
 <script setup>
 import {useForm} from "@inertiajs/inertia-vue3"
 import {useSnackbarStore} from "@/Stores/useSnackbarStore"
+import {ref} from "vue"
 
 const props = defineProps({
   settings: {
@@ -8,6 +9,8 @@ const props = defineProps({
     default: null,
   },
 })
+
+const dialog = ref(false)
 </script>
 
 <template>
@@ -32,9 +35,9 @@ const props = defineProps({
                 outlined
                 rows="3"
                 :label="$t('DNS Configuration Instruction')"
-                disabled
+                readonly
               />
-            </vcol>
+            </VCol>
           </VRow>
         </VCol>
 
@@ -63,23 +66,21 @@ const props = defineProps({
                   <tr>
                     <td class="pa-3">
                       <VTextField
-                        label="type"
                         model-value="A"
-                        disabled
+                        readonly
                       />
                     </td>
                     <td>
                       <VTextField
-                        label="name"
                         model-value="@"
-                        disabled
+                        readonly
                       />
                     </td>
                     <td>
                       <VTextField
                         :model-value="settings.a_ip"
                         label="Server IP"
-                        disabled
+                        readonly
                       />
                     </td>
                   </tr>
@@ -87,26 +88,26 @@ const props = defineProps({
                     <td class="pa-3">
                       <VTextField
                         model-value="CNAME"
-                        disabled
+                        readonly
                       />
                     </td>
                     <td>
                       <VTextField
                         model-value="www"
-                        disabled
+                        readonly
                       />
                     </td>
                     <td>
                       <VTextField
                         :model-value="settings.cname_domain"
                         label="CNAME Domain"
-                        disabled
+                        readonly
                       />
                     </td>
                   </tr>
                 </tbody>
               </VTable>
-            </vcol>
+            </VCol>
           </VRow>
         </VCol>
 
@@ -128,12 +129,69 @@ const props = defineProps({
                 outlined
                 rows="3"
                 :label="$t('Support Instruction')"
-                disabled
+                readonly
               />
-            </vcol>
+            </VCol>
+          </VRow>
+        </VCol>
+
+        <VCol
+          v-if="settings.video_url"
+          cols="12"
+        >
+          <VRow>
+            <VCol
+              cols="12"
+              md="4"
+              class="text-left text-md-right"
+            />
+            <VCol
+              cols="12"
+              md="8"
+            >
+              <VBtn
+                icon
+                @click="dialog = true"
+              >
+                <VIcon>mdi-videocam</VIcon>
+              </VBtn>
+            </VCol>
           </VRow>
         </VCol>
       </VCardText>
     </VCard>
+
+    <VDialog
+      v-model="dialog"
+      :style="{minWidth: 'auto'}"
+      class="text-center"
+    >
+      <VCard>
+        <VCardTitle>
+          {{ $t('DNS Configuration Instruction') }}
+        </VCardTitle>
+
+        <VCardText>
+          <iframe
+            width="1440"
+            height="720"
+            :src="settings.video_url"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          />
+        </VCardText>
+
+        <VCardActions>
+          <VBtn
+            color="primary"
+            block
+            @click="dialog = false"
+          >
+            {{ $t('Close') }}
+          </VBtn>
+        </VCardActions>
+      </VCard>
+    </VDialog>
   </AppLayout>
 </template>

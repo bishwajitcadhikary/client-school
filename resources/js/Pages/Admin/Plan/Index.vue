@@ -2,6 +2,7 @@
 import {inject} from "vue"
 import Pagination from "@/Components/Pagination.vue"
 import {useDeleteDialogStore} from "@/Stores/useDeleteDialogStore"
+import DataNotFound from "@/Components/DataNotFound.vue"
 
 const props = defineProps({
   plans: {
@@ -27,7 +28,7 @@ const dateFormat = inject('dateFormat')
   >
     <VContainer>
       <VCard>
-        <VTable>
+        <VTable v-if="plans.data.length">
           <thead>
             <tr>
               <th>#</th>
@@ -140,9 +141,11 @@ const dateFormat = inject('dateFormat')
           </tbody>
         </VTable>
 
-        <div class="mb-5 mt-5">
+        <VCardText>
+          <DataNotFound v-if="!!!plans.data.length" />
+
           <Pagination :pagination="plans" />
-        </div>
+        </VCardText>
       </VCard>
     </VContainer>
   </AppLayout>

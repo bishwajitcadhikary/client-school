@@ -2,6 +2,8 @@
 import {inject, ref} from "vue"
 import {Inertia} from "@inertiajs/inertia"
 import {useSnackbarStore} from "@/Stores/useSnackbarStore"
+import Pagination from '@/Components/Pagination.vue'
+import DataNotFound from "@/Components/DataNotFound.vue"
 
 const props = defineProps({
   orders: {
@@ -56,7 +58,7 @@ const rejectOrder = order => {
 
 <template>
   <VCard>
-    <VTable>
+    <VTable v-if="orders.data.length">
       <thead>
         <tr>
           <th>Order ID</th>
@@ -77,7 +79,7 @@ const rejectOrder = order => {
       </thead>
       <tbody>
         <tr
-          v-for="order in props.orders.data"
+          v-for="order in orders.data"
           :key="order.id"
         >
           <td>{{ order.id }}</td>
@@ -134,9 +136,11 @@ const rejectOrder = order => {
       </tbody>
     </VTable>
 
-    <div class="mb-5 mt-5">
+    <VCardText>
+      <DataNotFound v-if="!!!orders.data.length" />
+
       <Pagination :pagination="orders" />
-    </div>
+    </VCardText>
   </VCard>
 
   <VDialog

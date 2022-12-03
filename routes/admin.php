@@ -4,7 +4,6 @@ use App\Http\Controllers\Admin;
 use App\Http\Controllers\Admin\Settings;
 use App\Http\Controllers\CommonController;
 use Illuminate\Support\Facades\Route;
-use Inertia\Inertia;
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth', 'verified', 'admin']], function () {
     Route::get('dashboard', [Admin\DashboardController::class,'index'])->name('dashboard.index');
@@ -18,6 +17,12 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth', 'v
     Route::post('schools/database-creation-retry/{school}', [Admin\SchoolController::class, 'databaseCreationRetry'])->name('schools.database-creation-retry');
     Route::get('schools/database-download/{school}', [Admin\SchoolController::class, 'databaseDownload'])->name('schools.database-download');
     Route::resource('schools', Admin\SchoolController::class);
+
+    Route::group(['prefix' => 'schools/{school}/settings', 'as' => 'schools.settings.'], function (){
+        Route::get('/', [Admin\School\SchoolSettingController::class, 'index'])->name('index');
+        Route::put('/update', [Admin\School\SchoolSettingController::class, 'update'])->name('update');
+        Route::resource('fingerprint-devices', Admin\School\FingerPrintController::class);
+    });
 
     Route::resource('plans', Admin\PlanController::class);
 
@@ -34,9 +39,6 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth', 'v
 
     Route::get('dns', [Admin\DNSController::class, 'index'])->name('dns.index');
     Route::put('dns', [Admin\DNSController::class, 'update'])->name('dns.update');
-
-    Route::get('finger-prints', [Admin\FPDeviceController::class, 'index'])->name('finger-prints.index');
-    Route::post('finger-prints/sync-devices', [Admin\FPDeviceController::class, 'syncDevices'])->name('finger-prints.sync-devices');
 
     Route::group(['prefix' => 'settings', 'as' => 'settings.'], function () {
         Route::resource('file-disks', Settings\FileDiskController::class);

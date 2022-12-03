@@ -1,6 +1,11 @@
 <?php
 
 use App\Http\Controllers\CommonController;
+use App\Models\Sass\Enroll;
+use App\Models\Sass\StudentAttendance;
+use App\Models\School;
+use App\Space\StellarBD;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 
@@ -14,16 +19,8 @@ require __DIR__ . '/customer.php';
 require __DIR__ . '/admin.php';
 require __DIR__ . '/auth.php';
 
-Route::get('test', function (){
-    $stellerbd = new \App\Space\StellarBD();
-
-/*    return  $stellerbd->getLog(
-        now()->subDays(3)->format('Y-m-d'),
-        now()->format('Y-m-d'),
-        now()->subDays(3)->format('H:i:s'),
-        now()->format('H:i:s')
-    );*/
-
-    return $stellerbd->removeUserFromDevice('ex101', 'ZKAF6P220860489');
+Route::get('test2', function (){
+    $stellarBD = new StellarBD('lki8ml13yboxx34gq29i72hnhgku3c', 'edusofto');
+return    $log = $stellarBD->getLog();
 
 });
