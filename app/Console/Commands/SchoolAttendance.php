@@ -3,14 +3,9 @@
 namespace App\Console\Commands;
 
 use App\Jobs\TakeAttendance;
-use App\Models\FPDevice;
-use App\Models\Sass\Enroll;
-use App\Models\Sass\StudentAttendance;
 use App\Models\School;
-use App\Space\StellarBD;
 use Illuminate\Console\Command;
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Support\Facades\Date;
 
 class SchoolAttendance extends Command
 {
@@ -22,13 +17,13 @@ class SchoolAttendance extends Command
     {
         // Get all schools from database who has attendance enabled
 
-        $schools = School::whereHas('devices', function (Builder $builder){
+        $schools = School::whereHas('devices', function (Builder $builder) {
             $builder->where('is_active', true);
         })->get();
 
         // Loop through all schools and take attendance
 
-        foreach ($schools as $school){
+        foreach ($schools as $school) {
             $setting = $this->getSchoolSettings($school);
 
             $time = strtotime($setting['attendance_update_at']);

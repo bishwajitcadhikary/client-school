@@ -2,6 +2,7 @@
 
 namespace App\Jobs;
 
+use App\Mail\AttendanceTakenMail;
 use App\Models\FPDevice;
 use App\Models\Sass\Enroll;
 use App\Models\Sass\StudentAttendance;
@@ -75,6 +76,7 @@ class TakeAttendance implements ShouldQueue
         $attendants = Enroll::attendants($today)->get();
 
         // Loop through all attendants and store attendance
+        $students = [];
         foreach ($attendants as $index => $attendant) {
             $logs = array_filter($log['data'] ?? [], function ($item) use ($attendant) {
                 return $item['user_name'] == $attendant->register_no;
@@ -87,10 +89,20 @@ class TakeAttendance implements ShouldQueue
                 'date' => $today,
             ], [
                 'status' => $this->getStatus($firstLog),
-                'remark' => null,
                 'branch_id' => $attendant->branch_id,
             ]);
+
+            $students[] = [
+                'student_id' => $attendant->student_id,
+                'date' => $today,
+                'status' => $this->getStatus($firstLog),
+            ];
         }
+
+       /* // Send email
+        if (isset($this->setting['email']) && count($students) > 0){
+            \Mail::to($this->setting['email'])->send(new AttendanceTakenMail($students));
+        }*/
     }
 
     private function getStatus($log): string
