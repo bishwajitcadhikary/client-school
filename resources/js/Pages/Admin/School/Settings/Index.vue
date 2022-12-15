@@ -15,10 +15,15 @@ const props = defineProps({
     type: Object,
     default: null,
   },
+  schoolYears: {
+    type: Object,
+    default: null
+  }
 })
 
 const form = useForm({
   _method: 'PUT',
+  school_year: props.setting?.school_year,
   attendance_update_at: props.setting?.attendance_update_at,
   late_time: props.setting?.late_time,
   absent_time: props.setting?.absent_time,
@@ -64,6 +69,18 @@ const submit = () => {
       <VCardText>
         <VForm @submit.prevent="submit">
           <VRow>
+            <VCol
+              cols="12"
+              md="6"
+            >
+              <VAutocomplete
+                v-model="form.school_year"
+                :label="$t('Current School Year')"
+                :error-messages="form.errors.school_year"
+                :items="schoolYears"
+              />
+            </VCol>
+
             <VCol
               cols="12"
               md="6"
@@ -114,6 +131,8 @@ const submit = () => {
               />
             </VCol>
 
+          </VRow>
+          <VRow>
             <VCol
               cols="12"
               md="6"

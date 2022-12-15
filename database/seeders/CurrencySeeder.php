@@ -16,23 +16,6 @@ class CurrencySeeder extends Seeder
     {
         $currencies = [
             [
-                'name' => 'US Dollar',
-                'code' => 'USD',
-                'symbol' => '$',
-                'precision' => '2',
-                'thousand_separator' => ',',
-                'decimal_separator' => '.',
-                'is_default' => true,
-            ],
-            [
-                'name' => 'British Pound',
-                'code' => 'GBP',
-                'symbol' => '£',
-                'precision' => '2',
-                'thousand_separator' => ',',
-                'decimal_separator' => '.',
-            ],
-            [
                 'name' => 'Bangladeshi Taka',
                 'code' => 'BDT',
                 'symbol' => '৳',

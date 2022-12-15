@@ -3,8 +3,12 @@
 namespace App\Http\Controllers\Admin\School;
 
 use App\Http\Controllers\Controller;
+use App\Models\Sass\SchoolYear;
 use App\Models\School;
+use App\Space\Wovo;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Facades\Date;
 use Illuminate\Support\Facades\Session;
 use Inertia\Inertia;
 
@@ -21,21 +25,33 @@ class SchoolSettingController extends Controller
             }
         }
 
+
+        Wovo::setDatabaseConnection($school);
+
+        $schoolYears = SchoolYear::on('school')->get()->map(function ($year){
+            return [
+                'value' => $year->id,
+                'title' => $year->school_year,
+            ];
+        });
+
         return Inertia::render('Admin/School/Settings/Index', [
             'school' => $school,
             'setting' => $setting,
+            'schoolYears' => $schoolYears,
         ]);
     }
 
     public function update(Request $request, School $school)
     {
         $holidays = [];
-        foreach ($request->holidays as $holiday) {
-            $holidays[] = \Date::parse($holiday)->format('Y-m-d');
+        foreach ($request->holidays ?? [] as $holiday) {
+            $holidays[] = Date::parse($holiday)->format('Y-m-d');
         }
         $request->merge(['holidays' => $holidays]);
 
         $data = $request->validate([
+            'school_year' => ['required', 'integer'],
             'attendance_update_at' => ['required', 'date_format:H:i'],
             'late_time' => ['required', 'date_format:H:i'],
             'absent_time' => ['required', 'date_format:H:i'],

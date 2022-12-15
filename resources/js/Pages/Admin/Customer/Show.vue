@@ -207,12 +207,12 @@ const submitSuspension = () => {
               background-color="deep-purple-darken-4"
               center-active
             >
-              <VTab value="overview">
+<!--              <VTab value="overview">
                 <VIcon class="mr-2">
                   mdi-user
                 </VIcon>
-                {{ $t('Overview') }}
-              </VTab>
+                {{ $t('Schools') }}
+              </VTab>-->
               <VTab value="security">
                 <VIcon class="mr-2">
                   mdi-lock
@@ -223,7 +223,7 @@ const submitSuspension = () => {
           </VCard>
 
           <VWindow v-model="tab">
-            <VWindowItem value="overview">
+<!--            <VWindowItem value="overview">
               <VCard>
                 <VCardItem>
                   <VCardTitle>{{ $t('Schools') }}</VCardTitle>
@@ -259,7 +259,7 @@ const submitSuspension = () => {
                   </template>
                 </VCardItem>
               </VCard>
-            </VWindowItem>
+            </VWindowItem>-->
             <VWindowItem value="security">
               <VCard>
                 <VCardItem>

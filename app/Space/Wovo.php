@@ -2,6 +2,8 @@
 
 namespace App\Space;
 
+use App\Models\School;
+use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Date;
 
 class Wovo
@@ -49,5 +51,22 @@ class Wovo
         }
 
         return true;
+    }
+
+    public static function setDatabaseConnection(School $school)
+    {
+        Config::set([
+            'database.connections.school.host' => $school->host,
+            'database.connections.school.port' => $school->port,
+            'database.connections.school.database' => $school->database,
+            'database.connections.school.username' => $school->username,
+            'database.connections.school.password' => $school->password,
+        ]);
+
+        try {
+            \DB::connection('school')->getPdo();
+        } catch (\Exception $e) {
+            throw new \Exception("Could not connect to the database.  Please check your configuration. error:" . $e->getMessage());
+        }
     }
 }

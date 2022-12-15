@@ -38,6 +38,7 @@ class FingerPrintController extends Controller
             'is_active' => ['required', 'boolean'],
         ]);
 
+        // Check Device is valid or not
         $stellarBD = new StellarBD($data['auth_code'], $data['auth_user']);
 
         if ($stellarBD->checkDevice($data['device_id'])){
@@ -68,10 +69,17 @@ class FingerPrintController extends Controller
             'is_active' => ['required', 'boolean'],
         ]);
 
-        $fingerprintDevice->update($data);
+        // Check Device is valid or not
+        $stellarBD = new StellarBD($data['auth_code'], $data['auth_user']);
 
-        return redirect()->route('admin.schools.settings.fingerprint-devices.index', $school)
+        if ($stellarBD->checkDevice($data['device_id'])){
+            $fingerprintDevice->update($data);
+
+            return redirect()->route('admin.schools.settings.fingerprint-devices.index', $school)
                 ->with('success', __('Fingerprint device updated successfully.'));
+        }
+
+        return back()->with('error', __('Device not found. Please contact with StellarBD.'));
     }
 
     public function destroy(School $school, FPDevice $fingerprintDevice)

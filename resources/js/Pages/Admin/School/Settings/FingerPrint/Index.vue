@@ -55,7 +55,7 @@ const props = defineProps({
                 <VIcon>
                   {{ !!device.is_active ? 'mdi-check' : 'mdi-close' }}
                 </VIcon>
-                {{ device.status ? $t('Active') : $t('Inactive') }}
+                {{ !!device.is_active ? $t('Active') : $t('Inactive') }}
               </VChip>
             </td>
             <td>

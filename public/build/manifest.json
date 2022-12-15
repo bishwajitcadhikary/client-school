@@ -1,24 +1,4 @@
 {
-  "resources/js/assets/images/avatars/avatar-1.png": {
-    "file": "assets/avatar-1.aac046b6.png",
-    "src": "resources/js/assets/images/avatars/avatar-1.png"
-  },
-  "resources/js/assets/images/avatars/avatar-2.png": {
-    "file": "assets/avatar-2.0ae005f8.png",
-    "src": "resources/js/assets/images/avatars/avatar-2.png"
-  },
-  "resources/js/assets/images/avatars/avatar-3.png": {
-    "file": "assets/avatar-3.3ef9169b.png",
-    "src": "resources/js/assets/images/avatars/avatar-3.png"
-  },
-  "resources/js/assets/images/avatars/avatar-4.png": {
-    "file": "assets/avatar-4.406ee6ab.png",
-    "src": "resources/js/assets/images/avatars/avatar-4.png"
-  },
-  "resources/js/assets/images/pages/auth-v1-tree-2.png": {
-    "file": "assets/auth-v1-tree-2.b2a50268.png",
-    "src": "resources/js/assets/images/pages/auth-v1-tree-2.png"
-  },
   "resources/js/assets/images/pages/auth-v1-mask-light.png": {
     "file": "assets/auth-v1-mask-light.15795da8.png",
     "src": "resources/js/assets/images/pages/auth-v1-mask-light.png"
@@ -27,9 +7,29 @@
     "file": "assets/auth-v1-mask-dark.26a5334e.png",
     "src": "resources/js/assets/images/pages/auth-v1-mask-dark.png"
   },
+  "resources/js/assets/images/pages/auth-v1-tree-2.png": {
+    "file": "assets/auth-v1-tree-2.b2a50268.png",
+    "src": "resources/js/assets/images/pages/auth-v1-tree-2.png"
+  },
+  "resources/js/assets/images/avatars/avatar-2.png": {
+    "file": "assets/avatar-2.0ae005f8.png",
+    "src": "resources/js/assets/images/avatars/avatar-2.png"
+  },
   "resources/js/assets/images/pages/auth-v1-tree.png": {
     "file": "assets/auth-v1-tree.1ebec22f.png",
     "src": "resources/js/assets/images/pages/auth-v1-tree.png"
+  },
+  "resources/js/assets/images/avatars/avatar-1.png": {
+    "file": "assets/avatar-1.aac046b6.png",
+    "src": "resources/js/assets/images/avatars/avatar-1.png"
+  },
+  "resources/js/assets/images/avatars/avatar-3.png": {
+    "file": "assets/avatar-3.3ef9169b.png",
+    "src": "resources/js/assets/images/avatars/avatar-3.png"
+  },
+  "resources/js/assets/images/avatars/avatar-4.png": {
+    "file": "assets/avatar-4.406ee6ab.png",
+    "src": "resources/js/assets/images/avatars/avatar-4.png"
   },
   "resources/js/assets/logo.jpg": {
     "file": "assets/logo.2c9b30ab.jpg",
@@ -48,7 +48,7 @@
     "src": "resources/js/assets/images/pro/upgrade-banner-light.png"
   },
   "resources/js/app.js": {
-    "file": "assets/app.c74c21f4.js",
+    "file": "assets/app.88dbe7b3.js",
     "src": "resources/js/app.js",
     "isEntry": true,
     "dynamicImports": [
@@ -143,37 +143,37 @@
     ]
   },
   "resources/js/Pages/Admin/Customer/Create.vue": {
-    "file": "assets/Create.c375a192.js",
+    "file": "assets/Create.ec6089a0.js",
     "src": "resources/js/Pages/Admin/Customer/Create.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_rules.aed30137.js",
-      "_filepond-plugin-image-preview.min.6666ad5e.js",
-      "_VForm.64f4569b.js",
-      "_VRow.51c37cbe.js",
-      "_VCol.fb68aa0d.js",
-      "_VTextField.2cf6dc35.js",
-      "_VSelect.5810ae9c.js",
-      "_VContainer.9871394f.js",
-      "_form.655e4f4e.js",
-      "_VCounter.bd549793.js",
-      "_VLabel.2a4a1171.js",
-      "_VCheckboxBtn.85849725.js",
-      "_VSelectionControl.e7494f68.js"
+      "_rules.23965050.js",
+      "_filepond-plugin-image-preview.min.562c0cef.js",
+      "_VForm.a530d3c0.js",
+      "_VRow.f135c61b.js",
+      "_VCol.2c4b1735.js",
+      "_VTextField.b60301ed.js",
+      "_VSelect.56edbde5.js",
+      "_VContainer.184131ca.js",
+      "_form.4587b2ea.js",
+      "_VCounter.473ffdf9.js",
+      "_VLabel.3c5713ec.js",
+      "_VCheckboxBtn.992999b2.js",
+      "_VSelectionControl.3a4c124d.js"
     ],
     "css": [
       "assets/VGrid.0b79ff68.css"
     ]
   },
-  "_rules.aed30137.js": {
-    "file": "assets/rules.aed30137.js",
+  "_rules.23965050.js": {
+    "file": "assets/rules.23965050.js",
     "imports": [
       "resources/js/app.js"
     ]
   },
-  "_filepond-plugin-image-preview.min.6666ad5e.js": {
-    "file": "assets/filepond-plugin-image-preview.min.6666ad5e.js",
+  "_filepond-plugin-image-preview.min.562c0cef.js": {
+    "file": "assets/filepond-plugin-image-preview.min.562c0cef.js",
     "imports": [
       "resources/js/app.js"
     ],
@@ -181,24 +181,15 @@
       "assets/filepond-plugin-image-preview.9d695c6d.css"
     ]
   },
-  "_VForm.64f4569b.js": {
-    "file": "assets/VForm.64f4569b.js",
+  "_VForm.a530d3c0.js": {
+    "file": "assets/VForm.a530d3c0.js",
     "imports": [
-      "_form.655e4f4e.js",
+      "_form.4587b2ea.js",
       "resources/js/app.js"
     ]
   },
-  "_VRow.51c37cbe.js": {
-    "file": "assets/VRow.51c37cbe.js",
-    "imports": [
-      "resources/js/app.js"
-    ],
-    "css": [
-      "assets/VGrid.0b79ff68.css"
-    ]
-  },
-  "_VCol.fb68aa0d.js": {
-    "file": "assets/VCol.fb68aa0d.js",
+  "_VRow.f135c61b.js": {
+    "file": "assets/VRow.f135c61b.js",
     "imports": [
       "resources/js/app.js"
     ],
@@ -206,27 +197,36 @@
       "assets/VGrid.0b79ff68.css"
     ]
   },
-  "_VTextField.2cf6dc35.js": {
-    "file": "assets/VTextField.2cf6dc35.js",
+  "_VCol.2c4b1735.js": {
+    "file": "assets/VCol.2c4b1735.js",
     "imports": [
-      "resources/js/app.js",
-      "_VCounter.bd549793.js",
-      "_VLabel.2a4a1171.js"
+      "resources/js/app.js"
+    ],
+    "css": [
+      "assets/VGrid.0b79ff68.css"
     ]
   },
-  "_VSelect.5810ae9c.js": {
-    "file": "assets/VSelect.5810ae9c.js",
+  "_VTextField.b60301ed.js": {
+    "file": "assets/VTextField.b60301ed.js",
     "imports": [
       "resources/js/app.js",
-      "_VCheckboxBtn.85849725.js",
-      "_VTextField.2cf6dc35.js"
+      "_VCounter.473ffdf9.js",
+      "_VLabel.3c5713ec.js"
+    ]
+  },
+  "_VSelect.56edbde5.js": {
+    "file": "assets/VSelect.56edbde5.js",
+    "imports": [
+      "resources/js/app.js",
+      "_VCheckboxBtn.992999b2.js",
+      "_VTextField.b60301ed.js"
     ],
     "css": [
       "assets/VSelect.e464ad0b.css"
     ]
   },
-  "_VContainer.9871394f.js": {
-    "file": "assets/VContainer.9871394f.js",
+  "_VContainer.184131ca.js": {
+    "file": "assets/VContainer.184131ca.js",
     "imports": [
       "resources/js/app.js"
     ],
@@ -234,93 +234,93 @@
       "assets/VGrid.0b79ff68.css"
     ]
   },
-  "_form.655e4f4e.js": {
-    "file": "assets/form.655e4f4e.js",
+  "_form.4587b2ea.js": {
+    "file": "assets/form.4587b2ea.js",
     "imports": [
       "resources/js/app.js"
     ]
   },
-  "_VCounter.bd549793.js": {
-    "file": "assets/VCounter.bd549793.js",
+  "_VCounter.473ffdf9.js": {
+    "file": "assets/VCounter.473ffdf9.js",
     "imports": [
       "resources/js/app.js",
-      "_VLabel.2a4a1171.js"
+      "_VLabel.3c5713ec.js"
     ],
     "css": [
       "assets/VCounter.2ad591d4.css"
     ]
   },
-  "_VLabel.2a4a1171.js": {
-    "file": "assets/VLabel.2a4a1171.js",
+  "_VLabel.3c5713ec.js": {
+    "file": "assets/VLabel.3c5713ec.js",
     "imports": [
       "resources/js/app.js",
-      "_form.655e4f4e.js"
+      "_form.4587b2ea.js"
     ],
     "css": [
       "assets/VLabel.aec79ccf.css"
     ]
   },
-  "_VCheckboxBtn.85849725.js": {
-    "file": "assets/VCheckboxBtn.85849725.js",
+  "_VCheckboxBtn.992999b2.js": {
+    "file": "assets/VCheckboxBtn.992999b2.js",
     "imports": [
-      "_VSelectionControl.e7494f68.js",
+      "_VSelectionControl.3a4c124d.js",
       "resources/js/app.js"
     ]
   },
-  "_VSelectionControl.e7494f68.js": {
-    "file": "assets/VSelectionControl.e7494f68.js",
+  "_VSelectionControl.3a4c124d.js": {
+    "file": "assets/VSelectionControl.3a4c124d.js",
     "imports": [
       "resources/js/app.js",
-      "_VLabel.2a4a1171.js"
+      "_VLabel.3c5713ec.js"
     ],
     "css": [
       "assets/VSelectionControl.99d01ba0.css"
     ]
   },
   "resources/js/Pages/Admin/Customer/Edit.vue": {
-    "file": "assets/Edit.d819a13f.js",
+    "file": "assets/Edit.340042ae.js",
     "src": "resources/js/Pages/Admin/Customer/Edit.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_rules.aed30137.js",
-      "_filepond-plugin-image-preview.min.6666ad5e.js",
-      "_VForm.64f4569b.js",
-      "_VRow.51c37cbe.js",
-      "_VCol.fb68aa0d.js",
-      "_VTextField.2cf6dc35.js",
-      "_VSelect.5810ae9c.js",
-      "_VContainer.9871394f.js",
-      "_form.655e4f4e.js",
-      "_VCounter.bd549793.js",
-      "_VLabel.2a4a1171.js",
-      "_VCheckboxBtn.85849725.js",
-      "_VSelectionControl.e7494f68.js"
+      "_rules.23965050.js",
+      "_filepond-plugin-image-preview.min.562c0cef.js",
+      "_VForm.a530d3c0.js",
+      "_VRow.f135c61b.js",
+      "_VCol.2c4b1735.js",
+      "_VTextField.b60301ed.js",
+      "_VSelect.56edbde5.js",
+      "_VContainer.184131ca.js",
+      "_form.4587b2ea.js",
+      "_VCounter.473ffdf9.js",
+      "_VLabel.3c5713ec.js",
+      "_VCheckboxBtn.992999b2.js",
+      "_VSelectionControl.3a4c124d.js"
     ],
     "css": [
       "assets/VGrid.0b79ff68.css"
     ]
   },
   "resources/js/Pages/Admin/Customer/Index.vue": {
-    "file": "assets/Index.37272e34.js",
+    "file": "assets/Index.60557ef6.js",
     "src": "resources/js/Pages/Admin/Customer/Index.vue",
     "isDynamicEntry": true,
     "imports": [
-      "_Pagination.ddb96f02.js",
+      "_Pagination.68795be1.js",
       "resources/js/app.js",
-      "_DataNotFound.fa8e0d1d.js",
-      "_VTable.bbaee15f.js",
-      "_VTooltip.6345da64.js",
-      "_VContainer.9871394f.js",
-      "_VCol.fb68aa0d.js",
-      "_VRow.51c37cbe.js"
+      "_DataNotFound.61fd9276.js",
+      "_VTable.86cf7a82.js",
+      "_VTooltip.4ad9cf0f.js",
+      "_VContainer.184131ca.js",
+      "_VCol.2c4b1735.js",
+      "_VRow.f135c61b.js"
     ],
     "css": [
       "assets/VGrid.0b79ff68.css"
     ]
   },
-  "_Pagination.ddb96f02.js": {
-    "file": "assets/Pagination.ddb96f02.js",
+  "_Pagination.68795be1.js": {
+    "file": "assets/Pagination.68795be1.js",
     "imports": [
       "resources/js/app.js"
     ],
@@ -328,19 +328,19 @@
       "assets/Pagination.c6d9cd9e.css"
     ]
   },
-  "_DataNotFound.fa8e0d1d.js": {
-    "file": "assets/DataNotFound.fa8e0d1d.js",
+  "_DataNotFound.61fd9276.js": {
+    "file": "assets/DataNotFound.61fd9276.js",
     "imports": [
-      "_VCol.fb68aa0d.js",
+      "_VCol.2c4b1735.js",
       "resources/js/app.js",
-      "_VRow.51c37cbe.js"
+      "_VRow.f135c61b.js"
     ],
     "assets": [
       "assets/data-not-found.47e5b3b1.png"
     ]
   },
-  "_VTable.bbaee15f.js": {
-    "file": "assets/VTable.bbaee15f.js",
+  "_VTable.86cf7a82.js": {
+    "file": "assets/VTable.86cf7a82.js",
     "imports": [
       "resources/js/app.js"
     ],
@@ -348,8 +348,8 @@
       "assets/VTable.ba60e1dc.css"
     ]
   },
-  "_VTooltip.6345da64.js": {
-    "file": "assets/VTooltip.6345da64.js",
+  "_VTooltip.4ad9cf0f.js": {
+    "file": "assets/VTooltip.4ad9cf0f.js",
     "imports": [
       "resources/js/app.js"
     ],
@@ -358,28 +358,28 @@
     ]
   },
   "resources/js/Pages/Admin/Customer/Show.vue": {
-    "file": "assets/Show.78444ebb.js",
+    "file": "assets/Show.31922d51.js",
     "src": "resources/js/Pages/Admin/Customer/Show.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_VContainer.9871394f.js",
-      "_VRow.51c37cbe.js",
-      "_VCol.fb68aa0d.js",
-      "_VWindowItem.98b5c47d.js",
-      "_VAlert.e9ebd06b.js",
-      "_VForm.64f4569b.js",
-      "_VTextField.2cf6dc35.js",
-      "_form.655e4f4e.js",
-      "_VCounter.bd549793.js",
-      "_VLabel.2a4a1171.js"
+      "_VContainer.184131ca.js",
+      "_VRow.f135c61b.js",
+      "_VCol.2c4b1735.js",
+      "_VWindowItem.61d67403.js",
+      "_VAlert.11d912c6.js",
+      "_VForm.a530d3c0.js",
+      "_VTextField.b60301ed.js",
+      "_form.4587b2ea.js",
+      "_VCounter.473ffdf9.js",
+      "_VLabel.3c5713ec.js"
     ],
     "css": [
       "assets/VGrid.0b79ff68.css"
     ]
   },
-  "_VWindowItem.98b5c47d.js": {
-    "file": "assets/VWindowItem.98b5c47d.js",
+  "_VWindowItem.61d67403.js": {
+    "file": "assets/VWindowItem.61d67403.js",
     "imports": [
       "resources/js/app.js"
     ],
@@ -387,8 +387,8 @@
       "assets/VWindowItem.a4127a42.css"
     ]
   },
-  "_VAlert.e9ebd06b.js": {
-    "file": "assets/VAlert.e9ebd06b.js",
+  "_VAlert.11d912c6.js": {
+    "file": "assets/VAlert.11d912c6.js",
     "imports": [
       "resources/js/app.js"
     ],
@@ -397,98 +397,98 @@
     ]
   },
   "resources/js/Pages/Admin/DNS/Index.vue": {
-    "file": "assets/Index.ec63aba2.js",
+    "file": "assets/Index.d794fe1e.js",
     "src": "resources/js/Pages/Admin/DNS/Index.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_VForm.64f4569b.js",
-      "_VCol.fb68aa0d.js",
-      "_VRow.51c37cbe.js",
-      "_VTextarea.442fdf9e.js",
-      "_VTable.bbaee15f.js",
-      "_VTextField.2cf6dc35.js",
-      "_form.655e4f4e.js",
-      "_VCounter.bd549793.js",
-      "_VLabel.2a4a1171.js"
+      "_VForm.a530d3c0.js",
+      "_VCol.2c4b1735.js",
+      "_VRow.f135c61b.js",
+      "_VTextarea.2c553c58.js",
+      "_VTable.86cf7a82.js",
+      "_VTextField.b60301ed.js",
+      "_form.4587b2ea.js",
+      "_VCounter.473ffdf9.js",
+      "_VLabel.3c5713ec.js"
     ],
     "css": [
       "assets/VGrid.0b79ff68.css"
     ]
   },
-  "_VTextarea.442fdf9e.js": {
-    "file": "assets/VTextarea.442fdf9e.js",
+  "_VTextarea.2c553c58.js": {
+    "file": "assets/VTextarea.2c553c58.js",
     "imports": [
       "resources/js/app.js",
-      "_VCounter.bd549793.js",
-      "_VLabel.2a4a1171.js"
+      "_VCounter.473ffdf9.js",
+      "_VLabel.3c5713ec.js"
     ],
     "css": [
       "assets/VTextarea.13bfb6d6.css"
     ]
   },
   "resources/js/Pages/Admin/Dashboard/Index.vue": {
-    "file": "assets/Index.e082770c.js",
+    "file": "assets/Index.5b86ff7f.js",
     "src": "resources/js/Pages/Admin/Dashboard/Index.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/Pages/Admin/Order/Table.vue",
-      "_VCol.fb68aa0d.js",
-      "_VRow.51c37cbe.js",
+      "_VCol.2c4b1735.js",
+      "_VRow.f135c61b.js",
       "resources/js/app.js",
-      "_Pagination.ddb96f02.js",
-      "_DataNotFound.fa8e0d1d.js",
-      "_VTooltip.6345da64.js",
-      "_VTable.bbaee15f.js"
+      "_Pagination.68795be1.js",
+      "_DataNotFound.61fd9276.js",
+      "_VTooltip.4ad9cf0f.js",
+      "_VTable.86cf7a82.js"
     ],
     "css": [
       "assets/VGrid.0b79ff68.css"
     ]
   },
   "resources/js/Pages/Admin/Order/Table.vue": {
-    "file": "assets/Table.45ad1fb2.js",
+    "file": "assets/Table.31d5be20.js",
     "src": "resources/js/Pages/Admin/Order/Table.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_Pagination.ddb96f02.js",
-      "_DataNotFound.fa8e0d1d.js",
-      "_VTooltip.6345da64.js",
-      "_VTable.bbaee15f.js",
-      "_VCol.fb68aa0d.js",
-      "_VRow.51c37cbe.js"
+      "_Pagination.68795be1.js",
+      "_DataNotFound.61fd9276.js",
+      "_VTooltip.4ad9cf0f.js",
+      "_VTable.86cf7a82.js",
+      "_VCol.2c4b1735.js",
+      "_VRow.f135c61b.js"
     ],
     "css": [
       "assets/VGrid.0b79ff68.css"
     ]
   },
   "resources/js/Pages/Admin/DatabaseUpgrade/Create.vue": {
-    "file": "assets/Create.f700bb0e.js",
+    "file": "assets/Create.46f62a1f.js",
     "src": "resources/js/Pages/Admin/DatabaseUpgrade/Create.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_VRow.51c37cbe.js",
-      "_VCol.fb68aa0d.js",
-      "_VAlert.e9ebd06b.js",
-      "_VForm.64f4569b.js",
-      "_VFileInput.c2114371.js",
-      "_VTextField.2cf6dc35.js",
-      "_VTextarea.442fdf9e.js",
-      "_VContainer.9871394f.js",
-      "_form.655e4f4e.js",
-      "_VCounter.bd549793.js",
-      "_VLabel.2a4a1171.js"
+      "_VRow.f135c61b.js",
+      "_VCol.2c4b1735.js",
+      "_VAlert.11d912c6.js",
+      "_VForm.a530d3c0.js",
+      "_VFileInput.a0031fae.js",
+      "_VTextField.b60301ed.js",
+      "_VTextarea.2c553c58.js",
+      "_VContainer.184131ca.js",
+      "_form.4587b2ea.js",
+      "_VCounter.473ffdf9.js",
+      "_VLabel.3c5713ec.js"
     ],
     "css": [
       "assets/VGrid.0b79ff68.css"
     ]
   },
-  "_VFileInput.c2114371.js": {
-    "file": "assets/VFileInput.c2114371.js",
+  "_VFileInput.a0031fae.js": {
+    "file": "assets/VFileInput.a0031fae.js",
     "imports": [
-      "_VCounter.bd549793.js",
-      "_VLabel.2a4a1171.js",
+      "_VCounter.473ffdf9.js",
+      "_VLabel.3c5713ec.js",
       "resources/js/app.js"
     ],
     "css": [
@@ -496,48 +496,48 @@
     ]
   },
   "resources/js/Pages/Admin/DatabaseUpgrade/Edit.vue": {
-    "file": "assets/Edit.4beda7b5.js",
+    "file": "assets/Edit.6f376d1d.js",
     "src": "resources/js/Pages/Admin/DatabaseUpgrade/Edit.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_rules.aed30137.js",
-      "_VRow.51c37cbe.js",
-      "_VCol.fb68aa0d.js",
-      "_VAlert.e9ebd06b.js",
-      "_VForm.64f4569b.js",
-      "_VAutocomplete.7a513081.js",
-      "_VTextField.2cf6dc35.js",
-      "_VSwitch.c46a2151.js",
-      "_VContainer.9871394f.js",
-      "_form.655e4f4e.js",
-      "_VSelect.5810ae9c.js",
-      "_VCheckboxBtn.85849725.js",
-      "_VSelectionControl.e7494f68.js",
-      "_VLabel.2a4a1171.js",
-      "_VCounter.bd549793.js"
+      "_rules.23965050.js",
+      "_VRow.f135c61b.js",
+      "_VCol.2c4b1735.js",
+      "_VAlert.11d912c6.js",
+      "_VForm.a530d3c0.js",
+      "_VAutocomplete.957fcee0.js",
+      "_VTextField.b60301ed.js",
+      "_VSwitch.7cbd4ecd.js",
+      "_VContainer.184131ca.js",
+      "_form.4587b2ea.js",
+      "_VSelect.56edbde5.js",
+      "_VCheckboxBtn.992999b2.js",
+      "_VSelectionControl.3a4c124d.js",
+      "_VLabel.3c5713ec.js",
+      "_VCounter.473ffdf9.js"
     ],
     "css": [
       "assets/VGrid.0b79ff68.css"
     ]
   },
-  "_VAutocomplete.7a513081.js": {
-    "file": "assets/VAutocomplete.7a513081.js",
+  "_VAutocomplete.957fcee0.js": {
+    "file": "assets/VAutocomplete.957fcee0.js",
     "imports": [
-      "_VSelect.5810ae9c.js",
+      "_VSelect.56edbde5.js",
       "resources/js/app.js",
-      "_VCheckboxBtn.85849725.js",
-      "_VTextField.2cf6dc35.js"
+      "_VCheckboxBtn.992999b2.js",
+      "_VTextField.b60301ed.js"
     ],
     "css": [
       "assets/VAutocomplete.7ce8db27.css"
     ]
   },
-  "_VSwitch.c46a2151.js": {
-    "file": "assets/VSwitch.c46a2151.js",
+  "_VSwitch.7cbd4ecd.js": {
+    "file": "assets/VSwitch.7cbd4ecd.js",
     "imports": [
-      "_VSelectionControl.e7494f68.js",
-      "_VLabel.2a4a1171.js",
+      "_VSelectionControl.3a4c124d.js",
+      "_VLabel.3c5713ec.js",
       "resources/js/app.js"
     ],
     "css": [
@@ -545,317 +545,317 @@
     ]
   },
   "resources/js/Pages/Admin/DatabaseUpgrade/Index.vue": {
-    "file": "assets/Index.b28bd20e.js",
+    "file": "assets/Index.7fa39c97.js",
     "src": "resources/js/Pages/Admin/DatabaseUpgrade/Index.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_Pagination.ddb96f02.js",
-      "_VTable.bbaee15f.js",
-      "_VTooltip.6345da64.js",
-      "_VContainer.9871394f.js"
+      "_Pagination.68795be1.js",
+      "_VTable.86cf7a82.js",
+      "_VTooltip.4ad9cf0f.js",
+      "_VContainer.184131ca.js"
     ],
     "css": [
       "assets/VGrid.0b79ff68.css"
     ]
   },
   "resources/js/Pages/Admin/DatabaseUpgrade/Show.vue": {
-    "file": "assets/Show.22e79e52.js",
+    "file": "assets/Show.e1346d4a.js",
     "src": "resources/js/Pages/Admin/DatabaseUpgrade/Show.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_VRow.51c37cbe.js",
-      "_VCol.fb68aa0d.js",
-      "_VTable.bbaee15f.js",
-      "_VTextarea.442fdf9e.js",
-      "_VContainer.9871394f.js",
-      "_VCounter.bd549793.js",
-      "_VLabel.2a4a1171.js",
-      "_form.655e4f4e.js"
+      "_VRow.f135c61b.js",
+      "_VCol.2c4b1735.js",
+      "_VTable.86cf7a82.js",
+      "_VTextarea.2c553c58.js",
+      "_VContainer.184131ca.js",
+      "_VCounter.473ffdf9.js",
+      "_VLabel.3c5713ec.js",
+      "_form.4587b2ea.js"
     ],
     "css": [
       "assets/VGrid.0b79ff68.css"
     ]
   },
   "resources/js/Pages/Admin/Order/Index.vue": {
-    "file": "assets/Index.ad118b52.js",
+    "file": "assets/Index.0f68aa17.js",
     "src": "resources/js/Pages/Admin/Order/Index.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/Pages/Admin/Order/Table.vue",
-      "_VContainer.9871394f.js",
+      "_VContainer.184131ca.js",
       "resources/js/app.js",
-      "_Pagination.ddb96f02.js",
-      "_DataNotFound.fa8e0d1d.js",
-      "_VCol.fb68aa0d.js",
-      "_VRow.51c37cbe.js",
-      "_VTooltip.6345da64.js",
-      "_VTable.bbaee15f.js"
+      "_Pagination.68795be1.js",
+      "_DataNotFound.61fd9276.js",
+      "_VCol.2c4b1735.js",
+      "_VRow.f135c61b.js",
+      "_VTooltip.4ad9cf0f.js",
+      "_VTable.86cf7a82.js"
     ],
     "css": [
       "assets/VGrid.0b79ff68.css"
     ]
   },
   "resources/js/Pages/Admin/Plan/Create.vue": {
-    "file": "assets/Create.15667b4d.js",
+    "file": "assets/Create.64011280.js",
     "src": "resources/js/Pages/Admin/Plan/Create.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_rules.aed30137.js",
-      "_VRow.51c37cbe.js",
-      "_VCol.fb68aa0d.js",
-      "_VForm.64f4569b.js",
-      "_VTextField.2cf6dc35.js",
-      "_VTextarea.442fdf9e.js",
-      "_VSwitch.c46a2151.js",
-      "_VContainer.9871394f.js",
-      "_form.655e4f4e.js",
-      "_VCounter.bd549793.js",
-      "_VLabel.2a4a1171.js",
-      "_VSelectionControl.e7494f68.js"
+      "_rules.23965050.js",
+      "_VRow.f135c61b.js",
+      "_VCol.2c4b1735.js",
+      "_VForm.a530d3c0.js",
+      "_VTextField.b60301ed.js",
+      "_VTextarea.2c553c58.js",
+      "_VSwitch.7cbd4ecd.js",
+      "_VContainer.184131ca.js",
+      "_form.4587b2ea.js",
+      "_VCounter.473ffdf9.js",
+      "_VLabel.3c5713ec.js",
+      "_VSelectionControl.3a4c124d.js"
     ],
     "css": [
       "assets/VGrid.0b79ff68.css"
     ]
   },
   "resources/js/Pages/Admin/Plan/Edit.vue": {
-    "file": "assets/Edit.185e83a2.js",
+    "file": "assets/Edit.f9f7a95d.js",
     "src": "resources/js/Pages/Admin/Plan/Edit.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_rules.aed30137.js",
-      "_VRow.51c37cbe.js",
-      "_VCol.fb68aa0d.js",
-      "_VForm.64f4569b.js",
-      "_VTextField.2cf6dc35.js",
-      "_VTextarea.442fdf9e.js",
-      "_VSwitch.c46a2151.js",
-      "_VContainer.9871394f.js",
-      "_form.655e4f4e.js",
-      "_VCounter.bd549793.js",
-      "_VLabel.2a4a1171.js",
-      "_VSelectionControl.e7494f68.js"
+      "_rules.23965050.js",
+      "_VRow.f135c61b.js",
+      "_VCol.2c4b1735.js",
+      "_VForm.a530d3c0.js",
+      "_VTextField.b60301ed.js",
+      "_VTextarea.2c553c58.js",
+      "_VSwitch.7cbd4ecd.js",
+      "_VContainer.184131ca.js",
+      "_form.4587b2ea.js",
+      "_VCounter.473ffdf9.js",
+      "_VLabel.3c5713ec.js",
+      "_VSelectionControl.3a4c124d.js"
     ],
     "css": [
       "assets/VGrid.0b79ff68.css"
     ]
   },
   "resources/js/Pages/Admin/Plan/Index.vue": {
-    "file": "assets/Index.1a2b4db7.js",
+    "file": "assets/Index.f4ef1900.js",
     "src": "resources/js/Pages/Admin/Plan/Index.vue",
     "isDynamicEntry": true,
     "imports": [
-      "_Pagination.ddb96f02.js",
+      "_Pagination.68795be1.js",
       "resources/js/app.js",
-      "_DataNotFound.fa8e0d1d.js",
-      "_VTable.bbaee15f.js",
-      "_VTooltip.6345da64.js",
-      "_VContainer.9871394f.js",
-      "_VCol.fb68aa0d.js",
-      "_VRow.51c37cbe.js"
+      "_DataNotFound.61fd9276.js",
+      "_VTable.86cf7a82.js",
+      "_VTooltip.4ad9cf0f.js",
+      "_VContainer.184131ca.js",
+      "_VCol.2c4b1735.js",
+      "_VRow.f135c61b.js"
     ],
     "css": [
       "assets/VGrid.0b79ff68.css"
     ]
   },
   "resources/js/Pages/Admin/Plan/Show.vue": {
-    "file": "assets/Show.3f63ee45.js",
+    "file": "assets/Show.125eddb6.js",
     "src": "resources/js/Pages/Admin/Plan/Show.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_VContainer.9871394f.js",
-      "_VRow.51c37cbe.js",
-      "_VCol.fb68aa0d.js",
-      "_VWindowItem.98b5c47d.js",
-      "_VAlert.e9ebd06b.js",
-      "_VForm.64f4569b.js",
-      "_VTextField.2cf6dc35.js",
-      "_form.655e4f4e.js",
-      "_VCounter.bd549793.js",
-      "_VLabel.2a4a1171.js"
+      "_VContainer.184131ca.js",
+      "_VRow.f135c61b.js",
+      "_VCol.2c4b1735.js",
+      "_VWindowItem.61d67403.js",
+      "_VAlert.11d912c6.js",
+      "_VForm.a530d3c0.js",
+      "_VTextField.b60301ed.js",
+      "_form.4587b2ea.js",
+      "_VCounter.473ffdf9.js",
+      "_VLabel.3c5713ec.js"
     ],
     "css": [
       "assets/VGrid.0b79ff68.css"
     ]
   },
   "resources/js/Pages/Admin/School/Create.vue": {
-    "file": "assets/Create.446f17cb.js",
+    "file": "assets/Create.5238c1ed.js",
     "src": "resources/js/Pages/Admin/School/Create.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_rules.aed30137.js",
-      "_VRow.51c37cbe.js",
-      "_VCol.fb68aa0d.js",
-      "_VForm.64f4569b.js",
-      "_VAutocomplete.7a513081.js",
-      "_VTextField.2cf6dc35.js",
-      "_VSwitch.c46a2151.js",
-      "_VContainer.9871394f.js",
-      "_form.655e4f4e.js",
-      "_VSelect.5810ae9c.js",
-      "_VCheckboxBtn.85849725.js",
-      "_VSelectionControl.e7494f68.js",
-      "_VLabel.2a4a1171.js",
-      "_VCounter.bd549793.js"
+      "_rules.23965050.js",
+      "_VRow.f135c61b.js",
+      "_VCol.2c4b1735.js",
+      "_VForm.a530d3c0.js",
+      "_VAutocomplete.957fcee0.js",
+      "_VTextField.b60301ed.js",
+      "_VSwitch.7cbd4ecd.js",
+      "_VContainer.184131ca.js",
+      "_form.4587b2ea.js",
+      "_VSelect.56edbde5.js",
+      "_VCheckboxBtn.992999b2.js",
+      "_VSelectionControl.3a4c124d.js",
+      "_VLabel.3c5713ec.js",
+      "_VCounter.473ffdf9.js"
     ],
     "css": [
       "assets/VGrid.0b79ff68.css"
     ]
   },
   "resources/js/Pages/Admin/School/Edit.vue": {
-    "file": "assets/Edit.57a7732a.js",
+    "file": "assets/Edit.f6bebc54.js",
     "src": "resources/js/Pages/Admin/School/Edit.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_rules.aed30137.js",
-      "_VRow.51c37cbe.js",
-      "_VCol.fb68aa0d.js",
-      "_VAlert.e9ebd06b.js",
-      "_VForm.64f4569b.js",
-      "_VAutocomplete.7a513081.js",
-      "_VTextField.2cf6dc35.js",
-      "_VSwitch.c46a2151.js",
-      "_VContainer.9871394f.js",
-      "_form.655e4f4e.js",
-      "_VSelect.5810ae9c.js",
-      "_VCheckboxBtn.85849725.js",
-      "_VSelectionControl.e7494f68.js",
-      "_VLabel.2a4a1171.js",
-      "_VCounter.bd549793.js"
+      "_rules.23965050.js",
+      "_VRow.f135c61b.js",
+      "_VCol.2c4b1735.js",
+      "_VAlert.11d912c6.js",
+      "_VForm.a530d3c0.js",
+      "_VAutocomplete.957fcee0.js",
+      "_VTextField.b60301ed.js",
+      "_VSwitch.7cbd4ecd.js",
+      "_VContainer.184131ca.js",
+      "_form.4587b2ea.js",
+      "_VSelect.56edbde5.js",
+      "_VCheckboxBtn.992999b2.js",
+      "_VSelectionControl.3a4c124d.js",
+      "_VLabel.3c5713ec.js",
+      "_VCounter.473ffdf9.js"
     ],
     "css": [
       "assets/VGrid.0b79ff68.css"
     ]
   },
   "resources/js/Pages/Admin/School/Index.vue": {
-    "file": "assets/Index.c579fd0d.js",
+    "file": "assets/Index.d042d179.js",
     "src": "resources/js/Pages/Admin/School/Index.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_Pagination.ddb96f02.js",
-      "_DataNotFound.fa8e0d1d.js",
-      "_VTable.bbaee15f.js",
-      "_VTooltip.6345da64.js",
-      "_VContainer.9871394f.js",
-      "_VCol.fb68aa0d.js",
-      "_VRow.51c37cbe.js"
+      "_Pagination.68795be1.js",
+      "_DataNotFound.61fd9276.js",
+      "_VTable.86cf7a82.js",
+      "_VTooltip.4ad9cf0f.js",
+      "_VContainer.184131ca.js",
+      "_VCol.2c4b1735.js",
+      "_VRow.f135c61b.js"
     ],
     "css": [
       "assets/VGrid.0b79ff68.css"
     ]
   },
   "resources/js/Pages/Admin/School/Settings/DrawerContent.vue": {
-    "file": "assets/DrawerContent.965f25c3.js",
+    "file": "assets/DrawerContent.a7f3f184.js",
     "src": "resources/js/Pages/Admin/School/Settings/DrawerContent.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_VSelect.5810ae9c.js",
-      "_VCheckboxBtn.85849725.js",
-      "_VSelectionControl.e7494f68.js",
-      "_VLabel.2a4a1171.js",
-      "_form.655e4f4e.js",
-      "_VTextField.2cf6dc35.js",
-      "_VCounter.bd549793.js"
+      "_VSelect.56edbde5.js",
+      "_VCheckboxBtn.992999b2.js",
+      "_VSelectionControl.3a4c124d.js",
+      "_VLabel.3c5713ec.js",
+      "_form.4587b2ea.js",
+      "_VTextField.b60301ed.js",
+      "_VCounter.473ffdf9.js"
     ]
   },
   "resources/js/Pages/Admin/School/Settings/FingerPrint/Create.vue": {
-    "file": "assets/Create.665f7397.js",
+    "file": "assets/Create.17cb310a.js",
     "src": "resources/js/Pages/Admin/School/Settings/FingerPrint/Create.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
       "resources/js/Pages/Admin/School/Settings/DrawerContent.vue",
-      "_VCol.fb68aa0d.js",
-      "_VForm.64f4569b.js",
-      "_VTextField.2cf6dc35.js",
-      "_VSwitch.c46a2151.js",
-      "_VRow.51c37cbe.js",
-      "_VSelect.5810ae9c.js",
-      "_VCheckboxBtn.85849725.js",
-      "_VSelectionControl.e7494f68.js",
-      "_VLabel.2a4a1171.js",
-      "_form.655e4f4e.js",
-      "_VCounter.bd549793.js"
+      "_VCol.2c4b1735.js",
+      "_VForm.a530d3c0.js",
+      "_VTextField.b60301ed.js",
+      "_VSwitch.7cbd4ecd.js",
+      "_VRow.f135c61b.js",
+      "_VSelect.56edbde5.js",
+      "_VCheckboxBtn.992999b2.js",
+      "_VSelectionControl.3a4c124d.js",
+      "_VLabel.3c5713ec.js",
+      "_form.4587b2ea.js",
+      "_VCounter.473ffdf9.js"
     ],
     "css": [
       "assets/VGrid.0b79ff68.css"
     ]
   },
   "resources/js/Pages/Admin/School/Settings/FingerPrint/Edit.vue": {
-    "file": "assets/Edit.bde02159.js",
+    "file": "assets/Edit.b4c44c14.js",
     "src": "resources/js/Pages/Admin/School/Settings/FingerPrint/Edit.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
       "resources/js/Pages/Admin/School/Settings/DrawerContent.vue",
-      "_VCol.fb68aa0d.js",
-      "_VForm.64f4569b.js",
-      "_VTextField.2cf6dc35.js",
-      "_VSwitch.c46a2151.js",
-      "_VRow.51c37cbe.js",
-      "_VSelect.5810ae9c.js",
-      "_VCheckboxBtn.85849725.js",
-      "_VSelectionControl.e7494f68.js",
-      "_VLabel.2a4a1171.js",
-      "_form.655e4f4e.js",
-      "_VCounter.bd549793.js"
+      "_VCol.2c4b1735.js",
+      "_VForm.a530d3c0.js",
+      "_VTextField.b60301ed.js",
+      "_VSwitch.7cbd4ecd.js",
+      "_VRow.f135c61b.js",
+      "_VSelect.56edbde5.js",
+      "_VCheckboxBtn.992999b2.js",
+      "_VSelectionControl.3a4c124d.js",
+      "_VLabel.3c5713ec.js",
+      "_form.4587b2ea.js",
+      "_VCounter.473ffdf9.js"
     ],
     "css": [
       "assets/VGrid.0b79ff68.css"
     ]
   },
   "resources/js/Pages/Admin/School/Settings/FingerPrint/Index.vue": {
-    "file": "assets/Index.48a212ca.js",
+    "file": "assets/Index.9385dd22.js",
     "src": "resources/js/Pages/Admin/School/Settings/FingerPrint/Index.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/Pages/Admin/School/Settings/DrawerContent.vue",
-      "_DataNotFound.fa8e0d1d.js",
-      "_Pagination.ddb96f02.js",
+      "_DataNotFound.61fd9276.js",
+      "_Pagination.68795be1.js",
       "resources/js/app.js",
-      "_VTable.bbaee15f.js",
-      "_VTooltip.6345da64.js",
-      "_VSelect.5810ae9c.js",
-      "_VCheckboxBtn.85849725.js",
-      "_VSelectionControl.e7494f68.js",
-      "_VLabel.2a4a1171.js",
-      "_form.655e4f4e.js",
-      "_VTextField.2cf6dc35.js",
-      "_VCounter.bd549793.js",
-      "_VCol.fb68aa0d.js",
-      "_VRow.51c37cbe.js"
+      "_VTable.86cf7a82.js",
+      "_VTooltip.4ad9cf0f.js",
+      "_VSelect.56edbde5.js",
+      "_VCheckboxBtn.992999b2.js",
+      "_VSelectionControl.3a4c124d.js",
+      "_VLabel.3c5713ec.js",
+      "_form.4587b2ea.js",
+      "_VTextField.b60301ed.js",
+      "_VCounter.473ffdf9.js",
+      "_VCol.2c4b1735.js",
+      "_VRow.f135c61b.js"
     ],
     "css": [
       "assets/VGrid.0b79ff68.css"
     ]
   },
   "resources/js/Pages/Admin/School/Settings/Index.vue": {
-    "file": "assets/Index.b64732ff.js",
+    "file": "assets/Index.498e71e9.js",
     "src": "resources/js/Pages/Admin/School/Settings/Index.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
       "resources/js/Pages/Admin/School/Settings/DrawerContent.vue",
-      "_VAlert.e9ebd06b.js",
-      "_VForm.64f4569b.js",
-      "_VRow.51c37cbe.js",
-      "_VCol.fb68aa0d.js",
-      "_VTextField.2cf6dc35.js",
-      "_VAutocomplete.7a513081.js",
-      "_VLabel.2a4a1171.js",
-      "_VSelect.5810ae9c.js",
-      "_VCheckboxBtn.85849725.js",
-      "_VSelectionControl.e7494f68.js",
-      "_form.655e4f4e.js",
-      "_VCounter.bd549793.js"
+      "_VAlert.11d912c6.js",
+      "_VForm.a530d3c0.js",
+      "_VRow.f135c61b.js",
+      "_VCol.2c4b1735.js",
+      "_VAutocomplete.957fcee0.js",
+      "_VTextField.b60301ed.js",
+      "_VLabel.3c5713ec.js",
+      "_VSelect.56edbde5.js",
+      "_VCheckboxBtn.992999b2.js",
+      "_VSelectionControl.3a4c124d.js",
+      "_form.4587b2ea.js",
+      "_VCounter.473ffdf9.js"
     ],
     "css": [
       "assets/Index.d971eb59.css",
@@ -863,550 +863,550 @@
     ]
   },
   "resources/js/Pages/Admin/School/Show.vue": {
-    "file": "assets/Show.bc593d91.js",
+    "file": "assets/Show.35fb0564.js",
     "src": "resources/js/Pages/Admin/School/Show.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_VContainer.9871394f.js",
-      "_VRow.51c37cbe.js",
-      "_VCol.fb68aa0d.js"
+      "_VContainer.184131ca.js",
+      "_VRow.f135c61b.js",
+      "_VCol.2c4b1735.js"
     ],
     "css": [
       "assets/VGrid.0b79ff68.css"
     ]
   },
   "resources/js/Pages/Admin/Settings/Account/Index.vue": {
-    "file": "assets/Index.528f8524.js",
+    "file": "assets/Index.f3fdc8dc.js",
     "src": "resources/js/Pages/Admin/Settings/Account/Index.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_rules.aed30137.js",
+      "_rules.23965050.js",
       "resources/js/Pages/Admin/Settings/SettingsDrawerContent.vue",
-      "_VForm.64f4569b.js",
-      "_VRow.51c37cbe.js",
-      "_VCol.fb68aa0d.js",
-      "_VTextField.2cf6dc35.js",
-      "_VSelect.5810ae9c.js",
-      "_VContainer.9871394f.js",
-      "_form.655e4f4e.js",
-      "_VCounter.bd549793.js",
-      "_VLabel.2a4a1171.js",
-      "_VCheckboxBtn.85849725.js",
-      "_VSelectionControl.e7494f68.js"
+      "_VForm.a530d3c0.js",
+      "_VRow.f135c61b.js",
+      "_VCol.2c4b1735.js",
+      "_VTextField.b60301ed.js",
+      "_VSelect.56edbde5.js",
+      "_VContainer.184131ca.js",
+      "_form.4587b2ea.js",
+      "_VCounter.473ffdf9.js",
+      "_VLabel.3c5713ec.js",
+      "_VCheckboxBtn.992999b2.js",
+      "_VSelectionControl.3a4c124d.js"
     ],
     "css": [
       "assets/VGrid.0b79ff68.css"
     ]
   },
   "resources/js/Pages/Admin/Settings/SettingsDrawerContent.vue": {
-    "file": "assets/SettingsDrawerContent.4e2e494c.js",
+    "file": "assets/SettingsDrawerContent.7240e36e.js",
     "src": "resources/js/Pages/Admin/Settings/SettingsDrawerContent.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_VSelect.5810ae9c.js",
-      "_VCheckboxBtn.85849725.js",
-      "_VSelectionControl.e7494f68.js",
-      "_VLabel.2a4a1171.js",
-      "_form.655e4f4e.js",
-      "_VTextField.2cf6dc35.js",
-      "_VCounter.bd549793.js"
+      "_VSelect.56edbde5.js",
+      "_VCheckboxBtn.992999b2.js",
+      "_VSelectionControl.3a4c124d.js",
+      "_VLabel.3c5713ec.js",
+      "_form.4587b2ea.js",
+      "_VTextField.b60301ed.js",
+      "_VCounter.473ffdf9.js"
     ]
   },
   "resources/js/Pages/Admin/Settings/Backup/Create.vue": {
-    "file": "assets/Create.23498d26.js",
+    "file": "assets/Create.bb988c91.js",
     "src": "resources/js/Pages/Admin/Settings/Backup/Create.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
       "resources/js/Pages/Admin/Settings/SettingsDrawerContent.vue",
-      "_VForm.64f4569b.js",
-      "_VCol.fb68aa0d.js",
-      "_VSelect.5810ae9c.js",
-      "_VContainer.9871394f.js",
-      "_VCheckboxBtn.85849725.js",
-      "_VSelectionControl.e7494f68.js",
-      "_VLabel.2a4a1171.js",
-      "_form.655e4f4e.js",
-      "_VTextField.2cf6dc35.js",
-      "_VCounter.bd549793.js"
+      "_VForm.a530d3c0.js",
+      "_VCol.2c4b1735.js",
+      "_VSelect.56edbde5.js",
+      "_VContainer.184131ca.js",
+      "_VCheckboxBtn.992999b2.js",
+      "_VSelectionControl.3a4c124d.js",
+      "_VLabel.3c5713ec.js",
+      "_form.4587b2ea.js",
+      "_VTextField.b60301ed.js",
+      "_VCounter.473ffdf9.js"
     ],
     "css": [
       "assets/VGrid.0b79ff68.css"
     ]
   },
   "resources/js/Pages/Admin/Settings/Backup/Index.vue": {
-    "file": "assets/Index.f78984e1.js",
+    "file": "assets/Index.b6b1d1e3.js",
     "src": "resources/js/Pages/Admin/Settings/Backup/Index.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
       "resources/js/Pages/Admin/Settings/SettingsDrawerContent.vue",
-      "_VTable.bbaee15f.js",
-      "_VContainer.9871394f.js",
-      "_VSelect.5810ae9c.js",
-      "_VCheckboxBtn.85849725.js",
-      "_VSelectionControl.e7494f68.js",
-      "_VLabel.2a4a1171.js",
-      "_form.655e4f4e.js",
-      "_VTextField.2cf6dc35.js",
-      "_VCounter.bd549793.js"
+      "_VTable.86cf7a82.js",
+      "_VContainer.184131ca.js",
+      "_VSelect.56edbde5.js",
+      "_VCheckboxBtn.992999b2.js",
+      "_VSelectionControl.3a4c124d.js",
+      "_VLabel.3c5713ec.js",
+      "_form.4587b2ea.js",
+      "_VTextField.b60301ed.js",
+      "_VCounter.473ffdf9.js"
     ],
     "css": [
       "assets/VGrid.0b79ff68.css"
     ]
   },
   "resources/js/Pages/Admin/Settings/Currency/Create.vue": {
-    "file": "assets/Create.a4f4e202.js",
+    "file": "assets/Create.45476f77.js",
     "src": "resources/js/Pages/Admin/Settings/Currency/Create.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_rules.aed30137.js",
+      "_rules.23965050.js",
       "resources/js/Pages/Admin/Settings/SettingsDrawerContent.vue",
-      "_VForm.64f4569b.js",
-      "_VRow.51c37cbe.js",
-      "_VCol.fb68aa0d.js",
-      "_VTextField.2cf6dc35.js",
-      "_VSelect.5810ae9c.js",
-      "_VSwitch.c46a2151.js",
-      "_VContainer.9871394f.js",
-      "_VCheckboxBtn.85849725.js",
-      "_VSelectionControl.e7494f68.js",
-      "_VLabel.2a4a1171.js",
-      "_form.655e4f4e.js",
-      "_VCounter.bd549793.js"
+      "_VForm.a530d3c0.js",
+      "_VRow.f135c61b.js",
+      "_VCol.2c4b1735.js",
+      "_VTextField.b60301ed.js",
+      "_VSelect.56edbde5.js",
+      "_VSwitch.7cbd4ecd.js",
+      "_VContainer.184131ca.js",
+      "_VCheckboxBtn.992999b2.js",
+      "_VSelectionControl.3a4c124d.js",
+      "_VLabel.3c5713ec.js",
+      "_form.4587b2ea.js",
+      "_VCounter.473ffdf9.js"
     ],
     "css": [
       "assets/VGrid.0b79ff68.css"
     ]
   },
   "resources/js/Pages/Admin/Settings/Currency/Edit.vue": {
-    "file": "assets/Edit.771de577.js",
+    "file": "assets/Edit.541cd3f5.js",
     "src": "resources/js/Pages/Admin/Settings/Currency/Edit.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_rules.aed30137.js",
+      "_rules.23965050.js",
       "resources/js/Pages/Admin/Settings/SettingsDrawerContent.vue",
-      "_VForm.64f4569b.js",
-      "_VRow.51c37cbe.js",
-      "_VCol.fb68aa0d.js",
-      "_VTextField.2cf6dc35.js",
-      "_VSelect.5810ae9c.js",
-      "_VSwitch.c46a2151.js",
-      "_VContainer.9871394f.js",
-      "_VCheckboxBtn.85849725.js",
-      "_VSelectionControl.e7494f68.js",
-      "_VLabel.2a4a1171.js",
-      "_form.655e4f4e.js",
-      "_VCounter.bd549793.js"
+      "_VForm.a530d3c0.js",
+      "_VRow.f135c61b.js",
+      "_VCol.2c4b1735.js",
+      "_VTextField.b60301ed.js",
+      "_VSelect.56edbde5.js",
+      "_VSwitch.7cbd4ecd.js",
+      "_VContainer.184131ca.js",
+      "_VCheckboxBtn.992999b2.js",
+      "_VSelectionControl.3a4c124d.js",
+      "_VLabel.3c5713ec.js",
+      "_form.4587b2ea.js",
+      "_VCounter.473ffdf9.js"
     ],
     "css": [
       "assets/VGrid.0b79ff68.css"
     ]
   },
   "resources/js/Pages/Admin/Settings/Currency/Index.vue": {
-    "file": "assets/Index.bab2ae7f.js",
+    "file": "assets/Index.343dd144.js",
     "src": "resources/js/Pages/Admin/Settings/Currency/Index.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
       "resources/js/Pages/Admin/Settings/SettingsDrawerContent.vue",
-      "_Pagination.ddb96f02.js",
-      "_VTable.bbaee15f.js",
-      "_VSwitch.c46a2151.js",
-      "_VTooltip.6345da64.js",
-      "_VContainer.9871394f.js",
-      "_VSelect.5810ae9c.js",
-      "_VCheckboxBtn.85849725.js",
-      "_VSelectionControl.e7494f68.js",
-      "_VLabel.2a4a1171.js",
-      "_form.655e4f4e.js",
-      "_VTextField.2cf6dc35.js",
-      "_VCounter.bd549793.js"
+      "_Pagination.68795be1.js",
+      "_VTable.86cf7a82.js",
+      "_VSwitch.7cbd4ecd.js",
+      "_VTooltip.4ad9cf0f.js",
+      "_VContainer.184131ca.js",
+      "_VSelect.56edbde5.js",
+      "_VCheckboxBtn.992999b2.js",
+      "_VSelectionControl.3a4c124d.js",
+      "_VLabel.3c5713ec.js",
+      "_form.4587b2ea.js",
+      "_VTextField.b60301ed.js",
+      "_VCounter.473ffdf9.js"
     ],
     "css": [
       "assets/VGrid.0b79ff68.css"
     ]
   },
   "resources/js/Pages/Admin/Settings/Currency/Phrases.vue": {
-    "file": "assets/Phrases.71fdd36e.js",
+    "file": "assets/Phrases.d5efe51f.js",
     "src": "resources/js/Pages/Admin/Settings/Currency/Phrases.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_rules.aed30137.js",
-      "_VForm.64f4569b.js",
-      "_VTable.bbaee15f.js",
-      "_VTextField.2cf6dc35.js",
-      "_form.655e4f4e.js",
-      "_VCounter.bd549793.js",
-      "_VLabel.2a4a1171.js"
+      "_rules.23965050.js",
+      "_VForm.a530d3c0.js",
+      "_VTable.86cf7a82.js",
+      "_VTextField.b60301ed.js",
+      "_form.4587b2ea.js",
+      "_VCounter.473ffdf9.js",
+      "_VLabel.3c5713ec.js"
     ]
   },
   "resources/js/Pages/Admin/Settings/FileDisk/Create.vue": {
-    "file": "assets/Create.30a03862.js",
+    "file": "assets/Create.184151dd.js",
     "src": "resources/js/Pages/Admin/Settings/FileDisk/Create.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
       "resources/js/Pages/Admin/Settings/SettingsDrawerContent.vue",
-      "_VForm.64f4569b.js",
-      "_VCol.fb68aa0d.js",
-      "_VTextField.2cf6dc35.js",
-      "_VSelect.5810ae9c.js",
-      "_VSwitch.c46a2151.js",
-      "_VContainer.9871394f.js",
-      "_VCheckboxBtn.85849725.js",
-      "_VSelectionControl.e7494f68.js",
-      "_VLabel.2a4a1171.js",
-      "_form.655e4f4e.js",
-      "_VCounter.bd549793.js"
+      "_VForm.a530d3c0.js",
+      "_VCol.2c4b1735.js",
+      "_VTextField.b60301ed.js",
+      "_VSelect.56edbde5.js",
+      "_VSwitch.7cbd4ecd.js",
+      "_VContainer.184131ca.js",
+      "_VCheckboxBtn.992999b2.js",
+      "_VSelectionControl.3a4c124d.js",
+      "_VLabel.3c5713ec.js",
+      "_form.4587b2ea.js",
+      "_VCounter.473ffdf9.js"
     ],
     "css": [
       "assets/VGrid.0b79ff68.css"
     ]
   },
   "resources/js/Pages/Admin/Settings/FileDisk/Edit.vue": {
-    "file": "assets/Edit.596c480c.js",
+    "file": "assets/Edit.b71a0a9a.js",
     "src": "resources/js/Pages/Admin/Settings/FileDisk/Edit.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
       "resources/js/Pages/Admin/Settings/SettingsDrawerContent.vue",
-      "_VForm.64f4569b.js",
-      "_VCol.fb68aa0d.js",
-      "_VTextField.2cf6dc35.js",
-      "_VSelect.5810ae9c.js",
-      "_VSwitch.c46a2151.js",
-      "_VContainer.9871394f.js",
-      "_VCheckboxBtn.85849725.js",
-      "_VSelectionControl.e7494f68.js",
-      "_VLabel.2a4a1171.js",
-      "_form.655e4f4e.js",
-      "_VCounter.bd549793.js"
+      "_VForm.a530d3c0.js",
+      "_VCol.2c4b1735.js",
+      "_VTextField.b60301ed.js",
+      "_VSelect.56edbde5.js",
+      "_VSwitch.7cbd4ecd.js",
+      "_VContainer.184131ca.js",
+      "_VCheckboxBtn.992999b2.js",
+      "_VSelectionControl.3a4c124d.js",
+      "_VLabel.3c5713ec.js",
+      "_form.4587b2ea.js",
+      "_VCounter.473ffdf9.js"
     ],
     "css": [
       "assets/VGrid.0b79ff68.css"
     ]
   },
   "resources/js/Pages/Admin/Settings/FileDisk/Index.vue": {
-    "file": "assets/Index.e8902e69.js",
+    "file": "assets/Index.a4f9d532.js",
     "src": "resources/js/Pages/Admin/Settings/FileDisk/Index.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
       "resources/js/Pages/Admin/Settings/SettingsDrawerContent.vue",
-      "_VTable.bbaee15f.js",
-      "_VContainer.9871394f.js",
-      "_VSelect.5810ae9c.js",
-      "_VCheckboxBtn.85849725.js",
-      "_VSelectionControl.e7494f68.js",
-      "_VLabel.2a4a1171.js",
-      "_form.655e4f4e.js",
-      "_VTextField.2cf6dc35.js",
-      "_VCounter.bd549793.js"
+      "_VTable.86cf7a82.js",
+      "_VContainer.184131ca.js",
+      "_VSelect.56edbde5.js",
+      "_VCheckboxBtn.992999b2.js",
+      "_VSelectionControl.3a4c124d.js",
+      "_VLabel.3c5713ec.js",
+      "_form.4587b2ea.js",
+      "_VTextField.b60301ed.js",
+      "_VCounter.473ffdf9.js"
     ],
     "css": [
       "assets/VGrid.0b79ff68.css"
     ]
   },
   "resources/js/Pages/Admin/Settings/Gateway/Create.vue": {
-    "file": "assets/Create.2f765089.js",
+    "file": "assets/Create.43958f82.js",
     "src": "resources/js/Pages/Admin/Settings/Gateway/Create.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_rules.aed30137.js",
+      "_rules.23965050.js",
       "resources/js/Pages/Admin/Settings/SettingsDrawerContent.vue",
-      "_VRow.51c37cbe.js",
-      "_VCol.fb68aa0d.js",
-      "_VForm.64f4569b.js",
-      "_VTextField.2cf6dc35.js",
-      "_VFileInput.c2114371.js",
-      "_VSelect.5810ae9c.js",
-      "_VTextarea.442fdf9e.js",
-      "_VSwitch.c46a2151.js",
-      "_VContainer.9871394f.js",
-      "_VCheckboxBtn.85849725.js",
-      "_VSelectionControl.e7494f68.js",
-      "_VLabel.2a4a1171.js",
-      "_form.655e4f4e.js",
-      "_VCounter.bd549793.js"
+      "_VRow.f135c61b.js",
+      "_VCol.2c4b1735.js",
+      "_VForm.a530d3c0.js",
+      "_VTextField.b60301ed.js",
+      "_VFileInput.a0031fae.js",
+      "_VSelect.56edbde5.js",
+      "_VTextarea.2c553c58.js",
+      "_VSwitch.7cbd4ecd.js",
+      "_VContainer.184131ca.js",
+      "_VCheckboxBtn.992999b2.js",
+      "_VSelectionControl.3a4c124d.js",
+      "_VLabel.3c5713ec.js",
+      "_form.4587b2ea.js",
+      "_VCounter.473ffdf9.js"
     ],
     "css": [
       "assets/VGrid.0b79ff68.css"
     ]
   },
   "resources/js/Pages/Admin/Settings/Gateway/Edit.vue": {
-    "file": "assets/Edit.d74fb554.js",
+    "file": "assets/Edit.a5b5a21a.js",
     "src": "resources/js/Pages/Admin/Settings/Gateway/Edit.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_rules.aed30137.js",
+      "_rules.23965050.js",
       "resources/js/Pages/Admin/Settings/SettingsDrawerContent.vue",
-      "_VRow.51c37cbe.js",
-      "_VCol.fb68aa0d.js",
-      "_VForm.64f4569b.js",
-      "_VTextField.2cf6dc35.js",
-      "_VFileInput.c2114371.js",
-      "_VSelect.5810ae9c.js",
-      "_VTextarea.442fdf9e.js",
-      "_VSwitch.c46a2151.js",
-      "_VContainer.9871394f.js",
-      "_VCheckboxBtn.85849725.js",
-      "_VSelectionControl.e7494f68.js",
-      "_VLabel.2a4a1171.js",
-      "_form.655e4f4e.js",
-      "_VCounter.bd549793.js"
+      "_VRow.f135c61b.js",
+      "_VCol.2c4b1735.js",
+      "_VForm.a530d3c0.js",
+      "_VTextField.b60301ed.js",
+      "_VFileInput.a0031fae.js",
+      "_VSelect.56edbde5.js",
+      "_VTextarea.2c553c58.js",
+      "_VSwitch.7cbd4ecd.js",
+      "_VContainer.184131ca.js",
+      "_VCheckboxBtn.992999b2.js",
+      "_VSelectionControl.3a4c124d.js",
+      "_VLabel.3c5713ec.js",
+      "_form.4587b2ea.js",
+      "_VCounter.473ffdf9.js"
     ],
     "css": [
       "assets/VGrid.0b79ff68.css"
     ]
   },
   "resources/js/Pages/Admin/Settings/Gateway/Index.vue": {
-    "file": "assets/Index.4027be5e.js",
+    "file": "assets/Index.b8e3558a.js",
     "src": "resources/js/Pages/Admin/Settings/Gateway/Index.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/Pages/Admin/Settings/SettingsDrawerContent.vue",
       "resources/js/app.js",
-      "_VTable.bbaee15f.js",
-      "_VTooltip.6345da64.js",
-      "_VContainer.9871394f.js",
-      "_VSelect.5810ae9c.js",
-      "_VCheckboxBtn.85849725.js",
-      "_VSelectionControl.e7494f68.js",
-      "_VLabel.2a4a1171.js",
-      "_form.655e4f4e.js",
-      "_VTextField.2cf6dc35.js",
-      "_VCounter.bd549793.js"
+      "_VTable.86cf7a82.js",
+      "_VTooltip.4ad9cf0f.js",
+      "_VContainer.184131ca.js",
+      "_VSelect.56edbde5.js",
+      "_VCheckboxBtn.992999b2.js",
+      "_VSelectionControl.3a4c124d.js",
+      "_VLabel.3c5713ec.js",
+      "_form.4587b2ea.js",
+      "_VTextField.b60301ed.js",
+      "_VCounter.473ffdf9.js"
     ],
     "css": [
       "assets/VGrid.0b79ff68.css"
     ]
   },
   "resources/js/Pages/Admin/Settings/Language/Create.vue": {
-    "file": "assets/Create.2272c62e.js",
+    "file": "assets/Create.76ab7d88.js",
     "src": "resources/js/Pages/Admin/Settings/Language/Create.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_rules.aed30137.js",
+      "_rules.23965050.js",
       "resources/js/Pages/Admin/Settings/SettingsDrawerContent.vue",
-      "_VRow.51c37cbe.js",
-      "_VCol.fb68aa0d.js",
-      "_VForm.64f4569b.js",
-      "_VSelect.5810ae9c.js",
-      "_VTextField.2cf6dc35.js",
-      "_VSwitch.c46a2151.js",
-      "_VContainer.9871394f.js",
-      "_VCheckboxBtn.85849725.js",
-      "_VSelectionControl.e7494f68.js",
-      "_VLabel.2a4a1171.js",
-      "_form.655e4f4e.js",
-      "_VCounter.bd549793.js"
+      "_VRow.f135c61b.js",
+      "_VCol.2c4b1735.js",
+      "_VForm.a530d3c0.js",
+      "_VSelect.56edbde5.js",
+      "_VTextField.b60301ed.js",
+      "_VSwitch.7cbd4ecd.js",
+      "_VContainer.184131ca.js",
+      "_VCheckboxBtn.992999b2.js",
+      "_VSelectionControl.3a4c124d.js",
+      "_VLabel.3c5713ec.js",
+      "_form.4587b2ea.js",
+      "_VCounter.473ffdf9.js"
     ],
     "css": [
       "assets/VGrid.0b79ff68.css"
     ]
   },
   "resources/js/Pages/Admin/Settings/Language/Edit.vue": {
-    "file": "assets/Edit.a42070f6.js",
+    "file": "assets/Edit.df217b08.js",
     "src": "resources/js/Pages/Admin/Settings/Language/Edit.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_rules.aed30137.js",
+      "_rules.23965050.js",
       "resources/js/Pages/Admin/Settings/SettingsDrawerContent.vue",
-      "_VRow.51c37cbe.js",
-      "_VCol.fb68aa0d.js",
-      "_VForm.64f4569b.js",
-      "_VTextField.2cf6dc35.js",
-      "_VSwitch.c46a2151.js",
-      "_VContainer.9871394f.js",
-      "_VSelect.5810ae9c.js",
-      "_VCheckboxBtn.85849725.js",
-      "_VSelectionControl.e7494f68.js",
-      "_VLabel.2a4a1171.js",
-      "_form.655e4f4e.js",
-      "_VCounter.bd549793.js"
+      "_VRow.f135c61b.js",
+      "_VCol.2c4b1735.js",
+      "_VForm.a530d3c0.js",
+      "_VTextField.b60301ed.js",
+      "_VSwitch.7cbd4ecd.js",
+      "_VContainer.184131ca.js",
+      "_VSelect.56edbde5.js",
+      "_VCheckboxBtn.992999b2.js",
+      "_VSelectionControl.3a4c124d.js",
+      "_VLabel.3c5713ec.js",
+      "_form.4587b2ea.js",
+      "_VCounter.473ffdf9.js"
     ],
     "css": [
       "assets/VGrid.0b79ff68.css"
     ]
   },
   "resources/js/Pages/Admin/Settings/Language/Index.vue": {
-    "file": "assets/Index.7c98f9ce.js",
+    "file": "assets/Index.ecd0daf8.js",
     "src": "resources/js/Pages/Admin/Settings/Language/Index.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
       "resources/js/Pages/Admin/Settings/SettingsDrawerContent.vue",
-      "_VTable.bbaee15f.js",
-      "_VSwitch.c46a2151.js",
-      "_VTooltip.6345da64.js",
-      "_VContainer.9871394f.js",
-      "_VSelect.5810ae9c.js",
-      "_VCheckboxBtn.85849725.js",
-      "_VSelectionControl.e7494f68.js",
-      "_VLabel.2a4a1171.js",
-      "_form.655e4f4e.js",
-      "_VTextField.2cf6dc35.js",
-      "_VCounter.bd549793.js"
+      "_VTable.86cf7a82.js",
+      "_VSwitch.7cbd4ecd.js",
+      "_VTooltip.4ad9cf0f.js",
+      "_VContainer.184131ca.js",
+      "_VSelect.56edbde5.js",
+      "_VCheckboxBtn.992999b2.js",
+      "_VSelectionControl.3a4c124d.js",
+      "_VLabel.3c5713ec.js",
+      "_form.4587b2ea.js",
+      "_VTextField.b60301ed.js",
+      "_VCounter.473ffdf9.js"
     ],
     "css": [
       "assets/VGrid.0b79ff68.css"
     ]
   },
   "resources/js/Pages/Admin/Settings/Language/Phrases.vue": {
-    "file": "assets/Phrases.82aebee4.js",
+    "file": "assets/Phrases.fc808fe7.js",
     "src": "resources/js/Pages/Admin/Settings/Language/Phrases.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_rules.aed30137.js",
-      "_VForm.64f4569b.js",
-      "_VTable.bbaee15f.js",
-      "_VTextField.2cf6dc35.js",
-      "_form.655e4f4e.js",
-      "_VCounter.bd549793.js",
-      "_VLabel.2a4a1171.js"
+      "_rules.23965050.js",
+      "_VForm.a530d3c0.js",
+      "_VTable.86cf7a82.js",
+      "_VTextField.b60301ed.js",
+      "_form.4587b2ea.js",
+      "_VCounter.473ffdf9.js",
+      "_VLabel.3c5713ec.js"
     ]
   },
   "resources/js/Pages/Admin/Settings/Mail/Index.vue": {
-    "file": "assets/Index.637bd4b0.js",
+    "file": "assets/Index.3c99f9d5.js",
     "src": "resources/js/Pages/Admin/Settings/Mail/Index.vue",
     "isDynamicEntry": true,
     "imports": [
-      "_useMailDriverStore.51abdfcb.js",
+      "_useMailDriverStore.84d87cd5.js",
       "resources/js/Pages/Admin/Settings/Mail/MailDriver/Smtp.vue",
       "resources/js/Pages/Admin/Settings/Mail/MailDriver/Basic.vue",
       "resources/js/Pages/Admin/Settings/Mail/MailDriver/Mailgun.vue",
       "resources/js/Pages/Admin/Settings/Mail/MailDriver/Ses.vue",
       "resources/js/Pages/Admin/Settings/SettingsDrawerContent.vue",
       "resources/js/app.js",
-      "_VCol.fb68aa0d.js",
-      "_VContainer.9871394f.js",
-      "_rules.aed30137.js",
-      "_VForm.64f4569b.js",
-      "_form.655e4f4e.js",
-      "_VSelect.5810ae9c.js",
-      "_VCheckboxBtn.85849725.js",
-      "_VSelectionControl.e7494f68.js",
-      "_VLabel.2a4a1171.js",
-      "_VTextField.2cf6dc35.js",
-      "_VCounter.bd549793.js",
-      "_VRow.51c37cbe.js"
+      "_VCol.2c4b1735.js",
+      "_VContainer.184131ca.js",
+      "_rules.23965050.js",
+      "_VForm.a530d3c0.js",
+      "_form.4587b2ea.js",
+      "_VSelect.56edbde5.js",
+      "_VCheckboxBtn.992999b2.js",
+      "_VSelectionControl.3a4c124d.js",
+      "_VLabel.3c5713ec.js",
+      "_VTextField.b60301ed.js",
+      "_VCounter.473ffdf9.js",
+      "_VRow.f135c61b.js"
     ],
     "css": [
       "assets/VGrid.0b79ff68.css"
     ]
   },
-  "_useMailDriverStore.51abdfcb.js": {
-    "file": "assets/useMailDriverStore.51abdfcb.js",
+  "_useMailDriverStore.84d87cd5.js": {
+    "file": "assets/useMailDriverStore.84d87cd5.js",
     "imports": [
       "resources/js/app.js"
     ]
   },
   "resources/js/Pages/Admin/Settings/Mail/MailDriver/Smtp.vue": {
-    "file": "assets/Smtp.4edf630a.js",
+    "file": "assets/Smtp.1fbd108b.js",
     "src": "resources/js/Pages/Admin/Settings/Mail/MailDriver/Smtp.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_rules.aed30137.js",
-      "_useMailDriverStore.51abdfcb.js",
-      "_VForm.64f4569b.js",
-      "_VCol.fb68aa0d.js",
-      "_VSelect.5810ae9c.js",
-      "_VTextField.2cf6dc35.js",
-      "_VRow.51c37cbe.js",
-      "_form.655e4f4e.js",
-      "_VCheckboxBtn.85849725.js",
-      "_VSelectionControl.e7494f68.js",
-      "_VLabel.2a4a1171.js",
-      "_VCounter.bd549793.js"
+      "_rules.23965050.js",
+      "_useMailDriverStore.84d87cd5.js",
+      "_VForm.a530d3c0.js",
+      "_VCol.2c4b1735.js",
+      "_VSelect.56edbde5.js",
+      "_VTextField.b60301ed.js",
+      "_VRow.f135c61b.js",
+      "_form.4587b2ea.js",
+      "_VCheckboxBtn.992999b2.js",
+      "_VSelectionControl.3a4c124d.js",
+      "_VLabel.3c5713ec.js",
+      "_VCounter.473ffdf9.js"
     ],
     "css": [
       "assets/VGrid.0b79ff68.css"
     ]
   },
   "resources/js/Pages/Admin/Settings/Mail/MailDriver/Basic.vue": {
-    "file": "assets/Basic.59d43f94.js",
+    "file": "assets/Basic.afc28b9e.js",
     "src": "resources/js/Pages/Admin/Settings/Mail/MailDriver/Basic.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_rules.aed30137.js",
-      "_useMailDriverStore.51abdfcb.js",
-      "_VForm.64f4569b.js",
-      "_VCol.fb68aa0d.js",
-      "_VSelect.5810ae9c.js",
-      "_VTextField.2cf6dc35.js",
-      "_VRow.51c37cbe.js",
-      "_form.655e4f4e.js",
-      "_VCheckboxBtn.85849725.js",
-      "_VSelectionControl.e7494f68.js",
-      "_VLabel.2a4a1171.js",
-      "_VCounter.bd549793.js"
+      "_rules.23965050.js",
+      "_useMailDriverStore.84d87cd5.js",
+      "_VForm.a530d3c0.js",
+      "_VCol.2c4b1735.js",
+      "_VSelect.56edbde5.js",
+      "_VTextField.b60301ed.js",
+      "_VRow.f135c61b.js",
+      "_form.4587b2ea.js",
+      "_VCheckboxBtn.992999b2.js",
+      "_VSelectionControl.3a4c124d.js",
+      "_VLabel.3c5713ec.js",
+      "_VCounter.473ffdf9.js"
     ],
     "css": [
       "assets/VGrid.0b79ff68.css"
     ]
   },
   "resources/js/Pages/Admin/Settings/Mail/MailDriver/Mailgun.vue": {
-    "file": "assets/Mailgun.edcde13f.js",
+    "file": "assets/Mailgun.12d57df3.js",
     "src": "resources/js/Pages/Admin/Settings/Mail/MailDriver/Mailgun.vue",
     "isDynamicEntry": true,
     "imports": [
-      "_rules.aed30137.js",
-      "_useMailDriverStore.51abdfcb.js",
-      "_VForm.64f4569b.js",
-      "_VCol.fb68aa0d.js",
-      "_VSelect.5810ae9c.js",
-      "_VTextField.2cf6dc35.js",
-      "_VRow.51c37cbe.js",
+      "_rules.23965050.js",
+      "_useMailDriverStore.84d87cd5.js",
+      "_VForm.a530d3c0.js",
+      "_VCol.2c4b1735.js",
+      "_VSelect.56edbde5.js",
+      "_VTextField.b60301ed.js",
+      "_VRow.f135c61b.js",
       "resources/js/app.js",
-      "_form.655e4f4e.js",
-      "_VCheckboxBtn.85849725.js",
-      "_VSelectionControl.e7494f68.js",
-      "_VLabel.2a4a1171.js",
-      "_VCounter.bd549793.js"
+      "_form.4587b2ea.js",
+      "_VCheckboxBtn.992999b2.js",
+      "_VSelectionControl.3a4c124d.js",
+      "_VLabel.3c5713ec.js",
+      "_VCounter.473ffdf9.js"
     ],
     "css": [
       "assets/VGrid.0b79ff68.css"
     ]
   },
   "resources/js/Pages/Admin/Settings/Mail/MailDriver/Ses.vue": {
-    "file": "assets/Ses.cfa672dc.js",
+    "file": "assets/Ses.95e68626.js",
     "src": "resources/js/Pages/Admin/Settings/Mail/MailDriver/Ses.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_rules.aed30137.js",
-      "_useMailDriverStore.51abdfcb.js",
-      "_VForm.64f4569b.js",
-      "_VCol.fb68aa0d.js",
-      "_VSelect.5810ae9c.js",
-      "_VTextField.2cf6dc35.js",
-      "_VRow.51c37cbe.js",
-      "_form.655e4f4e.js",
-      "_VCheckboxBtn.85849725.js",
-      "_VSelectionControl.e7494f68.js",
-      "_VLabel.2a4a1171.js",
-      "_VCounter.bd549793.js"
+      "_rules.23965050.js",
+      "_useMailDriverStore.84d87cd5.js",
+      "_VForm.a530d3c0.js",
+      "_VCol.2c4b1735.js",
+      "_VSelect.56edbde5.js",
+      "_VTextField.b60301ed.js",
+      "_VRow.f135c61b.js",
+      "_form.4587b2ea.js",
+      "_VCheckboxBtn.992999b2.js",
+      "_VSelectionControl.3a4c124d.js",
+      "_VLabel.3c5713ec.js",
+      "_VCounter.473ffdf9.js"
     ],
     "css": [
       "assets/VGrid.0b79ff68.css"
     ]
   },
   "resources/js/Pages/Admin/Settings/Permissions/Index.vue": {
-    "file": "assets/Index.5661ab98.js",
+    "file": "assets/Index.3f2923be.js",
     "src": "resources/js/Pages/Admin/Settings/Permissions/Index.vue",
     "isDynamicEntry": true,
     "imports": [
@@ -1414,57 +1414,57 @@
     ]
   },
   "resources/js/Pages/Admin/Settings/Preference/Index.vue": {
-    "file": "assets/Index.7ff984af.js",
+    "file": "assets/Index.413b6a6d.js",
     "src": "resources/js/Pages/Admin/Settings/Preference/Index.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
       "resources/js/Pages/Admin/Settings/SettingsDrawerContent.vue",
-      "_VForm.64f4569b.js",
-      "_VRow.51c37cbe.js",
-      "_VCol.fb68aa0d.js",
-      "_VSelect.5810ae9c.js",
-      "_VContainer.9871394f.js",
-      "_VCheckboxBtn.85849725.js",
-      "_VSelectionControl.e7494f68.js",
-      "_VLabel.2a4a1171.js",
-      "_form.655e4f4e.js",
-      "_VTextField.2cf6dc35.js",
-      "_VCounter.bd549793.js"
+      "_VForm.a530d3c0.js",
+      "_VRow.f135c61b.js",
+      "_VCol.2c4b1735.js",
+      "_VSelect.56edbde5.js",
+      "_VContainer.184131ca.js",
+      "_VCheckboxBtn.992999b2.js",
+      "_VSelectionControl.3a4c124d.js",
+      "_VLabel.3c5713ec.js",
+      "_form.4587b2ea.js",
+      "_VTextField.b60301ed.js",
+      "_VCounter.473ffdf9.js"
     ],
     "css": [
       "assets/VGrid.0b79ff68.css"
     ]
   },
   "resources/js/Pages/Admin/Settings/Roles/AssignPermission.vue": {
-    "file": "assets/AssignPermission.e0ae203d.js",
+    "file": "assets/AssignPermission.0914355d.js",
     "src": "resources/js/Pages/Admin/Settings/Roles/AssignPermission.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
       "resources/js/Pages/Admin/Settings/SettingsDrawerContent.vue",
-      "_VForm.64f4569b.js",
-      "_VCol.fb68aa0d.js",
-      "_VTable.bbaee15f.js",
-      "_VCheckbox.62885493.js",
-      "_VContainer.9871394f.js",
-      "_VSelect.5810ae9c.js",
-      "_VCheckboxBtn.85849725.js",
-      "_VSelectionControl.e7494f68.js",
-      "_VLabel.2a4a1171.js",
-      "_form.655e4f4e.js",
-      "_VTextField.2cf6dc35.js",
-      "_VCounter.bd549793.js"
+      "_VForm.a530d3c0.js",
+      "_VCol.2c4b1735.js",
+      "_VTable.86cf7a82.js",
+      "_VCheckbox.81c01418.js",
+      "_VContainer.184131ca.js",
+      "_VSelect.56edbde5.js",
+      "_VCheckboxBtn.992999b2.js",
+      "_VSelectionControl.3a4c124d.js",
+      "_VLabel.3c5713ec.js",
+      "_form.4587b2ea.js",
+      "_VTextField.b60301ed.js",
+      "_VCounter.473ffdf9.js"
     ],
     "css": [
       "assets/VGrid.0b79ff68.css"
     ]
   },
-  "_VCheckbox.62885493.js": {
-    "file": "assets/VCheckbox.62885493.js",
+  "_VCheckbox.81c01418.js": {
+    "file": "assets/VCheckbox.81c01418.js",
     "imports": [
-      "_VLabel.2a4a1171.js",
-      "_VCheckboxBtn.85849725.js",
+      "_VLabel.3c5713ec.js",
+      "_VCheckboxBtn.992999b2.js",
       "resources/js/app.js"
     ],
     "css": [
@@ -1472,69 +1472,69 @@
     ]
   },
   "resources/js/Pages/Admin/Settings/Roles/Create.vue": {
-    "file": "assets/Create.755aef5f.js",
+    "file": "assets/Create.c4012ba8.js",
     "src": "resources/js/Pages/Admin/Settings/Roles/Create.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
       "resources/js/Pages/Admin/Settings/SettingsDrawerContent.vue",
-      "_VRow.51c37cbe.js",
-      "_VCol.fb68aa0d.js",
-      "_VForm.64f4569b.js",
-      "_VTextField.2cf6dc35.js",
-      "_VContainer.9871394f.js",
-      "_VSelect.5810ae9c.js",
-      "_VCheckboxBtn.85849725.js",
-      "_VSelectionControl.e7494f68.js",
-      "_VLabel.2a4a1171.js",
-      "_form.655e4f4e.js",
-      "_VCounter.bd549793.js"
+      "_VRow.f135c61b.js",
+      "_VCol.2c4b1735.js",
+      "_VForm.a530d3c0.js",
+      "_VTextField.b60301ed.js",
+      "_VContainer.184131ca.js",
+      "_VSelect.56edbde5.js",
+      "_VCheckboxBtn.992999b2.js",
+      "_VSelectionControl.3a4c124d.js",
+      "_VLabel.3c5713ec.js",
+      "_form.4587b2ea.js",
+      "_VCounter.473ffdf9.js"
     ],
     "css": [
       "assets/VGrid.0b79ff68.css"
     ]
   },
   "resources/js/Pages/Admin/Settings/Roles/Edit.vue": {
-    "file": "assets/Edit.f14968de.js",
+    "file": "assets/Edit.121e6584.js",
     "src": "resources/js/Pages/Admin/Settings/Roles/Edit.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
       "resources/js/Pages/Admin/Settings/SettingsDrawerContent.vue",
-      "_VRow.51c37cbe.js",
-      "_VCol.fb68aa0d.js",
-      "_VForm.64f4569b.js",
-      "_VTextField.2cf6dc35.js",
-      "_VContainer.9871394f.js",
-      "_VSelect.5810ae9c.js",
-      "_VCheckboxBtn.85849725.js",
-      "_VSelectionControl.e7494f68.js",
-      "_VLabel.2a4a1171.js",
-      "_form.655e4f4e.js",
-      "_VCounter.bd549793.js"
+      "_VRow.f135c61b.js",
+      "_VCol.2c4b1735.js",
+      "_VForm.a530d3c0.js",
+      "_VTextField.b60301ed.js",
+      "_VContainer.184131ca.js",
+      "_VSelect.56edbde5.js",
+      "_VCheckboxBtn.992999b2.js",
+      "_VSelectionControl.3a4c124d.js",
+      "_VLabel.3c5713ec.js",
+      "_form.4587b2ea.js",
+      "_VCounter.473ffdf9.js"
     ],
     "css": [
       "assets/VGrid.0b79ff68.css"
     ]
   },
   "resources/js/Pages/Admin/Settings/Roles/Index.vue": {
-    "file": "assets/Index.6719a8a1.js",
+    "file": "assets/Index.0b283428.js",
     "src": "resources/js/Pages/Admin/Settings/Roles/Index.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_Pagination.ddb96f02.js",
+      "_Pagination.68795be1.js",
       "resources/js/Pages/Admin/Settings/SettingsDrawerContent.vue",
-      "_VRow.51c37cbe.js",
-      "_VCol.fb68aa0d.js",
-      "_VContainer.9871394f.js",
-      "_VSelect.5810ae9c.js",
-      "_VCheckboxBtn.85849725.js",
-      "_VSelectionControl.e7494f68.js",
-      "_VLabel.2a4a1171.js",
-      "_form.655e4f4e.js",
-      "_VTextField.2cf6dc35.js",
-      "_VCounter.bd549793.js"
+      "_VRow.f135c61b.js",
+      "_VCol.2c4b1735.js",
+      "_VContainer.184131ca.js",
+      "_VSelect.56edbde5.js",
+      "_VCheckboxBtn.992999b2.js",
+      "_VSelectionControl.3a4c124d.js",
+      "_VLabel.3c5713ec.js",
+      "_form.4587b2ea.js",
+      "_VTextField.b60301ed.js",
+      "_VCounter.473ffdf9.js"
     ],
     "css": [
       "assets/VGrid.0b79ff68.css"
@@ -1547,7 +1547,7 @@
     ]
   },
   "resources/js/Pages/Auth/AccountDeactivated.vue": {
-    "file": "assets/AccountDeactivated.80014023.js",
+    "file": "assets/AccountDeactivated.8f81f3f1.js",
     "src": "resources/js/Pages/Auth/AccountDeactivated.vue",
     "isDynamicEntry": true,
     "imports": [
@@ -1558,7 +1558,7 @@
     ]
   },
   "resources/js/Pages/Auth/AuthProvider.vue": {
-    "file": "assets/AuthProvider.7cc94e2b.js",
+    "file": "assets/AuthProvider.fb63f595.js",
     "src": "resources/js/Pages/Auth/AuthProvider.vue",
     "isDynamicEntry": true,
     "imports": [
@@ -1566,20 +1566,20 @@
     ]
   },
   "resources/js/Pages/Auth/ForgotPassword.vue": {
-    "file": "assets/ForgotPassword.8f1db83d.js",
+    "file": "assets/ForgotPassword.4bef3e33.js",
     "src": "resources/js/Pages/Auth/ForgotPassword.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
       "_auth-v1-tree.87718d64.js",
-      "_VAlert.e9ebd06b.js",
-      "_VForm.64f4569b.js",
-      "_VRow.51c37cbe.js",
-      "_VCol.fb68aa0d.js",
-      "_VTextField.2cf6dc35.js",
-      "_form.655e4f4e.js",
-      "_VCounter.bd549793.js",
-      "_VLabel.2a4a1171.js"
+      "_VAlert.11d912c6.js",
+      "_VForm.a530d3c0.js",
+      "_VRow.f135c61b.js",
+      "_VCol.2c4b1735.js",
+      "_VTextField.b60301ed.js",
+      "_form.4587b2ea.js",
+      "_VCounter.473ffdf9.js",
+      "_VLabel.3c5713ec.js"
     ],
     "css": [
       "assets/ForgotPassword.5b4047e6.css",
@@ -1596,23 +1596,23 @@
     ]
   },
   "resources/js/Pages/Auth/Login.vue": {
-    "file": "assets/Login.fa39133b.js",
+    "file": "assets/Login.442fdc25.js",
     "src": "resources/js/Pages/Auth/Login.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
       "resources/js/Pages/Auth/AuthProvider.vue",
       "_auth-v1-tree.87718d64.js",
-      "_VForm.64f4569b.js",
-      "_VRow.51c37cbe.js",
-      "_VCol.fb68aa0d.js",
-      "_VTextField.2cf6dc35.js",
-      "_VCheckbox.62885493.js",
-      "_form.655e4f4e.js",
-      "_VCounter.bd549793.js",
-      "_VLabel.2a4a1171.js",
-      "_VCheckboxBtn.85849725.js",
-      "_VSelectionControl.e7494f68.js"
+      "_VForm.a530d3c0.js",
+      "_VRow.f135c61b.js",
+      "_VCol.2c4b1735.js",
+      "_VTextField.b60301ed.js",
+      "_VCheckbox.81c01418.js",
+      "_form.4587b2ea.js",
+      "_VCounter.473ffdf9.js",
+      "_VLabel.3c5713ec.js",
+      "_VCheckboxBtn.992999b2.js",
+      "_VSelectionControl.3a4c124d.js"
     ],
     "css": [
       "assets/Login.5b4047e6.css",
@@ -1620,23 +1620,23 @@
     ]
   },
   "resources/js/Pages/Auth/Register.vue": {
-    "file": "assets/Register.aac711bf.js",
+    "file": "assets/Register.4b4d4830.js",
     "src": "resources/js/Pages/Auth/Register.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
       "resources/js/Pages/Auth/AuthProvider.vue",
       "_auth-v1-tree.87718d64.js",
-      "_VForm.64f4569b.js",
-      "_VRow.51c37cbe.js",
-      "_VCol.fb68aa0d.js",
-      "_VTextField.2cf6dc35.js",
-      "_VCheckbox.62885493.js",
-      "_VLabel.2a4a1171.js",
-      "_form.655e4f4e.js",
-      "_VCounter.bd549793.js",
-      "_VCheckboxBtn.85849725.js",
-      "_VSelectionControl.e7494f68.js"
+      "_VForm.a530d3c0.js",
+      "_VRow.f135c61b.js",
+      "_VCol.2c4b1735.js",
+      "_VTextField.b60301ed.js",
+      "_VCheckbox.81c01418.js",
+      "_VLabel.3c5713ec.js",
+      "_form.4587b2ea.js",
+      "_VCounter.473ffdf9.js",
+      "_VCheckboxBtn.992999b2.js",
+      "_VSelectionControl.3a4c124d.js"
     ],
     "css": [
       "assets/Register.5b4047e6.css",
@@ -1644,19 +1644,19 @@
     ]
   },
   "resources/js/Pages/Auth/ResetPassword.vue": {
-    "file": "assets/ResetPassword.112be808.js",
+    "file": "assets/ResetPassword.503aec6e.js",
     "src": "resources/js/Pages/Auth/ResetPassword.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
       "_auth-v1-tree.87718d64.js",
-      "_VForm.64f4569b.js",
-      "_VRow.51c37cbe.js",
-      "_VCol.fb68aa0d.js",
-      "_VTextField.2cf6dc35.js",
-      "_form.655e4f4e.js",
-      "_VCounter.bd549793.js",
-      "_VLabel.2a4a1171.js"
+      "_VForm.a530d3c0.js",
+      "_VRow.f135c61b.js",
+      "_VCol.2c4b1735.js",
+      "_VTextField.b60301ed.js",
+      "_form.4587b2ea.js",
+      "_VCounter.473ffdf9.js",
+      "_VLabel.3c5713ec.js"
     ],
     "css": [
       "assets/ResetPassword.5b4047e6.css",
@@ -1664,17 +1664,17 @@
     ]
   },
   "resources/js/Pages/Auth/VerifyEmail.vue": {
-    "file": "assets/VerifyEmail.8c05340f.js",
+    "file": "assets/VerifyEmail.58e5eefc.js",
     "src": "resources/js/Pages/Auth/VerifyEmail.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
       "_auth-v1-tree.87718d64.js",
-      "_VAlert.e9ebd06b.js",
-      "_VForm.64f4569b.js",
-      "_VRow.51c37cbe.js",
-      "_VCol.fb68aa0d.js",
-      "_form.655e4f4e.js"
+      "_VAlert.11d912c6.js",
+      "_VForm.a530d3c0.js",
+      "_VRow.f135c61b.js",
+      "_VCol.2c4b1735.js",
+      "_form.4587b2ea.js"
     ],
     "css": [
       "assets/VerifyEmail.5b4047e6.css",
@@ -1682,300 +1682,300 @@
     ]
   },
   "resources/js/Pages/Customer/DNS/Index.vue": {
-    "file": "assets/Index.2c306d60.js",
+    "file": "assets/Index.86915c9f.js",
     "src": "resources/js/Pages/Customer/DNS/Index.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_VCol.fb68aa0d.js",
-      "_VRow.51c37cbe.js",
-      "_VTextarea.442fdf9e.js",
-      "_VTable.bbaee15f.js",
-      "_VTextField.2cf6dc35.js",
-      "_VCounter.bd549793.js",
-      "_VLabel.2a4a1171.js",
-      "_form.655e4f4e.js"
+      "_VCol.2c4b1735.js",
+      "_VRow.f135c61b.js",
+      "_VTextarea.2c553c58.js",
+      "_VTable.86cf7a82.js",
+      "_VTextField.b60301ed.js",
+      "_VCounter.473ffdf9.js",
+      "_VLabel.3c5713ec.js",
+      "_form.4587b2ea.js"
     ],
     "css": [
       "assets/VGrid.0b79ff68.css"
     ]
   },
   "resources/js/Pages/Customer/Dashboard/Index.vue": {
-    "file": "assets/Index.8d451614.js",
+    "file": "assets/Index.5757948f.js",
     "src": "resources/js/Pages/Customer/Dashboard/Index.vue",
     "isDynamicEntry": true,
     "imports": [
-      "_Pagination.ddb96f02.js",
-      "_DataNotFound.fa8e0d1d.js",
+      "_Pagination.68795be1.js",
+      "_DataNotFound.61fd9276.js",
       "resources/js/app.js",
-      "_VRow.51c37cbe.js",
-      "_VCol.fb68aa0d.js",
-      "_VTooltip.6345da64.js",
-      "_VTable.bbaee15f.js"
+      "_VRow.f135c61b.js",
+      "_VCol.2c4b1735.js",
+      "_VTooltip.4ad9cf0f.js",
+      "_VTable.86cf7a82.js"
     ],
     "css": [
       "assets/VGrid.0b79ff68.css"
     ]
   },
   "resources/js/Pages/Customer/Order/Index.vue": {
-    "file": "assets/Index.36193939.js",
+    "file": "assets/Index.1016f382.js",
     "src": "resources/js/Pages/Customer/Order/Index.vue",
     "isDynamicEntry": true,
     "imports": [
-      "_DataNotFound.fa8e0d1d.js",
-      "_Pagination.ddb96f02.js",
+      "_DataNotFound.61fd9276.js",
+      "_Pagination.68795be1.js",
       "resources/js/app.js",
-      "_VRow.51c37cbe.js",
-      "_VCol.fb68aa0d.js",
-      "_VTooltip.6345da64.js",
-      "_VTable.bbaee15f.js"
+      "_VRow.f135c61b.js",
+      "_VCol.2c4b1735.js",
+      "_VTooltip.4ad9cf0f.js",
+      "_VTable.86cf7a82.js"
     ],
     "css": [
       "assets/VGrid.0b79ff68.css"
     ]
   },
   "resources/js/Pages/Customer/Profile/AccountSettingsAccount.vue": {
-    "file": "assets/AccountSettingsAccount.2180f966.js",
+    "file": "assets/AccountSettingsAccount.31ebbed9.js",
     "src": "resources/js/Pages/Customer/Profile/AccountSettingsAccount.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_rules.aed30137.js",
-      "_filepond-plugin-image-preview.min.6666ad5e.js",
-      "_VRow.51c37cbe.js",
-      "_VForm.64f4569b.js",
-      "_VCol.fb68aa0d.js",
-      "_VTextField.2cf6dc35.js",
-      "_VSelect.5810ae9c.js",
-      "_VAlert.e9ebd06b.js",
-      "_VCheckbox.62885493.js",
-      "_form.655e4f4e.js",
-      "_VCounter.bd549793.js",
-      "_VLabel.2a4a1171.js",
-      "_VCheckboxBtn.85849725.js",
-      "_VSelectionControl.e7494f68.js"
+      "_rules.23965050.js",
+      "_filepond-plugin-image-preview.min.562c0cef.js",
+      "_VRow.f135c61b.js",
+      "_VForm.a530d3c0.js",
+      "_VCol.2c4b1735.js",
+      "_VTextField.b60301ed.js",
+      "_VSelect.56edbde5.js",
+      "_VAlert.11d912c6.js",
+      "_VCheckbox.81c01418.js",
+      "_form.4587b2ea.js",
+      "_VCounter.473ffdf9.js",
+      "_VLabel.3c5713ec.js",
+      "_VCheckboxBtn.992999b2.js",
+      "_VSelectionControl.3a4c124d.js"
     ],
     "css": [
       "assets/VGrid.0b79ff68.css"
     ]
   },
   "resources/js/Pages/Customer/Profile/AccountSettingsNotification.vue": {
-    "file": "assets/AccountSettingsNotification.2417e72d.js",
+    "file": "assets/AccountSettingsNotification.252645d7.js",
     "src": "resources/js/Pages/Customer/Profile/AccountSettingsNotification.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_VCheckbox.62885493.js",
-      "_VTable.bbaee15f.js",
-      "_VForm.64f4569b.js",
-      "_VRow.51c37cbe.js",
-      "_VCol.fb68aa0d.js",
-      "_VSelect.5810ae9c.js",
-      "_VLabel.2a4a1171.js",
-      "_form.655e4f4e.js",
-      "_VCheckboxBtn.85849725.js",
-      "_VSelectionControl.e7494f68.js",
-      "_VTextField.2cf6dc35.js",
-      "_VCounter.bd549793.js"
+      "_VCheckbox.81c01418.js",
+      "_VTable.86cf7a82.js",
+      "_VForm.a530d3c0.js",
+      "_VRow.f135c61b.js",
+      "_VCol.2c4b1735.js",
+      "_VSelect.56edbde5.js",
+      "_VLabel.3c5713ec.js",
+      "_form.4587b2ea.js",
+      "_VCheckboxBtn.992999b2.js",
+      "_VSelectionControl.3a4c124d.js",
+      "_VTextField.b60301ed.js",
+      "_VCounter.473ffdf9.js"
     ],
     "css": [
       "assets/VGrid.0b79ff68.css"
     ]
   },
   "resources/js/Pages/Customer/Profile/AccountSettingsSecurity.vue": {
-    "file": "assets/AccountSettingsSecurity.12d2feff.js",
+    "file": "assets/AccountSettingsSecurity.d58e55b0.js",
     "src": "resources/js/Pages/Customer/Profile/AccountSettingsSecurity.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_VRow.51c37cbe.js",
-      "_VForm.64f4569b.js",
-      "_VCol.fb68aa0d.js",
-      "_VTextField.2cf6dc35.js",
-      "_form.655e4f4e.js",
-      "_VCounter.bd549793.js",
-      "_VLabel.2a4a1171.js"
+      "_VRow.f135c61b.js",
+      "_VForm.a530d3c0.js",
+      "_VCol.2c4b1735.js",
+      "_VTextField.b60301ed.js",
+      "_form.4587b2ea.js",
+      "_VCounter.473ffdf9.js",
+      "_VLabel.3c5713ec.js"
     ],
     "css": [
       "assets/VGrid.0b79ff68.css"
     ]
   },
   "resources/js/Pages/Customer/Profile/ConfirmsPassowrd.vue": {
-    "file": "assets/ConfirmsPassowrd.3a8dabf4.js",
+    "file": "assets/ConfirmsPassowrd.25ae46a4.js",
     "src": "resources/js/Pages/Customer/Profile/ConfirmsPassowrd.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_VTextField.2cf6dc35.js",
-      "_VCounter.bd549793.js",
-      "_VLabel.2a4a1171.js",
-      "_form.655e4f4e.js"
+      "_VTextField.b60301ed.js",
+      "_VCounter.473ffdf9.js",
+      "_VLabel.3c5713ec.js",
+      "_form.4587b2ea.js"
     ]
   },
   "resources/js/Pages/Customer/Profile/Index.vue": {
-    "file": "assets/Index.ee4b06c9.js",
+    "file": "assets/Index.aad7980a.js",
     "src": "resources/js/Pages/Customer/Profile/Index.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/Pages/Customer/Profile/AccountSettingsAccount.vue",
       "resources/js/Pages/Customer/Profile/AccountSettingsSecurity.vue",
-      "_VWindowItem.98b5c47d.js",
+      "_VWindowItem.61d67403.js",
       "resources/js/app.js",
-      "_rules.aed30137.js",
-      "_filepond-plugin-image-preview.min.6666ad5e.js",
-      "_VRow.51c37cbe.js",
-      "_VForm.64f4569b.js",
-      "_form.655e4f4e.js",
-      "_VCol.fb68aa0d.js",
-      "_VTextField.2cf6dc35.js",
-      "_VCounter.bd549793.js",
-      "_VLabel.2a4a1171.js",
-      "_VSelect.5810ae9c.js",
-      "_VCheckboxBtn.85849725.js",
-      "_VSelectionControl.e7494f68.js",
-      "_VAlert.e9ebd06b.js",
-      "_VCheckbox.62885493.js"
+      "_rules.23965050.js",
+      "_filepond-plugin-image-preview.min.562c0cef.js",
+      "_VRow.f135c61b.js",
+      "_VForm.a530d3c0.js",
+      "_form.4587b2ea.js",
+      "_VCol.2c4b1735.js",
+      "_VTextField.b60301ed.js",
+      "_VCounter.473ffdf9.js",
+      "_VLabel.3c5713ec.js",
+      "_VSelect.56edbde5.js",
+      "_VCheckboxBtn.992999b2.js",
+      "_VSelectionControl.3a4c124d.js",
+      "_VAlert.11d912c6.js",
+      "_VCheckbox.81c01418.js"
     ],
     "css": [
       "assets/VGrid.0b79ff68.css"
     ]
   },
   "resources/js/Pages/Customer/Profile/TwoFactorAuthentication.vue": {
-    "file": "assets/TwoFactorAuthentication.eb23143d.js",
+    "file": "assets/TwoFactorAuthentication.7deeb431.js",
     "src": "resources/js/Pages/Customer/Profile/TwoFactorAuthentication.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
       "resources/js/Pages/Customer/Profile/ConfirmsPassowrd.vue",
-      "_VCol.fb68aa0d.js",
-      "_VTextField.2cf6dc35.js",
-      "_VCounter.bd549793.js",
-      "_VLabel.2a4a1171.js",
-      "_form.655e4f4e.js"
+      "_VCol.2c4b1735.js",
+      "_VTextField.b60301ed.js",
+      "_VCounter.473ffdf9.js",
+      "_VLabel.3c5713ec.js",
+      "_form.4587b2ea.js"
     ],
     "css": [
       "assets/VGrid.0b79ff68.css"
     ]
   },
   "resources/js/Pages/Customer/School/Create.vue": {
-    "file": "assets/Create.50c7f50c.js",
+    "file": "assets/Create.5d690bf5.js",
     "src": "resources/js/Pages/Customer/School/Create.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_rules.aed30137.js",
-      "_VRow.51c37cbe.js",
-      "_VCol.fb68aa0d.js",
-      "_VForm.64f4569b.js",
-      "_VTextField.2cf6dc35.js",
-      "_VContainer.9871394f.js",
-      "_form.655e4f4e.js",
-      "_VCounter.bd549793.js",
-      "_VLabel.2a4a1171.js"
+      "_rules.23965050.js",
+      "_VRow.f135c61b.js",
+      "_VCol.2c4b1735.js",
+      "_VForm.a530d3c0.js",
+      "_VTextField.b60301ed.js",
+      "_VContainer.184131ca.js",
+      "_form.4587b2ea.js",
+      "_VCounter.473ffdf9.js",
+      "_VLabel.3c5713ec.js"
     ],
     "css": [
       "assets/VGrid.0b79ff68.css"
     ]
   },
   "resources/js/Pages/Customer/School/Edit.vue": {
-    "file": "assets/Edit.16b424f8.js",
+    "file": "assets/Edit.fc66a9ca.js",
     "src": "resources/js/Pages/Customer/School/Edit.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_rules.aed30137.js",
-      "_VRow.51c37cbe.js",
-      "_VCol.fb68aa0d.js",
-      "_VAlert.e9ebd06b.js",
-      "_VForm.64f4569b.js",
-      "_VTextField.2cf6dc35.js",
-      "_VContainer.9871394f.js",
-      "_form.655e4f4e.js",
-      "_VCounter.bd549793.js",
-      "_VLabel.2a4a1171.js"
+      "_rules.23965050.js",
+      "_VRow.f135c61b.js",
+      "_VCol.2c4b1735.js",
+      "_VAlert.11d912c6.js",
+      "_VForm.a530d3c0.js",
+      "_VTextField.b60301ed.js",
+      "_VContainer.184131ca.js",
+      "_form.4587b2ea.js",
+      "_VCounter.473ffdf9.js",
+      "_VLabel.3c5713ec.js"
     ],
     "css": [
       "assets/VGrid.0b79ff68.css"
     ]
   },
   "resources/js/Pages/Customer/School/Index.vue": {
-    "file": "assets/Index.b42389b5.js",
+    "file": "assets/Index.2446a13e.js",
     "src": "resources/js/Pages/Customer/School/Index.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_Pagination.ddb96f02.js",
-      "_DataNotFound.fa8e0d1d.js",
-      "_VTable.bbaee15f.js",
-      "_VTooltip.6345da64.js",
-      "_VContainer.9871394f.js",
-      "_VCol.fb68aa0d.js",
-      "_VRow.51c37cbe.js"
+      "_Pagination.68795be1.js",
+      "_DataNotFound.61fd9276.js",
+      "_VTable.86cf7a82.js",
+      "_VTooltip.4ad9cf0f.js",
+      "_VContainer.184131ca.js",
+      "_VCol.2c4b1735.js",
+      "_VRow.f135c61b.js"
     ],
     "css": [
       "assets/VGrid.0b79ff68.css"
     ]
   },
   "resources/js/Pages/Customer/Subscription/Index.vue": {
-    "file": "assets/Index.cd30ab42.js",
+    "file": "assets/Index.fd003249.js",
     "src": "resources/js/Pages/Customer/Subscription/Index.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_VRow.51c37cbe.js",
-      "_VCol.fb68aa0d.js",
-      "_VAlert.e9ebd06b.js",
-      "_VLabel.2a4a1171.js",
-      "_VSwitch.c46a2151.js",
-      "_VContainer.9871394f.js",
-      "_form.655e4f4e.js",
-      "_VSelectionControl.e7494f68.js"
+      "_VRow.f135c61b.js",
+      "_VCol.2c4b1735.js",
+      "_VAlert.11d912c6.js",
+      "_VLabel.3c5713ec.js",
+      "_VSwitch.7cbd4ecd.js",
+      "_VContainer.184131ca.js",
+      "_form.4587b2ea.js",
+      "_VSelectionControl.3a4c124d.js"
     ],
     "css": [
       "assets/VGrid.0b79ff68.css"
     ]
   },
   "resources/js/Pages/Customer/Subscription/Payment.vue": {
-    "file": "assets/Payment.dc4c1cff.js",
+    "file": "assets/Payment.cbab33d1.js",
     "src": "resources/js/Pages/Customer/Subscription/Payment.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_VRow.51c37cbe.js",
-      "_VCol.fb68aa0d.js",
-      "_VForm.64f4569b.js",
-      "_VSelect.5810ae9c.js",
-      "_VTextField.2cf6dc35.js",
-      "_VTextarea.442fdf9e.js",
-      "_VContainer.9871394f.js",
-      "_form.655e4f4e.js",
-      "_VCheckboxBtn.85849725.js",
-      "_VSelectionControl.e7494f68.js",
-      "_VLabel.2a4a1171.js",
-      "_VCounter.bd549793.js"
+      "_VRow.f135c61b.js",
+      "_VCol.2c4b1735.js",
+      "_VForm.a530d3c0.js",
+      "_VSelect.56edbde5.js",
+      "_VTextField.b60301ed.js",
+      "_VTextarea.2c553c58.js",
+      "_VContainer.184131ca.js",
+      "_form.4587b2ea.js",
+      "_VCheckboxBtn.992999b2.js",
+      "_VSelectionControl.3a4c124d.js",
+      "_VLabel.3c5713ec.js",
+      "_VCounter.473ffdf9.js"
     ],
     "css": [
       "assets/VGrid.0b79ff68.css"
     ]
   },
   "resources/js/Pages/Notifications.vue": {
-    "file": "assets/Notifications.6784f700.js",
+    "file": "assets/Notifications.78b21220.js",
     "src": "resources/js/Pages/Notifications.vue",
     "isDynamicEntry": true,
     "imports": [
-      "_DataNotFound.fa8e0d1d.js",
-      "_Pagination.ddb96f02.js",
+      "_DataNotFound.61fd9276.js",
+      "_Pagination.68795be1.js",
       "resources/js/app.js",
-      "_VRow.51c37cbe.js",
-      "_VCol.fb68aa0d.js",
-      "_VContainer.9871394f.js"
+      "_VRow.f135c61b.js",
+      "_VCol.2c4b1735.js",
+      "_VContainer.184131ca.js"
     ],
     "css": [
       "assets/VGrid.0b79ff68.css"
     ]
   },
   "resources/js/Pages/Welcome.vue": {
-    "file": "assets/Welcome.f74cef05.js",
+    "file": "assets/Welcome.ab5d636b.js",
     "src": "resources/js/Pages/Welcome.vue",
     "isDynamicEntry": true,
     "imports": [
@@ -1996,26 +1996,6 @@
     "file": "assets/webfontloader.b777d690.js",
     "isDynamicEntry": true
   },
-  "VFileInput.css": {
-    "file": "assets/VFileInput.4d1957bb.css",
-    "src": "VFileInput.css"
-  },
-  "VCheckbox.css": {
-    "file": "assets/VCheckbox.93f56fcb.css",
-    "src": "VCheckbox.css"
-  },
-  "VTooltip.css": {
-    "file": "assets/VTooltip.0477a678.css",
-    "src": "VTooltip.css"
-  },
-  "VAutocomplete.css": {
-    "file": "assets/VAutocomplete.7ce8db27.css",
-    "src": "VAutocomplete.css"
-  },
-  "VSwitch.css": {
-    "file": "assets/VSwitch.7126a37b.css",
-    "src": "VSwitch.css"
-  },
   "Pagination.css": {
     "file": "assets/Pagination.c6d9cd9e.css",
     "src": "Pagination.css"
@@ -2024,17 +2004,57 @@
     "file": "assets/VTable.ba60e1dc.css",
     "src": "VTable.css"
   },
+  "VTooltip.css": {
+    "file": "assets/VTooltip.0477a678.css",
+    "src": "VTooltip.css"
+  },
   "VSelect.css": {
     "file": "assets/VSelect.e464ad0b.css",
     "src": "VSelect.css"
   },
-  "VAlert.css": {
-    "file": "assets/VAlert.e786a204.css",
-    "src": "VAlert.css"
+  "VFileInput.css": {
+    "file": "assets/VFileInput.4d1957bb.css",
+    "src": "VFileInput.css"
+  },
+  "VAutocomplete.css": {
+    "file": "assets/VAutocomplete.7ce8db27.css",
+    "src": "VAutocomplete.css"
+  },
+  "VCheckbox.css": {
+    "file": "assets/VCheckbox.93f56fcb.css",
+    "src": "VCheckbox.css"
+  },
+  "VSwitch.css": {
+    "file": "assets/VSwitch.7126a37b.css",
+    "src": "VSwitch.css"
+  },
+  "VGrid.css": {
+    "file": "assets/VGrid.0b79ff68.css",
+    "src": "VGrid.css"
+  },
+  "VWindowItem.css": {
+    "file": "assets/VWindowItem.a4127a42.css",
+    "src": "VWindowItem.css"
+  },
+  "resources/js/Pages/Admin/School/Settings/Index.css": {
+    "file": "assets/Index.d971eb59.css",
+    "src": "resources/js/Pages/Admin/School/Settings/Index.css"
   },
   "VLabel.css": {
     "file": "assets/VLabel.aec79ccf.css",
     "src": "VLabel.css"
+  },
+  "resources/js/Pages/Auth/AccountDeactivated.css": {
+    "file": "assets/AccountDeactivated.5b4047e6.css",
+    "src": "resources/js/Pages/Auth/AccountDeactivated.css"
+  },
+  "resources/js/Pages/Auth/ResetPassword.css": {
+    "file": "assets/ResetPassword.5b4047e6.css",
+    "src": "resources/js/Pages/Auth/ResetPassword.css"
+  },
+  "VAlert.css": {
+    "file": "assets/VAlert.e786a204.css",
+    "src": "VAlert.css"
   },
   "VTextarea.css": {
     "file": "assets/VTextarea.13bfb6d6.css",
@@ -2044,25 +2064,13 @@
     "file": "assets/Login.5b4047e6.css",
     "src": "resources/js/Pages/Auth/Login.css"
   },
-  "VSelectionControl.css": {
-    "file": "assets/VSelectionControl.99d01ba0.css",
-    "src": "VSelectionControl.css"
-  },
-  "resources/js/Pages/Admin/School/Settings/Index.css": {
-    "file": "assets/Index.d971eb59.css",
-    "src": "resources/js/Pages/Admin/School/Settings/Index.css"
-  },
-  "resources/js/Pages/Auth/ResetPassword.css": {
-    "file": "assets/ResetPassword.5b4047e6.css",
-    "src": "resources/js/Pages/Auth/ResetPassword.css"
-  },
   "resources/js/Pages/Auth/Register.css": {
     "file": "assets/Register.5b4047e6.css",
     "src": "resources/js/Pages/Auth/Register.css"
   },
-  "VWindowItem.css": {
-    "file": "assets/VWindowItem.a4127a42.css",
-    "src": "VWindowItem.css"
+  "VSelectionControl.css": {
+    "file": "assets/VSelectionControl.99d01ba0.css",
+    "src": "VSelectionControl.css"
   },
   "resources/js/Pages/Auth/ForgotPassword.css": {
     "file": "assets/ForgotPassword.5b4047e6.css",
@@ -2071,14 +2079,6 @@
   "resources/js/Pages/Auth/VerifyEmail.css": {
     "file": "assets/VerifyEmail.5b4047e6.css",
     "src": "resources/js/Pages/Auth/VerifyEmail.css"
-  },
-  "resources/js/Pages/Auth/AccountDeactivated.css": {
-    "file": "assets/AccountDeactivated.5b4047e6.css",
-    "src": "resources/js/Pages/Auth/AccountDeactivated.css"
-  },
-  "VGrid.css": {
-    "file": "assets/VGrid.0b79ff68.css",
-    "src": "VGrid.css"
   },
   "VCounter.css": {
     "file": "assets/VCounter.2ad591d4.css",

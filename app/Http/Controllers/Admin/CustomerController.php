@@ -9,9 +9,9 @@ use App\Models\Plan;
 use App\Models\User;
 use App\Rules\Phone;
 use App\Space\Countries;
-use Auth;
-use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Date;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Validation\Rule;
 use Illuminate\Validation\Rules\Password;
@@ -54,7 +54,7 @@ class CustomerController extends Controller
             'password' => ['required', Password::default()],
             'currency' => ['required', 'exists:currencies,id'],
             'country' => ['required'],
-            'website' => ['nullable', 'active_url'],
+            'website' => ['nullable', 'url'],
             'plan' => ['required', 'exists:plans,id'],
             'interval' => ['required_if:plan !==,' . null, 'in:monthly,yearly'],
         ]);
@@ -94,10 +94,10 @@ class CustomerController extends Controller
         $customer->load(['plan', 'language', 'currency']);
         $customer->append(['avatar']);
 
-        $expireAt = \Date::parse($customer->plan_expire_at);
+        $expireAt = Date::parse($customer->plan_expire_at);
         $expiration = $expireAt->diffForHumans();
 
-        $percent = $expireAt->isPast() ? 100 : ($customer->interval === 'monthly' ? $expireAt->subMonth()->diffInDays(today()): $expireAt->subYear()->diffInDays(today()));
+        $percent = $expireAt->isPast() ? 100 : ($customer->interval === 'monthly' ? $expireAt->subMonth()->diffInDays(today()) : $expireAt->subYear()->diffInDays(today()));
 
         return Inertia::render('Admin/Customer/Show', [
             'customer' => $customer,
