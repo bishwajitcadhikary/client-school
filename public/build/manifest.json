@@ -1,24 +1,4 @@
 {
-  "resources/js/assets/images/pages/auth-v1-mask-light.png": {
-    "file": "assets/auth-v1-mask-light.15795da8.png",
-    "src": "resources/js/assets/images/pages/auth-v1-mask-light.png"
-  },
-  "resources/js/assets/images/pages/auth-v1-mask-dark.png": {
-    "file": "assets/auth-v1-mask-dark.26a5334e.png",
-    "src": "resources/js/assets/images/pages/auth-v1-mask-dark.png"
-  },
-  "resources/js/assets/images/pages/auth-v1-tree-2.png": {
-    "file": "assets/auth-v1-tree-2.b2a50268.png",
-    "src": "resources/js/assets/images/pages/auth-v1-tree-2.png"
-  },
-  "resources/js/assets/images/avatars/avatar-2.png": {
-    "file": "assets/avatar-2.0ae005f8.png",
-    "src": "resources/js/assets/images/avatars/avatar-2.png"
-  },
-  "resources/js/assets/images/pages/auth-v1-tree.png": {
-    "file": "assets/auth-v1-tree.1ebec22f.png",
-    "src": "resources/js/assets/images/pages/auth-v1-tree.png"
-  },
   "resources/js/assets/images/avatars/avatar-1.png": {
     "file": "assets/avatar-1.aac046b6.png",
     "src": "resources/js/assets/images/avatars/avatar-1.png"
@@ -27,9 +7,29 @@
     "file": "assets/avatar-3.3ef9169b.png",
     "src": "resources/js/assets/images/avatars/avatar-3.png"
   },
+  "resources/js/assets/images/avatars/avatar-2.png": {
+    "file": "assets/avatar-2.0ae005f8.png",
+    "src": "resources/js/assets/images/avatars/avatar-2.png"
+  },
+  "resources/js/assets/images/pages/auth-v1-mask-dark.png": {
+    "file": "assets/auth-v1-mask-dark.26a5334e.png",
+    "src": "resources/js/assets/images/pages/auth-v1-mask-dark.png"
+  },
+  "resources/js/assets/images/pages/auth-v1-mask-light.png": {
+    "file": "assets/auth-v1-mask-light.15795da8.png",
+    "src": "resources/js/assets/images/pages/auth-v1-mask-light.png"
+  },
   "resources/js/assets/images/avatars/avatar-4.png": {
     "file": "assets/avatar-4.406ee6ab.png",
     "src": "resources/js/assets/images/avatars/avatar-4.png"
+  },
+  "resources/js/assets/images/pages/auth-v1-tree-2.png": {
+    "file": "assets/auth-v1-tree-2.b2a50268.png",
+    "src": "resources/js/assets/images/pages/auth-v1-tree-2.png"
+  },
+  "resources/js/assets/images/pages/auth-v1-tree.png": {
+    "file": "assets/auth-v1-tree.1ebec22f.png",
+    "src": "resources/js/assets/images/pages/auth-v1-tree.png"
   },
   "resources/js/assets/logo.jpg": {
     "file": "assets/logo.2c9b30ab.jpg",
@@ -1996,65 +1996,45 @@
     "file": "assets/webfontloader.b777d690.js",
     "isDynamicEntry": true
   },
+  "VAlert.css": {
+    "file": "assets/VAlert.e786a204.css",
+    "src": "VAlert.css"
+  },
   "Pagination.css": {
     "file": "assets/Pagination.c6d9cd9e.css",
     "src": "Pagination.css"
-  },
-  "VTable.css": {
-    "file": "assets/VTable.ba60e1dc.css",
-    "src": "VTable.css"
-  },
-  "VTooltip.css": {
-    "file": "assets/VTooltip.0477a678.css",
-    "src": "VTooltip.css"
-  },
-  "VSelect.css": {
-    "file": "assets/VSelect.e464ad0b.css",
-    "src": "VSelect.css"
-  },
-  "VFileInput.css": {
-    "file": "assets/VFileInput.4d1957bb.css",
-    "src": "VFileInput.css"
-  },
-  "VAutocomplete.css": {
-    "file": "assets/VAutocomplete.7ce8db27.css",
-    "src": "VAutocomplete.css"
   },
   "VCheckbox.css": {
     "file": "assets/VCheckbox.93f56fcb.css",
     "src": "VCheckbox.css"
   },
-  "VSwitch.css": {
-    "file": "assets/VSwitch.7126a37b.css",
-    "src": "VSwitch.css"
+  "VFileInput.css": {
+    "file": "assets/VFileInput.4d1957bb.css",
+    "src": "VFileInput.css"
   },
-  "VGrid.css": {
-    "file": "assets/VGrid.0b79ff68.css",
-    "src": "VGrid.css"
-  },
-  "VWindowItem.css": {
-    "file": "assets/VWindowItem.a4127a42.css",
-    "src": "VWindowItem.css"
-  },
-  "resources/js/Pages/Admin/School/Settings/Index.css": {
-    "file": "assets/Index.d971eb59.css",
-    "src": "resources/js/Pages/Admin/School/Settings/Index.css"
+  "VSelect.css": {
+    "file": "assets/VSelect.e464ad0b.css",
+    "src": "VSelect.css"
   },
   "VLabel.css": {
     "file": "assets/VLabel.aec79ccf.css",
     "src": "VLabel.css"
   },
-  "resources/js/Pages/Auth/AccountDeactivated.css": {
-    "file": "assets/AccountDeactivated.5b4047e6.css",
-    "src": "resources/js/Pages/Auth/AccountDeactivated.css"
+  "VGrid.css": {
+    "file": "assets/VGrid.0b79ff68.css",
+    "src": "VGrid.css"
   },
-  "resources/js/Pages/Auth/ResetPassword.css": {
-    "file": "assets/ResetPassword.5b4047e6.css",
-    "src": "resources/js/Pages/Auth/ResetPassword.css"
+  "VTooltip.css": {
+    "file": "assets/VTooltip.0477a678.css",
+    "src": "VTooltip.css"
   },
-  "VAlert.css": {
-    "file": "assets/VAlert.e786a204.css",
-    "src": "VAlert.css"
+  "resources/js/Pages/Admin/School/Settings/Index.css": {
+    "file": "assets/Index.d971eb59.css",
+    "src": "resources/js/Pages/Admin/School/Settings/Index.css"
+  },
+  "VAutocomplete.css": {
+    "file": "assets/VAutocomplete.7ce8db27.css",
+    "src": "VAutocomplete.css"
   },
   "VTextarea.css": {
     "file": "assets/VTextarea.13bfb6d6.css",
@@ -2064,25 +2044,45 @@
     "file": "assets/Login.5b4047e6.css",
     "src": "resources/js/Pages/Auth/Login.css"
   },
-  "resources/js/Pages/Auth/Register.css": {
-    "file": "assets/Register.5b4047e6.css",
-    "src": "resources/js/Pages/Auth/Register.css"
+  "resources/js/Pages/Auth/ForgotPassword.css": {
+    "file": "assets/ForgotPassword.5b4047e6.css",
+    "src": "resources/js/Pages/Auth/ForgotPassword.css"
   },
   "VSelectionControl.css": {
     "file": "assets/VSelectionControl.99d01ba0.css",
     "src": "VSelectionControl.css"
   },
-  "resources/js/Pages/Auth/ForgotPassword.css": {
-    "file": "assets/ForgotPassword.5b4047e6.css",
-    "src": "resources/js/Pages/Auth/ForgotPassword.css"
+  "resources/js/Pages/Auth/Register.css": {
+    "file": "assets/Register.5b4047e6.css",
+    "src": "resources/js/Pages/Auth/Register.css"
+  },
+  "resources/js/Pages/Auth/AccountDeactivated.css": {
+    "file": "assets/AccountDeactivated.5b4047e6.css",
+    "src": "resources/js/Pages/Auth/AccountDeactivated.css"
+  },
+  "VWindowItem.css": {
+    "file": "assets/VWindowItem.a4127a42.css",
+    "src": "VWindowItem.css"
   },
   "resources/js/Pages/Auth/VerifyEmail.css": {
     "file": "assets/VerifyEmail.5b4047e6.css",
     "src": "resources/js/Pages/Auth/VerifyEmail.css"
   },
+  "resources/js/Pages/Auth/ResetPassword.css": {
+    "file": "assets/ResetPassword.5b4047e6.css",
+    "src": "resources/js/Pages/Auth/ResetPassword.css"
+  },
+  "VSwitch.css": {
+    "file": "assets/VSwitch.7126a37b.css",
+    "src": "VSwitch.css"
+  },
   "VCounter.css": {
     "file": "assets/VCounter.2ad591d4.css",
     "src": "VCounter.css"
+  },
+  "VTable.css": {
+    "file": "assets/VTable.ba60e1dc.css",
+    "src": "VTable.css"
   },
   "filepond-plugin-image-preview.css": {
     "file": "assets/filepond-plugin-image-preview.9d695c6d.css",

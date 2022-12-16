@@ -37,9 +37,12 @@ class DatabaseUpgradeController extends Controller
         $database = $request->file('database');
 
         if ($database->clientExtension() != 'sql') {
-            return back()->with('errors', [
-                'database' => 'The database must be a file of type: sql.'
-            ]);
+            return back()->withErrors(['database' => 'The database file must be a file of type: sql.']);
+        }
+
+        // check file is not empty
+        if ($database->getSize() == 0) {
+            return back()->withErrors(['database' => 'Database file is empty']);
         }
 
         $database->storeAs('database', $database->getClientOriginalName());

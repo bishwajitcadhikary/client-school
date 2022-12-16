@@ -40,10 +40,10 @@ class Enroll extends Model
         return $this->belongsTo(SchoolYear::class, 'session_id', 'id');
     }
 
-    public static function attendants($today): Builder|Enroll
+    public static function attendants($today, $sessionId): Builder|Enroll
     {
-        return Enroll::whereHas('session', function ($query){
-            $query->where('id', 4);
+        return Enroll::whereHas('session', function ($query) use ($sessionId) {
+            $query->where('id', $sessionId);
         })
             ->leftJoin('student', function ($join) {
                 $join->on('student.id', '=', 'enroll.student_id');
