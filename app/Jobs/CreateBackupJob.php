@@ -45,7 +45,7 @@ class CreateBackupJob implements ShouldQueue
         if (! empty($this->data['backup_type'])) {
             $prefix = str_replace('_', '-', $this->data['backup_type']).'-';
 
-            $backupJob->setFilename($prefix.date('Y-m-d-H-i-s').'.zip');
+            $backupJob->setFilename($prefix.date('Y-m-d-h-i-A').'.zip');
         }
 
         if ($this->data['backup_type'] === 'full') {
