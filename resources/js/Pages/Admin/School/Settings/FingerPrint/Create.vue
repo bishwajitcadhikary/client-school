@@ -8,9 +8,14 @@ const props = defineProps({
     type: Object,
     required: true,
   },
+  branches: {
+    type: Object,
+    default:null
+  }
 })
 
 const form = useForm({
+  branch_id: null,
   name: null,
   device_id: null,
   auth_code: null,
@@ -43,6 +48,16 @@ const submit = () => {
         <VCard>
           <VCardText>
             <VForm @submit.prevent="submit">
+              <VCol cols="12">
+                <VAutocomplete
+                  v-model="form.branch_id"
+                  :label="$t('Branch')"
+                  :error-messages="form.errors.branch_id"
+                  :items="branches"
+                  outlined
+                />
+              </VCol>
+
               <VCol cols="12">
                 <VTextField
                   v-model="form.name"

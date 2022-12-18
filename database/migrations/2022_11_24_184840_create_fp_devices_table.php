@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('fp_devices', function (Blueprint $table) {
             $table->id();
             $table->foreignId('school_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('branch_id')->nullable();
             $table->string('name');
             $table->string('device_id');
             $table->string('auth_code');

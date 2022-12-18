@@ -8,8 +8,6 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Section extends Model
 {
-    use HasFactory;
-
     protected $table = 'section';
 
     protected $connection = 'school';

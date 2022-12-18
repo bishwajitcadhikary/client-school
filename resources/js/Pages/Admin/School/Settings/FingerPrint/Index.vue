@@ -33,6 +33,7 @@ const props = defineProps({
       <VTable v-if="devices.data.length">
         <thead>
           <tr>
+            <th>{{ $t('Branch') }}</th>
             <th>{{ $t('Name') }}</th>
             <th>{{ $t('Device ID') }}</th>
             <th>{{ $t('Auth Code') }}</th>
@@ -46,6 +47,7 @@ const props = defineProps({
             v-for="device in devices.data"
             :key="device.id"
           >
+            <td>{{ device.branch?.name }}</td>
             <td>{{ device.name }}</td>
             <td>{{ device.device_id }}</td>
             <td>{{ device.auth_code }}</td>

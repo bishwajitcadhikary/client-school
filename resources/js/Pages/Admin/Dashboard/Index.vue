@@ -38,7 +38,7 @@ const currencyFormat = inject('currencyFormat')
             <VCard>
               <VCardTitle>{{ $t('Total Earnings') }}</VCardTitle>
               <VCardText>
-                {{ currencyFormat(totalEarnings, $page.props.app.currency.code) }}
+                {{ currencyFormat(totalEarnings, $page.props?.app?.currency?.code) }}
               </VCardText>
             </VCard>
           </VCol>

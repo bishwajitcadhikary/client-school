@@ -50,6 +50,12 @@ class SchoolSettingController extends Controller
         }
         $request->merge(['holidays' => $holidays]);
 
+        $staff_holidays = [];
+        foreach ($request->staff_holidays ?? [] as $holiday) {
+            $staff_holidays[] = Date::parse($holiday)->format('Y-m-d');
+        }
+        $request->merge(['staff_holidays' => $staff_holidays]);
+
         $data = $request->validate([
             'school_year' => ['required', 'integer'],
             'attendance_update_at' => ['required', 'date_format:H:i'],
@@ -57,8 +63,16 @@ class SchoolSettingController extends Controller
             'absent_time' => ['required', 'date_format:H:i'],
             'weekends' => ['nullable', 'array'],
             'weekends.*' => ['nullable', 'string', 'in:sunday,monday,tuesday,wednesday,thursday,friday,saturday'],
-            'holidays' => ['required', 'array'],
-            'holidays.*' => ['required', 'date_format:Y-m-d'],
+            'holidays' => ['nullable', 'array'],
+            'holidays.*' => ['nullable', 'date_format:Y-m-d'],
+
+            'staff_attendance_update_at' => ['required', 'date_format:H:i'],
+            'staff_late_time' => ['required', 'date_format:H:i'],
+            'staff_absent_time' => ['required', 'date_format:H:i'],
+            'staff_weekends' => ['nullable', 'array'],
+            'staff_weekends.*' => ['nullable', 'string', 'in:sunday,monday,tuesday,wednesday,thursday,friday,saturday'],
+            'staff_holidays' => ['nullable', 'array'],
+            'staff_holidays.*' => ['nullable', 'date_format:Y-m-d'],
         ]);
 
         foreach ($data as $index => $datum) {

@@ -1,22 +1,16 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Sass;
 
-use App\Models\Sass\Branch;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class FPDevice extends Model
+class Staff extends Model
 {
-    protected $guarded = ['id'];
+    protected $table = 'staff';
 
-    protected $table = 'fp_devices';
-
-    public function school(): BelongsTo
-    {
-        return $this->belongsTo(School::class);
-    }
+    protected $connection = 'school';
 
     public function branch(): BelongsTo
     {

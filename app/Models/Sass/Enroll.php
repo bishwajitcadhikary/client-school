@@ -9,8 +9,6 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Enroll extends Model
 {
-    use HasFactory;
-
     protected $table = 'enroll';
 
     protected $connection = 'school';

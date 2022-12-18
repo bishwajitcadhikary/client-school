@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('school_id')->constrained()->cascadeOnDelete();
             $table->string('option');
-            $table->text('value');
+            $table->text('value')->nullable();
             $table->timestamps();
         });
     }

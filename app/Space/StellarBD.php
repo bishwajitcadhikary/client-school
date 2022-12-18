@@ -50,7 +50,7 @@ class StellarBD
      */
     public function getLog(string $startDate = null, string $endDate = null, string $startTime = null, string $endTime = null): array
     {
-        $startDate = $startDate ?? today()->format('Y-m-d');
+        $startDate = $startDate ?? today()->addDays(60)->format('Y-m-d');
         $endDate = $endDate ?? now()->format('Y-m-d');
         $startTime = $startTime ?? '00:00:00';
         $endTime = $endTime ?? '23:59:59';

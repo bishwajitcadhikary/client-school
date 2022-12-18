@@ -7,7 +7,7 @@ export default {
     const dateFormat = function (date, format = 'DD MMM, YYYY') {
       return moment(date).format(format)
     }
-    const currencyFormat = function(amount, code = page.props.app.currency.code) {
+    const currencyFormat = function(amount, code = page.props?.app?.currency?.code || 'BDT') {
       return new Intl.NumberFormat('en-US', {
         style: 'currency',
         currency: code,
