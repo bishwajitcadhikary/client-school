@@ -2,9 +2,8 @@
 import {inject} from "vue"
 import DataNotFound from "@/Components/DataNotFound.vue"
 import Pagination from "@/Components/Pagination.vue"
-import {useForm} from "@inertiajs/inertia-vue3"
+import {useForm, usePage} from "@inertiajs/inertia-vue3"
 import {useSnackbarStore} from "@/Stores/useSnackbarStore"
-
 
 defineProps({
   notifications: {
@@ -19,7 +18,7 @@ const form = useForm({
 
 })
 const markAllAsRead = () => {
-  form.post(route('customer.notifications.mark-all-as-read'), {
+  form.get(usePage().props.value.app.role === 'admin' ? route('admin.notifications.mark-all-as-read') : route('customer.notifications.mark-all-as-read'), {
     preserveScroll: true,
     preserveState: true,
     onSuccess: page => useSnackbarStore().showNotification(page),

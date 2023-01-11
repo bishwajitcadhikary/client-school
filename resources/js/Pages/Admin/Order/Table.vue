@@ -120,6 +120,28 @@ const rejectOrder = order => {
           </td>
           <td>{{ dateFormat(order.created_at) }}</td>
           <td class="text-center">
+            <VTooltip :text="$t('Accept')">
+              <template #activator="{ props }">
+                <VBtn
+                  variant="plain"
+                  size="small"
+                  icon="mdi-check"
+                  v-bind="props"
+                  @click="acceptOrder(order.id)"
+                />
+              </template>
+            </VTooltip>
+            <VTooltip :text="$t('Reject')">
+              <template #activator="{ props }">
+                <VBtn
+                  variant="plain"
+                  size="small"
+                  icon="mdi-close"
+                  v-bind="props"
+                  @click="rejectOrder(order.id)"
+                />
+              </template>
+            </VTooltip>
             <VTooltip :text="$t('View Details')">
               <template #activator="{ props }">
                 <VBtn

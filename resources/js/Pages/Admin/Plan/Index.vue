@@ -33,8 +33,7 @@ const dateFormat = inject('dateFormat')
             <tr>
               <th>#</th>
               <th>{{ $t('Name') }}</th>
-              <th>{{ $t('Monthly Price') }}</th>
-              <th>{{ $t('Yearly Price') }}</th>
+              <th>{{ $t('Price') }}</th>
               <th>{{ $t('School Limit') }}</th>
               <th>{{ $t('Customer Limit') }}</th>
               <th>{{ $t('Total Customer') }}</th>
@@ -62,8 +61,7 @@ const dateFormat = inject('dateFormat')
                 {{ key + 1 }}
               </td>
               <td>{{ plan.name }}</td>
-              <td>{{ currencyFormat(plan.monthly_price, $page.props.app.currency.code) }}</td>
-              <td>{{ currencyFormat(plan.yearly_price, $page.props.app.currency.code) }}</td>
+              <td>{{ currencyFormat(plan.price, $page.props.app?.currency?.code) }}</td>
               <td>{{ plan.school_limit }}</td>
               <td>{{ plan.max_limit }}</td>
               <td>{{ plan.max_limit }}</td>

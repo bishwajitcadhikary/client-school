@@ -31,14 +31,13 @@ class OrderController extends Controller
             if ($order->customer->plan_id != $order->plan_id) {
                $order->customer->update([
                     'plan_id' => $order->plan_id,
-                    'plan_expire_at' => $order->interval === 'monthly' ? now()->addMonth() : now()->addYear(),
+                    'plan_expire_at' => now()->addYear(),
                 ]);
             } else {
                 $extraDays = Carbon::parse($order->customer->plan_expire_at)->diffInDays(now());
+
                 $order->customer->update([
-                    'plan_expire_at' => $order->customer->plan_expire_at < now() ?
-                        ($order->interval === 'monthly' ? now()->addMonth() : now()->addYear()) :
-                        ($order->interval === 'monthly' ? now()->addMonth()->addDays($extraDays) : now()->addYear()->addDays($extraDays)),
+                    'plan_expire_at' => $order->customer->plan_expire_at < now() ? now()->addYear() : now()->addYear()->addDays($extraDays)
                 ]);
             }
 

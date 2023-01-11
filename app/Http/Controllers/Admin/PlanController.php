@@ -35,7 +35,9 @@ class PlanController extends Controller
 
     public function show(Plan $plan)
     {
-        //
+        return Inertia::render('Admin/Plan/Show', [
+            'plan' => $plan
+        ]);
     }
 
     public function edit(Plan $plan)

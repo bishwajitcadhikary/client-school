@@ -32,7 +32,7 @@ const verificationLinkSent = computed(() => props.status == 'verification-link-s
 </script>
 
 <template>
-  <Head :title="$t('Forgot Password')" />
+  <Head :title="$t('Verify Email')" />
   <div class="auth-wrapper d-flex align-center justify-center pa-4">
     <VCard
       class="auth-card pa-4 pt-7"

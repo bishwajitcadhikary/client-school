@@ -8,9 +8,8 @@ use App\Models\Plan;
 use App\Models\PlanOrder;
 use App\Models\User;
 use App\Notifications\NewOrderSubmitted;
-use App\Notifications\NewSchoolAdded;
-use DB;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 use Inertia\Inertia;
 
@@ -27,7 +26,7 @@ class SubscriptionController extends Controller
 
     public function payment(Request $request, Plan $plan)
     {
-        if ($plan->name == 'Free' || ($plan->monthly_price == 0 && $plan->yearly_price == 0)) {
+        if ($plan->name == 'Free' || $plan->price == 0) {
             Session::flash('error', 'You can not subscribe to free plan.');
             return to_route('customer.subscription.index');
         }
@@ -47,7 +46,6 @@ class SubscriptionController extends Controller
         $data = $request->validate([
             'gateway' => ['required', 'exists:gateways,id'],
             'trx_id' => ['required', 'string'],
-            'interval' => ['required', 'in:monthly,yearly'],
             'description' => ['required', 'string'],
         ]);
 
@@ -56,9 +54,8 @@ class SubscriptionController extends Controller
             $planOrder = PlanOrder::create([
                 'plan_id' => $plan->id,
                 'customer_id' => auth()->id(),
-                'interval' => $data['interval'],
                 'gateway_id' => $data['gateway'],
-                'amount' => $data['interval'] == 'monthly' ? $plan->monthly_price : $plan->yearly_price,
+                'amount' => $plan->price,
                 'trx_id' => $data['trx_id'],
                 'description' => $data['description'],
             ]);
@@ -72,7 +69,6 @@ class SubscriptionController extends Controller
             return redirect()->route('customer.subscription.index');
         } catch (\Throwable $exception) {
             DB::rollBack();
-            throw $exception;
 
             Session::flash('error', 'Something went wrong. Please try again later.');
             return redirect()->back();

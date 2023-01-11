@@ -39,6 +39,7 @@ const dateFormat = inject('dateFormat')
                 {{ $t('Status') }}
               </th>
               <th>{{ $t('Registered At') }}</th>
+              <th>{{ $t('Plan Expire At') }}</th>
               <th
                 class="text-center"
                 width="15%"
@@ -83,6 +84,7 @@ const dateFormat = inject('dateFormat')
                 </VChip>
               </td>
               <td>{{ dateFormat(customer.created_at) }}</td>
+              <td>{{ dateFormat(customer.plan_expire_at) }}</td>
               <td class="text-center">
                 <VTooltip :text="$t('View Customer')">
                   <template #activator="{ props }">

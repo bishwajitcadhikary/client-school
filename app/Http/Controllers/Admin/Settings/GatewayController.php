@@ -32,6 +32,11 @@ class GatewayController extends Controller
 
     public function store(Request $request)
     {
+        $request->validate([
+            'name' => ['required', 'string'],
+            'logo' => ['required', 'image']
+        ]);
+
         try {
             $gateway = Gateway::createGateway($request);
             $gateway->addMedia($request->file('logo'))
@@ -57,6 +62,10 @@ class GatewayController extends Controller
 
     public function update(Request $request, Gateway $gateway)
     {
+        $request->validate([
+            'name' => ['required', 'string'],
+        ]);
+
         try {
             $gateway->updateGateway($request);
 

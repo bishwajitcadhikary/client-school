@@ -21,6 +21,7 @@ const props = defineProps({
 })
 
 const currencyFormat = inject('currencyFormat')
+const dateFormat = inject('dateFormat')
 const tab = ref('overview')
 const showPassword = ref(false)
 const showConfirmPassword = ref(false)
@@ -102,6 +103,14 @@ const submitSuspension = () => {
                         <h6 class="text-sm">
                           {{ $t('Email:') }}
                           <span class="text-body-2">{{ customer.email }}</span>
+                        </h6>
+                      </VListItemSubtitle>
+                    </VListItem>
+                    <VListItem>
+                      <VListItemSubtitle>
+                        <h6 class="text-sm">
+                          {{ $t('Plan Expire At:') }}
+                          <span class="text-body-2">{{ dateFormat(customer.plan_expire_at) }}</span>
                         </h6>
                       </VListItemSubtitle>
                     </VListItem>

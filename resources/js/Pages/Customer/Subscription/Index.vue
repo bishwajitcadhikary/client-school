@@ -14,9 +14,6 @@ const interval = ref(false)
 
 const goToPayment = plan => {
   Inertia.visit(route('customer.subscription.payment', plan), {
-    headers: {
-      'X-Interval': interval.value,
-    },
     onSuccess: page => {
       useSnackbarStore().showNotification(page)
     },
@@ -71,12 +68,6 @@ const goToPayment = plan => {
                 <p>{{ $t('Choose the best plan to fit your needs.') }}</p>
               </VCardText>
 
-              <VCardText class="d-flex gap-4 justify-center">
-                <VLabel :text="$t('Monthly')" />
-                <VSwitch v-model="interval" />
-                <VLabel :text="$t('Yearly')" />
-              </VCardText>
-
               <VRow justify="center">
                 <VCol
                   v-for="(plan, index) in plans"
@@ -94,9 +85,9 @@ const goToPayment = plan => {
                       <div class="d-flex justify-center align-center">
                         <sup class="text-sm font-weight-medium me-1">{{ $page.props.app?.currency?.symbol }}</sup>
                         <h1 class="text-5xl font-weight-medium text-primary">
-                          {{ interval ? plan.yearly_price : plan.monthly_price }}
+                          {{ plan.price }}
                         </h1>
-                        <sub class="text-sm font-weight-medium ms-1 mt-4">/{{ interval ? 'year' : 'month' }}</sub>
+                        <sub class="text-sm font-weight-medium ms-1 mt-4">/{{ $t('year') }}</sub>
                       </div>
                     </VCardText>
                     <VCardText class="pt-2">
@@ -115,18 +106,23 @@ const goToPayment = plan => {
                     </VCardText>
 
                     <VCardActions>
+                      <VTooltip :text="$t('Click to renew')">
+                        <template #activator="{ props }">
+                          <VBtn
+                            v-if="$page.props.auth.user.plan_id == plan.id && !$page.props.auth.plan_expired"
+                            color="success"
+                            variant="success"
+                            depressed
+                            block
+                            v-bind="props"
+                            @click="goToPayment(plan.id)"
+                          >
+                            {{ $t('Your Current Plan') }}
+                          </VBtn>
+                        </template>
+                      </VTooltip>
                       <VBtn
-                        v-if="$page.props.auth.user.plan_id == plan.id && !$page.props.auth.plan_expired"
-                        color="success"
-                        variant="success"
-                        depressed
-                        block
-                        @click="goToPayment(plan.id)"
-                      >
-                        {{ $t('Your Current Plan') }}
-                      </VBtn>
-                      <VBtn
-                        v-else-if="$page.props.auth.user.plan_id == plan.id && $page.props.auth.plan_expired"
+                        v-if="$page.props.auth.user.plan_id == plan.id && $page.props.auth.plan_expired"
                         color="success"
                         variant="success"
                         depressed
@@ -141,7 +137,7 @@ const goToPayment = plan => {
                         block
                         @click="goToPayment(plan.id)"
                       >
-                        {{ $t('Upgrade') }}
+                        {{ $t('Purchase') }}
                       </VBtn>
                     </VCardActions>
                   </VCard>

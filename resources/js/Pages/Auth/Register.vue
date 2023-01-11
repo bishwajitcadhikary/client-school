@@ -141,7 +141,7 @@ export default {
                 :type="isPasswordVisible ? 'text' : 'password'"
                 :append-inner-icon="isPasswordVisible ? 'mdi-eye-off-outline' : 'mdi-eye-outline'"
                 :error-messages="form.errors.password"
-                :rules="[v => !!v || $t('Password is required'), v => v.length >= 8 || $t('Password must be at least 8 characters'), v => v.length <= 255 || $t('Password must be less than 255 characters'), v => /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/.test(v) || $t('Password must contain at least one uppercase letter, one lowercase letter and one number'), v => /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/.test(v) || $t('Password must contain at least one uppercase letter, one lowercase letter and one number')]"
+                :rules="[v => !!v || $t('Password is required'), v => v.length >= 8 || $t('Password must be at least 8 characters'), v => v.length <= 255]"
                 min="8"
                 required
                 @click:append-inner="isPasswordVisible = !isPasswordVisible"
