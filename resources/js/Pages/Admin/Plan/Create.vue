@@ -9,8 +9,7 @@ const formValid = ref(true)
 
 const form = useForm({
   name: null,
-  monthly_price: 0,
-  yearly_price: 0,
+  price: 0,
   school_limit: 0,
   max_limit: 0,
   description: null,
@@ -44,10 +43,7 @@ function submit() {
             <VCardTitle>{{ $t('Create Plan') }}</VCardTitle>
             <VCardSubtitle>{{ $t('Here you can create new plan') }}</VCardSubtitle>
             <VCardText>
-              <VForm
-                v-model="formValid"
-                @submit.prevent="submit"
-              >
+              <VForm @submit.prevent="submit">
                 <VRow>
                   <VCol
                     cols="12"
@@ -65,24 +61,11 @@ function submit() {
                     md="6"
                   >
                     <VTextField
-                      v-model="form.monthly_price"
+                      v-model="form.price"
                       type="number"
-                      :prefix="$page.props.app.currency.symbol"
-                      :label="$t('Monthly Price')"
-                      :error-messages="form.errors.monthly_price"
-                    />
-                  </VCol>
-
-                  <VCol
-                    cols="12"
-                    md="6"
-                  >
-                    <VTextField
-                      v-model="form.yearly_price"
-                      type="number"
-                      :prefix="$page.props.app.currency.symbol"
-                      :label="$t('Yearly Price')"
-                      :error-messages="form.errors.yearly_price"
+                      :prefix="$page.props?.app?.currency?.symbol"
+                      :label="$t('Price')"
+                      :error-messages="form.errors.price"
                     />
                   </VCol>
 
@@ -148,7 +131,6 @@ function submit() {
                     <VBtn
                       class="d-md-block"
                       type="submit"
-                      :disabled="!formValid"
                       :loading="form.processing"
                     >
                       <VIcon icon="mdi-content-save" />

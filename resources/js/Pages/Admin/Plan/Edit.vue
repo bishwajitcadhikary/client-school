@@ -3,6 +3,8 @@ import {ref} from 'vue'
 import {useForm} from "@inertiajs/inertia-vue3"
 import rules from '@/plugins/rules'
 import {useSnackbarStore} from "@/Stores/useSnackbarStore"
+import { QuillEditor } from '@vueup/vue-quill'
+import '@vueup/vue-quill/dist/vue-quill.snow.css';
 
 const props = defineProps({
   plan: {
@@ -17,8 +19,7 @@ const formValid = ref(true)
 const form = useForm({
   _method: 'PUT',
   name: props.plan.name,
-  monthly_price: props.plan.monthly_price,
-  yearly_price: props.plan.yearly_price,
+  price: props.plan.price,
   school_limit: props.plan.school_limit,
   max_limit: props.plan.max_limit,
   description:props.plan.description,
@@ -52,10 +53,7 @@ function submit() {
             <VCardTitle>{{ $t('Edit Plan') }}</VCardTitle>
             <VCardSubtitle>{{ $t('Here you can updated plan') }}</VCardSubtitle>
             <VCardText>
-              <VForm
-                v-model="formValid"
-                @submit.prevent="submit"
-              >
+              <VForm @submit.prevent="submit">
                 <VRow>
                   <VCol
                     cols="12"
@@ -73,24 +71,11 @@ function submit() {
                     md="6"
                   >
                     <VTextField
-                      v-model="form.monthly_price"
+                      v-model="form.price"
                       type="number"
-                      :prefix="$page.props.app.currency.symbol"
-                      :label="$t('Monthly Price')"
-                      :error-messages="form.errors.monthly_price"
-                    />
-                  </VCol>
-
-                  <VCol
-                    cols="12"
-                    md="6"
-                  >
-                    <VTextField
-                      v-model="form.yearly_price"
-                      type="number"
-                      :prefix="$page.props.app.currency.symbol"
-                      :label="$t('Yearly Price')"
-                      :error-messages="form.errors.yearly_price"
+                      :prefix="$page.props?.app?.currency?.symbol"
+                      :label="$t('Price')"
+                      :error-messages="form.errors.price"
                     />
                   </VCol>
 
@@ -156,7 +141,6 @@ function submit() {
                     <VBtn
                       class="d-md-block"
                       type="submit"
-                      :disabled="!formValid"
                       :loading="form.processing"
                     >
                       <VIcon icon="mdi-content-save" />

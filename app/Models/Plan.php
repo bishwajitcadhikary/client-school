@@ -46,8 +46,7 @@ class Plan extends Model
     {
         $data = $request->validate([
             'name' => ['required', 'string'],
-            'monthly_price' => ['required', 'numeric', 'min:0'],
-            'yearly_price' => ['required', 'numeric', 'min:0'],
+            'price' => ['required', 'numeric', 'min:0'],
             'school_limit' => ['required', 'integer', 'min:0'],
             'max_limit' => ['required', 'integer', 'min:0'],
             'description' => ['nullable', 'string'],
@@ -62,8 +61,7 @@ class Plan extends Model
     {
         $data = $request->validate([
             'name' => ['required', 'string'],
-            'monthly_price' => ['required', 'numeric', 'min:0'],
-            'yearly_price' => ['required', 'numeric', 'min:0'],
+            'price' => ['required', 'numeric', 'min:0'],
             'school_limit' => ['required', 'integer', 'min:0'],
             'max_limit' => ['required', 'integer', 'min:0'],
             'description' => ['nullable', 'string'],
